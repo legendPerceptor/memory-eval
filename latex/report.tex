@@ -1,0 +1,215 @@
+\documentclass[UTF8,a4paper,11pt,fontset=fandol]{ctexart}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{booktabs,longtable,tabularx,amsmath,graphicx}
+\usepackage{xcolor}
+\usepackage{xurl}
+\usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\DeclareRobustCommand{\code}[1]{\nolinkurl{#1}}
+\title{oGMemory 多模态记忆技术评估\\M3-Bench 五视频实验}
+\author{memory-eval 工作区实验记录}
+\date{2026 年 10 月 31 日}
+\begin{document}
+\maketitle
+\IfFileExists{results.tex}{}{
+\begin{center}\color{red!60!black}\textbf{阶段报告：五视频实验尚未全部完成}\end{center}
+}
+
+\begin{abstract}
+本报告对 oGMemory dev 分支的多模态记忆与问答流程进行代码审计，
+并在 M3-Bench robot 子集固定抽取五个完整视频、共 65 题开展实际实验。
+评估同时关注媒体覆盖、记忆生成、检索与问答、自动评分及执行可靠性。
+原始默认配置、环境修复和后续恢复严格区分；不以历史答案代替本次运行，
+不以缺题后的成功子集均分代替端到端表现。当前结果属于小规模开发性诊断，
+不是完整数据集成绩，也不是独立人工验证的准确率。
+\end{abstract}
+
+\section{目标与可追溯性}
+主要评估对象是当前目录的 \code{oGMemory/}，未开展新的 LoCoMo 实验。
+源码分支为 dev，固定提交为
+\code{8c86c3ed}（完整哈希见实验目录 \code{provenance.json}）。
+本轮不修改记忆与检索算法，为 M3 配置工厂和 MiniMax 适配器补充可选推理参数透传，
+并加入默认关闭、最多 4 个独立片段并发的吞吐优化；
+固定提交加补丁构成实际运行版本。新增脚本、脱敏配置、逐题结果和报告均置于外层
+memory-eval 工作区。模型、数据库、配置与抽样清单分别记录，凭据和大型原始
+媒体不纳入拟建立的 Git 仓库。
+
+\section{当前方法}
+\subsection{输入与多模态证据}
+完整管线定义于 \code{config/m3/pipelines/video_episodic_full.yaml}，
+包括 18 个阶段。视频按 30 秒切片，建立 VIDEO RawNode；
+画面与音频作为带来源关系的子节点。音频为 16 kHz 单声道，Whisper
+large-v3-turbo 产生带时间标记的英语转写；pyannote 分离说话人，
+SpeechBrain ECAPA 产生声纹特征，HTTP CV 服务处理人脸。
+
+画面按 1 fps 取至多 16 帧，缩放参数为 512，JPEG 质量参数为 80。
+\textbf{默认帧主要来自片段前约 0--15 秒，而非覆盖全片段的均匀采样。}
+因而“完整视频实验”只表示处理全部片段与完整音频，不能解释为视觉观察无遗漏。
+
+\subsection{情景记忆与图组织}
+\code{m3/episodic_memory.py} 将画面、可用原始音频和 ASR 转写交给多模态
+情景记忆算子，生成 description、characters、events、entities，
+并存为片段对应的 ExtractedNode。后续创建具有支持来源的 MemoryNode；
+人脸与声音聚类产生身份关联，语义整合阶段生成视频级聚合 MemoryNode。
+
+视频级整合是确定性的描述拼接与集合去重，描述上限为 50,000 UTF-8 字节，
+并同步 SUPPORTS / EVOLVES 关系；不是新的大模型抽象推理过程，
+也不自动保证事实冲突消解、事件去重计数或长期状态一致性。
+被截断的多模态输出明确记为失败，不能通过补齐 JSON 括号冒充有效记忆。
+
+\subsection{索引、检索与回答}
+结构化记忆和原始 ASR 转写展开为文本，使用 BGE-M3 1024 维嵌入，
+写入 SQL 图及向量索引。默认 Search 检索
+\code{episodic_memory_generator} 类型的 ExtractedNode：
+原始查询向量召回，必要时追加去人名查询，结合转写 BM25 重排及独立
+transcript 词法召回，经 RRF 融合后补充邻近片段和时间边界转写。
+
+\textbf{生成身份图和语义汇总不等于默认问答直接检索了这些图结构。}
+本次不能据管线执行完整就宣称图关系或视频级语义汇总提高了答案质量；
+这需要独立消融与实际证据路径审计。
+
+ReAct 问答通过 Search / Answer 工具运行，最多 6 轮，循环预算 180 秒。
+默认主检索 top-k=8，向量候选 20，转写候选 20，邻居半径 1，
+邻居上下文最多 8 条。未启用可选 \code{m3.qa_context}：
+默认 top-k 不是模型不可突破的服务端上限，不同查询的重叠内容仍可能累积。
+单次请求 timeout=300 秒与 SDK 重试也意味着 180 秒不是端到端硬时限。
+
+\subsection{时间与权限边界}
+检索限制在当前账号和视频范围。问题 timestamp 优先于原始 before\_clip 编号，
+并根据实际片段来源区间定位。本次采用 \code{current_clip}，
+证据截止时间扩展到问题所在片段末尾，可能包含问题之后的少量内容。
+因此该协议\textbf{不是严格因果在线问答}；实际宽限由每题
+\code{temporal_scope} 记录。后续严格时间策略应单独对比。
+
+\input{m3_agent_comparison.tex}
+
+\section{实验设置}
+\begin{table}[htbp]
+\centering\small
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+项目 & 设置 \\
+\midrule
+数据 & \code{/data/m3_data/annotations/robot.json} 与原始 robot 视频 \\
+抽样 & 100 个候选排序后 seed=42，无放回选取 5 个，不按成绩换样本 \\
+记忆 / QA / 评委 & 远端 \code{MiniMax-M3.1-Flash}，用户指定 API 端点 \\
+正式输出预算 & 记忆 8192，QA 8192，评委 2048 tokens \\
+推理参数 & thinking=adaptive，reasoning\_effort=medium；不发送 temperature \\
+运行方式 & 完整视频，SQL 图，强刷主要抽取环节，不导入历史记忆 \\
+隔离 & 专用数据库、账号与向量表；不覆盖历史实验 \\
+计算环境 & 本地 T4 服务；音频阶段使用物理 GPU 2；情景生成 4 workers \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrr}
+\toprule
+视频 & 时长（秒） & 题数 \\
+\midrule
+\code{study_05} & 2044.889 & 12 \\
+\code{gym_03} & 2033.514 & 11 \\
+\code{bedroom_04} & 1650.684 & 11 \\
+\code{study_18} & 2498.519 & 14 \\
+\code{kitchen_20} & 1887.527 & 17 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+原始 wrapper 配置写 \code{omni-3b}，本地实际提供 \code{omni-7b}。
+首次试运行纠正名称并使用独立数据库，遇到缺失 vector 扩展后完成环境修复。
+随后用户要求改用 MiniMax-M3.1-Flash，故于 17:56 停止小模型进程树，
+保留已生成的部分记忆和失败日志，\textbf{不将中断试运行视为完整基线成绩}。
+正式 MiniMax 实验使用新数据库并重新生成记忆，三类 LLM 均使用指定模型。
+由于模型和输出预算均变化，不能据此计算“仅换模型”的质量增益。
+首次 MiniMax/max 正式尝试的首片段也出现 8192 tokens 全部用于推理、没有正文。
+同一输入改用 medium 后输出 1451 tokens（推理 431），获得完整记忆。
+因此另建本次 adaptive/medium 正式实验，重新生成全部记忆，保留 max 尝试作诊断。
+这只是单片段可运行性证据，不是 medium 优于 max 的全数据集质量结论。
+可选并发默认值仍为 1；本次设为 4，按清单顺序汇总结果，并保留逐片段失败。
+实际请求使用 \code{max_completion_tokens}，包括推理与最终输出；
+用户示例中的 500 tokens 只用于文本连通性测试。
+\code{study_05} 曾用于历史开发，所以本次不属于独立留出测试。
+
+\section{指标与失败处理}
+对于固定的 $N=65$ 个问题，自动评委输出 $s_i\in\{0,0.5,1\}$。
+题目加权均分与视频宏平均分别为：
+\[
+S_{\mathrm{micro}}=\frac{1}{N}\sum_{i=1}^{N}s_i,\qquad
+S_{\mathrm{macro}}=\frac{1}{5}\sum_{v=1}^{5}\frac{1}{N_v}
+\sum_{i\in v}s_i.
+\]
+缺失答案与执行失败在端到端效用分中计零，同时单列缺失数、
+记忆覆盖和有效答案率。评委服务故障与模型答错分开：
+存在未评分的有效答案时，不将故障伪装成质量零分。
+题型采用数据集原始标签组合分组，不对多标签重复计数。
+
+同一 MiniMax-M3.1-Flash 同时生成和评分，容易产生相关偏差；
+自动均分不是精确匹配准确率，也不是独立人工核验准确率。
+仅五个视频且题目在视频内相关，本报告不提供不恰当的独立题目置信区间，
+也不将单配置结果描述为相对于其他方法的因果提升。
+seed=42 只固定视频抽样；远端模型没有固定生成 seed，后端权重版本也不能由本地锁定。
+因此保存原始响应是可追溯性要求，不能保证再次运行逐字复现答案。
+
+\section{本次运行结果}
+\IfFileExists{results.tex}{\input{results.tex}}{
+\textbf{实验运行中，尚无最终结果。}本节将在固定样本评测结束并完成覆盖审计后生成；
+不得将此中间版作为已完成的成绩报告。
+\IfFileExists{interim_results.tex}{\input{interim_results.tex}}{}
+\IfFileExists{findings.tex}{\input{findings.tex}}{}
+}
+
+\section{改进方向与后续对照设计}
+\begin{enumerate}
+\item \textbf{运行可靠性：}启动前校验在线模型名、数据库扩展和多模态完整输入；
+统计记忆截断、QA 上下文超限与评委异常，分别处理而非笼统归为低准确率。
+\item \textbf{视觉覆盖：}固定 16 帧预算，对比前缀采样与整片段等距采样，
+再讨论动作自适应采样，避免同时改变帧数和采样位置而无法归因。
+\item \textbf{有界上下文：}冻结同一份记忆，仅切换现有 \code{qa_context}，
+同时报告质量、请求大小、调用次数和失败率，不只报告 token 缩减。
+\item \textbf{事实和时序：}为对象位置、材料、人物归属保存可定位证据；
+区分计划、建议与已完成事件；计数使用可去重事件时间轴而非检索条数。
+\item \textbf{图结构价值：}明确语义节点与身份边何时进入检索，
+设计情景记忆、加入身份关联、加入分层语义摘要的逐项消融。
+\item \textbf{评测可信度：}固定独立评委并人工抽查零分、半分和计数/空间问题，
+将本轮样本作为开发集，另设未调参的新视频集验证泛化。
+\end{enumerate}
+以上属于后续建议；除结果节明确记录的恢复处理外，
+不能表述为本次已实现或已验证的算法增益。
+
+\section{复现与产物}
+先在交互式 bash 中 source 用户的 \code{~/.bashrc} 并导出 \code{MINIMAX_API_KEY}，
+在 memory-eval 根目录执行 \code{bash scripts/run_m3_flash_medium.sh}；
+私有配置路径由脚本固定，提交版仅保留脱敏配置和配置哈希。
+实验完整媒体、原始模型输出与运行日志位于 \code{runs/}，默认不入 Git。
+轻量结果位于 \code{experiments/m3_flash_medium_20261031/}，
+包括抽样 manifest、输入清单、版本记录、逐题 CSV/JSONL、
+机器统计与测试日志。具体恢复步骤和结果状态以同目录报告为准。
+
+统计脚本 \code{scripts/summarize_m3.py} 校验标注哈希、固定题数、
+重复答案、样本外记录以及评分与预测的一致性。
+它不会悄悄从多轮尝试里选择最高分。
+兼容修改后实际执行 M3、LLM provider 与管线集成测试：976 passed；
+外层统计脚本另有 9 项测试通过。
+LaTeX 使用 \code{ctexart} 与 XeLaTeX，在工作区根目录执行
+\code{bash scripts/build_report.sh}，或进入本目录执行 \code{make}。
+脚本检查中文依赖，用 latexmk 自动完成交叉引用收敛，只在成功时发布
+\code{latex/report.pdf}；构建日志与输入哈希保存在 \code{latex/build/}。
+
+\begin{thebibliography}{9}
+\bibitem{code} oGMemory dev，固定提交 \code{8c86c3ed}。
+主要实现：\code{m3/pipeline/}、\code{m3/episodic_memory.py}、
+\code{m3/control_adapter.py}、\code{m3/index_episodic.py}、
+\code{m3/temporal.py}、\code{m3/eval.py}。
+\bibitem{protocol} 本地实验协议：
+\code{docs/m3_random_subset.md}、\code{docs/m3_bounded_context.md}、
+\code{docs/m3_semantic_consolidation.md}。
+历史文档的成绩未用作本次实测结果。
+\bibitem{data} 本地 M3-Bench 数据副本：
+\code{/data/m3_data/}，robot 标注版本哈希见 \code{sample_manifest.json}。
+\bibitem{m3agent} 本地 M3-Agent 参考仓库，提交 \code{0e3e419}；
+\code{m3_agent/control.py}、\code{mmagent/retrieve.py}、
+\code{mmagent/videograph.py} 与 \code{mmagent/memory_processing_qwen.py}。
+本报告为代码级比较，没有新增 M3-Agent 跑分或复现论文成绩。
+\end{thebibliography}
+\end{document}

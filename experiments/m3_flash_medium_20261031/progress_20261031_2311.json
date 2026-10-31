@@ -1,0 +1,33 @@
+{
+  "observed_at": "2026-10-31T23:11:55.627397+08:00",
+  "status": "running",
+  "interim_completed_videos": {
+    "study_05": {
+      "memory": 69,
+      "questions": 12,
+      "valid_answers": 9,
+      "timeouts": 3,
+      "score": 0.3333333333333333
+    },
+    "gym_03": {
+      "memory": 68,
+      "questions": 11,
+      "valid_answers": 10,
+      "timeouts": 1,
+      "score": 0.7272727272727273
+    },
+    "bedroom_04": {
+      "memory": 56,
+      "questions": 11,
+      "valid_answers": 9,
+      "timeouts": 2,
+      "score": 0.6363636363636364
+    }
+  },
+  "completed_question_records": 34,
+  "valid_answers": 28,
+  "interim_question_weighted_score": 0.5588235294117647,
+  "judge_errors": 0,
+  "full_65_question_score": null,
+  "note": "Interim snapshots from separate grading times; final unified grading will supersede them without selecting higher scores."
+}

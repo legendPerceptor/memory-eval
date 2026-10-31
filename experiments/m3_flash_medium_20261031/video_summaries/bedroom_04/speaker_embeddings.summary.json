@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "account_id": "m3-flash-medium-20261031",
+  "video_filter": "bedroom_04",
+  "attempted_audio": 56,
+  "cached_audio": 0,
+  "executed_audio": 52,
+  "failed_audio": 0,
+  "completed_audio": 56,
+  "cache_version": 1,
+  "skipped_speaker_count": 0,
+  "skipped_speakers": []
+}

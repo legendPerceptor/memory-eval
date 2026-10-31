@@ -1,0 +1,10 @@
+{
+  "status": "success",
+  "account_id": "m3-flash-medium-20261031",
+  "video_filter": "bedroom_04",
+  "attempted_videos": 1,
+  "completed_videos": 1,
+  "failed_videos": 0,
+  "evolves_edges_emitted": 56,
+  "errors": []
+}

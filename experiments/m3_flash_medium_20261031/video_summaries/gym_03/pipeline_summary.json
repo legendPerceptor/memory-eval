@@ -1,0 +1,434 @@
+{
+  "pipeline": {
+    "name": "video_episodic_full",
+    "version": 1,
+    "description": "End-to-end M3 pipeline: video + audio + face + voice + semantic consolidation + QA on the indexed graph."
+  },
+  "video_id": "gym_03",
+  "selected_video": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/videos/robot/gym_03.mp4",
+  "annotations": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/annotations/one_video.json",
+  "data_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/data.jsonl",
+  "frames_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/frames.jsonl",
+  "faces": {
+    "stage_id": "detect_faces",
+    "stage_type": "m3.detect_faces",
+    "ok": true,
+    "status": "success",
+    "outputs": {
+      "faces_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/faces.jsonl"
+    },
+    "counts": {
+      "records": 1088,
+      "faces": 1249
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "episodic_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/episodic_memory.jsonl",
+  "memory": {
+    "created_memory_nodes": 68,
+    "skipped": 0,
+    "missing_support": 0,
+    "empty_description": 0
+  },
+  "index": {
+    "index_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/episodic_index.jsonl"
+  },
+  "artifacts": {
+    "selected_video": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/videos/robot/gym_03.mp4",
+    "annotations": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/annotations/one_video.json",
+    "clips_root": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/clips",
+    "frames_root": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/frames",
+    "audio_root": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/audio",
+    "data_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/data.jsonl",
+    "frames_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/frames.jsonl",
+    "audio_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/audio.jsonl",
+    "faces_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/faces.jsonl",
+    "face_clusters": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/face_clusters.jsonl",
+    "voice_segments": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/voice_segments.jsonl",
+    "voice_clusters": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/voice_clusters.jsonl",
+    "voice_asr": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/voice_asr.jsonl",
+    "semantic_memories": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/semantic_memories.jsonl",
+    "episodic_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/episodic_memory.jsonl",
+    "index_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/episodic_index.jsonl",
+    "qa_results": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/m3_qa_results.jsonl",
+    "summary_json": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/pipeline_summary.json"
+  },
+  "stages": {
+    "trim": {
+      "stage_id": "trim",
+      "stage_type": "video.trim",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "selected_video": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/videos/robot/gym_03.mp4"
+      },
+      "counts": {
+        "seconds": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "annotate": {
+      "stage_id": "annotate",
+      "stage_type": "m3.write_single_annotation",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "annotations": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/annotations/one_video.json"
+      },
+      "counts": {
+        "videos": 1
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "preprocess": {
+      "stage_id": "preprocess",
+      "stage_type": "m3.preprocess",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "clips_root": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/clips"
+      },
+      "counts": {},
+      "errors": [],
+      "warnings": []
+    },
+    "load_clips": {
+      "stage_id": "load_clips",
+      "stage_type": "m3.load_clips",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "data_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/data.jsonl"
+      },
+      "counts": {
+        "videos": 1,
+        "clips": 68
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "extract_audio": {
+      "stage_id": "extract_audio",
+      "stage_type": "m3.extract_audio",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "audio_root": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/audio",
+        "audio_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/audio.jsonl"
+      },
+      "counts": {
+        "records": 68,
+        "new_records": 68
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "extract_frames": {
+      "stage_id": "extract_frames",
+      "stage_type": "m3.extract_frames",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "frames_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/frames.jsonl"
+      },
+      "counts": {
+        "records": 68,
+        "frames": 1088
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "detect_faces": {
+      "stage_id": "detect_faces",
+      "stage_type": "m3.detect_faces",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "faces_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/faces.jsonl"
+      },
+      "counts": {
+        "records": 1088,
+        "faces": 1249
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "voice_asr": {
+      "stage_id": "voice_asr",
+      "stage_type": "m3.voice_asr",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "voice_asr": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/voice_asr.jsonl",
+        "audio_diagnostics": {
+          "status": "completed",
+          "account_id": "m3-flash-medium-20261031",
+          "video_filter": "gym_03",
+          "attempted_audio": 68,
+          "cached_audio": 0,
+          "executed_audio": 68,
+          "failed_audio": 0,
+          "completed_audio": 68,
+          "cache_version": 1
+        }
+      },
+      "counts": {
+        "segments": 269,
+        "attempted_audio": 68,
+        "cached_audio": 0,
+        "executed_audio": 68,
+        "completed_audio": 68,
+        "failed_audio": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "speaker_diarization": {
+      "stage_id": "speaker_diarization",
+      "stage_type": "m3.speaker_diarization",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "speaker_turns": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/speaker_turns.jsonl",
+        "audio_diagnostics": {
+          "status": "success",
+          "audio_nodes": 68,
+          "failed_audio_nodes": 0,
+          "account_id": "m3-flash-medium-20261031",
+          "video_filter": "gym_03",
+          "attempted_audio": 68,
+          "cached_audio": 0,
+          "executed_audio": 68,
+          "completed_audio": 68,
+          "failed_audio": 0,
+          "cache_version": 1,
+          "turns": 587,
+          "resumed_turns": 0,
+          "preflight_error": null
+        },
+        "diarization_diagnostics": {
+          "status": "success",
+          "audio_nodes": 68,
+          "failed_audio_nodes": 0,
+          "account_id": "m3-flash-medium-20261031",
+          "video_filter": "gym_03",
+          "attempted_audio": 68,
+          "cached_audio": 0,
+          "executed_audio": 68,
+          "completed_audio": 68,
+          "failed_audio": 0,
+          "cache_version": 1,
+          "turns": 587,
+          "resumed_turns": 0,
+          "preflight_error": null
+        }
+      },
+      "counts": {
+        "attempted_audio": 68,
+        "cached_audio": 0,
+        "executed_audio": 68,
+        "completed_audio": 68,
+        "failed_audio": 0,
+        "turns": 587,
+        "failed_audio_nodes": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "speaker_embedding": {
+      "stage_id": "speaker_embedding",
+      "stage_type": "m3.speaker_embedding",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "speaker_embeddings": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/speaker_embeddings.jsonl",
+        "audio_diagnostics": {
+          "status": "completed",
+          "account_id": "m3-flash-medium-20261031",
+          "video_filter": "gym_03",
+          "attempted_audio": 68,
+          "cached_audio": 0,
+          "executed_audio": 66,
+          "failed_audio": 0,
+          "completed_audio": 68,
+          "cache_version": 1,
+          "skipped_speaker_count": 0,
+          "skipped_speakers": []
+        }
+      },
+      "counts": {
+        "attempted_audio": 68,
+        "cached_audio": 0,
+        "executed_audio": 66,
+        "completed_audio": 68,
+        "failed_audio": 0,
+        "speakers": 169
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "episodic_memory": {
+      "stage_id": "episodic_memory",
+      "stage_type": "m3.episodic_memory",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "episodic_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/episodic_memory.jsonl",
+        "summary_json": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/episodic_memory.summary.json",
+        "failures_json": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/episodic_memory_failures.json"
+      },
+      "counts": {
+        "expected_clips": 68,
+        "completed_clips": 68,
+        "generated_clips": 68,
+        "resumed_clips": 0,
+        "failed_clips": 0,
+        "records": 68,
+        "description_chars": 45831,
+        "audio_attached": 68,
+        "clips_with_transcript": 65,
+        "transcript_segments": 269
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "create_memory_nodes": {
+      "stage_id": "create_memory_nodes",
+      "stage_type": "m3.memory.from_episodic",
+      "ok": true,
+      "status": "success",
+      "outputs": {},
+      "counts": {
+        "created_memory_nodes": 68,
+        "skipped": 0,
+        "missing_support": 0,
+        "empty_description": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "build_index": {
+      "stage_id": "build_index",
+      "stage_type": "m3.index_episodic",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "index_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/episodic_index.jsonl"
+      },
+      "counts": {
+        "records": 68
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "face_clustering": {
+      "stage_id": "face_clustering",
+      "stage_type": "m3.face_clustering",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "face_clusters": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/face_clusters.jsonl"
+      },
+      "counts": {
+        "faces": 2847,
+        "clusters": 190
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "voice_segmentation": {
+      "stage_id": "voice_segmentation",
+      "stage_type": "m3.voice_segmentation",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "voice_segments": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/voice_segments.jsonl",
+        "audio_diagnostics": {
+          "status": "completed",
+          "account_id": "m3-flash-medium-20261031",
+          "video_filter": "gym_03",
+          "attempted_audio": 68,
+          "cached_audio": 0,
+          "executed_audio": 68,
+          "failed_audio": 0,
+          "completed_audio": 68,
+          "cache_version": 1
+        }
+      },
+      "counts": {
+        "segments": 68,
+        "attempted_audio": 68,
+        "cached_audio": 0,
+        "executed_audio": 68,
+        "completed_audio": 68,
+        "failed_audio": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "voice_clustering": {
+      "stage_id": "voice_clustering",
+      "stage_type": "m3.voice_clustering",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "voice_clusters": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/voice_clusters.jsonl"
+      },
+      "counts": {
+        "voices": 309,
+        "clusters": 146
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "semantic_memory_consolidator": {
+      "stage_id": "semantic_memory_consolidator",
+      "stage_type": "m3.semantic_memory_consolidator",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "semantic_memories": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/semantic_memories.jsonl",
+        "semantic_consolidation_diagnostics": {
+          "status": "success",
+          "account_id": "m3-flash-medium-20261031",
+          "video_filter": "gym_03",
+          "attempted_videos": 1,
+          "completed_videos": 1,
+          "failed_videos": 0,
+          "evolves_edges_emitted": 68,
+          "errors": []
+        }
+      },
+      "counts": {
+        "memories": 1,
+        "evolves_edges": 68,
+        "failed_videos": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "qa": {
+      "stage_id": "qa",
+      "stage_type": "m3.qa",
+      "ok": true,
+      "status": "degraded",
+      "outputs": {
+        "qa_results": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/m3_qa_results.jsonl"
+      },
+      "counts": {
+        "records": 11,
+        "answered": 10,
+        "failed": 1,
+        "invalid": 0,
+        "skipped": 0
+      },
+      "errors": [],
+      "warnings": [
+        "qa stage ran with partial failures: 1/11 questions failed"
+      ]
+    }
+  }
+}

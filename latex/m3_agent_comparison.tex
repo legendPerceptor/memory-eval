@@ -1,0 +1,86 @@
+\section{与 M3-Agent 的实现差异及对照评测设计}
+\subsection{范围与实现路径}
+本节依据本地 \code{m3-agent/} 的固定提交 \code{0e3e419} 做静态代码审计，
+不是新增 M3-Agent 跑分。其 robot 标注与本次数据副本的规范化 JSON 哈希一致，
+五视频 65 题逐项匹配；记录见 \code{docs/m3_agent_review.json}。
+本次未加载参考模型权重、未反序列化 pickle 图、未调用参考模型 API，
+也未运行可能改变现有 GPU 环境的参考安装脚本。
+
+参考实现分为感知中间产物、记忆图生成和控制问答三个入口。
+每个视频维护一个 \code{VideoGraph}，包含 img（人脸）、voice、
+episodic 和 semantic 节点及双向加权边，最后保存为 pickle。
+感知侧使用 InsightFace，以及代码中声明的 Gemini 对话分段和 ERes2NetV2 声纹。
+这不同于本轮 Whisper、pyannote、ECAPA 的组合。
+
+记忆生成把视频、带 face ID 的人脸裁剪、带 voice ID 和时间戳的转写一起交给
+专门的 memorization 模型。输出既包含原子事件，也包含人物意图、关系、
+身份等高层结论，以及显式的人脸--声音等价事实。
+语义事实按向量相似度强化或弱化相关边；身份等价关系通过并查集建立
+\code{character_N} 映射。这里的相似度规则不是经过验证的逻辑矛盾消解器。
+
+控制器被提示先寻找名字与 character ID 的对应关系，再用 ID 查询。
+检索可按身份关联限制情景/语义文本候选，做向量匹配和片段级聚合，
+返回选中片段中的记忆，并避免重复返回已见片段。
+默认控制入口使用专门的 Control 权重、五轮文本 Search/Answer 动作，
+最后一轮要求回答且允许猜测。参考默认控制路径和本轮 oGMemory QA
+都主要读取文本记忆，并不在每题重新读取原始画面。
+
+\subsection{关键差别：身份和语义记忆是否进入问答路径}
+\begin{table}[htbp]\centering\small
+\begin{tabularx}{\linewidth}{p{0.15\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}\toprule
+维度 & M3-Agent 参考路径 & 本次 oGMemory 路径\\\midrule
+记忆组织 & 实体中心的单视频多模态图 & Raw--Extracted--Memory 来源层次与 SQL 图\\
+身份信息 & 生成时注入 face/voice ID，检索时使用等价映射 & 生成身份关系，但默认 Search 未显式使用该映射\\
+语义记忆 & 模型推断高层事实、身份等价与边权更新 & 按视频拼接描述、集合去重，描述上限 50 KB\\
+默认召回 & 情景与语义文本；实体关联约束；片段聚合 & 情景 ExtractedNode、转写词法召回、RRF 与邻近片段\\
+嵌入 & text-embedding-3-large & BGE-M3，1024 维，本地 GPU\\
+控制 & 专门权重，5 轮，最后允许猜测 & MiniMax 原生工具，6 轮，180 秒循环预算\\
+存储与审计 & VideoGraph、每视频 pickle & SQL/向量索引、账号/视频过滤、阶段回执与实验审计\\
+默认评分 & GPT-4o 二值 Yes/No & MiniMax 的 0/0.5/1 参考均分\\
+\bottomrule\end{tabularx}
+\end{table}
+
+\textbf{oGMemory 不是简单把 M3-Agent 的图换成 SQL，也尚未完整复现其身份驱动的
+语义记忆问答机制。}本轮更明确的优势方向是持久化、来源可追溯、失败处理和
+转写增强检索；参考实现更直接地把身份等价与高层语义事实接入回答链路。
+二者都是实现差异，而非已经通过对照证明的质量胜负。
+oGMemory 也并非整管线原子事务；本实验用独立数据库规避旧片段 ID 的跨实验冲突。
+
+\subsection{不能直接比较现有分数的原因}
+\begin{enumerate}
+\item \textbf{评分口径不同：}参考代码用二值 GPT-4o 评委，本轮是同模型分级评分。
+0.5 不能直接当作二值正确；建议对两组固定预测同时给出共同二值评分与共同分级评分。
+\item \textbf{模型与预算不同：}专门训练的 memorization/control 权重、MiniMax、
+不同嵌入模型、轮数和输出预算会混淆架构归因。
+\item \textbf{时间可见性不同：}参考控制入口读取 before\_clip，
+本轮按 timestamp 使用 current\_clip。以 30 秒零基切片作示意，
+study\_05 首题在 03:45、before\_clip=6，两种协议可能分别允许约 210 秒与
+240 秒之前的证据。实际比较必须统一 source interval 截止条件。
+\item \textbf{媒体输入不同：}参考预处理的 5 fps 不等于其模型最终看到固定帧数，
+模型的视频处理器还有自身采样。本轮是每片段前缀最多 16 帧；
+相同视频和切片长度不保证相同视觉覆盖、转写或人物特征。
+\item \textbf{工作负载不同：}下载现成图后只跑控制器是 QA-only，
+不能将其耗时与包含感知及记忆重建的完整管线比较。
+\end{enumerate}
+
+预构建全视频图还需审计一个静态风险：后续片段可能更新较早语义节点的边权及
+身份锚点，仅删除未来文本节点不必然恢复历史图状态。
+这不是已经测出的泄漏率；严格因果对照可使用前缀图快照。
+
+\subsection{建议的两条评测线}
+第一条是\textbf{参考系统复现}：固定同一 65 题，先用可信的参考图和官方
+Control 权重建立单独标记的 QA-only 基线；再视需要重建参考记忆做端到端比较。
+保存原始协议成绩，并在共同评委、共同时间截止条件下另行比较。
+
+第二条是\textbf{同模型架构消融}：统一生成/回答模型、嵌入、评委、帧/音频预算、
+可见时间、回答策略和计算预算，只比较实体/等价关系检索与片段/转写检索等结构差异。
+这种移植应称为 M3-Agent-style 或 adapted，而非官方权重成绩。
+top-k 也不能只对齐数值：两个片段的全部原子记忆不等于八个情景节点及其邻居。
+
+复现前还应检查本地代码的接口不一致：
+README 数据示例使用 \code{intermediate_path}，而入口读取 \code{intermediate_outputs}；
+提示词给出单数 \code{video_description}，读取代码却取复数 \code{video_descriptions}；
+片段遍历未显式数字排序，而部分截断逻辑依赖插入顺序。
+这些是需要 smoke test 和独立补丁记录的问题，不代表论文报告的实验一定失败。
+完整源码锚点、对照矩阵与部署前置条件见
+\code{docs/m3_agent_comparison.md}。

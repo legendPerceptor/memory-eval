@@ -1,0 +1,444 @@
+diff --git a/m3/config.py b/m3/config.py
+index 16ff8c43..cab2ac29 100644
+--- a/m3/config.py
++++ b/m3/config.py
+@@ -10,6 +10,7 @@ from __future__ import annotations
+ 
+ import math
+ import os
++from copy import deepcopy
+ from dataclasses import dataclass, field
+ from pathlib import Path
+ from typing import Any
+@@ -103,6 +104,9 @@ class M3ModelConfig:
+     temperature: float = 0.2
+     max_tokens: int = 4096
+     request_timeout_seconds: float = 120.0
++    reasoning_effort: str | None = None
++    is_reasoning_model: bool | None = None
++    extra_body: dict[str, Any] | None = None
+ 
+ 
+ @dataclass(frozen=True)
+@@ -229,6 +233,15 @@ def load_cv_service_config(
+ 
+ 
+ def _model_from_block(block: dict[str, Any], *, default_provider: str, default_model: str, default_temperature: float) -> M3ModelConfig:
++    reasoning_effort = _pick(block, "reasoning_effort")
++    is_reasoning_model = _pick(block, "is_reasoning_model")
++    extra_body = _pick(block, "extra_body")
++    if reasoning_effort is not None and not isinstance(reasoning_effort, str):
++        raise ValueError("M3 LLM reasoning_effort must be a string")
++    if is_reasoning_model is not None and not isinstance(is_reasoning_model, bool):
++        raise ValueError("M3 LLM is_reasoning_model must be a boolean")
++    if extra_body is not None and not isinstance(extra_body, dict):
++        raise ValueError("M3 LLM extra_body must be a mapping")
+     timeout = _pick(block, "request_timeout_seconds", 120.0)
+     try:
+         if isinstance(timeout, bool):
+@@ -248,6 +261,9 @@ def _model_from_block(block: dict[str, Any], *, default_provider: str, default_m
+         temperature=float(_pick(block, "temperature", default_temperature)),
+         max_tokens=int(_pick(block, "max_tokens", 4096)),
+         request_timeout_seconds=timeout,
++        reasoning_effort=reasoning_effort,
++        is_reasoning_model=is_reasoning_model,
++        extra_body=deepcopy(extra_body),
+     )
+ 
+ 
+diff --git a/m3/episodic_memory.py b/m3/episodic_memory.py
+index a84f9971..80109cbb 100644
+--- a/m3/episodic_memory.py
++++ b/m3/episodic_memory.py
+@@ -60,6 +60,7 @@ import sys
+ import time
+ import uuid
+ from collections.abc import Iterable
++from concurrent.futures import ThreadPoolExecutor
+ from pathlib import Path
+ 
+ from m3.config import (
+@@ -551,6 +552,10 @@ def run(args: argparse.Namespace, graph=None, op_service=None) -> int:
+     retries = 0
+     seen_retry_targets = set()
+     failed: list[dict] = []
++    parallel_jobs = []
++    workers = getattr(args, "workers", 1)
++    if not isinstance(workers, int) or isinstance(workers, bool) or not 1 <= workers <= 4:
++        raise ValueError("episodic workers must be between 1 and 4")
+ 
+     only_videos = set(args.video.split(",")) if args.video else None
+ 
+@@ -609,23 +614,27 @@ def run(args: argparse.Namespace, graph=None, op_service=None) -> int:
+                 })
+                 continue
+ 
++            job = dict(
++                max_retries=args.max_retries,
++                retry_base_seconds=args.retry_base_seconds,
++                retry_max_seconds=args.retry_max_seconds,
++                graph=graph, op_service=op_service, ctx=ctx,
++                video_raw_node=video_node,
++                frame_nodes=frame_nodes,
++                audio_node=audio_node,
++                llm=llm,
++                max_frames=args.max_frames,
++                include_audio=not args.no_audio,
++                temperature=args.temperature,
++                asr_segments=asr_index.get(key) or [],
++                force=(retry_key in retry_targets if retry_targets is not None
++                       else getattr(args, "force", False)),
++            )
++            if workers > 1:
++                parallel_jobs.append((video_id, clip_id, job))
++                continue
+             try:
+-                result, retry_count = _generate_with_retry(
+-                    max_retries=args.max_retries,
+-                    retry_base_seconds=args.retry_base_seconds,
+-                    retry_max_seconds=args.retry_max_seconds,
+-                    graph=graph, op_service=op_service, ctx=ctx,
+-                    video_raw_node=video_node,
+-                    frame_nodes=frame_nodes,
+-                    audio_node=audio_node,
+-                    llm=llm,
+-                    max_frames=args.max_frames,
+-                    include_audio=not args.no_audio,
+-                    temperature=args.temperature,
+-                    asr_segments=asr_index.get(key) or [],
+-                    force=(retry_key in retry_targets if retry_targets is not None
+-                           else getattr(args, "force", False)),
+-                )
++                result, retry_count = _generate_with_retry(**job)
+                 retries += retry_count
+             except Exception as exc:
+                 logger.exception(
+@@ -646,6 +655,22 @@ def run(args: argparse.Namespace, graph=None, op_service=None) -> int:
+             else:
+                 resumed_clips += 1
+ 
++    if parallel_jobs:
++        for video_id, clip_id, result, retry_count, error in _parallel_generations(
++            parallel_jobs, workers=workers,
++        ):
++            if error is not None:
++                logger.error("Episodic memory failed for %s clip %s: %s", video_id, clip_id, error)
++                failed.append({"video_id": video_id, "clip_id": clip_id, "error": str(error)})
++                continue
++            retries += retry_count
++            output_lines.append(json.dumps(result, ensure_ascii=False))
++            total_chars += len(result.get("description") or "")
++            if result["resumed"]:
++                resumed_clips += 1
++            else:
++                total_extractions += 1
++
+     with output_jsonl.open("w", encoding="utf-8") as f:
+         for line in output_lines:
+             f.write(line + "\n")
+@@ -669,6 +694,7 @@ def run(args: argparse.Namespace, graph=None, op_service=None) -> int:
+         "status": "failed" if errors else "completed",
+         "video_filter": args.video,
+         "account_id": args.account_id,
++        "workers": workers,
+         "expected_clips": expected_clips,
+         "completed_clips": len(output_lines),
+         "generated_clips": total_extractions,
+@@ -681,6 +707,31 @@ def run(args: argparse.Namespace, graph=None, op_service=None) -> int:
+     return 2 if errors else 0
+ 
+ 
++def _parallel_generations(jobs, *, workers):
++    """Bound remote calls while retaining manifest order and per-clip failures.
++
++    Inputs are resolved before workers start. Only independent clip generation
++    and its persistence run concurrently; final manifests/counters stay on the
++    caller thread. Default workers=1 uses the unchanged serial path above.
++    SQL pools must have at least ``workers`` connections.
++    """
++    ids = [str(job["video_raw_node"].node_id).replace("-", "").lower()
++           for _, _, job in jobs]
++    if len(ids) != len(set(ids)):
++        raise ValueError("parallel episodic jobs must target distinct raw nodes")
++
++    def invoke(item):
++        video_id, clip_id, job = item
++        try:
++            result, retries = _generate_with_retry(**job)
++            return video_id, clip_id, result, retries, None
++        except Exception as exc:
++            return video_id, clip_id, None, 0, exc
++
++    with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="m3-episodic") as executor:
++        yield from executor.map(invoke, jobs)
++
++
+ def parse_args(argv: Iterable[str] | None = None) -> argparse.Namespace:
+     p = argparse.ArgumentParser(
+         description=(
+@@ -725,6 +776,8 @@ def parse_args(argv: Iterable[str] | None = None) -> argparse.Namespace:
+     p.add_argument("--retry-failed", action="store_true",
+                    help="Force prior failed clips; validate/reuse successful clips even with --force")
+     p.add_argument("--max-retries", type=int, default=3)
++    p.add_argument("--workers", type=int, default=1,
++                   help="Independent clip generation workers (1-4); SQL pool must be at least this size.")
+     p.add_argument("--retry-base-seconds", type=float, default=10.0)
+     p.add_argument("--retry-max-seconds", type=float, default=60.0)
+     p.add_argument("--max-frames", type=int, default=8)
+@@ -732,6 +785,8 @@ def parse_args(argv: Iterable[str] | None = None) -> argparse.Namespace:
+                    help="Skip raw audio payloads; ASR transcripts are still included")
+     p.add_argument("-v", "--verbose", action="store_true")
+     args = p.parse_args(list(argv) if argv is not None else None)
++    if not 1 <= args.workers <= 4:
++        p.error("--workers must be between 1 and 4")
+     if not 0 <= args.max_retries <= 10:
+         p.error("--max-retries must be between 0 and 10")
+     if not (0 <= args.retry_base_seconds <= args.retry_max_seconds <= 300):
+diff --git a/m3/llm_factory.py b/m3/llm_factory.py
+index 2172bbe8..34ec10a2 100644
+--- a/m3/llm_factory.py
++++ b/m3/llm_factory.py
+@@ -137,6 +137,10 @@ def build_m3_llm(
+     base_url = base_url or configured.base_url
+     api_key = api_key or configured.api_key
+     max_tokens = max_tokens or configured.max_tokens
++    reasoning_options = {
++        key: value for key in ("reasoning_effort", "is_reasoning_model", "extra_body")
++        if (value := getattr(configured, key, None)) is not None
++    }
+ 
+     if provider == "mock":
+         from providers.llm import MockLLM
+@@ -153,6 +157,7 @@ def build_m3_llm(
+             max_tokens=max_tokens,
+             json_mode=json_mode,
+             request_timeout_seconds=configured.request_timeout_seconds,
++            **reasoning_options,
+         )
+ 
+     # OpenAI-compatible fallback. Covers openai / volcengine / deepseek /
+@@ -178,6 +183,7 @@ def build_m3_llm(
+         max_tokens=max_tokens,
+         json_mode=json_mode,
+         request_timeout_seconds=configured.request_timeout_seconds,
++        **reasoning_options,
+     )
+ 
+ 
+diff --git a/m3/pipeline/stages.py b/m3/pipeline/stages.py
+index a7826244..e88cace6 100644
+--- a/m3/pipeline/stages.py
++++ b/m3/pipeline/stages.py
+@@ -399,7 +399,7 @@ def episodic_memory_stage(ctx: PipelineContext, stage: StageSpec) -> StageResult
+         argv.append("--force")
+     if stage.params.get("retry_failed", False):
+         argv.append("--retry-failed")
+-    for key in ("max_retries", "retry_base_seconds", "retry_max_seconds"):
++    for key in ("max_retries", "retry_base_seconds", "retry_max_seconds", "workers"):
+         if key in stage.params:
+             argv.extend(["--" + key.replace("_", "-"), str(stage.params[key])])
+     rc = run(parse_args(argv), graph=ctx.graph, op_service=ctx.op_service)
+diff --git a/providers/llm/minimax_llm.py b/providers/llm/minimax_llm.py
+index 52b19d66..f6e76ab9 100644
+--- a/providers/llm/minimax_llm.py
++++ b/providers/llm/minimax_llm.py
+@@ -30,6 +30,7 @@ import json
+ import logging
+ import os
+ from itertools import permutations
++from typing import Any
+ 
+ from core.errors import ToolCallProtocolError
+ 
+@@ -115,6 +116,9 @@ class MiniMaxLLM(OpenAILLM):
+         max_tokens: int = 4096,
+         json_mode: bool = True,
+         request_timeout_seconds: float = 120.0,
++        reasoning_effort: str | None = None,
++        is_reasoning_model: bool | None = None,
++        extra_body: dict[str, Any] | None = None,
+     ) -> None:
+         # Read MiniMax-specific env first, then fall back to the
+         # generic OpenAI env so a single OGMEM_API_KEY can power
+@@ -141,6 +145,9 @@ class MiniMaxLLM(OpenAILLM):
+             max_tokens=max_tokens,
+             json_mode=json_mode,
+             request_timeout_seconds=request_timeout_seconds,
++            reasoning_effort=reasoning_effort,
++            is_reasoning_model=is_reasoning_model,
++            extra_body=extra_body,
+         )
+ 
+     def _normalize_tool_response(self, response, tools) -> None:
+diff --git a/tests/unit/m3/test_reasoning_model_config.py b/tests/unit/m3/test_reasoning_model_config.py
+new file mode 100644
+index 00000000..7e819c28
+--- /dev/null
++++ b/tests/unit/m3/test_reasoning_model_config.py
+@@ -0,0 +1,67 @@
++"""Reasoning settings must reach every M3 model role without changing defaults."""
++from unittest.mock import Mock, patch
++
++import pytest
++import yaml
++
++from m3.config import load_m3_runtime_config
++from m3.llm_factory import build_m3_llm
++
++
++def config_file(tmp_path, data):
++    path = tmp_path / "config.yaml"
++    path.write_text(yaml.safe_dump(data))
++    return str(path)
++
++
++@pytest.mark.parametrize("provider", ["openai", "minimax"])
++@pytest.mark.parametrize("role", ["episodic_llm", "qa_llm", "judge_llm"])
++def test_factory_forwards_reasoning_parameters(tmp_path, monkeypatch, provider, role):
++    ctor = Mock()
++    monkeypatch.setattr("providers.llm.get_minimax_llm", lambda: ctor)
++    monkeypatch.setattr("providers.llm.get_openai_llm", lambda: (ctor, None))
++    path = config_file(tmp_path, {
++        "llm": {"provider": provider, "api_key": "test-only", "model": "MiniMax-M3.1-Flash",
++                "is_reasoning_model": True, "reasoning_effort": "high",
++                "extra_body": {"thinking": {"type": "adaptive"}}},
++        "m3": {role: {"reasoning_effort": "max", "max_tokens": 8192}},
++    })
++    build_m3_llm(config_path=path, config_role=role)
++    kw = ctor.call_args.kwargs
++    assert kw["reasoning_effort"] == "max"
++    assert kw["is_reasoning_model"] is True
++    assert kw["extra_body"] == {"thinking": {"type": "adaptive"}}
++    assert kw["max_tokens"] == 8192
++
++
++@pytest.mark.parametrize("key,value", [
++    ("is_reasoning_model", "false"), ("is_reasoning_model", 1),
++    ("reasoning_effort", 3), ("extra_body", "thinking"), ("extra_body", []),
++])
++def test_invalid_reasoning_config_rejected(tmp_path, key, value):
++    with pytest.raises(ValueError, match=key):
++        load_m3_runtime_config(config_file(tmp_path, {"llm": {key: value}}))
++
++
++def test_legacy_defaults_unchanged(tmp_path):
++    runtime = load_m3_runtime_config(config_file(tmp_path, {}))
++    for role in ("episodic_llm", "qa_llm", "judge_llm"):
++        config = getattr(runtime, role)
++        assert config.reasoning_effort is None
++        assert config.is_reasoning_model is None
++        assert config.extra_body is None
++
++
++def test_minimax_uses_completion_budget_and_adaptive_body(monkeypatch):
++    from providers.llm.minimax_llm import MiniMaxLLM
++    monkeypatch.delenv("OGMEM_MINIMAX_MODEL", raising=False)
++    with patch("providers.llm.openai_llm.OpenAI"):
++        llm = MiniMaxLLM(
++            api_key="test-only", model="MiniMax-M3.1-Flash", max_tokens=8192,
++            is_reasoning_model=True, reasoning_effort="max",
++            extra_body={"thinking": {"type": "adaptive"}},
++        )
++    assert llm._completion_parameters(0.2) == {
++        "max_completion_tokens": 8192, "reasoning_effort": "max",
++        "extra_body": {"thinking": {"type": "adaptive"}},
++    }
+diff --git a/tests/unit/m3/test_episodic_workers.py b/tests/unit/m3/test_episodic_workers.py
+new file mode 100644
+index 00000000..14ed998a
+--- /dev/null
++++ b/tests/unit/m3/test_episodic_workers.py
+@@ -0,0 +1,93 @@
++import json
++import threading
++import time
++from types import SimpleNamespace
++
++import pytest
++
++from m3 import episodic_memory as module
++
++
++def jobs(count):
++    return [("video", i, {"video_raw_node": SimpleNamespace(node_id=str(i)), "force": bool(i % 2)})
++            for i in range(count)]
++
++
++def test_parallel_jobs_are_bounded_ordered_and_keep_failures(monkeypatch):
++    active = peak = 0
++    lock = threading.Lock()
++    flags = {}
++
++    def generate(**kw):
++        nonlocal active, peak
++        i = int(kw["video_raw_node"].node_id)
++        with lock:
++            active += 1
++            peak = max(peak, active)
++            flags[i] = kw["force"]
++        try:
++            time.sleep(0.03 if i == 0 else 0.01)
++            if i == 2:
++                raise RuntimeError("permanent clip failure")
++            return {"clip_id": i, "resumed": False}, i
++        finally:
++            with lock:
++                active -= 1
++
++    monkeypatch.setattr(module, "_generate_with_retry", generate)
++    result = list(module._parallel_generations(jobs(8), workers=3))
++    assert 1 < peak <= 3
++    assert [r[1] for r in result] == list(range(8))
++    assert str(result[2][4]) == "permanent clip failure"
++    assert all(r[4] is None for i, r in enumerate(result) if i != 2)
++    assert result[7][3] == 7
++    assert flags == {i: bool(i % 2) for i in range(8)}
++
++
++def test_parallel_duplicate_nodes_rejected_before_generation(monkeypatch):
++    monkeypatch.setattr(module, "_generate_with_retry", lambda **kw: pytest.fail("must not run"))
++    duplicate = jobs(1) * 2
++    with pytest.raises(ValueError, match="distinct"):
++        list(module._parallel_generations(duplicate, workers=2))
++
++
++@pytest.mark.parametrize("workers", [0, -1, 5])
++def test_worker_limit(workers):
++    with pytest.raises(SystemExit):
++        module.parse_args(["--video-records-manifest", "v", "--frames-manifest", "f",
++                           "--workers", str(workers)])
++
++
++@pytest.mark.parametrize("workers", [1, 3])
++def test_run_counters_and_failure_manifest(tmp_path, monkeypatch, workers):
++    video_manifest = tmp_path / "data.jsonl"
++    frames_manifest = tmp_path / "frames.jsonl"
++    video_manifest.write_text(json.dumps({"id": "video", "raw_nodes": [
++        {"clip_id": i, "raw_node_id": str(i)} for i in range(4)]}) + "\n")
++    frames_manifest.write_text("\n".join(json.dumps(
++        {"video_id": "video", "clip_id": i, "child_node_ids": [f"frame{i}"]})
++        for i in range(4)) + "\n")
++    monkeypatch.setattr(module, "_build_llm", lambda args: object())
++    monkeypatch.setattr(module, "_index_asr_segments", lambda *args: {})
++    graph = SimpleNamespace(get_raw_node=lambda node_id, ctx: SimpleNamespace(node_id=node_id))
++
++    def generate(**kw):
++        i = int(kw["video_raw_node"].node_id)
++        if i == 1:
++            raise RuntimeError("failed")
++        return {"description": "ok", "resumed": i == 2, "clip_id": i}, 0
++
++    monkeypatch.setattr(module, "_generate_with_retry", generate)
++    output = tmp_path / "episodic_memory.jsonl"
++    args = module.parse_args([
++        "--video-records-manifest", str(video_manifest), "--frames-manifest", str(frames_manifest),
++        "--output-jsonl", str(output), "--workers", str(workers)])
++    assert module.run(args, graph=graph, op_service=object()) == 2
++    summary = json.loads(output.with_suffix(".summary.json").read_text())
++    assert summary["expected_clips"] == 4
++    assert summary["completed_clips"] == 3
++    assert summary["generated_clips"] == 2
++    assert summary["resumed_clips"] == 1
++    assert summary["failed_clips"] == 1
++    assert summary["workers"] == workers
++    assert [json.loads(s)["clip_id"] for s in output.read_text().splitlines()] == [0, 2, 3]

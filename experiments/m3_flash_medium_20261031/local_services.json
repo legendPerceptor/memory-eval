@@ -1,0 +1,83 @@
+{
+  "t4-omni-cv-gpu-1": {
+    "image_id": "sha256:82a0cd32bc1a1ab66974ef386233ddef44606307202947259034d035716a6116",
+    "image": "ogmemory-gpu-cv-gpu:latest",
+    "gpu_requests": [
+      {
+        "Driver": "nvidia",
+        "Count": 0,
+        "DeviceIDs": [
+          "GPU-b1ab47f0-ebfc-4a37-788b-f121d1135433"
+        ],
+        "Capabilities": [
+          [
+            "gpu"
+          ]
+        ],
+        "Options": null
+      }
+    ],
+    "state": {
+      "Status": "running",
+      "StartedAt": "2026-10-22T08:15:40.578549276Z"
+    }
+  },
+  "t4-omni-embeddings-1": {
+    "image_id": "sha256:bd102b08fbdb23fa2a0c747c8b2d154c521e3fce20441266c005ad7a101143a0",
+    "image": "ghcr.io/huggingface/text-embeddings-inference:turing-1.8",
+    "gpu_requests": [
+      {
+        "Driver": "nvidia",
+        "Count": 0,
+        "DeviceIDs": [
+          "1"
+        ],
+        "Capabilities": [
+          [
+            "gpu"
+          ]
+        ],
+        "Options": null
+      }
+    ],
+    "state": {
+      "Status": "running",
+      "StartedAt": "2026-10-22T08:15:40.164711054Z"
+    }
+  },
+  "t4-omni-omni-1": {
+    "image_id": "sha256:608abed5c02f508ec06ee2f280d507ee8f996a7304d199fdb0ab23eb4aeaf523",
+    "image": "ogmemory-omni:local",
+    "gpu_requests": [
+      {
+        "Driver": "nvidia",
+        "Count": 0,
+        "DeviceIDs": [
+          "0",
+          "3"
+        ],
+        "Capabilities": [
+          [
+            "gpu"
+          ]
+        ],
+        "Options": null
+      }
+    ],
+    "state": {
+      "Status": "running",
+      "StartedAt": "2026-10-22T10:32:19.38986694Z"
+    }
+  },
+  "cv_health": {
+    "ok": true,
+    "backend": "insightface",
+    "insightface_available": true,
+    "face_embeddings": true,
+    "model_name": "buffalo_l"
+  },
+  "embedding_info": {
+    "error_type": "HTTPError"
+  },
+  "gpu_inventory": "index, name, uuid, memory.total [MiB]\n0, Tesla T4, GPU-3381be26-e625-2ed6-b648-9473bac90df7, 15360 MiB\n1, Tesla T4, GPU-cbab3b3e-87e3-7f93-bab2-b742ff4605aa, 15360 MiB\n2, Tesla T4, GPU-b1ab47f0-ebfc-4a37-788b-f121d1135433, 15360 MiB\n3, Tesla T4, GPU-5b73868d-bce9-8893-ebab-a4306ec4aa0f, 15360 MiB\n"
+}

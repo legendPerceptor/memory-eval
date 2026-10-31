@@ -1,0 +1,10 @@
+{
+  "text_http_status": 200,
+  "multimodal_ok": true,
+  "frames": 16,
+  "audio": 1,
+  "native_tool_ok": true,
+  "model": "MiniMax-M3.1-Flash",
+  "multimodal_seconds": 192.28194308280945,
+  "harness_note": "Initial local assertion used name instead of provider result key tool; saved response validated successfully without repeating model call."
+}

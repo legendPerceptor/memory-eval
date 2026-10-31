@@ -1,0 +1,120 @@
+{
+  "total_questions": 22,
+  "answered": 19,
+  "failed": 3,
+  "judge_error_count": 0,
+  "overall_mean_score": 0.6818181818181818,
+  "judge_provider": "minimax.cn",
+  "judge_model": "MiniMax-M3.1-Flash",
+  "by_type": {
+    "Cross-Modal Reasoning": {
+      "count": 1,
+      "answered": 1,
+      "failed": 0,
+      "mean_score": 1.0,
+      "p50_iterations": 4.0,
+      "p95_iterations": 4.0,
+      "mean_latency_seconds": 2.1844731790479273,
+      "p95_latency_seconds": 2.1844731790479273
+    },
+    "General Knowledge Extraction": {
+      "count": 4,
+      "answered": 4,
+      "failed": 0,
+      "mean_score": 0.5,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.6242290881928056,
+      "p95_latency_seconds": 3.3231871738331393
+    },
+    "General Knowledge Extraction,Multi-Hop Reasoning,Multi-Detail Reasoning": {
+      "count": 1,
+      "answered": 1,
+      "failed": 0,
+      "mean_score": 1.0,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 6.114328434923664,
+      "p95_latency_seconds": 6.114328434923664
+    },
+    "Multi-Detail Reasoning": {
+      "count": 2,
+      "answered": 1,
+      "failed": 1,
+      "mean_score": 0.5,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 1.3940761090489104,
+      "p95_latency_seconds": 2.6487432067864574
+    },
+    "Person Understanding": {
+      "count": 9,
+      "answered": 7,
+      "failed": 2,
+      "mean_score": 0.6666666666666666,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 5.215300802244908,
+      "p95_latency_seconds": 15.277377818990498
+    },
+    "Person Understanding,Cross-Modal Reasoning": {
+      "count": 1,
+      "answered": 1,
+      "failed": 0,
+      "mean_score": 1.0,
+      "p50_iterations": 4.0,
+      "p95_iterations": 4.0,
+      "mean_latency_seconds": 1.2476082970388234,
+      "p95_latency_seconds": 1.2476082970388234
+    },
+    "Person Understanding,Cross-Modal Reasoning,Multi-Detail Reasoning": {
+      "count": 2,
+      "answered": 2,
+      "failed": 0,
+      "mean_score": 0.5,
+      "p50_iterations": 5.5,
+      "p95_iterations": 5.95,
+      "mean_latency_seconds": 1.6559845010051504,
+      "p95_latency_seconds": 1.8337452335166744
+    },
+    "Person Understanding,Multi-Detail Reasoning": {
+      "count": 2,
+      "answered": 2,
+      "failed": 0,
+      "mean_score": 1.0,
+      "p50_iterations": 4.0,
+      "p95_iterations": 5.8,
+      "mean_latency_seconds": 2.0796134111005813,
+      "p95_latency_seconds": 2.640052798995748
+    }
+  },
+  "by_video": {
+    "bedroom_04": {
+      "count": 11,
+      "answered": 9,
+      "failed": 2,
+      "mean_score": 0.6363636363636364,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.5740852044810625,
+      "p95_latency_seconds": 10.154674803488888
+    },
+    "gym_03": {
+      "count": 11,
+      "answered": 10,
+      "failed": 1,
+      "mean_score": 0.7272727272727273,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.447767661545764,
+      "p95_latency_seconds": 10.025682764477096
+    }
+  },
+  "skipped": 0,
+  "missing_from_input": 0,
+  "status": "failed",
+  "prediction_coverage": 1.0,
+  "input_qa_results": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/_interim_others_20261031_2309/input_qa.jsonl",
+  "annotations_path": "/data/m3_data/annotations/robot.json",
+  "results_path": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/_interim_others_20261031_2309/m3_eval_results.jsonl"
+}

@@ -1,0 +1,43 @@
+{
+  "reviewed_at": "2026-10-31T23:22:13.956543+08:00",
+  "reference_commit": "0e3e41939bd8a0b66d756e7b7eb8d5fe9992da5c",
+  "reference_clean": true,
+  "reference_annotation_sha256": "bb02225f22a097bbd077c4913bdf85e4f0c6f5cbd37eaee49c1de41ece30dded",
+  "dataset_annotation_sha256": "bb02225f22a097bbd077c4913bdf85e4f0c6f5cbd37eaee49c1de41ece30dded",
+  "full_annotations_equal": true,
+  "selected": {
+    "study_05": {
+      "reference_questions": 12,
+      "our_questions": 12,
+      "qa_lists_equal": true,
+      "reference_memory_path": "data/memory_graphs/robot/study_05.pkl"
+    },
+    "gym_03": {
+      "reference_questions": 11,
+      "our_questions": 11,
+      "qa_lists_equal": true,
+      "reference_memory_path": "data/memory_graphs/robot/gym_03.pkl"
+    },
+    "bedroom_04": {
+      "reference_questions": 11,
+      "our_questions": 11,
+      "qa_lists_equal": true,
+      "reference_memory_path": "data/memory_graphs/robot/bedroom_04.pkl"
+    },
+    "study_18": {
+      "reference_questions": 14,
+      "our_questions": 14,
+      "qa_lists_equal": true,
+      "reference_memory_path": "data/memory_graphs/robot/study_18.pkl"
+    },
+    "kitchen_20": {
+      "reference_questions": 17,
+      "our_questions": 17,
+      "qa_lists_equal": true,
+      "reference_memory_path": "data/memory_graphs/robot/kitchen_20.pkl"
+    }
+  },
+  "local_memory_checkpoint_exists": false,
+  "local_control_checkpoint_exists": false,
+  "evaluation_executed": false
+}

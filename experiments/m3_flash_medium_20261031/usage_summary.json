@@ -1,0 +1,66 @@
+{
+  "memory": {
+    "logical_calls": 340,
+    "statuses": {
+      "returned": 340
+    },
+    "models": {
+      "MiniMax-M3.1-Flash": 340
+    },
+    "prompt_tokens": 1587131,
+    "completion_tokens": 475023,
+    "reasoning_tokens": 147270,
+    "cached_prompt_tokens": 377121,
+    "peak_prompt_tokens": 5002,
+    "finish_reasons": {
+      "stop": 340
+    },
+    "sum_logical_call_seconds": 64418.196007966995,
+    "missing_usage_responses": 0,
+    "observed_peak_inflight_logical_calls": 4,
+    "timing_note": "HTTP logical-call time includes network, queueing, inference and SDK retries; summed concurrent time is not wall time."
+  },
+  "qa": {
+    "logical_calls": 241,
+    "statuses": {
+      "returned": 241
+    },
+    "models": {
+      "MiniMax-M3.1-Flash": 241
+    },
+    "prompt_tokens": 14823188,
+    "completion_tokens": 72366,
+    "reasoning_tokens": 54743,
+    "cached_prompt_tokens": 9566865,
+    "peak_prompt_tokens": 156689,
+    "finish_reasons": {
+      "tool_calls": 218,
+      "stop": 23
+    },
+    "sum_logical_call_seconds": 6446.799112081528,
+    "missing_usage_responses": 0,
+    "observed_peak_inflight_logical_calls": 1,
+    "timing_note": "HTTP logical-call time includes network, queueing, inference and SDK retries; summed concurrent time is not wall time."
+  },
+  "judge_or_other_text": {
+    "logical_calls": 45,
+    "statuses": {
+      "returned": 45
+    },
+    "models": {
+      "MiniMax-M3.1-Flash": 45
+    },
+    "prompt_tokens": 28476,
+    "completion_tokens": 3423,
+    "reasoning_tokens": 1375,
+    "cached_prompt_tokens": 8975,
+    "peak_prompt_tokens": 848,
+    "finish_reasons": {
+      "stop": 45
+    },
+    "sum_logical_call_seconds": 101.92287874221802,
+    "missing_usage_responses": 0,
+    "observed_peak_inflight_logical_calls": 1,
+    "timing_note": "HTTP logical-call time includes network, queueing, inference and SDK retries; summed concurrent time is not wall time."
+  }
+}

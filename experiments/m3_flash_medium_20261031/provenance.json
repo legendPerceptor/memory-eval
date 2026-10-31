@@ -1,0 +1,50 @@
+{
+  "status": "finished",
+  "date": "2026-10-31",
+  "source_commit": "8c86c3ed5a180f6e3a43a501350c259ae8b6d50e",
+  "source_branch": "dev",
+  "source_dirty": true,
+  "source_change": "Optional reasoning settings and bounded independent-clip workers; defaults unchanged.",
+  "database": "ogmem_m3_flash_medium_20261031",
+  "account": "m3-flash-medium-20261031",
+  "config_sha256": "37bee44986fc0a357676a205180244f930c290a2a099e40eecc8b90a0274cc8e",
+  "model": "MiniMax-M3.1-Flash",
+  "endpoint": "https://api.minimax.cn/v1",
+  "seed": 42,
+  "sample_size": 5,
+  "reasoning": {
+    "thinking": "adaptive",
+    "reasoning_effort": "medium",
+    "temperature_sent": false,
+    "memory_max_completion_tokens": 8192,
+    "qa_max_completion_tokens": 8192,
+    "judge_max_completion_tokens": 2048
+  },
+  "previous_run": "m3_baseline_20261031 interrupted at user request; no comparative score",
+  "episodic_workers": 4,
+  "source_patch_sha256": "0bcced93291f186ad6dac4b9e48563aeeeaab10786a8df782a59389df2a68844",
+  "reasoning_diagnostic": "../m3_minimax_flash_20261031/medium-diagnostic-usage.jsonl",
+  "started_at": "2026-10-31T18:19:38.273+08:00",
+  "status_observed_at": "2026-10-31T18:21:52.923700+08:00",
+  "driver_exit_code": 2,
+  "driver_status": "failed",
+  "finished_audit_at": "2026-11-01T01:38:21.573587+08:00",
+  "integrity": {
+    "source_patch_matches_launch": true,
+    "expected_account_only": true,
+    "invalid_edges": 0,
+    "memory_and_index_complete": false,
+    "qa_record_coverage_complete": false,
+    "judge_errors": 0
+  },
+  "report": "REPORT.md",
+  "report_script_sha256": {
+    "summarize_m3.py": "8ce292e4426425bffd699c2c0815f455b2874ad8fc69fb922e0fa37bcb57ecc7",
+    "audit_m3_artifacts.py": "e73214fc444ef8706ae2e464eef4cbe3bad4e84664adc398362e77e27230b355",
+    "render_m3_report.py": "c06547354b8fcbee49ff1e5d98811aa1a7bf13922624c89e3a924b26f9b1d887",
+    "finalize_m3.py": "52da7c303f9a2836d0ca99fc296de900e36f10c100ffb3c76abd475ad1b5fde1",
+    "build_report.sh": "6809c189edee75ef963993279ea98c1aa1730cb5e4b1e5fa91dc19f0714a07f5"
+  },
+  "pdf": "../../latex/report.pdf",
+  "pdf_sha256": "0d88dedf7a62b786000ee02577e6cbbfc46cdbd154d45ef53e15e50fc57922da"
+}

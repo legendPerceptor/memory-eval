@@ -1,0 +1,19 @@
+{
+  "built_at": "2026-10-31T23:36:39.164138+08:00",
+  "pdf": "latex/report.pdf",
+  "pdf_sha256": "32e9bed50d719fe0a123f2e9d1f0bf9bf6d217c220c25db7a8b0f5e551fbfc0f",
+  "pages": 8,
+  "build_from_other_directory": true,
+  "failed_build_preserves_existing_pdf": true,
+  "pdf_text_checks": {
+    "chinese_title": true,
+    "interim_notice": true,
+    "m3_agent_comparison": true,
+    "all_three_interim_scores": true,
+    "evaluation_limits": true
+  },
+  "overfull_boxes": false,
+  "missing_character_warnings": false,
+  "nonfatal_font_warning": "Fontspec warns about Fandol OpenType CJK script tags; Chinese text extraction and rendered pages are checked.",
+  "reference_benchmark_executed": false
+}

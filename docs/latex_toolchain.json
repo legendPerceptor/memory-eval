@@ -1,0 +1,33 @@
+{
+  "observed_at": "2026-10-31T23:39:42.223062+08:00",
+  "xelatex": "/home/yuanjian/.local/bin/xelatex",
+  "engine_version": [
+    "XeTeX 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian)",
+    "kpathsea version 6.3.4/dev"
+  ],
+  "latexmk_version": "Latexmk, John Collins, 20 November 2021. Version 4.76",
+  "texmfhome": "/home/yuanjian/texmf",
+  "ctexart": "/home/yuanjian/texmf/tex/latex/ctex/ctexart.cls",
+  "packages_extracted_to_user_directory": [
+    {
+      "file": "texlive-lang-chinese_2021.20220204-1_all.deb",
+      "package": "texlive-lang-chinese",
+      "version": "2021.20220204-1",
+      "sha256": "b3d8c66421311be770ba1eaa42f1877510483505d82cdaeb7e435dea84ebb545"
+    },
+    {
+      "file": "texlive-lang-cjk_2021.20220204-1_all.deb",
+      "package": "texlive-lang-cjk",
+      "version": "2021.20220204-1",
+      "sha256": "4bbfd1e896838877c243fcd69f42f0898f36204c08f3cfe9162aa51e563a7f29"
+    },
+    {
+      "file": "texlive-xetex_2021.20220204-1_all.deb",
+      "package": "texlive-xetex",
+      "version": "2021.20220204-1",
+      "sha256": "be8ccd789f83a8ce2497aefc53cd370c25b2a54097a1a3709563906bb5897d9e"
+    }
+  ],
+  "system_packages_installed_by_agent": false,
+  "gpu_python_environment_modified": false
+}

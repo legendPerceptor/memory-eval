@@ -1,0 +1,184 @@
+diff --git a/m3/config.py b/m3/config.py
+index 16ff8c43..cab2ac29 100644
+--- a/m3/config.py
++++ b/m3/config.py
+@@ -10,6 +10,7 @@ from __future__ import annotations
+ 
+ import math
+ import os
++from copy import deepcopy
+ from dataclasses import dataclass, field
+ from pathlib import Path
+ from typing import Any
+@@ -103,6 +104,9 @@ class M3ModelConfig:
+     temperature: float = 0.2
+     max_tokens: int = 4096
+     request_timeout_seconds: float = 120.0
++    reasoning_effort: str | None = None
++    is_reasoning_model: bool | None = None
++    extra_body: dict[str, Any] | None = None
+ 
+ 
+ @dataclass(frozen=True)
+@@ -229,6 +233,15 @@ def load_cv_service_config(
+ 
+ 
+ def _model_from_block(block: dict[str, Any], *, default_provider: str, default_model: str, default_temperature: float) -> M3ModelConfig:
++    reasoning_effort = _pick(block, "reasoning_effort")
++    is_reasoning_model = _pick(block, "is_reasoning_model")
++    extra_body = _pick(block, "extra_body")
++    if reasoning_effort is not None and not isinstance(reasoning_effort, str):
++        raise ValueError("M3 LLM reasoning_effort must be a string")
++    if is_reasoning_model is not None and not isinstance(is_reasoning_model, bool):
++        raise ValueError("M3 LLM is_reasoning_model must be a boolean")
++    if extra_body is not None and not isinstance(extra_body, dict):
++        raise ValueError("M3 LLM extra_body must be a mapping")
+     timeout = _pick(block, "request_timeout_seconds", 120.0)
+     try:
+         if isinstance(timeout, bool):
+@@ -248,6 +261,9 @@ def _model_from_block(block: dict[str, Any], *, default_provider: str, default_m
+         temperature=float(_pick(block, "temperature", default_temperature)),
+         max_tokens=int(_pick(block, "max_tokens", 4096)),
+         request_timeout_seconds=timeout,
++        reasoning_effort=reasoning_effort,
++        is_reasoning_model=is_reasoning_model,
++        extra_body=deepcopy(extra_body),
+     )
+ 
+ 
+diff --git a/m3/llm_factory.py b/m3/llm_factory.py
+index 2172bbe8..34ec10a2 100644
+--- a/m3/llm_factory.py
++++ b/m3/llm_factory.py
+@@ -137,6 +137,10 @@ def build_m3_llm(
+     base_url = base_url or configured.base_url
+     api_key = api_key or configured.api_key
+     max_tokens = max_tokens or configured.max_tokens
++    reasoning_options = {
++        key: value for key in ("reasoning_effort", "is_reasoning_model", "extra_body")
++        if (value := getattr(configured, key, None)) is not None
++    }
+ 
+     if provider == "mock":
+         from providers.llm import MockLLM
+@@ -153,6 +157,7 @@ def build_m3_llm(
+             max_tokens=max_tokens,
+             json_mode=json_mode,
+             request_timeout_seconds=configured.request_timeout_seconds,
++            **reasoning_options,
+         )
+ 
+     # OpenAI-compatible fallback. Covers openai / volcengine / deepseek /
+@@ -178,6 +183,7 @@ def build_m3_llm(
+         max_tokens=max_tokens,
+         json_mode=json_mode,
+         request_timeout_seconds=configured.request_timeout_seconds,
++        **reasoning_options,
+     )
+ 
+ 
+diff --git a/providers/llm/minimax_llm.py b/providers/llm/minimax_llm.py
+index 52b19d66..f6e76ab9 100644
+--- a/providers/llm/minimax_llm.py
++++ b/providers/llm/minimax_llm.py
+@@ -30,6 +30,7 @@ import json
+ import logging
+ import os
+ from itertools import permutations
++from typing import Any
+ 
+ from core.errors import ToolCallProtocolError
+ 
+@@ -115,6 +116,9 @@ class MiniMaxLLM(OpenAILLM):
+         max_tokens: int = 4096,
+         json_mode: bool = True,
+         request_timeout_seconds: float = 120.0,
++        reasoning_effort: str | None = None,
++        is_reasoning_model: bool | None = None,
++        extra_body: dict[str, Any] | None = None,
+     ) -> None:
+         # Read MiniMax-specific env first, then fall back to the
+         # generic OpenAI env so a single OGMEM_API_KEY can power
+@@ -141,6 +145,9 @@ class MiniMaxLLM(OpenAILLM):
+             max_tokens=max_tokens,
+             json_mode=json_mode,
+             request_timeout_seconds=request_timeout_seconds,
++            reasoning_effort=reasoning_effort,
++            is_reasoning_model=is_reasoning_model,
++            extra_body=extra_body,
+         )
+ 
+     def _normalize_tool_response(self, response, tools) -> None:
+diff --git a/tests/unit/m3/test_reasoning_model_config.py b/tests/unit/m3/test_reasoning_model_config.py
+new file mode 100644
+index 00000000..7e819c28
+--- /dev/null
++++ b/tests/unit/m3/test_reasoning_model_config.py
+@@ -0,0 +1,67 @@
++"""Reasoning settings must reach every M3 model role without changing defaults."""
++from unittest.mock import Mock, patch
++
++import pytest
++import yaml
++
++from m3.config import load_m3_runtime_config
++from m3.llm_factory import build_m3_llm
++
++
++def config_file(tmp_path, data):
++    path = tmp_path / "config.yaml"
++    path.write_text(yaml.safe_dump(data))
++    return str(path)
++
++
++@pytest.mark.parametrize("provider", ["openai", "minimax"])
++@pytest.mark.parametrize("role", ["episodic_llm", "qa_llm", "judge_llm"])
++def test_factory_forwards_reasoning_parameters(tmp_path, monkeypatch, provider, role):
++    ctor = Mock()
++    monkeypatch.setattr("providers.llm.get_minimax_llm", lambda: ctor)
++    monkeypatch.setattr("providers.llm.get_openai_llm", lambda: (ctor, None))
++    path = config_file(tmp_path, {
++        "llm": {"provider": provider, "api_key": "test-only", "model": "MiniMax-M3.1-Flash",
++                "is_reasoning_model": True, "reasoning_effort": "high",
++                "extra_body": {"thinking": {"type": "adaptive"}}},
++        "m3": {role: {"reasoning_effort": "max", "max_tokens": 8192}},
++    })
++    build_m3_llm(config_path=path, config_role=role)
++    kw = ctor.call_args.kwargs
++    assert kw["reasoning_effort"] == "max"
++    assert kw["is_reasoning_model"] is True
++    assert kw["extra_body"] == {"thinking": {"type": "adaptive"}}
++    assert kw["max_tokens"] == 8192
++
++
++@pytest.mark.parametrize("key,value", [
++    ("is_reasoning_model", "false"), ("is_reasoning_model", 1),
++    ("reasoning_effort", 3), ("extra_body", "thinking"), ("extra_body", []),
++])
++def test_invalid_reasoning_config_rejected(tmp_path, key, value):
++    with pytest.raises(ValueError, match=key):
++        load_m3_runtime_config(config_file(tmp_path, {"llm": {key: value}}))
++
++
++def test_legacy_defaults_unchanged(tmp_path):
++    runtime = load_m3_runtime_config(config_file(tmp_path, {}))
++    for role in ("episodic_llm", "qa_llm", "judge_llm"):
++        config = getattr(runtime, role)
++        assert config.reasoning_effort is None
++        assert config.is_reasoning_model is None
++        assert config.extra_body is None
++
++
++def test_minimax_uses_completion_budget_and_adaptive_body(monkeypatch):
++    from providers.llm.minimax_llm import MiniMaxLLM
++    monkeypatch.delenv("OGMEM_MINIMAX_MODEL", raising=False)
++    with patch("providers.llm.openai_llm.OpenAI"):
++        llm = MiniMaxLLM(
++            api_key="test-only", model="MiniMax-M3.1-Flash", max_tokens=8192,
++            is_reasoning_model=True, reasoning_effort="max",
++            extra_body={"thinking": {"type": "adaptive"}},
++        )
++    assert llm._completion_parameters(0.2) == {
++        "max_completion_tokens": 8192, "reasoning_effort": "max",
++        "extra_body": {"thinking": {"type": "adaptive"}},
++    }

@@ -1,0 +1,350 @@
+{
+  "study_05": {
+    "data.jsonl": {
+      "sha256": "da0a27791b804814176d8f421adbb0d5fb4a245961727f5f1260837a0be078af",
+      "bytes": 14890,
+      "records": 1
+    },
+    "frames.jsonl": {
+      "sha256": "2cff3ce60d88ade2d182e50d65687f2da6538b7f06ee0fcb51665003234d67e8",
+      "bytes": 54172,
+      "records": 69
+    },
+    "audio.jsonl": {
+      "sha256": "2b27b6db61767bb4e62e50caba2c091d65cf416809969d6c910b1d252cba2cf2",
+      "bytes": 15791,
+      "records": 69
+    },
+    "voice_asr.jsonl": {
+      "sha256": "29764335a4513fdb84174a3f4f20745f65e093ddef0ae9b1d80bb5f96f556f60",
+      "bytes": 101567,
+      "records": 277
+    },
+    "episodic_memory.jsonl": {
+      "sha256": "2deef3b25ec737055c22247a5cf3975f10bb9cf9babdfcd2476d439b529052dc",
+      "bytes": 314585,
+      "records": 69
+    },
+    "episodic_index.jsonl": {
+      "sha256": "3ccb8882d8ae0f7811f72c3f2e08c98029cb205b1c86fc632ca0ea6d49660ece",
+      "bytes": 564598,
+      "records": 69
+    },
+    "m3_qa_results.jsonl": {
+      "sha256": "91bff52036054bfc7568b207450f529e622336ef299ee767f2fada0267d87c90",
+      "bytes": 181684,
+      "records": 12
+    },
+    "semantic_memories.jsonl": {
+      "sha256": "42142e6c0b5e733d5513f4a163573f4c9fd21846025af48492b316325e06d7a7",
+      "bytes": 221532,
+      "records": 1
+    },
+    "speaker_turns.jsonl": {
+      "sha256": "8ed06db228aeaf2ade709ee2b0ae2f6371dbe107ec5117ccdc97c3a4c4606a4c",
+      "bytes": 176141,
+      "records": 547
+    },
+    "speaker_embeddings.jsonl": {
+      "sha256": "a21b84f463fe3847146703adc81529254d29b3bf3a14fc5f989f1ecb2cd8c56b",
+      "bytes": 38484,
+      "records": 140
+    },
+    "observed_log_span_seconds": 5480.866,
+    "last_stage_observed_span_seconds": 1997.198,
+    "last_stage": "qa",
+    "stage_start_deltas_seconds": {
+      "trim": 11.813,
+      "annotate": 0.001,
+      "preprocess": 16.639,
+      "load_clips": 3.456,
+      "extract_audio": 22.273,
+      "extract_frames": 64.173,
+      "detect_faces": 64.465,
+      "voice_asr": 50.935,
+      "speaker_diarization": 90.382,
+      "speaker_embedding": 6.643,
+      "episodic_memory": 3082.8,
+      "create_memory_nodes": 0.232,
+      "build_index": 5.12,
+      "face_clustering": 50.566,
+      "voice_segmentation": 6.325,
+      "voice_clustering": 7.612,
+      "semantic_memory_consolidator": 0.233
+    }
+  },
+  "gym_03": {
+    "data.jsonl": {
+      "sha256": "ef7b679488c83e3a594e061f8156cc6a9abe5590aefe43e59ea7c7cd144b771a",
+      "bytes": 14256,
+      "records": 1
+    },
+    "frames.jsonl": {
+      "sha256": "ba69e19d03b6ae8a00e2a9cda77e836e87d1e749b3503a32b59688a3576b0ffa",
+      "bytes": 53642,
+      "records": 68
+    },
+    "audio.jsonl": {
+      "sha256": "f4c55a4c10c01d1389186ffcab7cb875a5433a13aedbd100bac46bfa1d7e05eb",
+      "bytes": 15426,
+      "records": 68
+    },
+    "voice_asr.jsonl": {
+      "sha256": "a7a76386c318e576c87d0c4e4da963dbcc0e0d1e9221d1c005a8a8470c087597",
+      "bytes": 98955,
+      "records": 269
+    },
+    "episodic_memory.jsonl": {
+      "sha256": "42825dcebb5b6f8e9c05326d3a7d9261fced032369cff3692c6eec9f6bc1bde2",
+      "bytes": 292343,
+      "records": 68
+    },
+    "episodic_index.jsonl": {
+      "sha256": "5d4258b2a42dc495af8d8bac041c789ba6945272e5301c6225b224a283b0a7ea",
+      "bytes": 526114,
+      "records": 68
+    },
+    "m3_qa_results.jsonl": {
+      "sha256": "3198c84ba7e1e9b4ffd464d1fb53fde580e4b6f8930aafac9045eb41cc828282",
+      "bytes": 129456,
+      "records": 11
+    },
+    "semantic_memories.jsonl": {
+      "sha256": "5109b556b18143b270bd42ae345cfc94f06a7ad94e7d25601d28d48cd96cc927",
+      "bytes": 195934,
+      "records": 1
+    },
+    "speaker_turns.jsonl": {
+      "sha256": "4995d61e547768c3c0da36df08eb6f30eb380ebe99f73b120f7ac5e948c8ccc0",
+      "bytes": 184713,
+      "records": 587
+    },
+    "speaker_embeddings.jsonl": {
+      "sha256": "2fb30e1e2316e7842ea4819a9ad46ba9c141e6778ee46d069190c48dc5d92cfe",
+      "bytes": 46126,
+      "records": 169
+    },
+    "observed_log_span_seconds": 4902.16,
+    "last_stage_observed_span_seconds": 1115.694,
+    "last_stage": "qa",
+    "stage_start_deltas_seconds": {
+      "trim": 2.671,
+      "annotate": 0.0,
+      "preprocess": 8.416,
+      "load_clips": 4.228,
+      "extract_audio": 12.936,
+      "extract_frames": 26.379,
+      "detect_faces": 55.277,
+      "voice_asr": 48.381,
+      "speaker_diarization": 85.169,
+      "speaker_embedding": 7.088,
+      "episodic_memory": 3351.966,
+      "create_memory_nodes": 0.256,
+      "build_index": 4.679,
+      "face_clustering": 157.573,
+      "voice_segmentation": 13.106,
+      "voice_clustering": 8.106,
+      "semantic_memory_consolidator": 0.235
+    }
+  },
+  "bedroom_04": {
+    "data.jsonl": {
+      "sha256": "fceb874ab01b4ad139146a1f7046a79207617959423f954b61115cbc2c740513",
+      "bytes": 12540,
+      "records": 1
+    },
+    "frames.jsonl": {
+      "sha256": "8dc83da3851605909b297c1023c85b44c22bc36686af09687f7782f3bad2715a",
+      "bytes": 43857,
+      "records": 56
+    },
+    "audio.jsonl": {
+      "sha256": "c024ca95aab48c3f72e21660c975f21e12b7ed0483b02c15da023927602275b6",
+      "bytes": 12926,
+      "records": 56
+    },
+    "voice_asr.jsonl": {
+      "sha256": "9119be88f50586fce67f7512cf80d2b13d867ef9ea973202b9a3f3d0afb82b02",
+      "bytes": 121962,
+      "records": 327
+    },
+    "episodic_memory.jsonl": {
+      "sha256": "ad9a64059f37e4aef95c647912cd41043d63ca3d4a34da0b5465aaf912dfebed",
+      "bytes": 251850,
+      "records": 56
+    },
+    "episodic_index.jsonl": {
+      "sha256": "5c0a8d6d8b56d465c2595ed1d5ada0ecf2c3c2f3c91bf8e419f9b1af9886c213",
+      "bytes": 451074,
+      "records": 56
+    },
+    "m3_qa_results.jsonl": {
+      "sha256": "861a23febc68d9c93577b72546a53e823a4305f86f6924b18ce50a4f1b2b4c8e",
+      "bytes": 166494,
+      "records": 11
+    },
+    "semantic_memories.jsonl": {
+      "sha256": "ba34d780ac1bd3484eb73550efe39d5658ca20e4d9befbb7ce6073b2e1f4ea7a",
+      "bytes": 171993,
+      "records": 1
+    },
+    "speaker_turns.jsonl": {
+      "sha256": "ab3fe4465ff06b10855bace3a592f8ea2833645e5b50e9bb245ac133c55c6c83",
+      "bytes": 208851,
+      "records": 635
+    },
+    "speaker_embeddings.jsonl": {
+      "sha256": "560a82db8adbeff0259e31d56e38b1965d40b46238bc79831e8262c4939140d9",
+      "bytes": 34921,
+      "records": 126
+    },
+    "observed_log_span_seconds": 5733.629,
+    "last_stage_observed_span_seconds": 2037.663,
+    "last_stage": "qa",
+    "stage_start_deltas_seconds": {
+      "trim": 9.58,
+      "annotate": 0.0,
+      "preprocess": 13.268,
+      "load_clips": 2.843,
+      "extract_audio": 9.194,
+      "extract_frames": 58.043,
+      "detect_faces": 50.547,
+      "voice_asr": 50.172,
+      "speaker_diarization": 71.135,
+      "speaker_embedding": 6.209,
+      "episodic_memory": 3073.318,
+      "create_memory_nodes": 0.197,
+      "build_index": 4.387,
+      "face_clustering": 328.956,
+      "voice_segmentation": 8.85,
+      "voice_clustering": 9.06,
+      "semantic_memory_consolidator": 0.207
+    }
+  },
+  "study_18": {
+    "data.jsonl": {
+      "sha256": "8d3169bf41244fa0a48ca9011a54f1f780ee68c33048f16cfdfa0f7dd13adba5",
+      "bytes": 18010,
+      "records": 1
+    },
+    "frames.jsonl": {
+      "sha256": "5ad452699a890d0df7545b88b4f4e5ab266e601518ead72ac7c82681cdc39624",
+      "bytes": 66181,
+      "records": 84
+    },
+    "audio.jsonl": {
+      "sha256": "ecd481fb7a00bcd318ff13da1f7aa49bafef643670a4e0db882c430d4d5bae03",
+      "bytes": 19226,
+      "records": 84
+    },
+    "voice_asr.jsonl": {
+      "sha256": "7bc4e9adabec5210cfd10f389f2c1770e7f1c62ea954946ecaef4e07a73bc286",
+      "bytes": 117251,
+      "records": 320
+    },
+    "episodic_memory.jsonl": {
+      "sha256": "03ace8847a454cd1230a3fea933beb29d2ba5503a8b06b3ee1b030b6d461c0b3",
+      "bytes": 347986,
+      "records": 83
+    },
+    "speaker_turns.jsonl": {
+      "sha256": "31724ea90384f3a3fc9671aa8282ac6c0f270ef5ffc1bc5c81c94fd863a76ada",
+      "bytes": 169165,
+      "records": 523
+    },
+    "speaker_embeddings.jsonl": {
+      "sha256": "11196b562e182800e2800bb5dc8c6a9929b4b5d60919664da501fd90c51c20a4",
+      "bytes": 40173,
+      "records": 146
+    },
+    "observed_log_span_seconds": 4746.539,
+    "last_stage_observed_span_seconds": 4427.043,
+    "last_stage": "episodic_memory",
+    "stage_start_deltas_seconds": {
+      "trim": 3.571,
+      "annotate": 0.0,
+      "preprocess": 11.272,
+      "load_clips": 5.203,
+      "extract_audio": 17.036,
+      "extract_frames": 31.625,
+      "detect_faces": 89.068,
+      "voice_asr": 60.568,
+      "speaker_diarization": 94.408,
+      "speaker_embedding": 6.745
+    }
+  },
+  "kitchen_20": {
+    "data.jsonl": {
+      "sha256": "624ceadee1b31ea6bd54c466885ceb0fd6e447afca25425deb548270b6e769e0",
+      "bytes": 14038,
+      "records": 1
+    },
+    "frames.jsonl": {
+      "sha256": "2c7d7f2e11eaf8e06103de462e1d7364357ff1ad59d9ea47de6da3a540c80f42",
+      "bytes": 49949,
+      "records": 63
+    },
+    "audio.jsonl": {
+      "sha256": "c96537148a1b98bf773e466d6e07f075bd6fb92902c73fb044e027b0c169426b",
+      "bytes": 14543,
+      "records": 63
+    },
+    "voice_asr.jsonl": {
+      "sha256": "0a846c19ad7bf3d2f8bbb99591c34f23c3505654c4e0f88e93e7d8af71d54215",
+      "bytes": 91416,
+      "records": 248
+    },
+    "episodic_memory.jsonl": {
+      "sha256": "6cd47a3c64060c350fb000d5f918b16f9b53b778a436ac50d1ded6c43f723938",
+      "bytes": 279014,
+      "records": 63
+    },
+    "episodic_index.jsonl": {
+      "sha256": "ce88a76e5dd9ab14ba5333320e2af9914aa7ddffc51bfa7e2db622bd22ff4fa9",
+      "bytes": 500889,
+      "records": 63
+    },
+    "m3_qa_results.jsonl": {
+      "sha256": "651cec15751e386aacd4c15d00314634d0b6bbba16007f7db006453a9fe657f8",
+      "bytes": 225887,
+      "records": 17
+    },
+    "semantic_memories.jsonl": {
+      "sha256": "2b539029a5ff52612e192d8e20b8b506a12eef6674a1493f7caf62ff9a2ceee9",
+      "bytes": 197161,
+      "records": 1
+    },
+    "speaker_turns.jsonl": {
+      "sha256": "172e90f6d1fac0f93d8d269f935b1ba992f5667472e61064494b6b61a8db59ee",
+      "bytes": 171840,
+      "records": 538
+    },
+    "speaker_embeddings.jsonl": {
+      "sha256": "ab0d2103b88d00cd1dd1f835aebf6e1caaa8a7edea8a3a1a6184e61041c70167",
+      "bytes": 35463,
+      "records": 128
+    },
+    "observed_log_span_seconds": 5302.134,
+    "last_stage_observed_span_seconds": 1352.952,
+    "last_stage": "qa",
+    "stage_start_deltas_seconds": {
+      "trim": 11.794,
+      "annotate": 0.0,
+      "preprocess": 15.244,
+      "load_clips": 3.212,
+      "extract_audio": 15.377,
+      "extract_frames": 57.689,
+      "detect_faces": 48.535,
+      "voice_asr": 42.467,
+      "speaker_diarization": 67.488,
+      "speaker_embedding": 6.075,
+      "episodic_memory": 2544.292,
+      "create_memory_nodes": 0.231,
+      "build_index": 4.666,
+      "face_clustering": 1107.376,
+      "voice_segmentation": 11.268,
+      "voice_clustering": 13.22,
+      "semantic_memory_consolidator": 0.248
+    }
+  }
+}

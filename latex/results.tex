@@ -1,0 +1,30 @@
+管线结束状态为 \code{failed}。固定 65 题中保存 51 条 QA 记录，45 条答案非空且没有运行错误。题目加权自动均分为 \textbf{0.4692}，视频宏平均为 \textbf{0.4754}。评委错误 0 个。
+\begin{table}[htbp]\centering\small
+\begin{tabular}{lrrrrr}\toprule
+视频 & 题数 & 有效答案 & 记忆/片段 & 索引 & 自动均分\\\midrule
+\code{study_05} & 12 & 9 & 69/69 & 69 & 0.2917 \\
+\code{gym_03} & 11 & 10 & 68/68 & 68 & 0.7727 \\
+\code{bedroom_04} & 11 & 9 & 56/56 & 56 & 0.6364 \\
+\code{study_18} & 14 & 0 & 83/84 & 0 & 0.0000 \\
+\code{kitchen_20} & 17 & 17 & 63/63 & 63 & 0.6765 \\
+\bottomrule\end{tabular}\end{table}
+\begin{table}[htbp]\centering\small
+\begin{tabular}{p{0.51\linewidth}rrr}\toprule
+标签 & 题数 & 有效答案 & 自动均分\\\midrule
+Cross-Modal Reasoning & 21 & 14 & 0.4286 \\
+General Knowledge Extraction & 25 & 18 & 0.4200 \\
+Multi-Detail Reasoning & 28 & 16 & 0.3393 \\
+Multi-Hop Reasoning & 1 & 1 & 1.0000 \\
+Person Understanding & 21 & 18 & 0.7381 \\
+\bottomrule\end{tabular}\end{table}
+分类表按原始标签分别计分，多标签题重复进入多个分组；不能将分类题数相加作为总分母。总体均分仍严格按固定全集计算。
+SQL 审计发现悬空或跨账号关系 0 条。各视频的阶段状态、失败清单和向量覆盖见机器审计文件。
+\begin{table}[htbp]\centering\small
+\begin{tabular}{lrrrr}\toprule
+环节 & 逻辑调用 & 输入 tokens & 输出 tokens & 推理 tokens\\\midrule
+记忆 & 340 & 1587131 & 475023 & 147270 \\
+问答 & 241 & 14823188 & 72366 & 54743 \\
+评委/其他文本 & 45 & 28476 & 3423 & 1375 \\
+\bottomrule\end{tabular}\end{table}
+用量来自实际收到的 API usage，不等于账单金额。逻辑调用耗时包含网络、排队、推理与 SDK 重试，并发请求耗时和不等于整轮墙钟时间。预检与前序中断尝试另行保存，不混入本表。
+\IfFileExists{findings.tex}{\input{findings.tex}}{}

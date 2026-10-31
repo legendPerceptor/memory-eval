@@ -1,0 +1,18 @@
+{
+  "status": "reports_generated",
+  "pid": 990269,
+  "observed_at": "2026-11-01T01:38:24.718141+08:00",
+  "driver_exit_code": 2,
+  "integrity": {
+    "source_patch_matches_launch": true,
+    "expected_account_only": true,
+    "invalid_edges": 0,
+    "memory_and_index_complete": false,
+    "qa_record_coverage_complete": false,
+    "judge_errors": 0
+  },
+  "pdf": "/home/yuanjian/Development/memory-eval/latex/report.pdf",
+  "mean_score": 0.46923076923076923,
+  "valid_answers": 45,
+  "expected_questions": 65
+}

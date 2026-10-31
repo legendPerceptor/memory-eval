@@ -1,0 +1,26 @@
+{
+  "status": "completed",
+  "account_id": "m3-flash-medium-20261031",
+  "video_filter": "study_05",
+  "attempted_audio": 69,
+  "cached_audio": 0,
+  "executed_audio": 68,
+  "failed_audio": 0,
+  "completed_audio": 69,
+  "cache_version": 1,
+  "skipped_speaker_count": 2,
+  "skipped_speakers": [
+    {
+      "audio_node_id": "98bcdd24-f7e5-b246-0579-706b402923fe",
+      "speaker_id": "SPEAKER_03",
+      "reason": "audio_too_short",
+      "duration_sec": 0.067
+    },
+    {
+      "audio_node_id": "5b2fe0b5-d7d1-452c-af09-ccb26c59392a",
+      "speaker_id": "SPEAKER_01",
+      "reason": "audio_too_short",
+      "duration_sec": 0.017
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "status": "completed",
+  "account_id": "m3-flash-medium-20261031",
+  "video_filter": "kitchen_20",
+  "attempted_audio": 63,
+  "cached_audio": 0,
+  "executed_audio": 49,
+  "failed_audio": 0,
+  "completed_audio": 63,
+  "cache_version": 1,
+  "skipped_speaker_count": 1,
+  "skipped_speakers": [
+    {
+      "audio_node_id": "7448a82c-d75e-b9b8-0781-46eb05625bee",
+      "speaker_id": "SPEAKER_01",
+      "reason": "audio_too_short",
+      "duration_sec": 0.017
+    }
+  ]
+}

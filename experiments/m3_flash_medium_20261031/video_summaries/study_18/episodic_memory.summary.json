@@ -1,0 +1,20 @@
+{
+  "status": "failed",
+  "video_filter": null,
+  "account_id": "m3-flash-medium-20261031",
+  "workers": 4,
+  "expected_clips": 84,
+  "completed_clips": 83,
+  "generated_clips": 83,
+  "resumed_clips": 0,
+  "failed_clips": 1,
+  "recovered_retries": 0,
+  "errors": [
+    {
+      "video_id": "study_18",
+      "clip_id": 52,
+      "error": "episodic_memory_generator failed for d8547258-7ce0-3110-3a30-9a0f747cdd03: Invalid episodic memory: received a person/entity fragment"
+    }
+  ],
+  "failures_path": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/episodic_memory_failures.json"
+}

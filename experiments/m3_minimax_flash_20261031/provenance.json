@@ -1,0 +1,27 @@
+{
+  "status": "stopped_for_reasoning_budget_diagnosis",
+  "date": "2026-10-31",
+  "source_commit": "8c86c3ed5a180f6e3a43a501350c259ae8b6d50e",
+  "source_branch": "dev",
+  "source_dirty": true,
+  "source_change": "Forward optional reasoning settings through M3 config/factory and MiniMax provider; defaults unchanged.",
+  "database": "ogmem_m3_flash_20261031",
+  "account": "m3-flash-20261031",
+  "config_sha256": "425fd6b4bb44a27bfaa36226e26f4617e7ea9a47c0fd2ec81455a478258a9164",
+  "model": "MiniMax-M3.1-Flash",
+  "endpoint": "https://api.minimax.cn/v1",
+  "seed": 42,
+  "sample_size": 5,
+  "reasoning": {
+    "thinking": "adaptive",
+    "reasoning_effort": "max",
+    "temperature_sent": false,
+    "memory_max_completion_tokens": 8192,
+    "qa_max_completion_tokens": 8192,
+    "judge_max_completion_tokens": 2048
+  },
+  "previous_run": "m3_baseline_20261031 interrupted at user request; no comparative score",
+  "source_patch_sha256": "5d935a05c295a2ebbba27be91b85659f8bcb41314e7ca495e0718fc6f5e924f5",
+  "stopped_at": "2026-10-31T18:13:26.563848+08:00",
+  "reason": "First actual memory call exhausted all 8192 completion tokens on reasoning, no usable memory; preserve max-effort attempt separately."
+}

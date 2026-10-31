@@ -1,0 +1,9 @@
+{
+  "http_status": 200,
+  "model": "BAAI/bge-m3",
+  "dimension": 1024,
+  "usage": {
+    "prompt_tokens": 11,
+    "total_tokens": 11
+  }
+}

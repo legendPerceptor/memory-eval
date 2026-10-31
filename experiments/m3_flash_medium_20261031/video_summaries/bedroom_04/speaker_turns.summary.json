@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "audio_nodes": 56,
+  "failed_audio_nodes": 0,
+  "account_id": "m3-flash-medium-20261031",
+  "video_filter": "bedroom_04",
+  "attempted_audio": 56,
+  "cached_audio": 0,
+  "executed_audio": 56,
+  "completed_audio": 56,
+  "failed_audio": 0,
+  "cache_version": 1,
+  "turns": 635,
+  "resumed_turns": 0,
+  "preflight_error": null
+}

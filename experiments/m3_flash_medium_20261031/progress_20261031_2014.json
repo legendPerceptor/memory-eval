@@ -1,0 +1,27 @@
+{
+  "observed_at": "2026-10-31T20:16:03.346473+08:00",
+  "formal_experiment": "MiniMax-M3.1-Flash adaptive/medium, 4 memory workers",
+  "study_05": {
+    "memory_completed": 69,
+    "index_completed": 69,
+    "qa_records": 12,
+    "valid_answers": 9,
+    "timeouts": 3,
+    "interim_mean_score": 0.3333333333333333,
+    "score_counts": {
+      "1": 2,
+      "0.5": 4,
+      "0": 6
+    },
+    "judge_errors": 0
+  },
+  "full_cohort_score": null,
+  "full_cohort_note": "5 videos / 65 questions; still running; interim study_05 grade is not the overall score",
+  "qa_peak_prompt_tokens_study05": 147951,
+  "remaining_videos": [
+    "gym_03 (running)",
+    "bedroom_04",
+    "study_18",
+    "kitchen_20"
+  ]
+}

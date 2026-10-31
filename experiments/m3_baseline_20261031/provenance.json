@@ -1,0 +1,21 @@
+{
+  "source_commit": "8c86c3ed5a180f6e3a43a501350c259ae8b6d50e",
+  "source_branch": "dev",
+  "source_dirty": false,
+  "database": "ogmem_m3_baseline_20261031",
+  "account": "m3-baseline-20261031",
+  "config_sha256": "cad666fd1aeb37364a5e3eae6774937fa6b1c393c20eedd7ef236392d32281d1",
+  "original_config_sha256": "d1926587b6940821f8215263f28165efe1bb4833dd476c55bb1732bb2a439508",
+  "changes_from_wrapper_default": [
+    "sample_size=5",
+    "model alias omni-3b -> omni-7b (verified live endpoint)",
+    "isolated database/account/vector table",
+    "audio stages CUDA device 2",
+    "absolute dataset/output paths"
+  ],
+  "sample_seed": 42,
+  "experiment_date": "2026-10-31",
+  "status": "interrupted_by_user_model_change",
+  "stopped_at": "2026-10-31T17:56:30.057147+08:00",
+  "reason": "User requested MiniMax-M3.1-Flash instead of Omni-7B; partial run is not a completed baseline."
+}

@@ -1,0 +1,132 @@
+[
+  {
+    "video_id": "study_05",
+    "questions": 12,
+    "path": "/data/m3_data/videos/robot/study_05.mp4",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "hevc",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 720,
+          "r_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "2044.889000",
+        "size": "1879280120"
+      }
+    }
+  },
+  {
+    "video_id": "gym_03",
+    "questions": 11,
+    "path": "/data/m3_data/videos/robot/gym_03.mp4",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 720,
+          "r_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "2033.514000",
+        "size": "416322061"
+      }
+    }
+  },
+  {
+    "video_id": "bedroom_04",
+    "questions": 11,
+    "path": "/data/m3_data/videos/robot/bedroom_04.mp4",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "hevc",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 720,
+          "r_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "1650.684000",
+        "size": "1508303162"
+      }
+    }
+  },
+  {
+    "video_id": "study_18",
+    "questions": 14,
+    "path": "/data/m3_data/videos/robot/study_18.mp4",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 720,
+          "r_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "2498.519000",
+        "size": "553826430"
+      }
+    }
+  },
+  {
+    "video_id": "kitchen_20",
+    "questions": 17,
+    "path": "/data/m3_data/videos/robot/kitchen_20.mp4",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "hevc",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 720,
+          "r_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "1887.527000",
+        "size": "1733271296"
+      }
+    }
+  }
+]

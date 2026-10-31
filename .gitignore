@@ -1,0 +1,16 @@
+# Independent upstream repositories (record revisions in experiment metadata).
+/oGMemory/
+/locomo-test/
+/deploy-llm-on-gpu/
+/m3-agent/
+# Credentials, full media and unreviewed runtime logs stay local.
+**/private/
+/runs/
+__pycache__/
+*.pyc
+latex/*.aux
+latex/*.log
+latex/*.out
+latex/*.toc
+latex/build/
+latex/.report.*.pdf

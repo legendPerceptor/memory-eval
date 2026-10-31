@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "video_filter": null,
+  "account_id": "m3-flash-medium-20261031",
+  "workers": 4,
+  "expected_clips": 68,
+  "completed_clips": 68,
+  "generated_clips": 68,
+  "resumed_clips": 0,
+  "failed_clips": 0,
+  "recovered_retries": 0,
+  "errors": [],
+  "failures_path": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/gym_03/episodic_memory_failures.json"
+}

@@ -1,0 +1,11 @@
+{
+  "load_seconds": 1.498646117048338,
+  "compute_seconds": 327.1775515510235,
+  "lookup_seconds": 0.01820204802788794,
+  "write_seconds": 0.1525864468421787,
+  "total_seconds": 328.9010556060821,
+  "cache_hit": false,
+  "faces": 4096,
+  "emitted_edges": 991,
+  "existing_members": 2657
+}

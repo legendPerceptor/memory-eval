@@ -1,0 +1,300 @@
+{
+  "pipeline": {
+    "name": "video_episodic_full",
+    "version": 1,
+    "description": "End-to-end M3 pipeline: video + audio + face + voice + semantic consolidation + QA on the indexed graph."
+  },
+  "video_id": "study_18",
+  "selected_video": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/videos/robot/study_18.mp4",
+  "annotations": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/annotations/one_video.json",
+  "data_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/data.jsonl",
+  "frames_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/frames.jsonl",
+  "faces": {
+    "stage_id": "detect_faces",
+    "stage_type": "m3.detect_faces",
+    "ok": true,
+    "status": "success",
+    "outputs": {
+      "faces_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/faces.jsonl"
+    },
+    "counts": {
+      "records": 1337,
+      "faces": 2400
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "episodic_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/episodic_memory.jsonl",
+  "memory": null,
+  "index": null,
+  "artifacts": {
+    "selected_video": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/videos/robot/study_18.mp4",
+    "annotations": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/annotations/one_video.json",
+    "clips_root": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/clips",
+    "frames_root": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/frames",
+    "audio_root": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/audio",
+    "data_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/data.jsonl",
+    "frames_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/frames.jsonl",
+    "audio_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/audio.jsonl",
+    "faces_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/faces.jsonl",
+    "face_clusters": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/face_clusters.jsonl",
+    "voice_segments": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/voice_segments.jsonl",
+    "voice_clusters": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/voice_clusters.jsonl",
+    "voice_asr": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/voice_asr.jsonl",
+    "semantic_memories": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/semantic_memories.jsonl",
+    "episodic_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/episodic_memory.jsonl",
+    "index_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/episodic_index.jsonl",
+    "qa_results": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/m3_qa_results.jsonl",
+    "summary_json": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/pipeline_summary.json"
+  },
+  "stages": {
+    "trim": {
+      "stage_id": "trim",
+      "stage_type": "video.trim",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "selected_video": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/videos/robot/study_18.mp4"
+      },
+      "counts": {
+        "seconds": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "annotate": {
+      "stage_id": "annotate",
+      "stage_type": "m3.write_single_annotation",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "annotations": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/annotations/one_video.json"
+      },
+      "counts": {
+        "videos": 1
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "preprocess": {
+      "stage_id": "preprocess",
+      "stage_type": "m3.preprocess",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "clips_root": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/clips"
+      },
+      "counts": {},
+      "errors": [],
+      "warnings": []
+    },
+    "load_clips": {
+      "stage_id": "load_clips",
+      "stage_type": "m3.load_clips",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "data_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/data.jsonl"
+      },
+      "counts": {
+        "videos": 1,
+        "clips": 84
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "extract_audio": {
+      "stage_id": "extract_audio",
+      "stage_type": "m3.extract_audio",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "audio_root": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/audio",
+        "audio_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/audio.jsonl"
+      },
+      "counts": {
+        "records": 84,
+        "new_records": 84
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "extract_frames": {
+      "stage_id": "extract_frames",
+      "stage_type": "m3.extract_frames",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "frames_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/frames.jsonl"
+      },
+      "counts": {
+        "records": 84,
+        "frames": 1337
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "detect_faces": {
+      "stage_id": "detect_faces",
+      "stage_type": "m3.detect_faces",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "faces_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/faces.jsonl"
+      },
+      "counts": {
+        "records": 1337,
+        "faces": 2400
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "voice_asr": {
+      "stage_id": "voice_asr",
+      "stage_type": "m3.voice_asr",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "voice_asr": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/voice_asr.jsonl",
+        "audio_diagnostics": {
+          "status": "completed",
+          "account_id": "m3-flash-medium-20261031",
+          "video_filter": "study_18",
+          "attempted_audio": 84,
+          "cached_audio": 0,
+          "executed_audio": 84,
+          "failed_audio": 0,
+          "completed_audio": 84,
+          "cache_version": 1
+        }
+      },
+      "counts": {
+        "segments": 320,
+        "attempted_audio": 84,
+        "cached_audio": 0,
+        "executed_audio": 84,
+        "completed_audio": 84,
+        "failed_audio": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "speaker_diarization": {
+      "stage_id": "speaker_diarization",
+      "stage_type": "m3.speaker_diarization",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "speaker_turns": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/speaker_turns.jsonl",
+        "audio_diagnostics": {
+          "status": "success",
+          "audio_nodes": 84,
+          "failed_audio_nodes": 0,
+          "account_id": "m3-flash-medium-20261031",
+          "video_filter": "study_18",
+          "attempted_audio": 84,
+          "cached_audio": 0,
+          "executed_audio": 84,
+          "completed_audio": 84,
+          "failed_audio": 0,
+          "cache_version": 1,
+          "turns": 523,
+          "resumed_turns": 0,
+          "preflight_error": null
+        },
+        "diarization_diagnostics": {
+          "status": "success",
+          "audio_nodes": 84,
+          "failed_audio_nodes": 0,
+          "account_id": "m3-flash-medium-20261031",
+          "video_filter": "study_18",
+          "attempted_audio": 84,
+          "cached_audio": 0,
+          "executed_audio": 84,
+          "completed_audio": 84,
+          "failed_audio": 0,
+          "cache_version": 1,
+          "turns": 523,
+          "resumed_turns": 0,
+          "preflight_error": null
+        }
+      },
+      "counts": {
+        "attempted_audio": 84,
+        "cached_audio": 0,
+        "executed_audio": 84,
+        "completed_audio": 84,
+        "failed_audio": 0,
+        "turns": 523,
+        "failed_audio_nodes": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "speaker_embedding": {
+      "stage_id": "speaker_embedding",
+      "stage_type": "m3.speaker_embedding",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "speaker_embeddings": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/speaker_embeddings.jsonl",
+        "audio_diagnostics": {
+          "status": "completed",
+          "account_id": "m3-flash-medium-20261031",
+          "video_filter": "study_18",
+          "attempted_audio": 84,
+          "cached_audio": 0,
+          "executed_audio": 75,
+          "failed_audio": 0,
+          "completed_audio": 84,
+          "cache_version": 1,
+          "skipped_speaker_count": 1,
+          "skipped_speakers": [
+            {
+              "audio_node_id": "ecf54a91-44ee-c976-dee7-8e6912df40f7",
+              "speaker_id": "SPEAKER_01",
+              "reason": "audio_too_short",
+              "duration_sec": 0.017
+            }
+          ]
+        }
+      },
+      "counts": {
+        "attempted_audio": 84,
+        "cached_audio": 0,
+        "executed_audio": 75,
+        "completed_audio": 84,
+        "failed_audio": 0,
+        "speakers": 146
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "episodic_memory": {
+      "stage_id": "episodic_memory",
+      "stage_type": "m3.episodic_memory",
+      "ok": false,
+      "status": "failed",
+      "outputs": {
+        "episodic_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/episodic_memory.jsonl",
+        "summary_json": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/episodic_memory.summary.json",
+        "failures_json": "/home/yuanjian/Development/memory-eval/runs/m3_flash_medium_20261031/study_18/episodic_memory_failures.json"
+      },
+      "counts": {
+        "expected_clips": 84,
+        "completed_clips": 83,
+        "generated_clips": 83,
+        "resumed_clips": 0,
+        "failed_clips": 1
+      },
+      "errors": [
+        {
+          "video_id": "study_18",
+          "clip_id": 52,
+          "error": "episodic_memory_generator failed for d8547258-7ce0-3110-3a30-9a0f747cdd03: Invalid episodic memory: received a person/entity fragment"
+        }
+      ],
+      "warnings": []
+    }
+  }
+}

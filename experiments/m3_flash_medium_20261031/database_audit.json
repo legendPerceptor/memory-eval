@@ -1,0 +1,184 @@
+{
+  "snapshot_time": "2026-11-01T01:38:21.396658+08:00",
+  "accounts": [
+    {
+      "account_id": "m3-flash-medium-20261031",
+      "nodes": 28331
+    }
+  ],
+  "node_counts": [
+    {
+      "node_type": "extracted",
+      "raw_type": null,
+      "extractor_type": "audio_extractor",
+      "extraction_status": "completed",
+      "count": 340
+    },
+    {
+      "node_type": "extracted",
+      "raw_type": null,
+      "extractor_type": "episodic_memory_generator",
+      "extraction_status": "completed",
+      "count": 339
+    },
+    {
+      "node_type": "extracted",
+      "raw_type": null,
+      "extractor_type": "face_detection",
+      "extraction_status": "completed",
+      "count": 12952
+    },
+    {
+      "node_type": "extracted",
+      "raw_type": null,
+      "extractor_type": "speaker_diarization",
+      "extraction_status": "completed",
+      "count": 3170
+    },
+    {
+      "node_type": "extracted",
+      "raw_type": null,
+      "extractor_type": "speaker_embedding",
+      "extraction_status": "completed",
+      "count": 1049
+    },
+    {
+      "node_type": "extracted",
+      "raw_type": null,
+      "extractor_type": "video_frame_extractor",
+      "extraction_status": "completed",
+      "count": 340
+    },
+    {
+      "node_type": "extracted",
+      "raw_type": null,
+      "extractor_type": "voice_asr",
+      "extraction_status": "completed",
+      "count": 1781
+    },
+    {
+      "node_type": "extracted",
+      "raw_type": null,
+      "extractor_type": "voice_segmentation",
+      "extraction_status": "completed",
+      "count": 2013
+    },
+    {
+      "node_type": "memory",
+      "raw_type": null,
+      "extractor_type": null,
+      "extraction_status": null,
+      "count": 260
+    },
+    {
+      "node_type": "raw",
+      "raw_type": "audio",
+      "extractor_type": null,
+      "extraction_status": null,
+      "count": 340
+    },
+    {
+      "node_type": "raw",
+      "raw_type": "image",
+      "extractor_type": null,
+      "extraction_status": null,
+      "count": 5407
+    },
+    {
+      "node_type": "raw",
+      "raw_type": "video",
+      "extractor_type": null,
+      "extraction_status": null,
+      "count": 340
+    }
+  ],
+  "edge_counts": [
+    {
+      "edge_type": "evolves",
+      "count": 256
+    },
+    {
+      "edge_type": "extracted_from",
+      "count": 21984
+    },
+    {
+      "edge_type": "references",
+      "count": 6082
+    },
+    {
+      "edge_type": "same_identity",
+      "count": 7267
+    },
+    {
+      "edge_type": "supports",
+      "count": 512
+    }
+  ],
+  "invalid_edges": [
+    {
+      "count": 0
+    }
+  ],
+  "episodic": [
+    {
+      "video": "bedroom_04",
+      "nodes": 56,
+      "completed": 56,
+      "embeddings_1024": 0
+    },
+    {
+      "video": "gym_03",
+      "nodes": 68,
+      "completed": 68,
+      "embeddings_1024": 0
+    },
+    {
+      "video": "kitchen_20",
+      "nodes": 63,
+      "completed": 63,
+      "embeddings_1024": 0
+    },
+    {
+      "video": "study_05",
+      "nodes": 69,
+      "completed": 69,
+      "embeddings_1024": 0
+    },
+    {
+      "video": "study_18",
+      "nodes": 83,
+      "completed": 83,
+      "embeddings_1024": 0
+    }
+  ],
+  "vectors": [
+    {
+      "account_id": "m3-flash-medium-20261031",
+      "video_id": "bedroom_04",
+      "count": 56,
+      "min_dim": 1024,
+      "max_dim": 1024
+    },
+    {
+      "account_id": "m3-flash-medium-20261031",
+      "video_id": "gym_03",
+      "count": 68,
+      "min_dim": 1024,
+      "max_dim": 1024
+    },
+    {
+      "account_id": "m3-flash-medium-20261031",
+      "video_id": "kitchen_20",
+      "count": 63,
+      "min_dim": 1024,
+      "max_dim": 1024
+    },
+    {
+      "account_id": "m3-flash-medium-20261031",
+      "video_id": "study_05",
+      "count": 69,
+      "min_dim": 1024,
+      "max_dim": 1024
+    }
+  ]
+}
