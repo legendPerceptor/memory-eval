@@ -25,6 +25,8 @@ if path:
                 "started_at_unix": started,
                 "process": os.path.basename(sys.argv[0]),
                 "pid": os.getpid(),
+                "qa_video_id": os.environ.get("M3_AUDIT_VIDEO"),
+                "qa_question_index": os.environ.get("M3_AUDIT_QUESTION_INDEX"),
                 "input_video_id": video[1] if video else None,
                 "input_clip_id": clip[1] if clip else None,
                 "messages_sha256": hashlib.sha256(json.dumps(messages, sort_keys=True, ensure_ascii=False).encode()).hexdigest(),

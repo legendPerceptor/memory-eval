@@ -1,0 +1,1986 @@
+{
+  "attribution": "Inferred from sequential QA call order, checked against all recorded model-round counts; historical logs lack question IDs.",
+  "questions": [
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q01",
+      "question": "Where is the color paper?",
+      "finish_reason": "done",
+      "model_rounds": 2,
+      "prompt_tokens": [
+        1245,
+        20785
+      ],
+      "model_seconds": [
+        4.7138848304748535,
+        10.203815937042236
+      ],
+      "model_time_sum": 14.91770076751709,
+      "retrieval_seconds": 0.5234918398782611,
+      "searches": 2,
+      "node_occurrences": 16,
+      "unique_node_ids": 8,
+      "overlap_fraction": 0.5,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q02",
+      "question": "What items were taken out from the toolbox?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1249,
+        21742,
+        66751,
+        90228,
+        115095,
+        140645
+      ],
+      "model_seconds": [
+        3.4327752590179443,
+        11.885655403137207,
+        25.34785795211792,
+        39.341142416000366,
+        54.41087865829468,
+        57.63144302368164
+      ],
+      "model_time_sum": 192.04975271224976,
+      "retrieval_seconds": 1.5059542681556195,
+      "searches": 6,
+      "node_occurrences": 114,
+      "unique_node_ids": 51,
+      "overlap_fraction": 0.5526315789473684,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q03",
+      "question": "How many trees were made in total?",
+      "finish_reason": "done",
+      "model_rounds": 5,
+      "prompt_tokens": [
+        1248,
+        45035,
+        66324,
+        86200,
+        106373
+      ],
+      "model_seconds": [
+        2.0626533031463623,
+        21.39181113243103,
+        28.961761951446533,
+        35.047760009765625,
+        40.24786925315857
+      ],
+      "model_time_sum": 127.71185564994812,
+      "retrieval_seconds": 1.2251756601035595,
+      "searches": 5,
+      "node_occurrences": 86,
+      "unique_node_ids": 35,
+      "overlap_fraction": 0.5930232558139534,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q04",
+      "question": "Do Raam and Quispe argue usually a lot?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1252,
+        46442,
+        69802,
+        92833,
+        117335,
+        146113
+      ],
+      "model_seconds": [
+        2.6366565227508545,
+        16.453213453292847,
+        23.546322107315063,
+        35.852534770965576,
+        58.76455807685852,
+        60.172065019607544
+      ],
+      "model_time_sum": 197.4253499507904,
+      "retrieval_seconds": 1.6612968258559704,
+      "searches": 6,
+      "node_occurrences": 115,
+      "unique_node_ids": 56,
+      "overlap_fraction": 0.5130434782608695,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q05",
+      "question": "How many steps were needed to make the tree trunk?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1250,
+        45231,
+        66885,
+        91567,
+        119843,
+        147951
+      ],
+      "model_seconds": [
+        2.610957145690918,
+        25.36098599433899,
+        27.677969217300415,
+        31.816174745559692,
+        35.62121105194092,
+        65.24824500083923
+      ],
+      "model_time_sum": 188.33554315567017,
+      "retrieval_seconds": 0.8921469750348479,
+      "searches": 6,
+      "node_occurrences": 120,
+      "unique_node_ids": 28,
+      "overlap_fraction": 0.7666666666666666,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q06",
+      "question": "Where is the schoolbag?",
+      "finish_reason": "done",
+      "model_rounds": 4,
+      "prompt_tokens": [
+        1247,
+        45812,
+        68229,
+        88006
+      ],
+      "model_seconds": [
+        3.4709479808807373,
+        19.2327241897583,
+        25.0769259929657,
+        42.035370111465454
+      ],
+      "model_time_sum": 89.81596827507019,
+      "retrieval_seconds": 0.7406547907739878,
+      "searches": 4,
+      "node_occurrences": 70,
+      "unique_node_ids": 34,
+      "overlap_fraction": 0.5142857142857142,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q07",
+      "question": "How many steps were needed to make the leaves?",
+      "finish_reason": "timeout",
+      "model_rounds": 5,
+      "prompt_tokens": [
+        1251,
+        46531,
+        68398,
+        92620,
+        120922
+      ],
+      "model_seconds": [
+        1.8997933864593506,
+        23.578722953796387,
+        31.127756595611572,
+        52.33767771720886,
+        98.60493993759155
+      ],
+      "model_time_sum": 207.54889059066772,
+      "retrieval_seconds": 1.135457377647981,
+      "searches": 6,
+      "node_occurrences": 120,
+      "unique_node_ids": 40,
+      "overlap_fraction": 0.6666666666666667,
+      "observed_loop_timeout_seconds": 208.7
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q08",
+      "question": "How many main steps are needed to make Thanksgiving tree?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1252,
+        45337,
+        69866,
+        94808,
+        119529,
+        142114
+      ],
+      "model_seconds": [
+        1.991093635559082,
+        27.692038536071777,
+        26.498741388320923,
+        35.352930784225464,
+        60.37200736999512,
+        62.129239320755005
+      ],
+      "model_time_sum": 214.03605103492737,
+      "retrieval_seconds": 1.3852881889324635,
+      "searches": 6,
+      "node_occurrences": 114,
+      "unique_node_ids": 44,
+      "overlap_fraction": 0.6140350877192983,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q09",
+      "question": "What were the decorations of the Thanksgiving tree?",
+      "finish_reason": "done",
+      "model_rounds": 5,
+      "prompt_tokens": [
+        1250,
+        45362,
+        68383,
+        90928,
+        115586
+      ],
+      "model_seconds": [
+        5.8087780475616455,
+        22.010308265686035,
+        24.901545763015747,
+        52.01529264450073,
+        48.097190856933594
+      ],
+      "model_time_sum": 152.83311557769775,
+      "retrieval_seconds": 1.2857931510079652,
+      "searches": 5,
+      "node_occurrences": 92,
+      "unique_node_ids": 33,
+      "overlap_fraction": 0.6413043478260869,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q10",
+      "question": "What items were taken out from the pen holder?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1250,
+        43585,
+        65421,
+        87089,
+        107467,
+        126580
+      ],
+      "model_seconds": [
+        1.3259856700897217,
+        19.794530153274536,
+        31.862966299057007,
+        49.549649715423584,
+        53.87833547592163,
+        60.89162087440491
+      ],
+      "model_time_sum": 217.3030881881714,
+      "retrieval_seconds": 1.698140871943906,
+      "searches": 6,
+      "node_occurrences": 104,
+      "unique_node_ids": 48,
+      "overlap_fraction": 0.5384615384615384,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q11",
+      "question": "Did Quispe just care about Raam's study but nothing else?",
+      "finish_reason": "timeout",
+      "model_rounds": 5,
+      "prompt_tokens": [
+        1255,
+        47144,
+        70348,
+        92899,
+        109105
+      ],
+      "model_seconds": [
+        6.1886045932769775,
+        29.293646335601807,
+        28.28378200531006,
+        51.44586682319641,
+        67.82471084594727
+      ],
+      "model_time_sum": 183.03661060333252,
+      "retrieval_seconds": 1.5940527217462659,
+      "searches": 6,
+      "node_occurrences": 103,
+      "unique_node_ids": 55,
+      "overlap_fraction": 0.46601941747572817,
+      "observed_loop_timeout_seconds": 184.6
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q12",
+      "question": "How many times were the scissors used by Quispe?",
+      "finish_reason": "timeout",
+      "model_rounds": 4,
+      "prompt_tokens": [
+        1252,
+        45600,
+        68151,
+        90008
+      ],
+      "model_seconds": [
+        7.907927513122559,
+        52.513965368270874,
+        68.63836145401001,
+        67.72640705108643
+      ],
+      "model_time_sum": 196.78666138648987,
+      "retrieval_seconds": 1.1571553107351065,
+      "searches": 5,
+      "node_occurrences": 95,
+      "unique_node_ids": 41,
+      "overlap_fraction": 0.5684210526315789,
+      "observed_loop_timeout_seconds": 198.0
+    },
+    {
+      "video_id": "gym_03",
+      "question_id": "gym_03_Q01",
+      "question": "What was Zoe's training method?",
+      "finish_reason": "done",
+      "model_rounds": 4,
+      "prompt_tokens": [
+        1247,
+        11298,
+        16344,
+        21369
+      ],
+      "model_seconds": [
+        3.65409779548645,
+        8.620412826538086,
+        16.17778515815735,
+        32.85109257698059
+      ],
+      "model_time_sum": 61.303388357162476,
+      "retrieval_seconds": 0.3517957627773285,
+      "searches": 4,
+      "node_occurrences": 16,
+      "unique_node_ids": 4,
+      "overlap_fraction": 0.75,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "gym_03",
+      "question_id": "gym_03_Q02",
+      "question": "How many times did the position of the elastic band change?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1253,
+        22157,
+        43192,
+        64453,
+        87752,
+        111331
+      ],
+      "model_seconds": [
+        1.6261024475097656,
+        12.837485313415527,
+        21.47659134864807,
+        22.336755990982056,
+        37.68354392051697,
+        49.26525115966797
+      ],
+      "model_time_sum": 145.22573018074036,
+      "retrieval_seconds": 1.308785429224372,
+      "searches": 5,
+      "node_occurrences": 94,
+      "unique_node_ids": 43,
+      "overlap_fraction": 0.5425531914893618,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "gym_03",
+      "question_id": "gym_03_Q03",
+      "question": "How many training moves did Zoe have Alice practice?",
+      "finish_reason": "timeout",
+      "model_rounds": 5,
+      "prompt_tokens": [
+        1252,
+        41863,
+        63475,
+        87900,
+        115008
+      ],
+      "model_seconds": [
+        6.11373233795166,
+        23.026403188705444,
+        33.633615493774414,
+        61.58385229110718,
+        67.5090000629425
+      ],
+      "model_time_sum": 191.8666033744812,
+      "retrieval_seconds": 1.6913797080051154,
+      "searches": 6,
+      "node_occurrences": 117,
+      "unique_node_ids": 43,
+      "overlap_fraction": 0.6324786324786325,
+      "observed_loop_timeout_seconds": 193.6
+    },
+    {
+      "video_id": "gym_03",
+      "question_id": "gym_03_Q04",
+      "question": "Is Alice physically fit?",
+      "finish_reason": "done",
+      "model_rounds": 4,
+      "prompt_tokens": [
+        1246,
+        22783,
+        43825,
+        62092
+      ],
+      "model_seconds": [
+        2.274120807647705,
+        8.311296463012695,
+        26.05262589454651,
+        32.93146896362305
+      ],
+      "model_time_sum": 69.56951212882996,
+      "retrieval_seconds": 0.9531187070533633,
+      "searches": 3,
+      "node_occurrences": 52,
+      "unique_node_ids": 35,
+      "overlap_fraction": 0.32692307692307687,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "gym_03",
+      "question_id": "gym_03_Q05",
+      "question": "What is Zoe's teaching style like?",
+      "finish_reason": "done",
+      "model_rounds": 2,
+      "prompt_tokens": [
+        1250,
+        44264
+      ],
+      "model_seconds": [
+        3.8035833835601807,
+        40.89101815223694
+      ],
+      "model_time_sum": 44.69460153579712,
+      "retrieval_seconds": 0.5796995202545077,
+      "searches": 2,
+      "node_occurrences": 36,
+      "unique_node_ids": 28,
+      "overlap_fraction": 0.2222222222222222,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "gym_03",
+      "question_id": "gym_03_Q06",
+      "question": "What props did Zoe and Alice use to warm up?",
+      "finish_reason": "done",
+      "model_rounds": 2,
+      "prompt_tokens": [
+        1255,
+        25568
+      ],
+      "model_seconds": [
+        4.978628158569336,
+        12.802857637405396
+      ],
+      "model_time_sum": 17.78148579597473,
+      "retrieval_seconds": 0.15654834685847163,
+      "searches": 2,
+      "node_occurrences": 20,
+      "unique_node_ids": 10,
+      "overlap_fraction": 0.5,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "gym_03",
+      "question_id": "gym_03_Q07",
+      "question": "where does the robot throw the paper towel?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1249,
+        36941,
+        57839,
+        78455,
+        98994,
+        119606
+      ],
+      "model_seconds": [
+        1.990278720855713,
+        20.89987587928772,
+        29.43887424468994,
+        28.557634353637695,
+        45.251980781555176,
+        43.31572365760803
+      ],
+      "model_time_sum": 169.45436763763428,
+      "retrieval_seconds": 0.8954558600671589,
+      "searches": 6,
+      "node_occurrences": 104,
+      "unique_node_ids": 29,
+      "overlap_fraction": 0.7211538461538461,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "gym_03",
+      "question_id": "gym_03_Q08",
+      "question": "On which shelf of the cabinet can the robot get the juice?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1253,
+        43096,
+        63399,
+        87091,
+        105677,
+        126227
+      ],
+      "model_seconds": [
+        2.865875720977783,
+        15.343148231506348,
+        21.81082534790039,
+        37.73131775856018,
+        46.41356039047241,
+        57.96575045585632
+      ],
+      "model_time_sum": 182.13047790527344,
+      "retrieval_seconds": 0.8567819851450622,
+      "searches": 6,
+      "node_occurrences": 108,
+      "unique_node_ids": 30,
+      "overlap_fraction": 0.7222222222222222,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "gym_03",
+      "question_id": "gym_03_Q09",
+      "question": "On which shelf of the cabinet at the corner can the robot find the back support?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1259,
+        42026,
+        62735,
+        84969,
+        107973,
+        131454
+      ],
+      "model_seconds": [
+        2.165189743041992,
+        23.92219877243042,
+        26.572953939437866,
+        26.21716594696045,
+        43.65067744255066,
+        53.793375730514526
+      ],
+      "model_time_sum": 176.3215615749359,
+      "retrieval_seconds": 1.1759995282627642,
+      "searches": 6,
+      "node_occurrences": 114,
+      "unique_node_ids": 35,
+      "overlap_fraction": 0.6929824561403508,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "gym_03",
+      "question_id": "gym_03_Q10",
+      "question": "What ways can be done to prevent injuries?",
+      "finish_reason": "done",
+      "model_rounds": 2,
+      "prompt_tokens": [
+        1250,
+        42183
+      ],
+      "model_seconds": [
+        6.4552459716796875,
+        22.481201648712158
+      ],
+      "model_time_sum": 28.936447620391846,
+      "retrieval_seconds": 0.41860104096122086,
+      "searches": 2,
+      "node_occurrences": 36,
+      "unique_node_ids": 26,
+      "overlap_fraction": 0.2777777777777778,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "gym_03",
+      "question_id": "gym_03_Q11",
+      "question": "what is Zoe's occupation?",
+      "finish_reason": "done",
+      "model_rounds": 2,
+      "prompt_tokens": [
+        1247,
+        42016
+      ],
+      "model_seconds": [
+        1.8402211666107178,
+        17.171903133392334
+      ],
+      "model_time_sum": 19.01212430000305,
+      "retrieval_seconds": 0.5582475289702415,
+      "searches": 2,
+      "node_occurrences": 36,
+      "unique_node_ids": 27,
+      "overlap_fraction": 0.25,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "bedroom_04",
+      "question_id": "bedroom_04_Q01",
+      "question": "What important things should be paid attention to when applying nail polish?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1254,
+        45058,
+        69263,
+        93365,
+        120040,
+        144457
+      ],
+      "model_seconds": [
+        2.803067207336426,
+        7.487820625305176,
+        33.758384227752686,
+        46.694549560546875,
+        52.87325644493103,
+        63.93481731414795
+      ],
+      "model_time_sum": 207.55189538002014,
+      "retrieval_seconds": 1.4698174763470888,
+      "searches": 6,
+      "node_occurrences": 106,
+      "unique_node_ids": 31,
+      "overlap_fraction": 0.7075471698113207,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "bedroom_04",
+      "question_id": "bedroom_04_Q02",
+      "question": "Which actor did Mia like better previously?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1249,
+        46715,
+        68974,
+        91283,
+        116232,
+        144546
+      ],
+      "model_seconds": [
+        3.137423276901245,
+        19.580317735671997,
+        35.274123430252075,
+        46.189367055892944,
+        47.46538519859314,
+        61.83435916900635
+      ],
+      "model_time_sum": 213.48097586631775,
+      "retrieval_seconds": 1.5349085240159184,
+      "searches": 6,
+      "node_occurrences": 115,
+      "unique_node_ids": 44,
+      "overlap_fraction": 0.6173913043478261,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "bedroom_04",
+      "question_id": "bedroom_04_Q03",
+      "question": "Why does Mia have great stress recently?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1249,
+        47770,
+        67922,
+        90813,
+        111051,
+        133759
+      ],
+      "model_seconds": [
+        5.091506481170654,
+        34.003698110580444,
+        31.02159810066223,
+        48.22675275802612,
+        44.6017541885376,
+        53.63966226577759
+      ],
+      "model_time_sum": 216.58497190475464,
+      "retrieval_seconds": 1.577644842211157,
+      "searches": 6,
+      "node_occurrences": 104,
+      "unique_node_ids": 45,
+      "overlap_fraction": 0.5673076923076923,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "bedroom_04",
+      "question_id": "bedroom_04_Q04",
+      "question": "Does Mia often stay up late?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1248,
+        45287,
+        63757,
+        84236,
+        104659,
+        121860
+      ],
+      "model_seconds": [
+        2.942667007446289,
+        25.43426513671875,
+        24.03830075263977,
+        39.608991861343384,
+        48.23641872406006,
+        67.97459816932678
+      ],
+      "model_time_sum": 208.23524165153503,
+      "retrieval_seconds": 1.5058383799623698,
+      "searches": 6,
+      "node_occurrences": 96,
+      "unique_node_ids": 42,
+      "overlap_fraction": 0.5625,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "bedroom_04",
+      "question_id": "bedroom_04_Q05",
+      "question": "What clothing style dose Emma like?",
+      "finish_reason": "timeout",
+      "model_rounds": 5,
+      "prompt_tokens": [
+        1248,
+        38049,
+        60924,
+        83341,
+        105055
+      ],
+      "model_seconds": [
+        5.913799047470093,
+        13.468384981155396,
+        36.131035566329956,
+        78.61831641197205,
+        63.45413684844971
+      ],
+      "model_time_sum": 197.5856728553772,
+      "retrieval_seconds": 1.4188217711634934,
+      "searches": 6,
+      "node_occurrences": 97,
+      "unique_node_ids": 43,
+      "overlap_fraction": 0.5567010309278351,
+      "observed_loop_timeout_seconds": 199.0
+    },
+    {
+      "video_id": "bedroom_04",
+      "question_id": "bedroom_04_Q06",
+      "question": "What clothing style dose Mia like now?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1249,
+        46667,
+        67641,
+        87430,
+        109063,
+        131564
+      ],
+      "model_seconds": [
+        2.5938985347747803,
+        23.963850736618042,
+        39.732643365859985,
+        46.09329080581665,
+        44.86416578292847,
+        80.47922253608704
+      ],
+      "model_time_sum": 237.72707176208496,
+      "retrieval_seconds": 1.5671288194134831,
+      "searches": 6,
+      "node_occurrences": 106,
+      "unique_node_ids": 47,
+      "overlap_fraction": 0.5566037735849056,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "bedroom_04",
+      "question_id": "bedroom_04_Q07",
+      "question": "What color of nail polish does Mia want?",
+      "finish_reason": "done",
+      "model_rounds": 2,
+      "prompt_tokens": [
+        1253,
+        38273
+      ],
+      "model_seconds": [
+        7.9121034145355225,
+        23.41768789291382
+      ],
+      "model_time_sum": 31.32979130744934,
+      "retrieval_seconds": 0.2283147880807519,
+      "searches": 2,
+      "node_occurrences": 28,
+      "unique_node_ids": 15,
+      "overlap_fraction": 0.4642857142857143,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "bedroom_04",
+      "question_id": "bedroom_04_Q08",
+      "question": "What does Emma want to eat?",
+      "finish_reason": "done",
+      "model_rounds": 4,
+      "prompt_tokens": [
+        1249,
+        45495,
+        67392,
+        89809
+      ],
+      "model_seconds": [
+        2.1621010303497314,
+        23.60058856010437,
+        32.55940794944763,
+        43.9871461391449
+      ],
+      "model_time_sum": 102.30924367904663,
+      "retrieval_seconds": 0.8724948070012033,
+      "searches": 4,
+      "node_occurrences": 70,
+      "unique_node_ids": 37,
+      "overlap_fraction": 0.4714285714285714,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "bedroom_04",
+      "question_id": "bedroom_04_Q09",
+      "question": "What does Mia want to eat?",
+      "finish_reason": "done",
+      "model_rounds": 5,
+      "prompt_tokens": [
+        1249,
+        37896,
+        60190,
+        86884,
+        110029
+      ],
+      "model_seconds": [
+        3.4295177459716797,
+        22.788836240768433,
+        35.7723650932312,
+        56.088396310806274,
+        51.588791847229004
+      ],
+      "model_time_sum": 169.6679072380066,
+      "retrieval_seconds": 1.1195224290713668,
+      "searches": 5,
+      "node_occurrences": 85,
+      "unique_node_ids": 41,
+      "overlap_fraction": 0.5176470588235293,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "bedroom_04",
+      "question_id": "bedroom_04_Q10",
+      "question": "What coffee does Emma like to drink?",
+      "finish_reason": "timeout",
+      "model_rounds": 5,
+      "prompt_tokens": [
+        1249,
+        46153,
+        68107,
+        88187,
+        108458
+      ],
+      "model_seconds": [
+        2.168132781982422,
+        23.52518653869629,
+        41.07272148132324,
+        78.08062076568604,
+        85.07543015480042
+      ],
+      "model_time_sum": 229.9220917224884,
+      "retrieval_seconds": 1.271583023481071,
+      "searches": 6,
+      "node_occurrences": 104,
+      "unique_node_ids": 41,
+      "overlap_fraction": 0.6057692307692308,
+      "observed_loop_timeout_seconds": 231.2
+    },
+    {
+      "video_id": "bedroom_04",
+      "question_id": "bedroom_04_Q11",
+      "question": "Why did Mia like to read the magazines she is reading now when she was a child?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1259,
+        47520,
+        67982,
+        90629,
+        114806,
+        141459
+      ],
+      "model_seconds": [
+        2.079883575439453,
+        26.16113781929016,
+        31.54831600189209,
+        41.34149646759033,
+        48.116432905197144,
+        59.27438187599182
+      ],
+      "model_time_sum": 208.521648645401,
+      "retrieval_seconds": 1.6673038254957646,
+      "searches": 6,
+      "node_occurrences": 110,
+      "unique_node_ids": 41,
+      "overlap_fraction": 0.6272727272727272,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q01",
+      "question": "How many eggs remained in the fridge after Georgina took?",
+      "finish_reason": "done",
+      "model_rounds": 4,
+      "prompt_tokens": [
+        1269,
+        23932,
+        47399,
+        59013
+      ],
+      "model_seconds": [
+        2.760204792022705,
+        8.069875717163086,
+        9.738011121749878,
+        17.755359888076782
+      ],
+      "model_time_sum": 38.32345151901245,
+      "retrieval_seconds": 0.5805322490632534,
+      "searches": 5,
+      "node_occurrences": 69,
+      "unique_node_ids": 14,
+      "overlap_fraction": 0.7971014492753623,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q02",
+      "question": "Where was the pot kept before it was used to cook the noodles?",
+      "finish_reason": "done",
+      "model_rounds": 4,
+      "prompt_tokens": [
+        1255,
+        44179,
+        69054,
+        91080
+      ],
+      "model_seconds": [
+        1.9917314052581787,
+        10.63870620727539,
+        21.25333857536316,
+        28.97361469268799
+      ],
+      "model_time_sum": 62.85739088058472,
+      "retrieval_seconds": 0.9345871394034475,
+      "searches": 4,
+      "node_occurrences": 66,
+      "unique_node_ids": 29,
+      "overlap_fraction": 0.5606060606060606,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q03",
+      "question": "Who is the fattest among the three people?",
+      "finish_reason": "done",
+      "model_rounds": 5,
+      "prompt_tokens": [
+        1253,
+        45772,
+        66736,
+        85019,
+        106937
+      ],
+      "model_seconds": [
+        3.2490644454956055,
+        18.402094841003418,
+        24.414204597473145,
+        25.895047187805176,
+        39.01839542388916
+      ],
+      "model_time_sum": 110.9788064956665,
+      "retrieval_seconds": 1.1591646200977266,
+      "searches": 5,
+      "node_occurrences": 82,
+      "unique_node_ids": 36,
+      "overlap_fraction": 0.5609756097560976,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q04",
+      "question": "What does Georgina like to drink?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1249,
+        26325,
+        49481,
+        74846,
+        103754,
+        128598
+      ],
+      "model_seconds": [
+        1.1207506656646729,
+        8.648012399673462,
+        13.410653114318848,
+        26.430691480636597,
+        23.445647478103638,
+        27.82916235923767
+      ],
+      "model_time_sum": 100.88491749763489,
+      "retrieval_seconds": 1.4878023175988346,
+      "searches": 5,
+      "node_occurrences": 94,
+      "unique_node_ids": 37,
+      "overlap_fraction": 0.6063829787234043,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q05",
+      "question": "What does Emma like to eat?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1248,
+        26721,
+        51863,
+        76316,
+        104344,
+        132796
+      ],
+      "model_seconds": [
+        1.2734506130218506,
+        10.353663206100464,
+        10.894461631774902,
+        19.42681574821472,
+        29.552398204803467,
+        35.88306760787964
+      ],
+      "model_time_sum": 107.38385701179504,
+      "retrieval_seconds": 1.5987695085350424,
+      "searches": 5,
+      "node_occurrences": 94,
+      "unique_node_ids": 37,
+      "overlap_fraction": 0.6063829787234043,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q06",
+      "question": "What snacks did Petera eat?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1248,
+        52017,
+        77024,
+        108359,
+        131713,
+        156689
+      ],
+      "model_seconds": [
+        3.9534432888031006,
+        13.486414909362793,
+        21.248132944107056,
+        27.301718950271606,
+        30.869876861572266,
+        42.328808546066284
+      ],
+      "model_time_sum": 139.1883955001831,
+      "retrieval_seconds": 1.7377374107018113,
+      "searches": 6,
+      "node_occurrences": 113,
+      "unique_node_ids": 42,
+      "overlap_fraction": 0.6283185840707964,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q07",
+      "question": "Does Petera have a strong taste?",
+      "finish_reason": "done",
+      "model_rounds": 5,
+      "prompt_tokens": [
+        1249,
+        45618,
+        66656,
+        84318,
+        105892
+      ],
+      "model_seconds": [
+        11.7098388671875,
+        17.585453271865845,
+        31.434720993041992,
+        23.47049903869629,
+        39.71215081214905
+      ],
+      "model_time_sum": 123.91266298294067,
+      "retrieval_seconds": 1.4232479492202401,
+      "searches": 5,
+      "node_occurrences": 72,
+      "unique_node_ids": 29,
+      "overlap_fraction": 0.5972222222222222,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q08",
+      "question": "Does George have rhinitis?",
+      "finish_reason": "done",
+      "model_rounds": 4,
+      "prompt_tokens": [
+        1247,
+        50134,
+        73922,
+        100251
+      ],
+      "model_seconds": [
+        1.8086473941802979,
+        11.095977067947388,
+        19.051212787628174,
+        13.765253782272339
+      ],
+      "model_time_sum": 45.7210910320282,
+      "retrieval_seconds": 0.9934257466811687,
+      "searches": 4,
+      "node_occurrences": 72,
+      "unique_node_ids": 38,
+      "overlap_fraction": 0.4722222222222222,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q09",
+      "question": "Which stage from the top of the fridge was the instant noodle on before Prtera cooked it?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1261,
+        51130,
+        73885,
+        97721,
+        122192,
+        146490
+      ],
+      "model_seconds": [
+        3.0270180702209473,
+        13.306927680969238,
+        22.045002698898315,
+        33.11434364318848,
+        26.162556171417236,
+        34.460670709609985
+      ],
+      "model_time_sum": 132.1165189743042,
+      "retrieval_seconds": 1.374201691010967,
+      "searches": 6,
+      "node_occurrences": 112,
+      "unique_node_ids": 41,
+      "overlap_fraction": 0.6339285714285714,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q10",
+      "question": "Where is the egg?",
+      "finish_reason": "done",
+      "model_rounds": 3,
+      "prompt_tokens": [
+        1245,
+        29147,
+        43658
+      ],
+      "model_seconds": [
+        1.5534873008728027,
+        9.759670734405518,
+        15.372936725616455
+      ],
+      "model_time_sum": 26.686094760894775,
+      "retrieval_seconds": 0.3252655037213117,
+      "searches": 3,
+      "node_occurrences": 46,
+      "unique_node_ids": 18,
+      "overlap_fraction": 0.6086956521739131,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q11",
+      "question": "What is burnt?",
+      "finish_reason": "done",
+      "model_rounds": 2,
+      "prompt_tokens": [
+        1244,
+        36807
+      ],
+      "model_seconds": [
+        2.085116147994995,
+        9.729266166687012
+      ],
+      "model_time_sum": 11.814382314682007,
+      "retrieval_seconds": 0.21015347796492279,
+      "searches": 2,
+      "node_occurrences": 34,
+      "unique_node_ids": 21,
+      "overlap_fraction": 0.38235294117647056,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q12",
+      "question": "Which trash can was the potato chip bag be thrown?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1251,
+        41510,
+        63147,
+        84191,
+        106544,
+        124493
+      ],
+      "model_seconds": [
+        1.6785531044006348,
+        10.805633783340454,
+        15.118792533874512,
+        17.666151523590088,
+        26.32175874710083,
+        31.40100121498108
+      ],
+      "model_time_sum": 102.9918909072876,
+      "retrieval_seconds": 0.8137028468772769,
+      "searches": 6,
+      "node_occurrences": 112,
+      "unique_node_ids": 27,
+      "overlap_fraction": 0.7589285714285714,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q13",
+      "question": "Where was Georgina's coffee while she was taking three eggs from the fridge?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1269,
+        39031,
+        57065,
+        78739,
+        100105,
+        117870
+      ],
+      "model_seconds": [
+        1.4177112579345703,
+        7.99915075302124,
+        12.221749067306519,
+        10.362887859344482,
+        17.516987800598145,
+        32.99189496040344
+      ],
+      "model_time_sum": 82.5103816986084,
+      "retrieval_seconds": 1.0586399571038783,
+      "searches": 6,
+      "node_occurrences": 110,
+      "unique_node_ids": 32,
+      "overlap_fraction": 0.7090909090909091,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q14",
+      "question": "Where is the bread?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1247,
+        40896,
+        62942,
+        82893,
+        97939,
+        112573
+      ],
+      "model_seconds": [
+        3.434880495071411,
+        23.645805597305298,
+        36.736836671829224,
+        15.636488676071167,
+        23.913406133651733,
+        20.738802433013916
+      ],
+      "model_time_sum": 124.10622000694275,
+      "retrieval_seconds": 0.9162136192899197,
+      "searches": 6,
+      "node_occurrences": 92,
+      "unique_node_ids": 28,
+      "overlap_fraction": 0.6956521739130435,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q15",
+      "question": "Where can get the drinkable water?",
+      "finish_reason": "done",
+      "model_rounds": 2,
+      "prompt_tokens": [
+        1250,
+        41642
+      ],
+      "model_seconds": [
+        1.5112388134002686,
+        8.180865287780762
+      ],
+      "model_time_sum": 9.69210410118103,
+      "retrieval_seconds": 0.2975335852243006,
+      "searches": 2,
+      "node_occurrences": 36,
+      "unique_node_ids": 24,
+      "overlap_fraction": 0.33333333333333337,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q16",
+      "question": "Where is the chocolate?",
+      "finish_reason": "done",
+      "model_rounds": 4,
+      "prompt_tokens": [
+        1247,
+        40494,
+        57520,
+        77317
+      ],
+      "model_seconds": [
+        1.889357089996338,
+        9.705241203308105,
+        15.62976360321045,
+        26.212511777877808
+      ],
+      "model_time_sum": 53.4368736743927,
+      "retrieval_seconds": 0.6756454738788307,
+      "searches": 4,
+      "node_occurrences": 66,
+      "unique_node_ids": 34,
+      "overlap_fraction": 0.48484848484848486,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "kitchen_20",
+      "question_id": "kitchen_20_Q17",
+      "question": "Why is the bread still cold?",
+      "finish_reason": "done",
+      "model_rounds": 4,
+      "prompt_tokens": [
+        1249,
+        48149,
+        74048,
+        98080
+      ],
+      "model_seconds": [
+        3.1036038398742676,
+        14.040980815887451,
+        19.985307931900024,
+        26.050779819488525
+      ],
+      "model_time_sum": 63.18067240715027,
+      "retrieval_seconds": 0.8639531680382788,
+      "searches": 4,
+      "node_occurrences": 72,
+      "unique_node_ids": 33,
+      "overlap_fraction": 0.5416666666666667,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_18",
+      "question_id": "study_18_Q01",
+      "question": "Where does the robot retrieve the character sample reference book?",
+      "finish_reason": "done",
+      "model_rounds": 5,
+      "prompt_tokens": [
+        1250,
+        11006,
+        20825,
+        30828,
+        40667
+      ],
+      "model_seconds": [
+        2.7082931995391846,
+        4.8437721729278564,
+        3.5973012447357178,
+        3.6733310222625732,
+        6.541730165481567
+      ],
+      "model_time_sum": 21.3644278049469,
+      "retrieval_seconds": 1.5081523281987756,
+      "searches": 4,
+      "node_occurrences": 40,
+      "unique_node_ids": 10,
+      "overlap_fraction": 0.75,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_18",
+      "question_id": "study_18_Q02",
+      "question": "How many times was the poster printed?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1248,
+        45761,
+        70043,
+        94885,
+        120656,
+        144091
+      ],
+      "model_seconds": [
+        2.323741912841797,
+        3.51969838142395,
+        3.786670207977295,
+        4.03014349937439,
+        4.620087146759033,
+        18.39632225036621
+      ],
+      "model_time_sum": 36.676663398742676,
+      "retrieval_seconds": 1.6201093110721558,
+      "searches": 6,
+      "node_occurrences": 119,
+      "unique_node_ids": 43,
+      "overlap_fraction": 0.6386554621848739,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_18",
+      "question_id": "study_18_Q03",
+      "question": "What items were taken out from the folder?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1262,
+        43177,
+        66721,
+        90285,
+        114663,
+        138239
+      ],
+      "model_seconds": [
+        1.1909732818603516,
+        3.3715219497680664,
+        3.3458735942840576,
+        3.5986764430999756,
+        3.9961414337158203,
+        5.981247663497925
+      ],
+      "model_time_sum": 21.484434366226196,
+      "retrieval_seconds": 1.5885378830134869,
+      "searches": 6,
+      "node_occurrences": 116,
+      "unique_node_ids": 48,
+      "overlap_fraction": 0.5862068965517242,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_18",
+      "question_id": "study_18_Q04",
+      "question": "What types of pens were taken out from the pen holder?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1252,
+        43938,
+        67603,
+        91485,
+        118610,
+        145721
+      ],
+      "model_seconds": [
+        1.6559476852416992,
+        4.011528491973877,
+        3.7945737838745117,
+        3.8178932666778564,
+        4.726419687271118,
+        5.340463399887085
+      ],
+      "model_time_sum": 23.346826314926147,
+      "retrieval_seconds": 1.6651623472571373,
+      "searches": 6,
+      "node_occurrences": 122,
+      "unique_node_ids": 51,
+      "overlap_fraction": 0.5819672131147541,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_18",
+      "question_id": "study_18_Q05",
+      "question": "How many posters did Tom put into the folder ？",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1250,
+        43845,
+        66015,
+        86863,
+        110683,
+        135044
+      ],
+      "model_seconds": [
+        1.2247085571289062,
+        3.9397616386413574,
+        3.8081958293914795,
+        4.257025957107544,
+        3.5586819648742676,
+        4.444487571716309
+      ],
+      "model_time_sum": 21.232861518859863,
+      "retrieval_seconds": 1.7645318999420851,
+      "searches": 6,
+      "node_occurrences": 112,
+      "unique_node_ids": 40,
+      "overlap_fraction": 0.6428571428571428,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_18",
+      "question_id": "study_18_Q06",
+      "question": "How many times did the robot organize the desktop in total?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1252,
+        42606,
+        67216,
+        88053,
+        112036,
+        135773
+      ],
+      "model_seconds": [
+        1.5830559730529785,
+        4.8215391635894775,
+        4.054431676864624,
+        4.995724678039551,
+        4.2961835861206055,
+        7.542342185974121
+      ],
+      "model_time_sum": 27.293277263641357,
+      "retrieval_seconds": 1.4742804779671133,
+      "searches": 6,
+      "node_occurrences": 114,
+      "unique_node_ids": 46,
+      "overlap_fraction": 0.5964912280701755,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_18",
+      "question_id": "study_18_Q07",
+      "question": "Which tier from the top of the black storage shelf can the robot take the printing paper from?",
+      "finish_reason": "done",
+      "model_rounds": 4,
+      "prompt_tokens": [
+        1262,
+        28228,
+        42021,
+        56994
+      ],
+      "model_seconds": [
+        1.406102180480957,
+        3.829742193222046,
+        3.1848814487457275,
+        5.764950752258301
+      ],
+      "model_time_sum": 14.185676574707031,
+      "retrieval_seconds": 0.32303661317564547,
+      "searches": 4,
+      "node_occurrences": 56,
+      "unique_node_ids": 15,
+      "overlap_fraction": 0.7321428571428572,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_18",
+      "question_id": "study_18_Q08",
+      "question": "What color is a folder?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1245,
+        39390,
+        56007,
+        72660,
+        90796,
+        115113
+      ],
+      "model_seconds": [
+        1.6289188861846924,
+        3.9864799976348877,
+        4.796868085861206,
+        4.620800256729126,
+        5.3505165576934814,
+        5.6631550788879395
+      ],
+      "model_time_sum": 26.046738862991333,
+      "retrieval_seconds": 0.8011865292210132,
+      "searches": 6,
+      "node_occurrences": 109,
+      "unique_node_ids": 28,
+      "overlap_fraction": 0.7431192660550459,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_18",
+      "question_id": "study_18_Q09",
+      "question": "Where should the robot put back the color pen?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1249,
+        39982,
+        59820,
+        79321,
+        100110,
+        121425
+      ],
+      "model_seconds": [
+        1.6464924812316895,
+        4.01558518409729,
+        3.7239930629730225,
+        5.0037922859191895,
+        4.592076063156128,
+        6.127341032028198
+      ],
+      "model_time_sum": 25.109280109405518,
+      "retrieval_seconds": 1.0194552342873067,
+      "searches": 6,
+      "node_occurrences": 112,
+      "unique_node_ids": 29,
+      "overlap_fraction": 0.7410714285714286,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_18",
+      "question_id": "study_18_Q10",
+      "question": "Where should the robot retrieve the red  pen?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1251,
+        39814,
+        61703,
+        82746,
+        105292,
+        128256
+      ],
+      "model_seconds": [
+        1.217003583908081,
+        3.3490817546844482,
+        3.567214012145996,
+        3.403977632522583,
+        4.757065296173096,
+        7.79078483581543
+      ],
+      "model_time_sum": 24.085127115249634,
+      "retrieval_seconds": 1.0045857187360525,
+      "searches": 6,
+      "node_occurrences": 115,
+      "unique_node_ids": 32,
+      "overlap_fraction": 0.7217391304347827,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_18",
+      "question_id": "study_18_Q11",
+      "question": "Where should the robot get the color reference book?",
+      "finish_reason": "done",
+      "model_rounds": 3,
+      "prompt_tokens": [
+        1251,
+        22177,
+        37622
+      ],
+      "model_seconds": [
+        1.5890631675720215,
+        3.642573118209839,
+        3.227471351623535
+      ],
+      "model_time_sum": 8.459107637405396,
+      "retrieval_seconds": 0.3464817670173943,
+      "searches": 2,
+      "node_occurrences": 30,
+      "unique_node_ids": 24,
+      "overlap_fraction": 0.19999999999999996,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_18",
+      "question_id": "study_18_Q12",
+      "question": "From which item on the second tier of the black storage rack should the robot get the task list?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1261,
+        42300,
+        64066,
+        85888,
+        105399,
+        128163
+      ],
+      "model_seconds": [
+        1.2741341590881348,
+        3.1323156356811523,
+        3.640367031097412,
+        3.823991298675537,
+        4.06548285484314,
+        4.901992082595825
+      ],
+      "model_time_sum": 20.8382830619812,
+      "retrieval_seconds": 1.291990275727585,
+      "searches": 6,
+      "node_occurrences": 110,
+      "unique_node_ids": 53,
+      "overlap_fraction": 0.5181818181818182,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_18",
+      "question_id": "study_18_Q13",
+      "question": "Where should the robot retrieve the duster cloth?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1251,
+        46767,
+        67334,
+        88177,
+        106750,
+        128432
+      ],
+      "model_seconds": [
+        1.6770350933074951,
+        4.319154739379883,
+        4.2693281173706055,
+        5.159298658370972,
+        3.8224403858184814,
+        8.813333511352539
+      ],
+      "model_time_sum": 28.060590505599976,
+      "retrieval_seconds": 1.5432385632302612,
+      "searches": 6,
+      "node_occurrences": 106,
+      "unique_node_ids": 50,
+      "overlap_fraction": 0.5283018867924528,
+      "observed_loop_timeout_seconds": null
+    },
+    {
+      "video_id": "study_18",
+      "question_id": "study_18_Q14",
+      "question": "How many reference books did the robot take from the black  storage shelf?",
+      "finish_reason": "done",
+      "model_rounds": 6,
+      "prompt_tokens": [
+        1255,
+        41982,
+        62677,
+        86610,
+        110088,
+        133574
+      ],
+      "model_seconds": [
+        1.2831752300262451,
+        4.180131435394287,
+        3.77321195602417,
+        4.6222569942474365,
+        3.6230599880218506,
+        6.624491930007935
+      ],
+      "model_time_sum": 24.106327533721924,
+      "retrieval_seconds": 1.5451862229965627,
+      "searches": 6,
+      "node_occurrences": 114,
+      "unique_node_ids": 47,
+      "overlap_fraction": 0.5877192982456141,
+      "observed_loop_timeout_seconds": null
+    }
+  ],
+  "timeouts": [
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q07",
+      "question": "How many steps were needed to make the leaves?",
+      "finish_reason": "timeout",
+      "model_rounds": 5,
+      "prompt_tokens": [
+        1251,
+        46531,
+        68398,
+        92620,
+        120922
+      ],
+      "model_seconds": [
+        1.8997933864593506,
+        23.578722953796387,
+        31.127756595611572,
+        52.33767771720886,
+        98.60493993759155
+      ],
+      "model_time_sum": 207.54889059066772,
+      "retrieval_seconds": 1.135457377647981,
+      "searches": 6,
+      "node_occurrences": 120,
+      "unique_node_ids": 40,
+      "overlap_fraction": 0.6666666666666667,
+      "observed_loop_timeout_seconds": 208.7
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q11",
+      "question": "Did Quispe just care about Raam's study but nothing else?",
+      "finish_reason": "timeout",
+      "model_rounds": 5,
+      "prompt_tokens": [
+        1255,
+        47144,
+        70348,
+        92899,
+        109105
+      ],
+      "model_seconds": [
+        6.1886045932769775,
+        29.293646335601807,
+        28.28378200531006,
+        51.44586682319641,
+        67.82471084594727
+      ],
+      "model_time_sum": 183.03661060333252,
+      "retrieval_seconds": 1.5940527217462659,
+      "searches": 6,
+      "node_occurrences": 103,
+      "unique_node_ids": 55,
+      "overlap_fraction": 0.46601941747572817,
+      "observed_loop_timeout_seconds": 184.6
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q12",
+      "question": "How many times were the scissors used by Quispe?",
+      "finish_reason": "timeout",
+      "model_rounds": 4,
+      "prompt_tokens": [
+        1252,
+        45600,
+        68151,
+        90008
+      ],
+      "model_seconds": [
+        7.907927513122559,
+        52.513965368270874,
+        68.63836145401001,
+        67.72640705108643
+      ],
+      "model_time_sum": 196.78666138648987,
+      "retrieval_seconds": 1.1571553107351065,
+      "searches": 5,
+      "node_occurrences": 95,
+      "unique_node_ids": 41,
+      "overlap_fraction": 0.5684210526315789,
+      "observed_loop_timeout_seconds": 198.0
+    },
+    {
+      "video_id": "gym_03",
+      "question_id": "gym_03_Q03",
+      "question": "How many training moves did Zoe have Alice practice?",
+      "finish_reason": "timeout",
+      "model_rounds": 5,
+      "prompt_tokens": [
+        1252,
+        41863,
+        63475,
+        87900,
+        115008
+      ],
+      "model_seconds": [
+        6.11373233795166,
+        23.026403188705444,
+        33.633615493774414,
+        61.58385229110718,
+        67.5090000629425
+      ],
+      "model_time_sum": 191.8666033744812,
+      "retrieval_seconds": 1.6913797080051154,
+      "searches": 6,
+      "node_occurrences": 117,
+      "unique_node_ids": 43,
+      "overlap_fraction": 0.6324786324786325,
+      "observed_loop_timeout_seconds": 193.6
+    },
+    {
+      "video_id": "bedroom_04",
+      "question_id": "bedroom_04_Q05",
+      "question": "What clothing style dose Emma like?",
+      "finish_reason": "timeout",
+      "model_rounds": 5,
+      "prompt_tokens": [
+        1248,
+        38049,
+        60924,
+        83341,
+        105055
+      ],
+      "model_seconds": [
+        5.913799047470093,
+        13.468384981155396,
+        36.131035566329956,
+        78.61831641197205,
+        63.45413684844971
+      ],
+      "model_time_sum": 197.5856728553772,
+      "retrieval_seconds": 1.4188217711634934,
+      "searches": 6,
+      "node_occurrences": 97,
+      "unique_node_ids": 43,
+      "overlap_fraction": 0.5567010309278351,
+      "observed_loop_timeout_seconds": 199.0
+    },
+    {
+      "video_id": "bedroom_04",
+      "question_id": "bedroom_04_Q10",
+      "question": "What coffee does Emma like to drink?",
+      "finish_reason": "timeout",
+      "model_rounds": 5,
+      "prompt_tokens": [
+        1249,
+        46153,
+        68107,
+        88187,
+        108458
+      ],
+      "model_seconds": [
+        2.168132781982422,
+        23.52518653869629,
+        41.07272148132324,
+        78.08062076568604,
+        85.07543015480042
+      ],
+      "model_time_sum": 229.9220917224884,
+      "retrieval_seconds": 1.271583023481071,
+      "searches": 6,
+      "node_occurrences": 104,
+      "unique_node_ids": 41,
+      "overlap_fraction": 0.6057692307692308,
+      "observed_loop_timeout_seconds": 231.2
+    }
+  ],
+  "prompt_tokens": 19905749,
+  "peak_prompt_tokens": 156689,
+  "model_calls": 319,
+  "median_node_overlap_fraction": 0.5877192982456141,
+  "note": "Retrieved node overlap is not exactly wire-payload byte duplication. Timings sum logical calls including transport retries."
+}

@@ -1,0 +1,33 @@
+{
+  "observed_at": "2026-11-01T09:25:01.642195+08:00",
+  "databases": {
+    "m3_flash_medium_20261031": {
+      "graph_nodes": {
+        "rows": 28331,
+        "sorted_row_md5_sha256": "9f2beefa3c3ffae5df0b30550a66d621d13f4d73a9b359c3b80d5c0065598e26"
+      },
+      "graph_edges": {
+        "rows": 36101,
+        "sorted_row_md5_sha256": "d8a02bc30a0749450161db910b240badb7f6dec4960f50ede0e9c62f5bfa637c"
+      },
+      "m3_episodic_vectors": {
+        "rows": 256,
+        "sorted_row_md5_sha256": "c42845af5cb406e0542cb2a5744b519beef44c3e929c24f2a54eea81ebe4b1ca"
+      }
+    },
+    "m3_study18_recovery_20261101": {
+      "graph_nodes": {
+        "rows": 29485,
+        "sorted_row_md5_sha256": "0f9269a10aabf3eb7e3553a20f8040eefba54f325a4b04926093f4e99d1a1cf1"
+      },
+      "graph_edges": {
+        "rows": 37422,
+        "sorted_row_md5_sha256": "d2d60491a87efc26f508f915fea3bb3035545123b7738f47e2583b0252c9c76c"
+      },
+      "m3_episodic_vectors": {
+        "rows": 340,
+        "sorted_row_md5_sha256": "437ee3922340ce49b3ab642219a0af663044b39e831f79ff277825db942ee0f7"
+      }
+    }
+  }
+}
