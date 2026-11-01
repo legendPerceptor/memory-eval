@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    "m3_facts_identity_incremental_20261102",
+    "m3_facts_only_20261102",
+    "m3_facts_identity_20261102"
+  ],
+  "deadline": "2026-11-02T10:03:00+08:00",
+  "minimum_interval_remaining_percent": 40,
+  "note": "First job already launched; wait for it, then serialize remaining prepared arms."
+}

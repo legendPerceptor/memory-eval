@@ -22,7 +22,8 @@ COHORT = ["study_05", "gym_03", "bedroom_04", "study_18", "kitchen_20"]
 BASE = "m3_flash_medium_20261031"
 RECOVERY = "m3_study18_recovery_20261101"
 ACCOUNT = "m3-flash-medium-20261031"
-DEADLINE = datetime.datetime.fromisoformat("2026-11-01T23:30:00+08:00").timestamp()
+DEADLINE_ISO = os.environ.get("M3_EXPERIMENT_DEADLINE", "2026-11-01T23:30:00+08:00")
+DEADLINE = datetime.datetime.fromisoformat(DEADLINE_ISO).timestamp()
 
 
 def save(path, value):
@@ -132,6 +133,18 @@ def prepare(args):
     )
     if args.answer_reserve:
         settings["answer_reserve_seconds"] = args.answer_reserve
+    for option in ("fact_memory", "identity_aware", "incremental_delivery"):
+        if getattr(args, option, False):
+            settings[option] = True
+    if getattr(args, "fact_memory", False):
+        settings["max_passages_per_node"] = 12
+    if getattr(args, "fact_index", None):
+        index_path = Path(args.fact_index).resolve()
+        sys.path.insert(0, str(ROOT / "oGMemory"))
+        from m3.fact_index import load_fact_index
+        index_hash = digest(index_path)
+        load_fact_index(str(index_path), index_hash)
+        settings.update(fact_index_path=str(index_path), fact_index_sha256=index_hash)
     for video in COHORT:
         origin = source_from or (RECOVERY if video == "study_18" else BASE)
         config_name = f"{video}.yaml" if inherited else "config.yaml"
@@ -155,7 +168,7 @@ def prepare(args):
         thinking="adaptive", qa_output_tokens=8192, judge_output_tokens=2048,
         max_iterations=6, timeout_seconds=180, temporal_policy="current_clip",
         note="QA-only, same stored memories. Historical baseline not contemporaneous. No best-of retries.",
-        authorization_deadline="2026-11-01T23:30:00+08:00",
+        authorization_deadline=DEADLINE_ISO,
     )
     if inherited:
         manifest["source_from"] = source_from
@@ -380,6 +393,10 @@ if __name__ == "__main__":
     p.add_argument("--answer-reserve", type=int, default=0)
     p.add_argument("--input-budget", type=int, default=24000)
     p.add_argument("--evidence-format", choices=("passages", "grouped"), default="passages")
+    p.add_argument("--fact-memory", action="store_true")
+    p.add_argument("--identity-aware", action="store_true")
+    p.add_argument("--incremental-delivery", action="store_true")
+    p.add_argument("--fact-index", help="Pinned source-fact sidecar manifest")
     p.add_argument("--source-from", help="Reuse a prior arm's exact frozen source and private configuration")
     p.add_argument("--resume-successes", action="store_true",
                    help="With --source-from, preserve successful answers and successful matching grades")
@@ -397,7 +414,8 @@ if __name__ == "__main__":
     if args.source_from and not args.source_from.replace("_", "").isalnum():
         raise SystemExit("Unsafe source experiment name")
     if args.source_from and (args.input_budget != 24000 or args.answer_reserve != 0
-                             or args.evidence_format != "passages"):
+                             or args.evidence_format != "passages" or args.fact_memory
+                             or args.identity_aware or args.incremental_delivery or args.fact_index):
         raise SystemExit("--source-from preserves its configuration; do not combine it with tuning overrides")
     if args.resume_successes and not args.source_from:
         raise SystemExit("--resume-successes requires --source-from")

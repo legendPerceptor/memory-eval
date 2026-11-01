@@ -1,0 +1,107 @@
+{
+  "study_05": {
+    "fact_branch": {
+      "kind": "source_fact_vector",
+      "proposed_nodes": 3,
+      "verified_nodes": 3,
+      "stale_nodes": 0,
+      "index_sha256": "ab0e952ac83fb96ff3df47b2d6d663199dfd3b5386101050e62d8307b4b016f5",
+      "node_ids": [
+        "19eae50c-3e5f-70f0-16b9-d64b11569567",
+        "c9d9be79-681b-4296-4c80-87e906ccc87f",
+        "36b87340-aa5b-fb9f-20f3-c3bcf44a4e2d"
+      ]
+    },
+    "selected_clips": [
+      1,
+      0,
+      2
+    ],
+    "within_scope": true,
+    "question_or_expected_answer_read": false
+  },
+  "gym_03": {
+    "fact_branch": {
+      "kind": "source_fact_vector",
+      "proposed_nodes": 3,
+      "verified_nodes": 3,
+      "stale_nodes": 0,
+      "index_sha256": "ab0e952ac83fb96ff3df47b2d6d663199dfd3b5386101050e62d8307b4b016f5",
+      "node_ids": [
+        "7cff46f7-f2c5-389e-da0a-150ff234747f",
+        "330efc20-cc69-47c4-3b42-04dd6bf6dcef",
+        "e119500b-7ab4-b4de-5543-ba998acfca19"
+      ]
+    },
+    "selected_clips": [
+      2,
+      1,
+      0
+    ],
+    "within_scope": true,
+    "question_or_expected_answer_read": false
+  },
+  "bedroom_04": {
+    "fact_branch": {
+      "kind": "source_fact_vector",
+      "proposed_nodes": 3,
+      "verified_nodes": 3,
+      "stale_nodes": 0,
+      "index_sha256": "ab0e952ac83fb96ff3df47b2d6d663199dfd3b5386101050e62d8307b4b016f5",
+      "node_ids": [
+        "44e3bedc-08a3-4fc7-a38a-701678c5f616",
+        "e50694fe-a97b-86ad-fa87-219a85e585ea",
+        "d1da71c5-b553-5d24-2983-a0e29ab881f1"
+      ]
+    },
+    "selected_clips": [
+      0,
+      2,
+      1
+    ],
+    "within_scope": true,
+    "question_or_expected_answer_read": false
+  },
+  "study_18": {
+    "fact_branch": {
+      "kind": "source_fact_vector",
+      "proposed_nodes": 3,
+      "verified_nodes": 3,
+      "stale_nodes": 0,
+      "index_sha256": "ab0e952ac83fb96ff3df47b2d6d663199dfd3b5386101050e62d8307b4b016f5",
+      "node_ids": [
+        "d2521e3a-074f-964b-3390-4fb74e2b218b",
+        "94ec477f-f43d-7172-0639-89c37787898a",
+        "6007f812-b42e-c623-d007-93d0cfbf2294"
+      ]
+    },
+    "selected_clips": [
+      1,
+      0,
+      2
+    ],
+    "within_scope": true,
+    "question_or_expected_answer_read": false
+  },
+  "kitchen_20": {
+    "fact_branch": {
+      "kind": "source_fact_vector",
+      "proposed_nodes": 3,
+      "verified_nodes": 3,
+      "stale_nodes": 0,
+      "index_sha256": "ab0e952ac83fb96ff3df47b2d6d663199dfd3b5386101050e62d8307b4b016f5",
+      "node_ids": [
+        "6b43a817-a542-5dd5-103f-9cee1db286f5",
+        "8586fd03-087f-8f47-d4af-a79ea22bd052",
+        "23ff889a-8e82-cf5f-a932-6f89dbf6b166"
+      ]
+    },
+    "selected_clips": [
+      0,
+      1,
+      2
+    ],
+    "within_scope": true,
+    "question_or_expected_answer_read": false
+  }
+}

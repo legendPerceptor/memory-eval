@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-11-02T00:16:47.583666+08:00",
+  "manifest_sha256": "ab0e952ac83fb96ff3df47b2d6d663199dfd3b5386101050e62d8307b4b016f5",
+  "vectors_sha256": "f66e16d07052b35f740abad7c2cfaddd8503d572f15fec312f403ebf009e2689",
+  "fact_windows": 7965,
+  "source_clips": {
+    "gym_03": 68,
+    "bedroom_04": 56,
+    "study_05": 69,
+    "kitchen_20": 63,
+    "study_18": 84
+  },
+  "dimension": 1024,
+  "index_bytes": 36998755,
+  "build_wall_seconds": 62.834780239034444,
+  "questions_or_reference_answers_read": false,
+  "external_chat_model_calls": 0,
+  "note": "Local existing BGE-M3 service; read-only SQL inputs. No perception regeneration.",
+  "builder_source_sha256": "772adc868d244efc53ec566b102b60dc57df6aae66c4ea3f7062d6a314b79917",
+  "fact_index_module_sha256": "90ff07e728c718a82baf527d69842e1202f31770024a3f4c7575b2700cadff59"
+}
