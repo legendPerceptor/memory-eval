@@ -1,0 +1,20 @@
+[
+  {
+    "original": "m3_context_budget_only_20261101",
+    "new": "m3_context_budget_recovered_20261101",
+    "source_archive_identical": true,
+    "private_config_semantics_identical": true
+  },
+  {
+    "original": "m3_context_finalization_20261101",
+    "new": "m3_context_finalization_recovered_20261101",
+    "source_archive_identical": true,
+    "private_config_semantics_identical": true
+  },
+  {
+    "original": "m3_context_compact12k_20261101",
+    "new": "m3_context_compact12k_guarded_20261101",
+    "source_archive_identical": true,
+    "private_config_semantics_identical": true
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "status": "stopped_provider_quota",
+  "observed_at": "2026-11-01T09:56:51.188097+08:00",
+  "reason": "MiniMax 429 quota exhausted, code 2056; no further online requests scheduled",
+  "previous_status": {
+    "status": "running",
+    "video": "bedroom_04",
+    "videos": {
+      "study_05": {
+        "qa_exit": 2,
+        "records": 12,
+        "judge_exit": 2
+      },
+      "gym_03": {
+        "qa_exit": 2,
+        "records": 11,
+        "judge_exit": 2
+      }
+    }
+  }
+}

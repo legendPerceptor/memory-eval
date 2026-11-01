@@ -53,8 +53,34 @@ def summarize(name):
     judge = [r for v in COHORT for r in rows(run / v / "judge/m3_eval_results.jsonl")]
     grade_map = {(r["video_id"], r["question_id"]): r for r in judge}
     assert len(grade_map) == len(judge)
+    qa_map = {(r["video_id"], r["question_id"]): r for r in qa}
+    recovery = manifest.get("recovery", {})
+    for kind, actual in (("reused_answers", qa_map), ("reused_grades", grade_map)):
+        for receipt in recovery.get(kind, []):
+            row = actual[(receipt["video_id"], receipt["question_id"])]
+            assert hashlib.sha256(json.dumps(row, sort_keys=True).encode()).hexdigest() == receipt["canonical_row_sha256"]
     usage = rows(exp / "model-usage.jsonl")
     qa_calls = [r for r in usage if r["process"] == "runner.py" and r.get("qa_video_id")]
+    prior_attempts = {}
+    source_from = manifest.get("source_from")
+    if source_from:
+        previous_calls = [
+            r for r in rows(ROOT / "experiments" / source_from / "model-usage.jsonl")
+            if r["process"] == "runner.py" and r.get("qa_video_id")]
+        reused = {
+            (r["video_id"], r["question_index"])
+            for r in manifest.get("recovery", {}).get("reused_answers", [])
+        }
+        inherited_calls = [c for c in previous_calls
+                           if (c["qa_video_id"], int(c["qa_question_index"])) in reused]
+        qa_calls += inherited_calls
+        prior_attempts = {
+            "source": source_from, "all_prior_qa_calls": len(previous_calls),
+            "prior_calls_in_fixed_answer_trajectory": len(inherited_calls),
+            "prior_calls_not_in_fixed_answer_trajectory": len(previous_calls) - len(inherited_calls),
+            "prior_unknown_usage_calls": sum(not c.get("usage") for c in previous_calls),
+            "note": "All prior failures remain in the source run. Trajectory token totals are not a complete bill for failed/retried calls.",
+        }
     known = [r for r in qa_calls if r.get("usage")]
     counter_exceedances, input_exceedances, pairing_errors = [], [], []
     records = []
@@ -105,6 +131,12 @@ def summarize(name):
     score_sum = sum(g["judge_score"] for g in judge if not g["judge_error"])
     metrics = {
         "name": name, "source_commit": manifest["source_commit"],
+        "prior_attempts": prior_attempts,
+        "recovery_audit": {
+            "reused_answers": len(recovery.get("reused_answers", [])),
+            "reused_grades": len(recovery.get("reused_grades", [])),
+            "all_reused_rows_unchanged": True,
+        },
         "expected_questions": 65, "qa_records": len(qa), "judge_records": len(judge),
         "valid_answers": sum(r["valid_answer"] for r in records),
         "judge_errors": sum(bool(g["judge_error"]) for g in judge),
@@ -124,6 +156,8 @@ def summarize(name):
             "peak_prompt_tokens": max((r["usage"]["prompt_tokens"] for r in known), default=0),
             "cached_prompt_tokens": sum((r["usage"].get("prompt_tokens_details") or {}).get("cached_tokens", 0) or 0
                                         for r in known),
+            "unknown_cache_usage_calls": sum(
+                (r["usage"].get("prompt_tokens_details") or {}).get("cached_tokens") is None for r in known),
             "model_seconds_sum": sum(r["seconds"] for r in qa_calls),
         },
         "packing_seconds": distribution([r["packing_seconds"] for r in all_packed]),
@@ -165,7 +199,7 @@ def summarize(name):
     (exp / "questions.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in records))
     if records:
         with (exp / "questions.csv").open("w") as stream:
-            writer = csv.DictWriter(stream, fieldnames=list(records[0]))
+            writer = csv.DictWriter(stream, fieldnames=list(records[0]), lineterminator="\n")
             writer.writeheader()
             writer.writerows(records)
     return metrics

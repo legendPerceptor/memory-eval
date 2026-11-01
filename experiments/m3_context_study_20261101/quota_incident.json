@@ -1,0 +1,15 @@
+{
+  "observed_at": "2026-11-01T09:56:51.188097+08:00",
+  "provider": "MiniMax",
+  "http_status": 429,
+  "provider_code": 2056,
+  "provider_message": "已达到 Token Plan 用量上限：请升级 Token Plan 套餐或购买积分补充用量。",
+  "actions": [
+    "Stopped B driver and active worker",
+    "Stopped C queued launch",
+    "Old joint judge queue already stopped for schedule amendment",
+    "No model substitution or automatic purchase",
+    "Preserve all predictions/errors/grades; continue offline work"
+  ],
+  "resume_requires": "Available quota or a working key for the same requested model; use separately recorded recovery/rerun identity."
+}

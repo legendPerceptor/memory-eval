@@ -1,0 +1,48 @@
+{
+  "matplotlib_version": "3.11.2",
+  "source_sha256": "ca98f91fc09d4951ec535a2398bbf02459fe9742c5fb2c11eb86b4789b738262",
+  "methods": [
+    "historical_ogmemory",
+    "m3_reference_text",
+    "budget_only"
+  ],
+  "output": "latex/figures/context_cache.pdf",
+  "values": {
+    "historical_ogmemory": {
+      "logical_calls": 319,
+      "known_usage_calls": 319,
+      "prompt_tokens": 19905749,
+      "cached_prompt_tokens": 12987771,
+      "uncached_prompt_tokens": 6917978,
+      "cache_fraction": 0.6524633159998149,
+      "unknown_usage_calls": 0
+    },
+    "m3_reference_text": {
+      "logical_calls": 310,
+      "known_usage_calls": 310,
+      "prompt_tokens": 569796,
+      "cached_prompt_tokens": 378528,
+      "uncached_prompt_tokens": 191268,
+      "cache_fraction": 0.6643219678621822,
+      "unknown_usage_calls": 0
+    },
+    "budget_only": {
+      "logical_calls": 359,
+      "prompt_tokens": 4722001,
+      "cached_prompt_tokens": 724155,
+      "uncached_prompt_tokens": 3997846,
+      "cache_fraction": 0.15335765494331746,
+      "unknown_usage_calls": 0,
+      "total_input_reduction_vs_original": 0.7627820485428607,
+      "uncached_input_reduction_vs_original": 0.42210773147876446,
+      "prior_attempts": {
+        "source": "m3_context_budget_only_20261101",
+        "all_prior_qa_calls": 316,
+        "prior_calls_in_fixed_answer_trajectory": 305,
+        "prior_calls_not_in_fixed_answer_trajectory": 11,
+        "prior_unknown_usage_calls": 10,
+        "note": "All prior failures remain in the source run. Trajectory token totals are not a complete bill for failed/retried calls."
+      }
+    }
+  }
+}

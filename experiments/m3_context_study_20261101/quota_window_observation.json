@@ -1,0 +1,36 @@
+{
+  "observed_at": "2026-11-01T10:10:35.367481+08:00",
+  "api_http_status": 200,
+  "provider_status": 0,
+  "model_windows": [
+    {
+      "model_name": "general",
+      "current_interval_status": 1,
+      "current_interval_remaining_percent": 100,
+      "current_weekly_status": 1,
+      "current_weekly_remaining_percent": 85,
+      "start_time": "2026-11-01T10:00:00+08:00",
+      "end_time": "2026-11-01T15:00:00+08:00",
+      "weekly_start_time": "2026-10-26T00:00:00+08:00",
+      "weekly_end_time": "2026-11-02T00:00:00+08:00",
+      "remains_time_raw": 17364792,
+      "interval_total_count": 0,
+      "interval_usage_count": 0
+    },
+    {
+      "model_name": "video",
+      "current_interval_status": 3,
+      "current_interval_remaining_percent": 100,
+      "current_weekly_status": 3,
+      "current_weekly_remaining_percent": 100,
+      "start_time": "2026-11-01T00:00:00+08:00",
+      "end_time": "2026-11-02T00:00:00+08:00",
+      "weekly_start_time": "2026-10-26T00:00:00+08:00",
+      "weekly_end_time": "2026-11-02T00:00:00+08:00",
+      "remains_time_raw": 49764792,
+      "interval_total_count": 0,
+      "interval_usage_count": 0
+    }
+  ],
+  "note": "Read-only quota observation; percentages and window timestamps are provider-reported, not a guarantee of later request acceptance."
+}

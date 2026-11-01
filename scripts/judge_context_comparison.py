@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One preregistered, shuffled judge pass over immutable answers from five arms."""
+"""One preregistered, shuffled judge pass over immutable answers from six arms."""
 import datetime
 import hashlib
 import json
@@ -13,9 +13,10 @@ ROOT = Path(os.environ.get("M3_EVAL_ROOT", Path(__file__).resolve().parent.paren
 NAME = "m3_context_joint_judge_20261101"
 VIDEOS = ["study_05", "gym_03", "bedroom_04", "study_18", "kitchen_20"]
 ARMS = {
-    "budget_only": "m3_context_budget_only_20261101",
-    "finalization": "m3_context_finalization_20261101",
-    "compact12k": "m3_context_compact12k_20261101",
+    "budget_only": "m3_context_budget_recovered_20261101",
+    "finalization": "m3_context_finalization_recovered_20261101",
+    "compact12k": "m3_context_compact12k_guarded_20261101",
+    "grouped12k": "m3_context_grouped12k_20261101",
 }
 DEADLINE = datetime.datetime.fromisoformat("2026-11-01T23:30:00+08:00").timestamp()
 
@@ -75,12 +76,12 @@ def main():
     run.mkdir()
     (exp / "private").mkdir(mode=0o700)
     (run / "runner.py").write_bytes(Path(__file__).read_bytes())
-    source = ROOT / "runs/m3_context_compact12k_20261101/_source"
+    source = ROOT / "runs/m3_context_compact12k_guarded_20261101/_source"
     sys.path.insert(0, str(source))
     from core.operation_deadline import operation_deadline
     from m3.eval import build_judge_llm, judge_answer
 
-    config = ROOT / "experiments/m3_context_compact12k_20261101/private/study_05.yaml"
+    config = ROOT / "experiments/m3_context_compact12k_guarded_20261101/private/study_05.yaml"
     llm = build_judge_llm(config_path=str(config))
     save(exp / "manifest.json", {
         "seed": 42, "tasks": len(tasks), "source_prediction_hashes": hashes,
@@ -117,6 +118,11 @@ def main():
             stream.flush()
             completed += 1
             errors += bool(error)
+            if error and ("已达到 Token Plan 用量上限" in reason
+                          or ("Token Plan" in reason and "(2056)" in reason)):
+                save(exp / "status.json", {"status": "stopped_provider_quota",
+                                           "completed": completed, "judge_errors": errors})
+                return
             save(exp / "status.json", {"status": "running", "completed": completed,
                                        "judge_errors": errors})
     save(exp / "status.json", {"status": "finished" if not errors else "finished_with_judge_errors",

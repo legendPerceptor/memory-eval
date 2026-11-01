@@ -1,0 +1,16 @@
+{
+  "status": "running",
+  "video": "bedroom_04",
+  "videos": {
+    "study_05": {
+      "qa_exit": 2,
+      "records": 12,
+      "judge_exit": 2
+    },
+    "gym_03": {
+      "qa_exit": 2,
+      "records": 11,
+      "judge_exit": 2
+    }
+  }
+}

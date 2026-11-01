@@ -1,0 +1,48 @@
+{
+  "observed_at": "2026-11-01T10:51:10.745260+08:00",
+  "methods": {
+    "historical_ogmemory": {
+      "logical_calls": 319,
+      "known_usage_calls": 319,
+      "prompt_tokens": 19905749,
+      "cached_prompt_tokens": 12987771,
+      "uncached_prompt_tokens": 6917978,
+      "cache_fraction": 0.6524633159998149,
+      "unknown_usage_calls": 0
+    },
+    "m3_reference_text": {
+      "logical_calls": 310,
+      "known_usage_calls": 310,
+      "prompt_tokens": 569796,
+      "cached_prompt_tokens": 378528,
+      "uncached_prompt_tokens": 191268,
+      "cache_fraction": 0.6643219678621822,
+      "unknown_usage_calls": 0
+    },
+    "budget_only": {
+      "logical_calls": 359,
+      "prompt_tokens": 4722001,
+      "cached_prompt_tokens": 724155,
+      "uncached_prompt_tokens": 3997846,
+      "cache_fraction": 0.15335765494331746,
+      "unknown_usage_calls": 0,
+      "total_input_reduction_vs_original": 0.7627820485428607,
+      "uncached_input_reduction_vs_original": 0.42210773147876446,
+      "prior_attempts": {
+        "source": "m3_context_budget_only_20261101",
+        "all_prior_qa_calls": 316,
+        "prior_calls_in_fixed_answer_trajectory": 305,
+        "prior_calls_not_in_fixed_answer_trajectory": 11,
+        "prior_unknown_usage_calls": 10,
+        "note": "All prior failures remain in the source run. Trajectory token totals are not a complete bill for failed/retried calls."
+      }
+    }
+  },
+  "interpretation": [
+    "All completed oGMemory trajectories cover the same 65 questions and stored memories.",
+    "Historical loop failures still contributed received usage; provider failures with unknown usage remain separately recorded.",
+    "Per-round evidence repacking modifies earlier tool payloads. Reduced prefix stability is a plausible explanation for the lower observed cache fraction, not a controlled proof of provider internals.",
+    "The reference M3 controller appends new clip knowledge rather than rewriting earlier tool payloads.",
+    "Cached and uncached tokens may have different costs; these are observed usage counts, not a bill or a token-plan conversion formula."
+  ]
+}

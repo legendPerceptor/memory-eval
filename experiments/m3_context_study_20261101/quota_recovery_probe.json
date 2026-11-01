@@ -1,0 +1,22 @@
+{
+  "observed_at": "2026-11-01T10:12:05.912724+08:00",
+  "http_status": 200,
+  "model": "MiniMax-M3.1-Flash",
+  "usage": {
+    "total_tokens": 209,
+    "total_characters": 0,
+    "prompt_tokens": 206,
+    "completion_tokens": 3,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 197
+    }
+  },
+  "finish_reasons": [
+    "stop"
+  ],
+  "valid_response": true,
+  "benchmark_result": false
+}

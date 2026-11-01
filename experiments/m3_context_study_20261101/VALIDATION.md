@@ -45,3 +45,20 @@ New tests verify:
 before B. It covers row contents of graph_nodes, graph_edges, and
 m3_episodic_vectors in both source databases. Final comparison can establish
 unchanged data from that time onward, not falsely prove an earlier snapshot existed.
+
+## Grouped evidence and quota protection
+
+- Grouped format + budget + answer-reserve tests: **45 passed**.
+- M3/provider/core unit selection: **1033 passed**.
+- Experiment reporting, interleaved-judge input checks, exact-source replay,
+  and quota circuit breaker: **14 passed**.
+- Quota tests use stubs only: first provider failure is persisted, subsequent
+  calls stop, including when the first quota error occurs on the last question.
+- Grouped format tests preserve all admitted transcript/event/character/entity
+  values, nested metadata, temporal provenance, content-version distinctions
+  and valid references. A constrained test leaves optional content omitted;
+  it does not assert that arbitrarily small budgets can fit an entire clip.
+- Real-data offline replay verifies every selected source by SHA256 before
+  reconstructing excerpts. No model or embedding calls are made.
+- D has **not** been quality-evaluated online: provider quota was exhausted
+  before its launch. Offline format savings must not be reported as QA gains.

@@ -1,0 +1,8 @@
+{
+  "observed_at": "2026-11-01T09:55:53.690316+08:00",
+  "old_waiter_pid": 1433095,
+  "previous_tasks": 325,
+  "new_tasks": 390,
+  "judge_calls_started": false,
+  "reason": "Add preregistered grouped-evidence arm before joint judging; retain old queued script."
+}

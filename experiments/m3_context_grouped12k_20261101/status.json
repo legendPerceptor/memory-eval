@@ -1,0 +1,5 @@
+{
+  "status": "held_provider_quota",
+  "online_calls_started": false,
+  "reason": "Prepared only; do not launch until MiniMax quota is available."
+}

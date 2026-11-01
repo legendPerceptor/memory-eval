@@ -1,0 +1,627 @@
+{
+  "name": "m3_context_budget_recovered_20261101",
+  "prepared_at": "2026-11-01T10:22:36+0800",
+  "source_commit": "c992d45bacfabf1c1e18f8ecd54c70389b0d3721",
+  "source_archive_sha256": "62d6cb6fe2f2908b48b4d2efad0f26e863431742441d0a37e20824b372490f75",
+  "cohort": [
+    "study_05",
+    "gym_03",
+    "bedroom_04",
+    "study_18",
+    "kitchen_20"
+  ],
+  "total_questions": 65,
+  "account": "m3-flash-medium-20261031",
+  "memory_runs": {
+    "study_05": "m3_flash_medium_20261031",
+    "gym_03": "m3_flash_medium_20261031",
+    "bedroom_04": "m3_flash_medium_20261031",
+    "study_18": "m3_study18_recovery_20261101",
+    "kitchen_20": "m3_flash_medium_20261031"
+  },
+  "qa_context": {
+    "context_window": 32768,
+    "enabled": true,
+    "max_candidates": 32,
+    "max_input_tokens": 24000,
+    "max_neighbor_clips": 64,
+    "max_passages_per_node": 32,
+    "max_result_nodes": 24,
+    "max_search_calls": 8,
+    "max_selected_nodes": 32,
+    "max_top_k": 16,
+    "safety_tokens": 2048,
+    "tokenizer_multiplier": 1.15,
+    "tokenizer_path": "local pinned tokenizer (see SHA256)"
+  },
+  "tokenizer_sha256": "8441917e39ae0244e06d704b95b3124795cec478e297f9afac39ba670d7e9d99",
+  "model": "MiniMax-M3.1-Flash",
+  "reasoning_effort": "medium",
+  "thinking": "adaptive",
+  "qa_output_tokens": 8192,
+  "judge_output_tokens": 2048,
+  "max_iterations": 6,
+  "timeout_seconds": 180,
+  "temporal_policy": "current_clip",
+  "note": "QA-only, same stored memories. Historical baseline not contemporaneous. No best-of retries.",
+  "authorization_deadline": "2026-11-01T23:30:00+08:00",
+  "source_from": "m3_context_budget_only_20261101",
+  "runner_changes": "Quota/deadline guards and explicit successful-row reuse; model source/config unchanged.",
+  "recovery": {
+    "source": "m3_context_budget_only_20261101",
+    "reused_answers": [
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q01",
+        "question_index": 0,
+        "canonical_row_sha256": "9ad9bd20a1748ce27b6e45ecc6af5c1ff9dbc4a3570c0dcf3df01393a1ed6363"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q02",
+        "question_index": 1,
+        "canonical_row_sha256": "90f3e041283b217c767c5fb63bcf94b01d1d3125d1b39803a494bd061e501477"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q03",
+        "question_index": 2,
+        "canonical_row_sha256": "656b4f657015a8a411487073582aff1be5feff8dd91a647afb84d8ab5fb03d73"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q04",
+        "question_index": 3,
+        "canonical_row_sha256": "26198068650d3ccd73ee36ffbce11611dbe65c0aaa3f8e438a13c927a22170a4"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q05",
+        "question_index": 4,
+        "canonical_row_sha256": "e7fb98ecb013147cf28215c191aaf8ab27b85df7145cdcd3ce736d0c81452660"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q06",
+        "question_index": 5,
+        "canonical_row_sha256": "aaed327d8bb0f592b79ed6b6bd93f0e1ed7f77f993bead3dff90bc6047332674"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q07",
+        "question_index": 6,
+        "canonical_row_sha256": "6ac5327afcb2f75a038c7bf3782e2e73a9717b2c94ebf1a1be845b2df9627ce3"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q08",
+        "question_index": 7,
+        "canonical_row_sha256": "6715e5e950207fef7d98f79d71b807b8d7b500b98dff53e1115cb5aca1ce903c"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q09",
+        "question_index": 8,
+        "canonical_row_sha256": "01bb5a79a9ee9638d7abb1a4dfdf15277e8a0cf85d2aa2874ab2467f57cc79cb"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q10",
+        "question_index": 9,
+        "canonical_row_sha256": "d83df58406e3fe9607f37e20d56cf0dd46179aed6fcda722d23f94cb577b674a"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q11",
+        "question_index": 10,
+        "canonical_row_sha256": "7c5d18860677524ecb26da18ced20b58981c19cef34c63784b8211fae82f151b"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q12",
+        "question_index": 11,
+        "canonical_row_sha256": "c80794833bffabad6b73706fc58c7e4f2386de37cd66b4e48593b4797b969db5"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q01",
+        "question_index": 0,
+        "canonical_row_sha256": "8e420718c13c2eaa540e105edcd1c4fb40228ed66e8174c82b1f77453d05fd98"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q02",
+        "question_index": 1,
+        "canonical_row_sha256": "3464aafc4c397832535d91e72bc7847db8cab726574cf5bc8f116268aa90022f"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q03",
+        "question_index": 2,
+        "canonical_row_sha256": "9ab9b324ebe917bb556c91010941511394548c9b8a54d1556ff526319ff9110c"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q04",
+        "question_index": 3,
+        "canonical_row_sha256": "dca0016d953ba5451539e0777699ed902513f8870478dc7f8454efecf5c7e45f"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q05",
+        "question_index": 4,
+        "canonical_row_sha256": "31539f7faf0ee428003edccb4ba3952eed9ceaa93d04741007cc6d17ac9fe69e"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q06",
+        "question_index": 5,
+        "canonical_row_sha256": "04c2c530635dac69c166ca157b23c7728298ab4675fc7e22b0dc80ad89f97801"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q07",
+        "question_index": 6,
+        "canonical_row_sha256": "a6b8761d104e94365541dcba4795b5a943274bb790544135efa069f1f1e723c1"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q08",
+        "question_index": 7,
+        "canonical_row_sha256": "2ed1874e6cd4cd7dc929a318740e7fd40b0070a2b007c71f16baded4d6663cc2"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q09",
+        "question_index": 8,
+        "canonical_row_sha256": "6bac290399180bc8629909395340fd3aa827040bf0ef68b3dff9ae4b43ce04f8"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q10",
+        "question_index": 9,
+        "canonical_row_sha256": "1f3eed3676575289e8cac8395ace5aea59f613739cd9185654862d8cf16e7b8b"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q11",
+        "question_index": 10,
+        "canonical_row_sha256": "4a70f44029fcbba1450f8097385e8884f26062ce36845adebd267bed1d92e054"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q01",
+        "question_index": 0,
+        "canonical_row_sha256": "0d919ba3d9744d0bc3a0a8004e230a5922dce07d4886f28cadcc1dc6a11ec267"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q02",
+        "question_index": 1,
+        "canonical_row_sha256": "13a80b9c198d6389881de978a99ac6c02f20abb6b09453e5022a5228bcfabae5"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q03",
+        "question_index": 2,
+        "canonical_row_sha256": "35465eff909b6175146ccdca989ec34c8f68fc82d8ecafb2b616899c078d3e4c"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q04",
+        "question_index": 3,
+        "canonical_row_sha256": "50c0a1272bdd8de551c1724ce9a44ebbf538772e4edf7b9a2e9f2665c33f08d1"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q05",
+        "question_index": 4,
+        "canonical_row_sha256": "4a7589ab588ff5c63aa40bddae9ac9c00baed699058ddaec748e160681d27ef5"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q06",
+        "question_index": 5,
+        "canonical_row_sha256": "908deb6abab9ef6412f809e41f8fde30e9fbeb5fe7e51dde4e43a1558d9749f1"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q07",
+        "question_index": 6,
+        "canonical_row_sha256": "9d04813787e1594242a1e98c37e4c5027d8439ff72de9af18d7493d3797bb7a6"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q08",
+        "question_index": 7,
+        "canonical_row_sha256": "b29e0f025c69da55a4972c8fbde2664ce59b6078c9e09ef1b7ec3b924d4c8d2f"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q09",
+        "question_index": 8,
+        "canonical_row_sha256": "2e41f7842c52a4e44a48b8e01b6dc9d86f9aa2e883f6c2d242e26669ffb55ccb"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q10",
+        "question_index": 9,
+        "canonical_row_sha256": "b148d973cb260a2fbca8c971a34331c6c5bec661ba1e294d8cb53a171640c665"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q11",
+        "question_index": 10,
+        "canonical_row_sha256": "3df747cb16021dea0c44d6cc24fbe23bac17694fb36b993b06265659e5b63ccd"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q01",
+        "question_index": 0,
+        "canonical_row_sha256": "baaa487dd3020270fec356446f4f6225a66160fc487f4da1b7c99193f58fed5f"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q02",
+        "question_index": 1,
+        "canonical_row_sha256": "04ce3c04d0b7fe9d7aebb190570ddb8e04e3c15b6811e2ee7b3bc67d4a769627"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q03",
+        "question_index": 2,
+        "canonical_row_sha256": "1d85b2d15097224dc91eda56427fc90b3e90d83f5d1216ed611cde916f32fd8a"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q04",
+        "question_index": 3,
+        "canonical_row_sha256": "561d059ee156a985fe447ef0d7c8209c3572e43090a7e206cd09c7aad9ad1328"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q05",
+        "question_index": 4,
+        "canonical_row_sha256": "a51f4872bd635f6ed68fd3f058122926cf8c40bcb83c845a883ebf76cb0dec3c"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q06",
+        "question_index": 5,
+        "canonical_row_sha256": "2948e2d86e23ce52074ba528fcf6e5b779a0e92b1b9ed9525d1f48fa0c9d4d63"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q07",
+        "question_index": 6,
+        "canonical_row_sha256": "0c4f62d93be10e110c179a471b10560cae162ec56917ab64a8be62bed4e9c827"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q08",
+        "question_index": 7,
+        "canonical_row_sha256": "fcd22e54cb8a394746309ad7c069f209bf2989ebfe37b23dbc8a7858d84a7665"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q09",
+        "question_index": 8,
+        "canonical_row_sha256": "a64ae5064106798336fd69ae4f8b13b2926d2676039cddcc3309083b51e8cba6"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q10",
+        "question_index": 9,
+        "canonical_row_sha256": "91afe0a3ece6679952383b8bf95ff28984ec634df406152a1c94dc0cbf887f3b"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q11",
+        "question_index": 10,
+        "canonical_row_sha256": "3854c33f56b0d0d770eee6b4989a07098e1b95c65069045f147bc9469c234f0a"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q12",
+        "question_index": 11,
+        "canonical_row_sha256": "99d23a5a6b951c6674360a42fc62d919c02d7ac12f0126f9786952aba31ad6ee"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q13",
+        "question_index": 12,
+        "canonical_row_sha256": "2f3ed8108a8db48556bd089ad512e1af0dea6e18466f19a8495860572a281d58"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q14",
+        "question_index": 13,
+        "canonical_row_sha256": "6e0c9efe17feb7a65beb88a0f5b39e27a5e9459cedb39b43b6d9bab0e83d4f15"
+      },
+      {
+        "video_id": "kitchen_20",
+        "question_id": "kitchen_20_Q01",
+        "question_index": 0,
+        "canonical_row_sha256": "e0ba401516e0c776432aefc846bf2d0211b549176feaa148832654e88185fa97"
+      },
+      {
+        "video_id": "kitchen_20",
+        "question_id": "kitchen_20_Q02",
+        "question_index": 1,
+        "canonical_row_sha256": "d4c4464581ee035c85e71201350be49b545657ec806509981147a010beaa6b33"
+      },
+      {
+        "video_id": "kitchen_20",
+        "question_id": "kitchen_20_Q03",
+        "question_index": 2,
+        "canonical_row_sha256": "f2582c9cb6df51a4f17ac85c8b81213af96928f0d147d3c45bc6c65244a07b26"
+      },
+      {
+        "video_id": "kitchen_20",
+        "question_id": "kitchen_20_Q04",
+        "question_index": 3,
+        "canonical_row_sha256": "14093381eb9bda8b1390eee87beb8f1d83b62b7d611b02d48658b52413426372"
+      },
+      {
+        "video_id": "kitchen_20",
+        "question_id": "kitchen_20_Q05",
+        "question_index": 4,
+        "canonical_row_sha256": "893c069d60a35a77b3c8a163d3e9f2273974a0ad3cfd5da93a6412a3c3696ef4"
+      },
+      {
+        "video_id": "kitchen_20",
+        "question_id": "kitchen_20_Q06",
+        "question_index": 5,
+        "canonical_row_sha256": "95077d26bfcbfe1098eb5a5fd3e7e3cdbe10d224edcccdcc881712fbc2a89373"
+      },
+      {
+        "video_id": "kitchen_20",
+        "question_id": "kitchen_20_Q07",
+        "question_index": 6,
+        "canonical_row_sha256": "997ccdf3b5bf4de010dd2c7eb6980d4352fda21d27c701f5bc926f6f8d4200ba"
+      }
+    ],
+    "reused_grades": [
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q01",
+        "canonical_row_sha256": "4a72a55a60afe637cb6e31e4401c42f020da4d1a79809dbf6d099a21125cd7d3"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q02",
+        "canonical_row_sha256": "b7b3aba52443f2aac5f392c6ef1323f8c18172c5a19ae42a8920b47d6e19104e"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q03",
+        "canonical_row_sha256": "068a390870fb23f9ba91f094cb233e79351bc1c34ce32086a724aced66ca1127"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q04",
+        "canonical_row_sha256": "aa969de560621981f2250829a506122431bd8f0101a546d7942c8a7b605a34bb"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q05",
+        "canonical_row_sha256": "efd5e29d942ece526a0323ba8a2e2735405725b6c8434034cc27e0b49cc0c87a"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q06",
+        "canonical_row_sha256": "eb30d14b3cdd385ef19a32c3491dc420376bc6e1686328557932937d03b5e9af"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q07",
+        "canonical_row_sha256": "72d6053b6ec3b30e2ee34de93fb3a8fba9219d5d50c03b881048c74da7381398"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q08",
+        "canonical_row_sha256": "e5f232900f99ed72450f0697798fceba8e918ae64edded3354b7d78f9cdfe96e"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q09",
+        "canonical_row_sha256": "39201d4eb3fec54dca6cb76ec96eea5b25a54ed92d0bb8f566af6722eb007e54"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q10",
+        "canonical_row_sha256": "0381e9bcb5dd7000bf9c52e0ac376ce2b40f34ae1ba7863fbbacf0f1b0b5c8ba"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q11",
+        "canonical_row_sha256": "6435a545b633f2f6cd83be5aebe1a40d5b114142c1b7e17a919d652ce92644ec"
+      },
+      {
+        "video_id": "study_05",
+        "question_id": "study_05_Q12",
+        "canonical_row_sha256": "400b033306576a6ede838b75d58d70659a60a2b8ec30e23a146d7b6e05853c31"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q01",
+        "canonical_row_sha256": "08d35340a6741964336f178f8ff2600498d942d47444c99092a98cea7384ba80"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q02",
+        "canonical_row_sha256": "090c35251507dc3cfcd8cb81474ac7e98efdd6618d8f0cfc10c1e17089ec1ecb"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q03",
+        "canonical_row_sha256": "aa2b051e62f30de2c29a089c76105115a776a8535b0d97e7e3dcf9d1e7648366"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q04",
+        "canonical_row_sha256": "f2db2ff24abd184971cee9a1a1a9d36dfcfcdd767bbf285ff2bdd8eb8b7e3a19"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q05",
+        "canonical_row_sha256": "9e434849f184aa11381a42945ac779a364f9f6b32af78ec55c510272af6ccd43"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q06",
+        "canonical_row_sha256": "7f0f95954abca61ad93feea0d25f672c8728e06214dfc76989d0850687ff1a0e"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q07",
+        "canonical_row_sha256": "86dd177498ce89934bdb13a7e0a5e3866f26549c9e525907c666b6eb1377a403"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q08",
+        "canonical_row_sha256": "0aad8b9aa68c2d118f58ea96d3c4faa70bb2ff4742dff07941b6b2f63f4ce9e9"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q09",
+        "canonical_row_sha256": "a60f0183fb6720a35466d4f956a1d8b04b62a0d0f84360b86faf7ac5cc2afa0d"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q10",
+        "canonical_row_sha256": "2c798c20d591b11a7db48f46aa3c0b1eb0d896649136de061ad7f0332bc4afc7"
+      },
+      {
+        "video_id": "gym_03",
+        "question_id": "gym_03_Q11",
+        "canonical_row_sha256": "20a58a3ca5deca5c90282dd8e7db487bf0e3cb6aacc7ef0f08b09025f963ce08"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q01",
+        "canonical_row_sha256": "989e7019f12cd6d2cf852834147e0cafbb87d5f9b4a757073b3039eebffbc1e5"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q02",
+        "canonical_row_sha256": "2b8d653ad9c2bc4dffb399d1cbe28c4d01551687aaf214154d0d614508238226"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q03",
+        "canonical_row_sha256": "0400ae4e69d9b117ed8f07357fdd07258ed466aff0b7ab7778a467c7f1012fb5"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q04",
+        "canonical_row_sha256": "12b8716e18908c4239f4cb3c42948a7747cc23d0c82b99c093169e36e8d00799"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q05",
+        "canonical_row_sha256": "b5c80f018c3e4970db98adbabdd0ea0e866b47ed12cd526e8032cf88df13e5b3"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q06",
+        "canonical_row_sha256": "98a2c36765eb2f30e85e2debde0f5a560967b4c60c1d4f79da2d3a89718ee3b8"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q07",
+        "canonical_row_sha256": "a980f51847bee6108ba446f2dff26e337d19cf7e95d8b634c83076b693b8e973"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q08",
+        "canonical_row_sha256": "6fd5fa2145a42fe8994d7ec3e83318a4a9fd1f70e3331315c8b35c68026772e7"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q09",
+        "canonical_row_sha256": "5fbc23bd7f0c996442c5ae963aa1ba1c9813a1c2f3e07d5497f9db38a3348ac4"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q10",
+        "canonical_row_sha256": "37da33f251d5e19105da99becfb9ef931dc9fa1e99a8c37b8c63d0e82f78213d"
+      },
+      {
+        "video_id": "bedroom_04",
+        "question_id": "bedroom_04_Q11",
+        "canonical_row_sha256": "825833751bd7859bf5d59cff8383c0b9152ab1d383841edd00dad3daa751f2b7"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q01",
+        "canonical_row_sha256": "21d13ecb11643faf301ddb5dfec4fd25b3b1c9eddd1b27c77cd23c5e4413adc8"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q02",
+        "canonical_row_sha256": "f82e1112a4853f2a572e5e37c58c8495c22fc4b23782b73414eb0836f66b4182"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q03",
+        "canonical_row_sha256": "03fd61ccfd0855f3f4e66f5b31f3ba7cdd05d62d6e8d2aafba4d49c98808b8bb"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q04",
+        "canonical_row_sha256": "1ec7c4c472eafb13b0b0f93b374eb8a2e1f09e89c6887620934f0308aad2ea26"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q05",
+        "canonical_row_sha256": "35cfd7cdf14afd1a8be9462d7c8d13ca824c5b69016421048e1916d7222fb50e"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q06",
+        "canonical_row_sha256": "36c9dfca1566818bc05d18737c7254f12791d41b37259123c6f08154a0298d96"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q07",
+        "canonical_row_sha256": "4cb5894b9f170bd61b7a47ba9840b71832cd2771599e63cac61786a14caf2f7a"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q08",
+        "canonical_row_sha256": "2604035c70b3a04fe9f2e9e3f855cf034d05d81822410ee952805f2b6c02aa43"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q09",
+        "canonical_row_sha256": "72c7b9f269f58b801b93819d79449110ce84a3ba4a8e2e0d90e61857b22957cd"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q10",
+        "canonical_row_sha256": "949649b262f721ee4b1683a0615cc2a059ee3253f4290a7b6af03bd5a33eb66f"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q11",
+        "canonical_row_sha256": "8187d80e0600fcd8557592aacd0af1ca108edafd16853c73e3a1b59236cdf95d"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q12",
+        "canonical_row_sha256": "ad71f04ae6dcaaec664c466f4bc8cb8b62a989e43331a7151f696d836074f484"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q13",
+        "canonical_row_sha256": "df982a99dd19360bfbbf8677f7ef471e0065e20d777674980ec4fdf3c5fcc178"
+      },
+      {
+        "video_id": "study_18",
+        "question_id": "study_18_Q14",
+        "canonical_row_sha256": "c17f5f0c5b08adf913f22d3972a77eee57ff685f6a748e481e0b953ba6515152"
+      }
+    ]
+  }
+}
