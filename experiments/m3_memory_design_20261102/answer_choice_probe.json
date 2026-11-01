@@ -1,0 +1,75 @@
+{
+  "benchmark_questions_used": false,
+  "model": "MiniMax-M3.1-Flash",
+  "reasoning_effort": "medium",
+  "max_completion_tokens": 1024,
+  "results": [
+    {
+      "choice": "required",
+      "observed_at": "2026-11-02T00:46:05.491968+08:00",
+      "http_status": 200,
+      "seconds": 2.615989489015192,
+      "reported_model": "MiniMax-M3.1-Flash",
+      "usage": {
+        "total_tokens": 596,
+        "total_characters": 0,
+        "prompt_tokens": 460,
+        "completion_tokens": 136,
+        "completion_tokens_details": {
+          "reasoning_tokens": 39
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 186
+        }
+      },
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "id": "call_01a198010122741881620b82",
+          "type": "function",
+          "function": {
+            "name": "Answer",
+            "arguments": "{\"final_answer\":\"9.9 is larger. Comparing digit by digit: both have 9 in the ones place and 9 in the tenths place. The hundredths place gives 9.11 → 1 and 9.9 → 9 (i.e., 9.90), so 9.90 > 9.11.\"}"
+          }
+        }
+      ],
+      "error_type": null
+    },
+    {
+      "choice": {
+        "type": "function",
+        "function": {
+          "name": "Answer"
+        }
+      },
+      "observed_at": "2026-11-02T00:46:07.966418+08:00",
+      "http_status": 200,
+      "seconds": 2.474479554919526,
+      "reported_model": "MiniMax-M3.1-Flash",
+      "usage": {
+        "total_tokens": 576,
+        "total_characters": 0,
+        "prompt_tokens": 460,
+        "completion_tokens": 116,
+        "completion_tokens_details": {
+          "reasoning_tokens": 20
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 459
+        }
+      },
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "id": "call_01a198010ab17447ab48b82c",
+          "type": "function",
+          "function": {
+            "name": "Answer",
+            "arguments": "{\"final_answer\":\"9.9 is larger. Comparing digit by digit: both have 9 in the ones place and 9 in the tenths place, but 9.9 has 0 in the hundredths place while 9.11 has 1. Since 0 < 1, 9.9 > 9.11.\"}"
+          }
+        }
+      ],
+      "error_type": null
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "balanced_prior": "m3_context_finalization_recovered_20261101",
+  "balanced_prior_repeat": "m3_context_finalization_repeat_20261101",
+  "m3_reference": "m3_agent_reference_text_20261101",
+  "facts": "m3_facts_only_20261102",
+  "facts_identity": "m3_facts_identity_20261102",
+  "facts_identity_incremental": "m3_facts_identity_incremental_20261102",
+  "source_index": "m3_source_fact_index_v2_20261102",
+  "source_index_repeat": "m3_source_fact_index_v2_repeat_20261102",
+  "balanced_contemporary": "m3_balanced_contemporary_20261102"
+}

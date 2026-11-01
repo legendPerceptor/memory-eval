@@ -133,7 +133,8 @@ def prepare(args):
     )
     if args.answer_reserve:
         settings["answer_reserve_seconds"] = args.answer_reserve
-    for option in ("fact_memory", "identity_aware", "incremental_delivery"):
+    for option in ("fact_memory", "identity_aware", "incremental_delivery",
+                   "force_answer_tool", "fact_scene_anchors"):
         if getattr(args, option, False):
             settings[option] = True
     if getattr(args, "fact_memory", False):
@@ -397,6 +398,8 @@ if __name__ == "__main__":
     p.add_argument("--identity-aware", action="store_true")
     p.add_argument("--incremental-delivery", action="store_true")
     p.add_argument("--fact-index", help="Pinned source-fact sidecar manifest")
+    p.add_argument("--force-answer-tool", action="store_true")
+    p.add_argument("--fact-scene-anchors", action="store_true")
     p.add_argument("--source-from", help="Reuse a prior arm's exact frozen source and private configuration")
     p.add_argument("--resume-successes", action="store_true",
                    help="With --source-from, preserve successful answers and successful matching grades")
@@ -415,7 +418,8 @@ if __name__ == "__main__":
         raise SystemExit("Unsafe source experiment name")
     if args.source_from and (args.input_budget != 24000 or args.answer_reserve != 0
                              or args.evidence_format != "passages" or args.fact_memory
-                             or args.identity_aware or args.incremental_delivery or args.fact_index):
+                             or args.identity_aware or args.incremental_delivery or args.fact_index
+                             or args.force_answer_tool or args.fact_scene_anchors):
         raise SystemExit("--source-from preserves its configuration; do not combine it with tuning overrides")
     if args.resume_successes and not args.source_from:
         raise SystemExit("--resume-successes requires --source-from")

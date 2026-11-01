@@ -40,6 +40,7 @@ if path:
                 "images": sum(p.get("type") == "image_url" for p in parts),
                 "audio": sum(p.get("type") == "input_audio" for p in parts),
                 "tools": [t.get("function", {}).get("name") for t in (kwargs.get("tools") or [])],
+                "tool_choice": kwargs.get("tool_choice"),
             }
             try:
                 response = original(self, **kwargs)

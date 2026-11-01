@@ -16,6 +16,8 @@ JOBS = [
     "m3_facts_only_20261102",
     "m3_facts_identity_20261102",
 ]
+MINIMUM_QUOTA = 40
+MINIMUM_QUOTA_BY_JOB = {}
 
 
 def main():
@@ -25,7 +27,8 @@ def main():
     if not env.get("MINIMAX_API_KEY"):
         raise RuntimeError("Load interactive ~/.bashrc without printing credentials")
     runtime.save(EXP / "execution_schedule.json", {
-        "jobs": JOBS, "deadline": DEADLINE, "minimum_interval_remaining_percent": 40,
+        "jobs": JOBS, "deadline": DEADLINE, "minimum_interval_remaining_percent": MINIMUM_QUOTA,
+        "per_job_minimum_interval_remaining_percent": MINIMUM_QUOTA_BY_JOB,
         "note": "First job already launched; wait for it, then serialize remaining prepared arms.",
     })
     for name in JOBS:
@@ -49,7 +52,7 @@ def main():
                 runtime.status(status="quota_unavailable", job=name)
                 time.sleep(120)
                 continue
-            if quota["interval_remaining_percent"] < 40:
+            if quota["interval_remaining_percent"] < MINIMUM_QUOTA_BY_JOB.get(name, MINIMUM_QUOTA):
                 if not runtime.wait_until(quota["window_end_unix"] + 60, name):
                     return
                 continue
