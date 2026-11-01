@@ -1,0 +1,12 @@
+{
+  "observed_at": "2026-11-01T12:50:10.114483+08:00",
+  "old_source": "09f3cf30",
+  "new_source": "76879efa",
+  "model_config_change": false,
+  "prompt_change": "Explicit local-index versus persistent-entity-ID distinction",
+  "old_D_online_calls": 0,
+  "old_D_predictions": 0,
+  "old_D_grades": 0,
+  "best_of_selection": false,
+  "schedule_change": false
+}

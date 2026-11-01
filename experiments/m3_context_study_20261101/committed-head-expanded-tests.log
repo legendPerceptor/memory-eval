@@ -1,0 +1,129 @@
+........................................................................ [  4%]
+........................................................................ [  9%]
+........................................................................ [ 14%]
+........................................................................ [ 19%]
+........................................................................ [ 24%]
+........................................................................ [ 28%]
+........................................................................ [ 33%]
+........................................................................ [ 38%]
+........................................................................ [ 43%]
+........................................................................ [ 48%]
+........................................................................ [ 52%]
+..................................F.F..............s.........sssssssss.s [ 57%]
+.s.s..ss.s.s.s.s.s...................................................... [ 62%]
+...........................s.s.s.s...................................... [ 67%]
+......................................F.FF..F............FF.....s.s..ss. [ 72%]
+s.s.s.s.s..............................................s..........ssssss [ 77%]
+ssss.s........ssssssss.....sssss.s.s.s..ss.s..ss.....ssss.s.s.......ssss [ 81%]
+sss.......sssssss.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s........... [ 86%]
+........................................................................ [ 91%]
+........................................................................ [ 96%]
+........................................................                 [100%]
+=================================== FAILURES ===================================
+____________ test_load_m3_runtime_config_reads_m3_block_without_env ____________
+/home/yuanjian/Development/memory/oGMemory/tests/integration/m3/test_config.py:56: in test_load_m3_runtime_config_reads_m3_block_without_env
+    ???
+E   AssertionError: assert None == 'host=localhost dbname=test'
+E    +  where None = M3RuntimeConfig(episodic_llm=M3ModelConfig(provider='minimax', api_key='episodic-key', base_url='https://api.minimaxi....lhost dbname=test', vector_index_table_name='m3_episodic_vectors', vector_index_pool_size=5, embedding_batch_size=2048).graph_connection_string
+____________ test_vector_index_connection_string_inherits_vector_db ____________
+/home/yuanjian/Development/memory/oGMemory/tests/integration/m3/test_config.py:105: in test_vector_index_connection_string_inherits_vector_db
+    ???
+E   AssertionError: assert None == 'host=primary dbname=graph'
+E    +  where None = M3RuntimeConfig(episodic_llm=M3ModelConfig(provider='minimax', api_key=None, base_url=None, model='MiniMax-M3', temper...=primary dbname=graph', vector_index_table_name='custom_m3_table', vector_index_pool_size=3, embedding_batch_size=2048).graph_connection_string
+__________________ TestIndexEpisodic.test_index_record_shape ___________________
+tests/integration/m3/test_qa_mvp.py:122: in test_index_record_shape
+    assert rec["embedding"] == [0.1, 0.2]
+           ^^^^^^^^^^^^^^^^
+E   KeyError: 'embedding'
+___________ TestSearch.test_search_filters_by_video_and_before_clip ____________
+tests/integration/m3/test_qa_mvp.py:150: in test_search_filters_by_video_and_before_clip
+    hits = searcher.search(
+m3/search.py:405: in search
+    seed_hits = self._index.search_by_vector(
+providers/vector_index/in_memory_index.py:136: in search_by_vector
+    similarity = self._cosine_similarity(query_vector, self._vectors[record_id])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+providers/vector_index/in_memory_index.py:113: in _cosine_similarity
+    raise ValueError("Vectors must have same dimension")
+E   ValueError: Vectors must have same dimension
+_____________ TestSearch.test_include_neighbors_adds_adjacent_clip _____________
+tests/integration/m3/test_qa_mvp.py:168: in test_include_neighbors_adds_adjacent_clip
+    hits = searcher.search("red apple", video_id="v", top_k=2, include_neighbors=1)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+m3/search.py:405: in search
+    seed_hits = self._index.search_by_vector(
+providers/vector_index/in_memory_index.py:136: in search_by_vector
+    similarity = self._cosine_similarity(query_vector, self._vectors[record_id])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+providers/vector_index/in_memory_index.py:113: in _cosine_similarity
+    raise ValueError("Vectors must have same dimension")
+E   ValueError: Vectors must have same dimension
+______________________ TestQAMVP.test_run_qa_writes_jsonl ______________________
+tests/integration/m3/test_qa_mvp.py:229: in test_run_qa_writes_jsonl
+    rc = run_qa(args)
+         ^^^^^^^^^^^^
+m3/qa.py:310: in run_qa
+    vi = _build_qa_vector_index(args)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+m3/qa.py:438: in _build_qa_vector_index
+    return build_m3_vector_index(runtime)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+m3/vector_index.py:88: in build_m3_vector_index
+    return OpenGaussVectorIndex(
+providers/vector_index/opengauss_index.py:157: in __init__
+    self._ensure_table()
+providers/vector_index/opengauss_index.py:195: in _ensure_table
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+fs/sql_adapter/session_mutation.py:260: in get
+    return guard.borrow(dsn, instance._sql_dialect) if guard is not None else original_get(*args, **kwargs)
+                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+providers/vector_index/opengauss_index.py:370: in _get_connection
+    return psycopg2.connect(self._connection_string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/psycopg2/__init__.py:122: in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   psycopg2.OperationalError: invalid integer value "${STORAGE_DB_HOST_PORT}" for connection option "port"
+------------------------------ Captured log call -------------------------------
+WARNING  m3.qa:qa.py:275 --index is deprecated and ignored: m3.qa.run_qa now reads embeddings from the VectorIndex (m3.vector_index.* plus the shared vector_db.connection_string). The canonical retrieval source is the OpenGaussVectorIndex populated by m3.index_episodic.
+_______________ test_extract_frames_does_not_resume_pending_node _______________
+tests/integration/m3/test_resume_status.py:80: in test_extract_frames_does_not_resume_pending_node
+    result = extract_frames_for_clip(
+m3/extract_frames.py:192: in extract_frames_for_clip
+    result = op_service.persist_extraction(
+service/operator_service.py:271: in persist_extraction
+    extracted = self._graph.create_extracted_node(
+service/graph_service.py:324: in create_extracted_node
+    self._create_node_with_edges(node, [edge], ctx)
+service/graph_service.py:171: in _create_node_with_edges
+    return create(node.serialize(), edges, ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+core/interfaces.py:638: in create_node_with_edges
+    raise FileExistsError(f"Graph node already exists: {node_id}")
+E   FileExistsError: Graph node already exists: e04accab13d10a459a2a6bb57255b208
+________________ test_detect_faces_does_not_resume_pending_node ________________
+tests/integration/m3/test_resume_status.py:119: in test_detect_faces_does_not_resume_pending_node
+    result = detect_faces_for_frame(
+m3/detect_faces.py:152: in detect_faces_for_frame
+    result = op_service.persist_extraction(
+service/operator_service.py:271: in persist_extraction
+    extracted = self._graph.create_extracted_node(
+service/graph_service.py:324: in create_extracted_node
+    self._create_node_with_edges(node, [edge], ctx)
+service/graph_service.py:171: in _create_node_with_edges
+    return create(node.serialize(), edges, ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+core/interfaces.py:638: in create_node_with_edges
+    raise FileExistsError(f"Graph node already exists: {node_id}")
+E   FileExistsError: Graph node already exists: cd0ca49079b061edcdacfce0d66b6863
+=========================== short test summary info ============================
+FAILED tests/integration/m3/test_config.py::test_load_m3_runtime_config_reads_m3_block_without_env
+FAILED tests/integration/m3/test_config.py::test_vector_index_connection_string_inherits_vector_db
+FAILED tests/integration/m3/test_qa_mvp.py::TestIndexEpisodic::test_index_record_shape
+FAILED tests/integration/m3/test_qa_mvp.py::TestSearch::test_search_filters_by_video_and_before_clip
+FAILED tests/integration/m3/test_qa_mvp.py::TestSearch::test_include_neighbors_adds_adjacent_clip
+FAILED tests/integration/m3/test_qa_mvp.py::TestQAMVP::test_run_qa_writes_jsonl
+FAILED tests/integration/m3/test_resume_status.py::test_extract_frames_does_not_resume_pending_node
+FAILED tests/integration/m3/test_resume_status.py::test_detect_faces_does_not_resume_pending_node
+8 failed, 1380 passed, 108 skipped, 1 deselected in 17.11s

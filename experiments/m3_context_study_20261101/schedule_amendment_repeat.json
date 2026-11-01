@@ -1,0 +1,15 @@
+{
+  "observed_at": "2026-11-01T11:38:21.964915+08:00",
+  "stopped_idle_coordinator_pid": 1460046,
+  "old_state": {
+    "observed_at": "2026-11-01T11:38:01.343674+08:00",
+    "status": "scheduled_wait",
+    "pending": "m3_context_compact12k_guarded_20261101",
+    "next_start": "2026-11-01T15:05:00+08:00"
+  },
+  "reason": "B completed with 52% of current interval remaining. Advance compact C with a 45% launch threshold; D in next window; add full independent B replication in evening to check observed score stability.",
+  "joint_grading_started": false,
+  "joint_tasks_before": 390,
+  "joint_tasks_after": 455,
+  "best_of_selection": false
+}

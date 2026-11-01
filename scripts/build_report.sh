@@ -41,9 +41,16 @@ cd "$TEX_DIR"
   echo "Engine: $(command -v xelatex)"
   xelatex --version | head -n 2
   if [[ -f results.tex ]]; then
-    echo "Document scope: finalized numerical section is present."
+    echo "Document scope: historical baseline numerical section is present."
   else
     echo "Document scope: interim report; final five-video scores are unavailable."
+  fi
+  if [[ -f context_optimization_results.tex ]]; then
+    if grep -q 'CONTEXT_REPORT_STATUS: final' context_optimization_results.tex; then
+      echo "Context ablation section: final joint judging."
+    else
+      echo "Context ablation section: provisional; joint judging is not final."
+    fi
   fi
   # Force a build: a newly created results.tex must replace the draft even if
   # latexmk previously recorded the file as absent inside IfFileExists.
@@ -64,7 +71,7 @@ mv -f "$tmp_pdf" "$TEX_DIR/report.pdf"
 {
   echo "Built at: $(date -Is)"
   sha256sum report.tex report.pdf
-  for file in results.tex interim_results.tex findings.tex m3_agent_comparison.tex; do
+  for file in results.tex interim_results.tex findings.tex m3_agent_comparison.tex recovery_results.tex matched_comparison_results.tex context_optimization_results.tex figures/context_cache.pdf; do
     [[ ! -f "$file" ]] || sha256sum "$file"
   done
 } > "$BUILD_DIR/build-manifest.txt"

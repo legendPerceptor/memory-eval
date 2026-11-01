@@ -160,6 +160,10 @@ def prepare(args):
     if inherited:
         manifest["source_from"] = source_from
         manifest["runner_changes"] = "Quota/deadline guards and explicit successful-row reuse; model source/config unchanged."
+    if getattr(args, "independent_replication", False):
+        manifest["independent_replication_of"] = source_from
+        manifest["attempt_relationship"] = "independent_replication"
+        manifest["note"] = "Independent full 65-question repeat; no answer/grade reuse or best-of selection."
     if getattr(args, "resume_successes", False):
         manifest["recovery"] = seed_recovery(run, ROOT / "runs" / source_from, source_from)
     save(exp / "manifest.json", manifest)
@@ -379,6 +383,8 @@ if __name__ == "__main__":
     p.add_argument("--source-from", help="Reuse a prior arm's exact frozen source and private configuration")
     p.add_argument("--resume-successes", action="store_true",
                    help="With --source-from, preserve successful answers and successful matching grades")
+    p.add_argument("--independent-replication", action="store_true",
+                   help="Repeat the frozen source/config on all questions; do not count reference run as retry overhead")
     p.add_argument("--worker", action="store_true")
     p.add_argument("--judge-worker", action="store_true")
     p.add_argument("--driver", action="store_true")
@@ -390,8 +396,13 @@ if __name__ == "__main__":
         raise SystemExit("Input budget must be positive")
     if args.source_from and not args.source_from.replace("_", "").isalnum():
         raise SystemExit("Unsafe source experiment name")
+    if args.source_from and (args.input_budget != 24000 or args.answer_reserve != 0
+                             or args.evidence_format != "passages"):
+        raise SystemExit("--source-from preserves its configuration; do not combine it with tuning overrides")
     if args.resume_successes and not args.source_from:
         raise SystemExit("--resume-successes requires --source-from")
+    if args.independent_replication and (not args.source_from or args.resume_successes):
+        raise SystemExit("Independent replication requires --source-from and forbids --resume-successes")
     if args.worker:
         raise SystemExit(worker(args))
     if args.judge_worker:

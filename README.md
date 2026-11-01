@@ -6,11 +6,20 @@
 
 ## 当前实验
 
+**上下文优化正在进行，共同交错重评尚未完成。** 当前已完成的独立/恢复评分：
+A（仅预算）65/65、0.5538；B（预算+收尾）65/65、0.6000；
+C（12k预算）64/65、0.5231。D（分组原文）和B完整独立重复按额度窗口排期。
+这些分数不能代替本轮最终共同评分，也不能跨运行择高。
+协议、状态及用量/错误审查见 `experiments/m3_context_study_20261101/`；
+设计说明见 `docs/m3_context_optimization.md`。
+
 | 实验 | 模型 | 样本 | 状态 |
 |---|---|---|---|
 | `m3_baseline_20261031` | Omni-7B | 固定 5 视频 / 65 题 | 按用户要求中断，不能作为完整质量基线 |
 | `m3_minimax_flash_20261031` | MiniMax-M3.1-Flash / max | 相同固定样本 | 首片段推理耗尽，已停止，保留作诊断 |
 | `m3_flash_medium_20261031` | MiniMax-M3.1-Flash / medium | 相同 5 视频 / 65 题 | 已结束，报告已生成；请核对 REPORT.md 中的失败与完整性检查 |
+| `m3_study18_recovery_20261101` | 相同模型与预算 | 定向恢复 study_18 / 14 题 | 84/84 记忆、14/14 有效答案，均分 0.3929；保留首轮结果 |
+| `m3_agent_matched_20261101` | M3-Agent-style + 相同 MiniMax | 相同 5 视频 / 65 题 | 已完成新感知和 340 条记忆；两种控制器及统一评分见最终对照报告 |
 
 报告源码：`latex/report.tex`。方案梳理、实验计划、配置、结果与审计记录：
 `experiments/m3_flash_medium_20261031/`。
@@ -72,7 +81,7 @@ oGMemory/.venv/bin/python scripts/audit_m3_artifacts.py \
 ## 测试与报告
 
 ```bash
-python3 -m unittest discover -s scripts -p 'test_*.py' -v
+oGMemory/.venv/bin/python -m pytest scripts/test_*.py -q
 cd oGMemory
 .venv/bin/python -m pytest tests/unit/m3 tests/unit/providers/llm -q
 cd ../latex
@@ -96,8 +105,29 @@ bash /home/yuanjian/Development/memory-eval/scripts/build_report.sh
 - `docs/m3_agent_review.json`：参考提交、标注一致性、权重目录检查；明确未运行参考评测。
 - `latex/m3_agent_comparison.tex`：已纳入中文技术报告的比较章节。
 
-当前两个系统的评委、评分规则、时间边界与模型预算不同，不能直接比较现有分数。
-参考仓库保持不变，未运行其安装脚本或占用现有 GPU 部署参考模型。
+源码审计阶段发现两套原生默认评委、评分规则、时间边界与模型预算不同，
+不能直接拿这些原生分数比较；后续适配实验另行统一了模型与评测设置。
+参考仓库保持不变，未运行其安装脚本或部署官方模型权重。
+另已完成 `comparisons/m3_agent_matched/` 中的同模型适配实验，详见对应实验的
+`PLAN.md`、`status.json`、`adapter_source_hashes.json`。它使用冻结源代码和新感知数据，
+不能称为官方权重复现。oGMemory 的容错改动已在 `m3_dev_1031` 本地提交，未推送。
 
 各代码目录各自有 Git 历史，外层 `.gitignore` 默认不嵌套提交，
-而用实验提交号和补丁记录版本。用户可以之后把外层目录初始化为 Git 仓库。
+而用实验提交号和补丁记录版本。外层已建立Git仓库，当前工作在main分支。
+
+## 首次同模型对照的最终汇总（2026-11-01）
+
+统一评分且修复评委限流后：oGMemory（恢复后固定预测）0.5462，
+M3-Agent 参考 Action 文本协议适配版 0.4615，原生工具迁移诊断版 0.2154。
+三组分别完整保留，不能将不同控制器的最佳单题拼接。
+详见 `experiments/m3_end_to_end_comparison_20261101/REPORT.md`、`questions.csv`。
+这些不是官方 M3-Agent 权重或论文复现分数，也不是严格单变量/墙钟性能结论。
+
+## 使用有界QA配置
+
+当前oGMemory提供 `python -m m3.configure_qa_context`，生成新的0600私有配置副本，
+只调整 `m3.qa_context`，不更换模型或连接。可选择balanced/compact/grouped，
+必须提供本地tokenizer；命令与限制见 `oGMemory/docs/m3_bounded_context.md`。
+它应用于ReAct QA/pipeline，不是旧的 `python -m m3.qa` 单次入口。
+跨策略使用新的输出目录，不能resume旧答案。当前论文式消融固定原记忆，
+因此不要为了改QA上下文重新运行全部视频抽取。

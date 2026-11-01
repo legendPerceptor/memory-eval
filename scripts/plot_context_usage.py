@@ -17,6 +17,7 @@ LABELS = {
     "finalization": "B\n+ finalization",
     "compact12k": "C\n12k budget",
     "grouped12k": "D\n12k grouped",
+    "finalization_repeat": "B repeat\nsame config",
 }
 
 

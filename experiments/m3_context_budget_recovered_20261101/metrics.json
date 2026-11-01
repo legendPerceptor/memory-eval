@@ -1,6 +1,7 @@
 {
   "name": "m3_context_budget_recovered_20261101",
   "source_commit": "c992d45bacfabf1c1e18f8ecd54c70389b0d3721",
+  "independent_replication_of": null,
   "prior_attempts": {
     "source": "m3_context_budget_only_20261101",
     "all_prior_qa_calls": 316,
@@ -59,6 +60,8 @@
   "counter_exceedances": [],
   "input_limit_exceedances": [],
   "usage_pairing_errors": [],
+  "tokenizer_hash_mismatches": [],
+  "questions_over_nominal_loop_timeout": [],
   "historical_scope_audit_available": true,
   "temporal_scope_mismatches": [],
   "model_setting_deviations": [],

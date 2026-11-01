@@ -73,3 +73,16 @@ def test_partial_line_is_ignored_but_malformed_complete_line_fails(tmp_path):
     path.write_text('{"a": 1}\n{"a":\n')
     with pytest.raises(json.JSONDecodeError):
         summary.rows(path)
+
+
+def test_independent_repeat_does_not_count_reference_run_as_failed_overhead(tmp_path, monkeypatch):
+    name, exp, _ = fixture(tmp_path, monkeypatch)
+    (exp / "manifest.json").write_text(json.dumps({
+        "source_commit": "test", "source_from": "reference",
+        "attempt_relationship": "independent_replication",
+        "independent_replication_of": "reference",
+    }))
+    result = summary.summarize(name)
+    assert result["qa_usage"]["logical_calls"] == 1
+    assert result["prior_attempts"] == {}
+    assert result["independent_replication_of"] == "reference"

@@ -3,7 +3,7 @@ import json
 import pytest
 
 from analyze_context_cache import observed_usage
-from render_context_comparison import clustered_interval
+from render_context_comparison import clustered_interval, replication_summary
 
 
 def test_cached_and_unknown_usage_are_separate(tmp_path):
@@ -46,3 +46,17 @@ def test_cluster_bootstrap_preserves_constant_per_question_difference():
     assert result["lower"] == result["upper"] == .5
     with pytest.raises(ValueError):
         clustered_interval([1], [0])
+
+
+def test_repeat_is_not_best_of_and_identical_answer_grading_drift_is_visible():
+    grades = [
+        {"method": "finalization", "question_id": "q1", "predicted_answer": "desk", "judge_score": 1.},
+        {"method": "finalization", "question_id": "q2", "predicted_answer": "left", "judge_score": 0.},
+        {"method": "finalization_repeat", "question_id": "q1", "predicted_answer": "desk", "judge_score": .5},
+        {"method": "finalization_repeat", "question_id": "q2", "predicted_answer": "right", "judge_score": 1.},
+    ]
+    result = replication_summary(grades)
+    assert result["scores"] == [.5, .75]
+    assert result["mean_of_two_run_scores"] == .625
+    assert result["identical_predictions_with_different_judge_scores"] == ["q1"]
+    assert not result["best_of_selection"]

@@ -62,3 +62,48 @@ unchanged data from that time onward, not falsely prove an earlier snapshot exis
   reconstructing excerpts. No model or embedding calls are made.
 - D has **not** been quality-evaluated online: provider quota was exhausted
   before its launch. Offline format savings must not be reported as QA gains.
+
+## Committed-head expanded check and full-trajectory replay
+
+- On09f3cf30: **1380 passed,108 skipped,8 failed,1 deselected**;
+  all8 failing test IDs exactly match the frozen-baseline reproduction.
+- With only those8 plus the previously reproduced audio case excluded:
+  **1380 passed,108 skipped,9 deselected**.
+  This is not a claim that the excluded issues were fixed.
+- Root analysis/recovery/reporting tools: **25 passed**.
+- The initial offline format audit used prepared views from the interrupted A
+  run, including one view whose API call did not return usage.
+  The stronger full65 replay now uses the recovered fixed trajectory, with
+  all call views paired to received usage:294 evidence-bearing calls,
+  332 source versions,7268 source occurrences,43086 passages, zero mismatches.
+  Evidence-only proxy tokens4,181,181 ->3,338,182 (20.1617% reduction).
+  Both audits remain stored; neither measures D's answer quality.
+
+## Configuration utility and current release
+
+- `m3.configure_qa_context` creates a new mode0600 configuration copy, keeps
+  model/storage/auth fields unchanged, refuses overwrite, and validates a local
+  tokenizer without network/model/storage calls. It never publishes a
+  credential-bearing config hash.
+- Balanced/compact/grouped configuration tests plus the context suite:
+  **52 passed** before the additional same-path tokenizer-pin test.
+- Current-file tokenizer-pin regression: **7 passed** in the utility suite.
+- Release unit selection before that extra pin test: **1040 passed**;
+  expanded selection with the9 known exclusions: **1387 passed,108 skipped,9 deselected**.
+  A final committed-head pass will be recorded before delivery.
+- Root reporting/recovery/integrity tests currently **28 passed**; the later
+  B-repeat summary test will be included in the final run.
+- The real local configuration-copy validation produced only a private
+  example file and a nonsecret receipt (`config-tool-validation.json`), no model
+  or database calls. It must not be applied retroactively to frozen runs.
+
+## Final committed code check (83e51d98)
+
+- M3/provider/core unit selection: **1041 passed**.
+- Expanded selection with the same9 previously reproduced exclusions:
+  **1388 passed,108 skipped,9 deselected**.
+- Exact command and revision: `release_validation_revision.json`;
+  logs: `final-head-unit-tests.log`, `final-head-known-exclusions-tests.log`.
+- Root analysis/recovery/integrity suite: **29 passed**, including preservation
+  of both B runs rather than selecting the higher run and detection of changed
+  prediction files or judge task fields.

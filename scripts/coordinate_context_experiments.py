@@ -21,8 +21,9 @@ DEADLINE = datetime.datetime.fromisoformat("2026-11-01T23:30:00+08:00").timestam
 JOBS = [
     ("m3_context_budget_recovered_20261101", "2026-11-01T10:00:00+08:00"),
     ("m3_context_finalization_recovered_20261101", "2026-11-01T10:00:00+08:00"),
-    ("m3_context_compact12k_guarded_20261101", "2026-11-01T15:05:00+08:00"),
-    ("m3_context_grouped12k_20261101", "2026-11-01T20:05:00+08:00"),
+    ("m3_context_compact12k_guarded_20261101", "2026-11-01T11:30:00+08:00"),
+    ("m3_context_grouped12k_v2_20261101", "2026-11-01T15:05:00+08:00"),
+    ("m3_context_finalization_repeat_20261101", "2026-11-01T20:05:00+08:00"),
 ]
 
 
@@ -46,7 +47,7 @@ def quota():
             timeout=30, allow_redirects=False)
         body = response.json()
         raw = {"observed_at_unix": observed, "http_status": response.status_code, "body": body}
-        file = EXP / "private" / f"quota-{int(observed)}.json"
+        file = EXP / "private" / f"quota-{time.time_ns()}.json"
         with file.open("x") as stream:
             json.dump(raw, stream, ensure_ascii=False, indent=2)
         file.chmod(0o600)
@@ -57,6 +58,11 @@ def quota():
             return None
         end = general["end_time"]
         end = end / 1000 if end > 1e11 else end
+        for field in ("current_interval_remaining_percent", "current_weekly_remaining_percent"):
+            if type(general[field]) not in (int, float) or not 0 <= general[field] <= 100:
+                raise ValueError("Invalid quota percentage")
+        if not isinstance(end, (int, float)) or end < observed - 60:
+            raise ValueError("Invalid or stale quota window")
         safe = {
             "observed_at_unix": observed,
             "interval_remaining_percent": general["current_interval_remaining_percent"],
@@ -110,7 +116,7 @@ def main():
     save(EXP / "execution_schedule.json", {
         "jobs": [{"name": name, "not_before": not_before} for name, not_before in JOBS],
         "deadline": "2026-11-01T23:30:00+08:00",
-        "minimum_reported_interval_remaining_percent": 25,
+        "minimum_reported_interval_remaining_percent": 45,
         "coordinator_source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "note": "Conservative window pacing, not a claim of exact token capacity; no purchase or key/model switching.",
     })
@@ -132,7 +138,7 @@ def main():
             if available and available["weekly_remaining_percent"] <= 0:
                 status(status="provider_weekly_quota_exhausted", pending=name)
                 return
-            if available and available["interval_remaining_percent"] >= 25:
+            if available and available["interval_remaining_percent"] >= 45:
                 break
             next_check = (available["window_end_unix"] + 60) if available else time.time() + 600
             if not wait_until(max(time.time() + 60, next_check), name):

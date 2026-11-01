@@ -1,0 +1,15 @@
+{
+  "deselected": [
+    "tests/integration/m3/test_extract_audio.py::TestExtractAudioForClip::test_resume_re_extracts_when_audio_file_missing",
+    "tests/integration/m3/test_config.py::test_load_m3_runtime_config_reads_m3_block_without_env",
+    "tests/integration/m3/test_config.py::test_vector_index_connection_string_inherits_vector_db",
+    "tests/integration/m3/test_qa_mvp.py::TestIndexEpisodic::test_index_record_shape",
+    "tests/integration/m3/test_qa_mvp.py::TestSearch::test_search_filters_by_video_and_before_clip",
+    "tests/integration/m3/test_qa_mvp.py::TestSearch::test_include_neighbors_adds_adjacent_clip",
+    "tests/integration/m3/test_qa_mvp.py::TestQAMVP::test_run_qa_writes_jsonl",
+    "tests/integration/m3/test_resume_status.py::test_extract_frames_does_not_resume_pending_node",
+    "tests/integration/m3/test_resume_status.py::test_detect_faces_does_not_resume_pending_node"
+  ],
+  "eight_current_failures_match_frozen_baseline": true,
+  "note": "These remain pre-existing failures, not fixed by exclusion."
+}

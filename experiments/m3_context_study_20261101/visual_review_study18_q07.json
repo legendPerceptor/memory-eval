@@ -1,0 +1,64 @@
+{
+  "question_id": "study_18_Q07",
+  "question_sec": 434.0,
+  "effective_before_sec": 450.16700000000003,
+  "source_clip_start_sec": 420.0,
+  "sampled_frame_count": 16,
+  "sampled_frame_indices": [
+    0,
+    30,
+    60,
+    90,
+    120,
+    150,
+    180,
+    210,
+    240,
+    270,
+    300,
+    330,
+    360,
+    390,
+    420,
+    450
+  ],
+  "last_sampled_frame_index": 450,
+  "last_sampled_relative_sec": 15.0,
+  "last_sampled_absolute_sec": 435.0,
+  "extra_review_frames_absolute_sec": [
+    434,
+    445,
+    446,
+    449
+  ],
+  "extra_review_frames_not_added_to_any_experiment": true,
+  "review_kind": "assistant-assisted qualitative source-frame inspection, not a new model score or independent human annotation",
+  "artifacts": [
+    {
+      "path": "runs/m3_flash_medium_20261031/study_18/frames/study_18/14/450.jpg",
+      "sha256": "10a7810f250ff6cea3f8862fe1e08a8b0ee8b6073cacab45636bedf5999a5ea7"
+    },
+    {
+      "path": "experiments/m3_context_study_20261101/private/visual_review/study18_434.png",
+      "sha256": "28c74c2418f3da6a881c21f6952eb4575bf7395bcd144a7d906b0bbaaa281a3b"
+    },
+    {
+      "path": "experiments/m3_context_study_20261101/private/visual_review/study18_445.png",
+      "sha256": "705fbfee41aaf87b8aa7d2f1d127c56316a0fc196dbe0c75bb9f580073fe0162"
+    },
+    {
+      "path": "experiments/m3_context_study_20261101/private/visual_review/study18_446.png",
+      "sha256": "51b4140c707034806bcc51508f37243316d72f3cf2e9d4bbcfce2518885499db"
+    },
+    {
+      "path": "experiments/m3_context_study_20261101/private/visual_review/study18_449.png",
+      "sha256": "2888d42a494340342313216c590caaf183e560a612a66d41f4771d7a40ff1aa8"
+    }
+  ],
+  "source_frame_rate": "30/1",
+  "visibility_policy": "current_clip",
+  "reviewed_tail_frames_are_after_question_timestamp": true,
+  "strict_causal_use_of_tail_frames_allowed": false,
+  "observation": "The actual last sampled frame (absolute435s) remains a distant view of the tables and rack. Extra review at445–446s shows the rack at close range and paper handling;449s shows a sheet being carried toward the table. These tail frames are within the declared450.167s current-clip bound, but after the434s question timestamp. They were not included in any experiment.",
+  "limitation": "This illustrates prefix-sampling coverage under the non-causal current_clip policy, not proof that the tier is unobservable in every earlier frame, and not permission to use post-question frames in strict-causal evaluation."
+}

@@ -1,0 +1,47 @@
+{
+  "question_id": "bedroom_04_Q05",
+  "error": "predicted_answer contains [Search]/[Answer] protocol scaffolding",
+  "finish_reason": "done",
+  "predicted_answer": "",
+  "last_iteration": {
+    "iteration": 6,
+    "latency_seconds": 9.623115512076765,
+    "tool_calls_count": 0,
+    "tool_call_names": [],
+    "content_length": 1273
+  },
+  "last_api_response": {
+    "status": "returned",
+    "reported_model": "MiniMax-M3.1-Flash",
+    "usage": {
+      "completion_tokens": 622,
+      "prompt_tokens": 8607,
+      "total_tokens": 9229,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": null,
+        "reasoning_tokens": 357,
+        "rejected_prediction_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 1033,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "total_characters": 0
+    },
+    "finish_reasons": [
+      "stop"
+    ],
+    "tool_argument_shapes": [],
+    "tools": [
+      "Answer"
+    ],
+    "response_id": "0735ec04f5459390a6c8028d108df79e"
+  },
+  "original_rejected_text_persisted": false,
+  "interpretation": "Validation rejected protocol-shaped final content. Exact rejected text is unavailable in this frozen driver; do not invent its syntax or replace this failed answer."
+}

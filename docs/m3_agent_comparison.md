@@ -1,5 +1,14 @@
 # M3-Agent vs. the current oGMemory M3 pipeline
 
+**2026-11-01 update:** a separately recorded MiniMax/shared-perception adaptation
+has now completed. This document's reference-code analysis
+still describes the unmodified upstream path; the adaptation and all deviations
+are recorded in `experiments/m3_agent_matched_20261101/PLAN.md`. Official checkpoint
+reproduction remains a different, unexecuted track.
+The completed adapted comparison is recorded in
+`experiments/m3_end_to_end_comparison_20261101/`. The later fixed-memory context
+ablation is separate and does not replace its historical predictions/grades.
+
 ## Scope and evidence
 
 This is a **code-level comparison, not a head-to-head benchmark result**.

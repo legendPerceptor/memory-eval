@@ -1,0 +1,24 @@
+{
+  "jobs": [
+    {
+      "name": "m3_context_budget_recovered_20261101",
+      "not_before": "2026-11-01T10:00:00+08:00"
+    },
+    {
+      "name": "m3_context_finalization_recovered_20261101",
+      "not_before": "2026-11-01T10:00:00+08:00"
+    },
+    {
+      "name": "m3_context_compact12k_guarded_20261101",
+      "not_before": "2026-11-01T15:05:00+08:00"
+    },
+    {
+      "name": "m3_context_grouped12k_20261101",
+      "not_before": "2026-11-01T20:05:00+08:00"
+    }
+  ],
+  "deadline": "2026-11-01T23:30:00+08:00",
+  "minimum_reported_interval_remaining_percent": 25,
+  "coordinator_source_sha256": "bd0e206140443bffc2433379f95d048cf28ab8511f1cc1e97563667995e9acdf",
+  "note": "Conservative window pacing, not a claim of exact token capacity; no purchase or key/model switching."
+}

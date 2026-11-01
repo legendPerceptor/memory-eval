@@ -1,0 +1,10 @@
+{
+  "output": "/home/yuanjian/Development/memory-eval/oGMemory/../experiments/m3_context_study_20261101/private/example-balanced-study05-current-code.yaml",
+  "profile": "balanced",
+  "effective_input_limit_in_current_environment": 22528,
+  "reserved_qa_output_tokens_in_current_environment": 8192,
+  "tokenizer_sha256": "8441917e39ae0244e06d704b95b3124795cec478e297f9afac39ba670d7e9d99",
+  "model_and_connection_settings_changed": false,
+  "model_or_storage_calls": 0,
+  "notice": "Output contains copied private connection/auth settings; do not commit it. Use a NEW QA output/run directory, not --resume across policy changes. To match the evaluated loop use max_iterations=6 and timeout_seconds=180. The 32768 window is an operational budget, not a provider context-capacity claim. The local tokenizer is a proxy; verify actual provider usage and answer quality."
+}

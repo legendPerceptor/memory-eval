@@ -1,5 +1,6 @@
 {
-  "status": "held_provider_quota",
+  "status": "superseded_before_execution",
   "online_calls_started": false,
-  "reason": "Prepared only; do not launch until MiniMax quota is available."
+  "replacement": "m3_context_grouped12k_v2_20261101",
+  "reason": "Clarify local source indices are not persistent person/object IDs; no D answers or grades existed."
 }

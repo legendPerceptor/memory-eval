@@ -38,9 +38,9 @@ def test_shuffled_order_is_complete_deterministic_and_interleaved(tmp_path, monk
     tasks, hashes = judge.inputs()
     second, same_hashes = judge.inputs()
     assert tasks == second and hashes == same_hashes
-    assert len(tasks) == 390
+    assert len(tasks) == 65 * (2 + len(judge.ARMS))
     assert len({r["method"] for r in tasks[:10]}) > 2
-    assert len({(r["method"], r["question_id"]) for r in tasks}) == 390
+    assert len({(r["method"], r["question_id"]) for r in tasks}) == len(tasks)
 
 
 def test_rejects_changed_temporal_scope(tmp_path, monkeypatch):

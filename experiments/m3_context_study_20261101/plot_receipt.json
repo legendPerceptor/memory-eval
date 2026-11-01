@@ -1,10 +1,12 @@
 {
   "matplotlib_version": "3.11.2",
-  "source_sha256": "ca98f91fc09d4951ec535a2398bbf02459fe9742c5fb2c11eb86b4789b738262",
+  "source_sha256": "a0de6b7b1f0bae4c8c5ba05ef28aebdcc1e027bddc4d40dfddda293e59849021",
   "methods": [
     "historical_ogmemory",
     "m3_reference_text",
-    "budget_only"
+    "budget_only",
+    "finalization",
+    "compact12k"
   ],
   "output": "latex/figures/context_cache.pdf",
   "values": {
@@ -41,6 +43,42 @@
         "prior_calls_in_fixed_answer_trajectory": 305,
         "prior_calls_not_in_fixed_answer_trajectory": 11,
         "prior_unknown_usage_calls": 10,
+        "note": "All prior failures remain in the source run. Trajectory token totals are not a complete bill for failed/retried calls."
+      }
+    },
+    "finalization": {
+      "logical_calls": 365,
+      "prompt_tokens": 4804362,
+      "cached_prompt_tokens": 618414,
+      "uncached_prompt_tokens": 4185948,
+      "cache_fraction": 0.12871927635761002,
+      "unknown_usage_calls": 0,
+      "total_input_reduction_vs_original": 0.7586445001391307,
+      "uncached_input_reduction_vs_original": 0.3949174166208681,
+      "prior_attempts": {
+        "source": "m3_context_finalization_20261101",
+        "all_prior_qa_calls": 28,
+        "prior_calls_in_fixed_answer_trajectory": 0,
+        "prior_calls_not_in_fixed_answer_trajectory": 28,
+        "prior_unknown_usage_calls": 28,
+        "note": "All prior failures remain in the source run. Trajectory token totals are not a complete bill for failed/retried calls."
+      }
+    },
+    "compact12k": {
+      "logical_calls": 366,
+      "prompt_tokens": 2721838,
+      "cached_prompt_tokens": 635129,
+      "uncached_prompt_tokens": 2086709,
+      "cache_fraction": 0.2333456289463223,
+      "unknown_usage_calls": 0,
+      "total_input_reduction_vs_original": 0.8632637234599914,
+      "uncached_input_reduction_vs_original": 0.6983643197477645,
+      "prior_attempts": {
+        "source": "m3_context_compact12k_20261101",
+        "all_prior_qa_calls": 0,
+        "prior_calls_in_fixed_answer_trajectory": 0,
+        "prior_calls_not_in_fixed_answer_trajectory": 0,
+        "prior_unknown_usage_calls": 0,
         "note": "All prior failures remain in the source run. Trajectory token totals are not a complete bill for failed/retried calls."
       }
     }

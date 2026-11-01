@@ -6,6 +6,7 @@ including boundary transcript projection, then compare presentation overhead.
 This does not estimate answer quality or claim exact full-request API tokens.
 """
 import hashlib
+import argparse
 import datetime
 import json
 from pathlib import Path
@@ -22,7 +23,6 @@ from core.temporal import boundary_transcript, temporal_metadata
 from m3.context_budget import _local_tokenizer, dumps, model_document
 
 OUT = ROOT / "experiments/m3_context_study_20261101"
-RUN = ROOT / "runs/m3_context_budget_only_20261101"
 FIELDS = ("description", "speech_transcript", "events", "characters", "entities")
 
 
@@ -38,6 +38,9 @@ def body_for(content, source, boundary=False):
 
 
 def restore_document(source, content, cutoff):
+    if (str(content.get("source_video_id")) != str(source["video_id"])
+            or content.get("source_clip_id") != source["clip_id"]):
+        return None, False
     body = body_for(content, source)
     boundary = False
     if hashlib.sha256(dumps(body).encode()).hexdigest() != source["content_sha256"]:
@@ -77,6 +80,16 @@ def verify_grouped(plain, grouped):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--run", default="m3_context_budget_recovered_20261101")
+    parser.add_argument("--output", default="grouped_evidence_replay_full65.json")
+    args = parser.parse_args()
+    if not args.run.replace("_", "").isalnum() or Path(args.output).name != args.output:
+        raise ValueError("Expected local experiment/output names")
+    run_path = ROOT / "runs" / args.run
+    metrics = json.loads((ROOT / "experiments" / args.run / "metrics.json").read_text())
+    assert metrics["complete"] and metrics["qa_usage"]["unknown_usage_calls"] == 0
+    assert not metrics["usage_pairing_errors"]
     stores = {}
     for run in ("m3_flash_medium_20261031", "m3_study18_recovery_20261101"):
         config = yaml.safe_load((ROOT / "experiments" / run / "private/config.yaml").read_text())
@@ -91,9 +104,11 @@ def main():
     records, missing = [], []
     restored, boundary_count, passages = 0, 0, 0
     versions = set()
-    for path in sorted(RUN.glob("*/m3_qa_results.jsonl")):
+    question_count = 0
+    for path in sorted(run_path.glob("*/m3_qa_results.jsonl")):
         for line in path.read_text().splitlines():
             row = json.loads(line)
+            question_count += 1
             store = stores["m3_study18_recovery_20261101" if row["video_id"] == "study_18"
                            else "m3_flash_medium_20261031"]
             cutoff = row["temporal_scope"].get("effective_before_sec")
@@ -127,6 +142,9 @@ def main():
     gtotal = sum(r["grouped_proxy_tokens"] for r in records)
     result = {
         "kind": "offline same-admission evidence-only format comparison",
+        "source_run": args.run,
+        "questions": question_count,
+        "all_call_views_paired_with_received_usage": True,
         "observed_at": datetime.datetime.now().astimezone().isoformat(),
         "source_git_commit": subprocess.check_output(
             ["git", "-C", str(ROOT / "oGMemory"), "rev-parse", "HEAD"], text=True).strip(),
@@ -150,7 +168,8 @@ def main():
         "caution": "Same selected excerpts only; excludes system prompts, tool schema, other history, refs and format instructions. Not measured API input savings or a QA quality result.",
         "records": records,
     }
-    (OUT / "grouped_evidence_replay.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
+    assert question_count == 65
+    (OUT / args.output).write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
     print(json.dumps({k: v for k, v in result.items() if k != "records"}, ensure_ascii=False, indent=2))
 
 

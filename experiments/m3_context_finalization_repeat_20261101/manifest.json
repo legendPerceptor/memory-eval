@@ -1,0 +1,53 @@
+{
+  "name": "m3_context_finalization_repeat_20261101",
+  "prepared_at": "2026-11-01T11:38:23+0800",
+  "source_commit": "9eb782e413ac57ba6ac607d25cc56905e262100e",
+  "source_archive_sha256": "44f03af7ddd548fcb929cbf6c8dc3d0b0f0c2968bf07ae80131bc56584b43e9f",
+  "cohort": [
+    "study_05",
+    "gym_03",
+    "bedroom_04",
+    "study_18",
+    "kitchen_20"
+  ],
+  "total_questions": 65,
+  "account": "m3-flash-medium-20261031",
+  "memory_runs": {
+    "study_05": "m3_flash_medium_20261031",
+    "gym_03": "m3_flash_medium_20261031",
+    "bedroom_04": "m3_flash_medium_20261031",
+    "study_18": "m3_study18_recovery_20261101",
+    "kitchen_20": "m3_flash_medium_20261031"
+  },
+  "qa_context": {
+    "answer_reserve_seconds": 45,
+    "context_window": 32768,
+    "enabled": true,
+    "max_candidates": 32,
+    "max_input_tokens": 24000,
+    "max_neighbor_clips": 64,
+    "max_passages_per_node": 32,
+    "max_result_nodes": 24,
+    "max_search_calls": 8,
+    "max_selected_nodes": 32,
+    "max_top_k": 16,
+    "safety_tokens": 2048,
+    "tokenizer_multiplier": 1.15,
+    "tokenizer_path": "local pinned tokenizer (see SHA256)"
+  },
+  "tokenizer_sha256": "8441917e39ae0244e06d704b95b3124795cec478e297f9afac39ba670d7e9d99",
+  "model": "MiniMax-M3.1-Flash",
+  "reasoning_effort": "medium",
+  "thinking": "adaptive",
+  "qa_output_tokens": 8192,
+  "judge_output_tokens": 2048,
+  "max_iterations": 6,
+  "timeout_seconds": 180,
+  "temporal_policy": "current_clip",
+  "note": "Independent full 65-question repeat; no answer/grade reuse or best-of selection.",
+  "authorization_deadline": "2026-11-01T23:30:00+08:00",
+  "source_from": "m3_context_finalization_recovered_20261101",
+  "runner_changes": "Quota/deadline guards and explicit successful-row reuse; model source/config unchanged.",
+  "independent_replication_of": "m3_context_finalization_recovered_20261101",
+  "attempt_relationship": "independent_replication"
+}

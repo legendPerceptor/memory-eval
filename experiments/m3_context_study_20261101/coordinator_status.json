@@ -1,6 +1,6 @@
 {
-  "observed_at": "2026-11-01T10:35:42.751987+08:00",
-  "status": "running",
-  "job": "m3_context_finalization_recovered_20261101",
-  "active_process_group": 1464908
+  "observed_at": "2026-11-01T14:14:52.151705+08:00",
+  "status": "scheduled_wait",
+  "pending": "m3_context_grouped12k_v2_20261101",
+  "next_start": "2026-11-01T15:05:00+08:00"
 }

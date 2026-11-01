@@ -63,7 +63,7 @@ def summarize(name):
     qa_calls = [r for r in usage if r["process"] == "runner.py" and r.get("qa_video_id")]
     prior_attempts = {}
     source_from = manifest.get("source_from")
-    if source_from:
+    if source_from and manifest.get("attempt_relationship") != "independent_replication":
         previous_calls = [
             r for r in rows(ROOT / "experiments" / source_from / "model-usage.jsonl")
             if r["process"] == "runner.py" and r.get("qa_video_id")]
@@ -83,6 +83,7 @@ def summarize(name):
         }
     known = [r for r in qa_calls if r.get("usage")]
     counter_exceedances, input_exceedances, pairing_errors = [], [], []
+    tokenizer_mismatches = []
     records = []
     for r in qa:
         calls = sorted([c for c in qa_calls if c["qa_video_id"] == r["video_id"]
@@ -93,6 +94,10 @@ def summarize(name):
         if g:
             assert g["predicted_answer"] == r["predicted_answer"], key
         packed = r["search_stats"].get("context_calls", [])
+        if manifest.get("tokenizer_sha256"):
+            tokenizer_mismatches.extend(
+                [r["question_id"], i] for i, p in enumerate(packed)
+                if p.get("tokenizer_sha256") != manifest["tokenizer_sha256"])
         if len(packed) != len(calls):
             pairing_errors.append({"question_id": r["question_id"],
                                    "packed": len(packed), "calls": len(calls)})
@@ -131,6 +136,7 @@ def summarize(name):
     score_sum = sum(g["judge_score"] for g in judge if not g["judge_error"])
     metrics = {
         "name": name, "source_commit": manifest["source_commit"],
+        "independent_replication_of": manifest.get("independent_replication_of"),
         "prior_attempts": prior_attempts,
         "recovery_audit": {
             "reused_answers": len(recovery.get("reused_answers", [])),
@@ -165,6 +171,10 @@ def summarize(name):
         "counter_exceedances": counter_exceedances,
         "input_limit_exceedances": input_exceedances,
         "usage_pairing_errors": pairing_errors,
+        "tokenizer_hash_mismatches": tokenizer_mismatches,
+        "questions_over_nominal_loop_timeout": [
+            r["question_id"] for r in records
+            if r["wall_seconds"] is not None and r["wall_seconds"] > manifest.get("timeout_seconds", 180)],
         "historical_scope_audit_available": len(historical) == 65,
         "temporal_scope_mismatches": scope_mismatches,
         "model_setting_deviations": [
@@ -172,6 +182,9 @@ def summarize(name):
              "started_at_unix": c["started_at_unix"]}
             for c in qa_calls if (
                 c.get("requested_model") != "MiniMax-M3.1-Flash"
+                or (c.get("status") == "returned" and c.get("reported_model") != "MiniMax-M3.1-Flash")
+                or c.get("endpoint_host") != "api.minimax.cn"
+                or c.get("temperature") is not None
                 or c.get("max_tokens") != 8192
                 or c.get("reasoning_effort") != "medium"
                 or c.get("thinking") != {"type": "adaptive"}

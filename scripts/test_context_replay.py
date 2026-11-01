@@ -50,3 +50,11 @@ def test_changed_content_is_rejected_instead_of_claiming_exact_replay():
     s = source(body)
     c["description"] = "Changed memory."
     assert replay.restore_document(s, c, 10) == (None, False)
+
+
+def test_cross_video_source_pointer_is_rejected():
+    c = content()
+    body = replay.body_for(c, {"node_id": "n", "video_id": "other", "clip_id": 0})
+    wrong = source(body)
+    wrong["video_id"] = "other"
+    assert replay.restore_document(wrong, c, 10) == (None, False)

@@ -11,7 +11,8 @@ ARMS = {
     "budget_only": "m3_context_budget_recovered_20261101",
     "finalization": "m3_context_finalization_recovered_20261101",
     "compact12k": "m3_context_compact12k_guarded_20261101",
-    "grouped12k": "m3_context_grouped12k_20261101",
+    "grouped12k": "m3_context_grouped12k_v2_20261101",
+    "finalization_repeat": "m3_context_finalization_repeat_20261101",
 }
 
 
@@ -32,7 +33,7 @@ def main():
     if not joint_file.exists():
         joint_file = joint_root / "grades.jsonl"
     joint = rows(joint_file) if joint_file.exists() else []
-    joint_complete = len(joint) == 390 and not any(r["judge_error"] for r in joint)
+    joint_complete = len(joint) == 65 * (2 + len(ARMS)) and not any(r["judge_error"] for r in joint)
     if joint_complete:
         baseline_grades = {r["question_id"]: r for r in joint if r["method"] == "historical_ogmemory"}
     methods = {}

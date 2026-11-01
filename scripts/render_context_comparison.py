@@ -12,7 +12,8 @@ ARMS = {
     "budget_only": "m3_context_budget_recovered_20261101",
     "finalization": "m3_context_finalization_recovered_20261101",
     "compact12k": "m3_context_compact12k_guarded_20261101",
-    "grouped12k": "m3_context_grouped12k_20261101",
+    "grouped12k": "m3_context_grouped12k_v2_20261101",
+    "finalization_repeat": "m3_context_finalization_repeat_20261101",
 }
 LABELS = {
     "historical_ogmemory": "oGMemory 原固定答案",
@@ -21,6 +22,7 @@ LABELS = {
     "finalization": "B：预算 + 回答收尾",
     "compact12k": "C：12k预算 + 回答收尾",
     "grouped12k": "D：12k分组原文 + 回答收尾",
+    "finalization_repeat": "B独立重复：相同配置",
 }
 
 
@@ -50,6 +52,25 @@ def clustered_interval(deltas, counts):
             "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."}
 
 
+def replication_summary(grades):
+    first = {r["question_id"]: r for r in grades if r["method"] == "finalization"}
+    second = {r["question_id"]: r for r in grades if r["method"] == "finalization_repeat"}
+    assert first and first.keys() == second.keys()
+    scores = [statistics.mean(r["judge_score"] for r in group.values()) for group in (first, second)]
+    identical = [qid for qid in first if first[qid]["predicted_answer"] == second[qid]["predicted_answer"]]
+    return {
+        "questions_per_run": len(first), "scores": scores,
+        "mean_of_two_run_scores": statistics.mean(scores),
+        "absolute_score_difference": abs(scores[1] - scores[0]),
+        "question_score_disagreements": sum(first[q]["judge_score"] != second[q]["judge_score"] for q in first),
+        "identical_predictions": len(identical),
+        "identical_predictions_with_different_judge_scores": [
+            q for q in identical if first[q]["judge_score"] != second[q]["judge_score"]],
+        "best_of_selection": False,
+        "note": "Same 65 questions twice, not 130 new questions. The two-run mean is descriptive, not a selected single-run score.",
+    }
+
+
 def main():
     output = ROOT / "experiments/m3_context_study_20261101"
     common = ROOT / "runs/m3_context_joint_judge_20261101"
@@ -57,7 +78,9 @@ def main():
     if (common / "grades_recovered.jsonl").exists():
         grade_path = common / "grades_recovered.jsonl"
     grades = rows(grade_path)
-    assert len(grades) == 390 and not any(r["judge_error"] for r in grades), "Joint judging incomplete"
+    assert len(grades) == 65 * len(LABELS) and not any(r["judge_error"] for r in grades), "Joint judging incomplete"
+    from verify_context_artifacts import verify_joint
+    verify_joint(ROOT, grades)
     methods = {}
     for method in LABELS:
         selected = [r for r in grades if r["method"] == method]
@@ -82,6 +105,7 @@ def main():
         assert not stats["input_limit_exceedances"]
         assert not stats["temporal_scope_mismatches"]
         assert not stats["model_setting_deviations"]
+        assert not stats["tokenizer_hash_mismatches"]
         methods[method].update(
             first_pass_score=stats["mean_score_all_65"],
             qa_usage=stats["qa_usage"], finish_reasons=stats["finish_reasons"],
@@ -107,7 +131,17 @@ def main():
             1 - methods[method]["qa_usage"]["prompt_tokens"] / original_usage["prompt_tokens"])
         methods[method]["peak_input_reduction"] = (
             1 - methods[method]["qa_usage"]["peak_prompt_tokens"] / original_usage["peak_prompt_tokens"])
-    result = {"methods": methods, "joint_grade_source": str(grade_path.relative_to(ROOT)),
+    first_manifest = json.loads((ROOT / "experiments" / ARMS["finalization"] / "manifest.json").read_text())
+    repeat_manifest = json.loads((ROOT / "experiments" / ARMS["finalization_repeat"] / "manifest.json").read_text())
+    assert repeat_manifest["independent_replication_of"] == ARMS["finalization"]
+    assert not repeat_manifest.get("recovery")
+    for field in ("source_archive_sha256", "qa_context", "cohort", "memory_runs",
+                  "model", "reasoning_effort", "thinking", "qa_output_tokens",
+                  "max_iterations", "timeout_seconds", "temporal_policy"):
+        assert first_manifest[field] == repeat_manifest[field], field
+    repeat = replication_summary(grades)
+    result = {"methods": methods, "replication": repeat,
+              "joint_grade_source": str(grade_path.relative_to(ROOT)),
               "interpretation": "Same stored memories for oGMemory arms; fixed prior M3 predictions. All 65 questions retained. Development/automatic-judge comparison."}
     (output / "comparison.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
     (output / "joint_questions.jsonl").write_text(
@@ -116,18 +150,19 @@ def main():
         "# 上下文与 QA 收尾消融：完成结果",
         "",
         "固定5视频65题。oGMemory各组使用同一份记忆，只重新执行QA；M3-Agent为既有参考协议适配答案。",
-        "共同评委将390个(方案,问题)对以seed=42打乱交错评分，方案名称不交付给评委。",
+        "共同评委将455个(方案,问题)对以seed=42打乱交错评分，方案名称不交付给评委。",
         "全部初评分保留；下面共同评分不是按题挑选最高分。所有共同评分judge错误为0。",
         "",
         "| 方案 | 有效回答 | 独立/恢复评分 | 共同评分 | QA输入tokens | 峰值输入 | QA调用 |",
         "|---|---:|---:|---:|---:|---:|---:|",
     ]
     tex = [
+        "% CONTEXT_REPORT_STATUS: final",
         r"\section{上下文预算与 QA 收尾消融}",
         r"\label{sec:context-optimization}",
         "本节固定已生成的多模态记忆，仅重新运行 QA。"
-        "旧 oGMemory 和 M3-Agent 为固定的既有答案；A/B/C/D 为独立运行，未挑选失败重试。"
-        "将六组共390条答案交错打乱后用相同 MiniMax 评委重新评分，评委不接收方案名称。"
+        "旧 oGMemory 和 M3-Agent 为固定的既有答案；A/B/C/D及B的完整重复均保留，未择高。"
+        "将七组共455条答案交错打乱后用相同 MiniMax 评委重新评分，评委不接收方案名称。"
         "初次评分仍保留；共同重评批次与前节不同，旧答案本身没有修改。",
         r"\begin{center}\small",
         r"\begin{tabular}{lrrrrrr}\toprule",
@@ -135,7 +170,8 @@ def main():
     ]
     short = {"historical_ogmemory": "原固定答案", "m3_reference_text": "M3参考协议",
              "budget_only": "A：仅预算", "finalization": "B：预算+收尾",
-             "compact12k": "C：12k+收尾", "grouped12k": "D：12k分组+收尾"}
+             "compact12k": "C：12k+收尾", "grouped12k": "D：12k分组+收尾",
+             "finalization_repeat": "B独立重复"}
     for method, stats in methods.items():
         u = stats["qa_usage"]
         md.append(f"| {LABELS[method]} | {stats['valid_answers']}/65 | {stats['first_pass_score']:.4f} | "
@@ -150,10 +186,10 @@ def main():
             "评分为0、0.5、1自动评分的全65题均值，不是人工准确率。输入包含缓存tokens，"
             "不等于费用；跨时段服务负载不同，不能据此声称严格墙钟加速比。",
             r"\subsection{逐视频共同评分}",
-            r"\begin{center}\small\begin{tabular}{lrrrrrr}\toprule",
-            r"视频 & 原答案 & M3参考 & A & B & C & D\\\midrule"]
+            r"\begin{center}\small\begin{tabular}{lrrrrrrr}\toprule",
+            r"视频 & 原答案 & M3参考 & A & B & C & D & B重复\\\midrule"]
     md += ["", "## 逐视频共同评分", "",
-           "| 视频 | 原答案 | M3参考 | A | B | C | D |", "|---|---:|---:|---:|---:|---:|---:|"]
+           "| 视频 | 原答案 | M3参考 | A | B | C | D | B重复 |", "|---|---:|---:|---:|---:|---:|---:|---:|"]
     for video in VIDEOS:
         values = [f"{methods[m]['by_video'][video]:.4f}" for m in LABELS]
         md.append("| " + " | ".join([video, *values]) + " |")
@@ -193,12 +229,33 @@ def main():
     ]
     for method in ARMS:
         md.append(f"- {LABELS[method]}：`{json.dumps(methods[method]['finalization_reasons'], ensure_ascii=False)}`")
+    md += ["", "## B的完整独立重复", "",
+           f"两次共同评分分别为{repeat['scores'][0]:.4f}和{repeat['scores'][1]:.4f}，"
+           f"差值绝对值{repeat['absolute_score_difference']:.4f}；"
+           f"{repeat['question_score_disagreements']}题的自动评分不同。",
+           f"两轮均分的描述性平均为{repeat['mean_of_two_run_scores']:.4f}，"
+           "不选取较高一轮、不拼接更好答案，也不把同一65题重复称为130个新问题。",
+           f"有{repeat['identical_predictions']}题输出文本完全相同，其中"
+           f"{len(repeat['identical_predictions_with_different_judge_scores'])}题仍得到不同评分。",
+           "只有两次运行，不能据此精确估计随机波动或证明泛化。"]
     tex += [
+        r"\subsection{重复运行与评分波动}",
+        f"B两次共同评分为{repeat['scores'][0]:.4f}与{repeat['scores'][1]:.4f}，"
+        f"绝对差{repeat['absolute_score_difference']:.4f}；"
+        f"{repeat['question_score_disagreements']}题的自动评分不同。"
+        f"两轮均分的描述性平均为{repeat['mean_of_two_run_scores']:.4f}，"
+        "不择高、不拼接答案。同一65题的重复不等于130个独立新问题，"
+        "仅两轮不能精确估计随机波动或支持泛化结论。",
         "上述区间仅用于呈现小样本不确定性：五个视频均为开发样本，不是独立留出集。"
         "未触发时间预留的运行不能证明45秒机制带来收益；"
         "提前收尾也不能保证单个极慢HTTP不会越过软截止。"
         "M3-Agent仍为同模型适配而非官方权重复现。"
         "原文被预算省略不等于事实不存在，计数题尤其不能把入选片段数当作真实次数。",
+        "源帧定性检查还发现：study\\_18第14片段的输入止于435秒远景，"
+        "445--446秒出现的货架近景与取纸动作没有进入16帧前缀采样。"
+        "这提示采帧/记忆细节的上游限制，但这些尾段帧在434秒问题时间之后，"
+        "只在本次current\\_clip宽限内，不能用于严格因果评测。"
+        "辅助检查没有改变任何本轮模型输入或答案。",
         r"详细结果、逐题变化和验证记录位于\path{experiments/m3_context_study_20261101/}；"
         r"设计说明见\path{docs/m3_context_optimization.md}。",
     ]
@@ -228,6 +285,26 @@ def main():
             "实际usage显示缓存比例改变，因此总输入降幅不能直接当成费用或套餐额度降幅。"
             "缓存内部实现与跨时段服务负载没有被本实验严格控制。",
         ]
+    md += [
+        "", "## 代码与使用边界", "",
+        "oGMemory当前配置工具可用 `python -m m3.configure_qa_context` 生成0600新副本，"
+        "不更换模型或连接，不覆盖原配置。它应用于ReAct QA/pipeline，不是旧的"
+        "`python -m m3.qa`单次入口；跨策略必须使用新的QA输出目录。",
+        "当前发布代码的M3/provider/core单元检查1041通过；扩大检查排除9项已复现的"
+        "既有问题后1388通过、108跳过、9排除，不是整个仓库全部通过。",
+        "每个实验仍使用自身manifest记录的冻结版本，不用当前HEAD改写历史结果。",
+    ]
+    tex += [
+        r"\subsection{验证与配置使用}",
+        "当前发布代码的M3/provider/core单元检查1041项通过；"
+        "扩大检查排除9项已复现的既有问题后为1388通过、108跳过、9排除。"
+        "不能将排除等同于修复，也不能称整个仓库全部通过。"
+        "各实验使用各自冻结源码，源码文件与Git归档逐项核对；"
+        "共同评分输入和原预测文件在发布前重新校验，而不只信任状态标记。",
+        r"可用\code{python -m m3.configure_qa_context}生成新的0600配置副本，"
+        "保留模型与连接设置。它针对ReAct QA/pipeline，不是旧单次QA入口；"
+        "切换策略必须使用新的输出目录，不应跨配置resume旧答案。",
+    ]
     (output / "REPORT.md").write_text("\n".join(md) + "\n")
     (ROOT / "latex/context_optimization_results.tex").write_text("\n".join(tex) + "\n")
     print(json.dumps({m: s["mean_score"] for m, s in methods.items()}, ensure_ascii=False, indent=2))

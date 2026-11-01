@@ -3,8 +3,10 @@
 本节依据本地 \code{m3-agent/} 的固定提交 \code{0e3e419} 做静态代码审计，
 不是新增 M3-Agent 跑分。其 robot 标注与本次数据副本的规范化 JSON 哈希一致，
 五视频 65 题逐项匹配；记录见 \code{docs/m3_agent_review.json}。
-本次未加载参考模型权重、未反序列化 pickle 图、未调用参考模型 API，
+该静态审计阶段未加载参考模型权重、未反序列化 pickle 图、未调用参考模型 API，
 也未运行可能改变现有 GPU 环境的参考安装脚本。
+后续实际完成的同模型适配评测见第\ref{sec:matched-comparison}节，
+不能将静态审计阶段的状态误读为后续没有运行对照。
 
 参考实现分为感知中间产物、记忆图生成和控制问答三个入口。
 每个视频维护一个 \code{VideoGraph}，包含 img（人脸）、voice、

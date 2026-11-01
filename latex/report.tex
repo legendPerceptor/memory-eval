@@ -5,9 +5,9 @@
 \usepackage{xurl}
 \usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
 \DeclareRobustCommand{\code}[1]{\nolinkurl{#1}}
-\title{oGMemory 多模态记忆技术评估\\M3-Bench 五视频实验}
+\title{oGMemory 多模态记忆评估与上下文优化\\M3-Bench 五视频对照实验}
 \author{memory-eval 工作区实验记录}
-\date{2026 年 10 月 31 日}
+\date{2026 年 11 月 1 日}
 \begin{document}
 \maketitle
 \IfFileExists{results.tex}{}{
@@ -21,17 +21,28 @@
 原始默认配置、环境修复和后续恢复严格区分；不以历史答案代替本次运行，
 不以缺题后的成功子集均分代替端到端表现。当前结果属于小规模开发性诊断，
 不是完整数据集成绩，也不是独立人工验证的准确率。
+\IfFileExists{matched_comparison_results.tex}{
+本报告保留首轮失败、定向恢复和共同重评三个阶段；首轮同模型对照见第
+\ref{sec:matched-comparison} 节，不将不同阶段的较高分数择优拼接。
+}{}
+\IfFileExists{context_optimization_results.tex}{
+后续固定记忆的上下文预算、收尾控制、紧预算与分组表示消融见第
+\ref{sec:context-optimization} 节，运行中与最终共同评分明确区分。
+用量分析同时区分缓存和未缓存输入，不将总token缩减直接解释为费用缩减。
+}{}
 \end{abstract}
 
 \section{目标与可追溯性}
 主要评估对象是当前目录的 \code{oGMemory/}，未开展新的 LoCoMo 实验。
-源码分支为 dev，固定提交为
+首轮基线源码分支为 dev，固定提交为
 \code{8c86c3ed}（完整哈希见实验目录 \code{provenance.json}）。
-本轮不修改记忆与检索算法，为 M3 配置工厂和 MiniMax 适配器补充可选推理参数透传，
+首轮不修改记忆与检索算法，为 M3 配置工厂和 MiniMax 适配器补充可选推理参数透传，
 并加入默认关闭、最多 4 个独立片段并发的吞吐优化；
 固定提交加补丁构成实际运行版本。新增脚本、脱敏配置、逐题结果和报告均置于外层
 memory-eval 工作区。模型、数据库、配置与抽样清单分别记录，凭据和大型原始
-媒体不纳入拟建立的 Git 仓库。
+媒体不纳入外层 Git 仓库。后续可靠性与上下文改动在
+\code{m3_dev_1031} 分支提交；每组实际运行的源码提交与归档哈希以对应
+\code{manifest.json} 为准，不能用当前HEAD替代历史冻结版本。
 
 \section{当前方法}
 \subsection{输入与多模态证据}
@@ -151,7 +162,8 @@ S_{\mathrm{macro}}=\frac{1}{5}\sum_{v=1}^{5}\frac{1}{N_v}
 seed=42 只固定视频抽样；远端模型没有固定生成 seed，后端权重版本也不能由本地锁定。
 因此保存原始响应是可追溯性要求，不能保证再次运行逐字复现答案。
 
-\section{本次运行结果}
+\section{首轮固定配置运行结果}
+以下保留首轮原始统计；定向恢复和共同评委重评另列，不用后续结果覆盖首轮失败。
 \IfFileExists{results.tex}{\input{results.tex}}{
 \textbf{实验运行中，尚无最终结果。}本节将在固定样本评测结束并完成覆盖审计后生成；
 不得将此中间版作为已完成的成绩报告。
@@ -159,14 +171,19 @@ seed=42 只固定视频抽样；远端模型没有固定生成 seed，后端权�
 \IfFileExists{findings.tex}{\input{findings.tex}}{}
 }
 
+\IfFileExists{recovery_results.tex}{\input{recovery_results.tex}}{}
+\IfFileExists{matched_comparison_results.tex}{\input{matched_comparison_results.tex}}{}
+\IfFileExists{context_optimization_results.tex}{\input{context_optimization_results.tex}}{}
+
 \section{改进方向与后续对照设计}
 \begin{enumerate}
 \item \textbf{运行可靠性：}启动前校验在线模型名、数据库扩展和多模态完整输入；
 统计记忆截断、QA 上下文超限与评委异常，分别处理而非笼统归为低准确率。
 \item \textbf{视觉覆盖：}固定 16 帧预算，对比前缀采样与整片段等距采样，
 再讨论动作自适应采样，避免同时改变帧数和采样位置而无法归因。
-\item \textbf{有界上下文：}冻结同一份记忆，仅切换现有 \code{qa_context}，
-同时报告质量、请求大小、调用次数和失败率，不只报告 token 缩减。
+\item \textbf{有界上下文：}本报告后续消融已按固定记忆开展预算和控制验证；
+下一步应研究前缀更稳定的增量证据交付，同时报告缓存、质量、请求大小、
+调用次数和失败率，而不只报告 token 缩减。
 \item \textbf{事实和时序：}为对象位置、材料、人物归属保存可定位证据；
 区分计划、建议与已完成事件；计数使用可去重事件时间轴而非检索条数。
 \item \textbf{图结构价值：}明确语义节点与身份边何时进入检索，
@@ -174,12 +191,12 @@ seed=42 只固定视频抽样；远端模型没有固定生成 seed，后端权�
 \item \textbf{评测可信度：}固定独立评委并人工抽查零分、半分和计数/空间问题，
 将本轮样本作为开发集，另设未调参的新视频集验证泛化。
 \end{enumerate}
-以上属于后续建议；除结果节明确记录的恢复处理外，
+以上未在结果节明确记录为已完成的部分属于后续建议；
 不能表述为本次已实现或已验证的算法增益。
 
 \section{复现与产物}
 先在交互式 bash 中 source 用户的 \code{~/.bashrc} 并导出 \code{MINIMAX_API_KEY}，
-在 memory-eval 根目录执行 \code{bash scripts/run_m3_flash_medium.sh}；
+原完整视频基线可在 memory-eval 根目录执行 \code{bash scripts/run_m3_flash_medium.sh}；
 私有配置路径由脚本固定，提交版仅保留脱敏配置和配置哈希。
 实验完整媒体、原始模型输出与运行日志位于 \code{runs/}，默认不入 Git。
 轻量结果位于 \code{experiments/m3_flash_medium_20261031/}，
@@ -189,8 +206,17 @@ seed=42 只固定视频抽样；远端模型没有固定生成 seed，后端权�
 统计脚本 \code{scripts/summarize_m3.py} 校验标注哈希、固定题数、
 重复答案、样本外记录以及评分与预测的一致性。
 它不会悄悄从多轮尝试里选择最高分。
-兼容修改后实际执行 M3、LLM provider 与管线集成测试：976 passed；
+首轮兼容修改后实际执行 M3、LLM provider 与管线集成测试：976 passed；
 外层统计脚本另有 9 项测试通过。
+后续QA-only消融使用 \code{scripts/run_context_experiment.py} 冻结源码和配置，
+从指定原数据库读取记忆，不应为改变QA控制器而重新运行全视频抽取。
+其恢复规则、实际提交和测试边界记录于
+\code{experiments/m3_context_study_20261101/PLAN.md} 与 \code{VALIDATION.md}。
+当前代码提供 \code{python -m m3.configure_qa_context}，
+将选定上下文方案写入新的0600私有配置副本，保留模型与连接设置，不调用服务。
+切换策略时必须使用新的QA结果文件/实验目录，不能对旧答案直接resume；
+配置工具也不能用于改写已冻结实验。具体参数见
+\code{oGMemory/docs/m3_bounded_context.md}。
 LaTeX 使用 \code{ctexart} 与 XeLaTeX，在工作区根目录执行
 \code{bash scripts/build_report.sh}，或进入本目录执行 \code{make}。
 脚本检查中文依赖，用 latexmk 自动完成交叉引用收敛，只在成功时发布
@@ -210,6 +236,6 @@ LaTeX 使用 \code{ctexart} 与 XeLaTeX，在工作区根目录执行
 \bibitem{m3agent} 本地 M3-Agent 参考仓库，提交 \code{0e3e419}；
 \code{m3_agent/control.py}、\code{mmagent/retrieve.py}、
 \code{mmagent/videograph.py} 与 \code{mmagent/memory_processing_qwen.py}。
-本报告为代码级比较，没有新增 M3-Agent 跑分或复现论文成绩。
+本节为参考代码分析；后续同模型适配评测不等同于官方权重复现或论文成绩。
 \end{thebibliography}
 \end{document}
