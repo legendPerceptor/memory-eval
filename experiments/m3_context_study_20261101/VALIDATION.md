@@ -29,6 +29,16 @@ New tests verify:
 6. Per-question state reset.
 7. Packing retains no-new-evidence guidance without adding facts or mutating raw input.
 
+## Telemetry follow-up
+
+- **1024 passed** for the same M3/provider/core unit selection
+  (`telemetry-regression-tests.log`).
+- Added visible-passage novelty counters, distinct from retrieved node IDs.
+  They are diagnostic only and do not change no-gain decisions.
+- Fixed generic ReAct trace tool names to accept both `name` and `tool`, matching
+  actual dispatch. Previous OpenAI-compatible traces had empty tool names.
+- A/B frozen sources are unchanged. C includes these diagnostic-only additions.
+
 ## Database snapshots
 
 `database_early.json` is a read-only snapshot taken **after A had started** and

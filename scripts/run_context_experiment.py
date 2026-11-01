@@ -62,7 +62,7 @@ def prepare(args):
     if digest(tokenizer) != expected:
         raise RuntimeError("Tokenizer does not match pinned local artifact")
     settings = dict(
-        enabled=True, context_window=32768, max_input_tokens=24000,
+        enabled=True, context_window=32768, max_input_tokens=args.input_budget,
         safety_tokens=2048, max_top_k=16, max_candidates=32,
         max_result_nodes=24, max_neighbor_clips=64, max_search_calls=8,
         max_selected_nodes=32, max_passages_per_node=32,
@@ -201,12 +201,15 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--name", required=True)
     p.add_argument("--answer-reserve", type=int, default=0)
+    p.add_argument("--input-budget", type=int, default=24000)
     p.add_argument("--worker", action="store_true")
     p.add_argument("--driver", action="store_true")
     p.add_argument("--video", choices=COHORT)
     args = p.parse_args()
     if not args.name.replace("_", "").isalnum():
         raise SystemExit("Unsafe experiment name")
+    if args.input_budget <= 0:
+        raise SystemExit("Input budget must be positive")
     if args.worker:
         raise SystemExit(worker(args))
     if args.driver:
