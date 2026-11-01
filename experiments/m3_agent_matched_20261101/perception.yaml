@@ -1,0 +1,97 @@
+name: matched_perception_only
+version: 1
+description: Fresh shared perception; no oGMemory episodic or semantic generation.
+artifacts:
+  selected_video: '{work_dir}/videos/robot/{video_id}.mp4'
+  annotations: '{work_dir}/annotations/one_video.json'
+  clips_root: '{work_dir}/clips'
+  frames_root: '{work_dir}/frames'
+  audio_root: '{work_dir}/audio'
+  data_jsonl: '{work_dir}/data.jsonl'
+  frames_jsonl: '{work_dir}/frames.jsonl'
+  audio_jsonl: '{work_dir}/audio.jsonl'
+  faces_jsonl: '{work_dir}/faces.jsonl'
+  face_clusters: '{work_dir}/face_clusters.jsonl'
+  voice_segments: '{work_dir}/voice_segments.jsonl'
+  voice_clusters: '{work_dir}/voice_clusters.jsonl'
+  voice_asr: '{work_dir}/voice_asr.jsonl'
+  semantic_memories: '{work_dir}/semantic_memories.jsonl'
+  episodic_jsonl: '{work_dir}/episodic_memory.jsonl'
+  index_jsonl: '{work_dir}/episodic_index.jsonl'
+  qa_results: '{work_dir}/m3_qa_results.jsonl'
+  summary_json: '{work_dir}/pipeline_summary.json'
+stages:
+- id: trim
+  type: video.trim
+  params:
+    seconds: '{seconds}'
+- id: annotate
+  type: m3.write_single_annotation
+  needs:
+  - trim
+- id: preprocess
+  type: m3.preprocess
+  needs:
+  - annotate
+  params:
+    clip_seconds: 30
+- id: load_clips
+  type: m3.load_clips
+  needs:
+  - preprocess
+  params:
+    clip_seconds: 30
+- id: extract_audio
+  type: m3.extract_audio
+  enabled: true
+  needs:
+  - load_clips
+  params:
+    sample_rate: 16000
+    channels: 1
+- id: extract_frames
+  type: m3.extract_frames
+  needs:
+  - load_clips
+  params:
+    fps: 1
+    max_frames: 16
+    resize: 512
+    jpeg_quality: 80
+    keyframes_only: false
+- id: detect_faces
+  type: m3.detect_faces
+  enabled: true
+  needs:
+  - extract_frames
+  params:
+    backend: http
+    min_confidence: 0.5
+    max_faces: 20
+- id: voice_asr
+  type: m3.voice_asr
+  enabled: true
+  needs:
+  - extract_audio
+  params:
+    backend: faster_whisper
+    model: large-v3-turbo
+    language: en
+    beam_size: 5
+- id: speaker_diarization
+  type: m3.speaker_diarization
+  enabled: true
+  needs:
+  - voice_asr
+  params:
+    backend: pyannote
+    model: pyannote/speaker-diarization-3.1
+- id: speaker_embedding
+  type: m3.speaker_embedding
+  enabled: true
+  needs:
+  - speaker_diarization
+  params:
+    backend: speechbrain
+    model: speechbrain/spkrec-ecapa-voxceleb
+    embedding_dim: 192

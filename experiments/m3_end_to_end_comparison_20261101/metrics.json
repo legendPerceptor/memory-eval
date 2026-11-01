@@ -1,0 +1,410 @@
+{
+  "observed_at": "2026-11-01T09:07:37.871046+08:00",
+  "cohort": {
+    "version": 1,
+    "method": "uniform_without_replacement_sorted_ids",
+    "seed": 42,
+    "sample_size": 5,
+    "exclude": [],
+    "annotations_sha256": "bb02225f22a097bbd077c4913bdf85e4f0c6f5cbd37eaee49c1de41ece30dded",
+    "candidate_ids": [
+      "bedroom_01",
+      "bedroom_02",
+      "bedroom_03",
+      "bedroom_04",
+      "bedroom_05",
+      "bedroom_06",
+      "bedroom_07",
+      "bedroom_08",
+      "bedroom_09",
+      "bedroom_10",
+      "bedroom_11",
+      "bedroom_12",
+      "gym_01",
+      "gym_02",
+      "gym_03",
+      "gym_04",
+      "kitchen_01",
+      "kitchen_02",
+      "kitchen_03",
+      "kitchen_04",
+      "kitchen_05",
+      "kitchen_06",
+      "kitchen_07",
+      "kitchen_08",
+      "kitchen_09",
+      "kitchen_10",
+      "kitchen_11",
+      "kitchen_12",
+      "kitchen_13",
+      "kitchen_14",
+      "kitchen_15",
+      "kitchen_16",
+      "kitchen_17",
+      "kitchen_18",
+      "kitchen_19",
+      "kitchen_20",
+      "kitchen_21",
+      "kitchen_22",
+      "kitchen_23",
+      "living_room_01",
+      "living_room_02",
+      "living_room_03",
+      "living_room_04",
+      "living_room_05",
+      "living_room_06",
+      "living_room_07",
+      "living_room_08",
+      "living_room_09",
+      "living_room_10",
+      "living_room_11",
+      "living_room_12",
+      "living_room_13",
+      "living_room_14",
+      "living_room_15",
+      "living_room_16",
+      "living_room_17",
+      "living_room_18",
+      "living_room_19",
+      "living_room_20",
+      "living_room_21",
+      "living_room_22",
+      "living_room_23",
+      "living_room_24",
+      "meeting_room_01",
+      "meeting_room_02",
+      "meeting_room_03",
+      "meeting_room_04",
+      "meeting_room_05",
+      "meeting_room_06",
+      "office_01",
+      "office_02",
+      "office_03",
+      "office_04",
+      "office_05",
+      "office_06",
+      "office_07",
+      "office_08",
+      "study_01",
+      "study_02",
+      "study_03",
+      "study_04",
+      "study_05",
+      "study_06",
+      "study_07",
+      "study_08",
+      "study_09",
+      "study_10",
+      "study_11",
+      "study_12",
+      "study_13",
+      "study_14",
+      "study_15",
+      "study_16",
+      "study_17",
+      "study_18",
+      "study_19",
+      "study_20",
+      "study_21",
+      "study_22",
+      "study_23"
+    ],
+    "selected_video_ids": [
+      "study_05",
+      "gym_03",
+      "bedroom_04",
+      "study_18",
+      "kitchen_20"
+    ],
+    "question_counts": {
+      "study_05": 12,
+      "gym_03": 11,
+      "bedroom_04": 11,
+      "study_18": 14,
+      "kitchen_20": 17
+    },
+    "total_questions": 65
+  },
+  "methods": {
+    "ogmemory_recovered": {
+      "questions": 65,
+      "valid_answers": 59,
+      "mean_score": 0.5461538461538461,
+      "video_macro_mean": 0.5461166284695697,
+      "judge_errors": 0,
+      "by_video": {
+        "study_05": {
+          "questions": 12,
+          "valid_answers": 9,
+          "mean_score": 0.3333333333333333,
+          "finish_reasons": {
+            "done": 9,
+            "timeout": 3
+          }
+        },
+        "gym_03": {
+          "questions": 11,
+          "valid_answers": 10,
+          "mean_score": 0.7272727272727273,
+          "finish_reasons": {
+            "done": 10,
+            "timeout": 1
+          }
+        },
+        "bedroom_04": {
+          "questions": 11,
+          "valid_answers": 9,
+          "mean_score": 0.6363636363636364,
+          "finish_reasons": {
+            "done": 9,
+            "timeout": 2
+          }
+        },
+        "study_18": {
+          "questions": 14,
+          "valid_answers": 14,
+          "mean_score": 0.35714285714285715,
+          "finish_reasons": {
+            "done": 14
+          }
+        },
+        "kitchen_20": {
+          "questions": 17,
+          "valid_answers": 17,
+          "mean_score": 0.6764705882352942,
+          "finish_reasons": {
+            "done": 17
+          }
+        }
+      },
+      "score_counts": {
+        "0.0": 25,
+        "1.0": 31,
+        "0.5": 9
+      },
+      "source_results_sha256": "039b7bc1ecbd9040a1176356d6982ed108f959c40635a4bce72c41861955caf7",
+      "by_label_overlapping": {
+        "Cross-Modal Reasoning": {
+          "count": 21,
+          "mean_score": 0.6190476190476191
+        },
+        "General Knowledge Extraction": {
+          "count": 25,
+          "mean_score": 0.52
+        },
+        "Multi-Detail Reasoning": {
+          "count": 28,
+          "mean_score": 0.44642857142857145
+        },
+        "Multi-Hop Reasoning": {
+          "count": 1,
+          "mean_score": 1.0
+        },
+        "Person Understanding": {
+          "count": 21,
+          "mean_score": 0.7380952380952381
+        }
+      },
+      "qa_usage": {
+        "logical_calls": 319,
+        "prompt_tokens": 19905749,
+        "completion_tokens": 91213,
+        "peak_prompt_tokens": 156689,
+        "unknown_usage_calls": 0
+      }
+    },
+    "m3_agent_reference_text": {
+      "questions": 65,
+      "valid_answers": 65,
+      "mean_score": 0.46153846153846156,
+      "video_macro_mean": 0.4751018589253883,
+      "judge_errors": 0,
+      "by_video": {
+        "study_05": {
+          "questions": 12,
+          "valid_answers": 12,
+          "mean_score": 0.5416666666666666,
+          "finish_reasons": {
+            "done": 12
+          }
+        },
+        "gym_03": {
+          "questions": 11,
+          "valid_answers": 11,
+          "mean_score": 0.5909090909090909,
+          "finish_reasons": {
+            "done": 11
+          }
+        },
+        "bedroom_04": {
+          "questions": 11,
+          "valid_answers": 11,
+          "mean_score": 0.5454545454545454,
+          "finish_reasons": {
+            "done": 11
+          }
+        },
+        "study_18": {
+          "questions": 14,
+          "valid_answers": 14,
+          "mean_score": 0.2857142857142857,
+          "finish_reasons": {
+            "done": 14
+          }
+        },
+        "kitchen_20": {
+          "questions": 17,
+          "valid_answers": 17,
+          "mean_score": 0.4117647058823529,
+          "finish_reasons": {
+            "done": 17
+          }
+        }
+      },
+      "score_counts": {
+        "0.0": 30,
+        "1.0": 25,
+        "0.5": 10
+      },
+      "source_results_sha256": "bf03c59338b0da97a135e3792a4821369804f111907776cdb3af9080fce18d7f",
+      "by_label_overlapping": {
+        "Cross-Modal Reasoning": {
+          "count": 21,
+          "mean_score": 0.47619047619047616
+        },
+        "General Knowledge Extraction": {
+          "count": 25,
+          "mean_score": 0.44
+        },
+        "Multi-Detail Reasoning": {
+          "count": 28,
+          "mean_score": 0.39285714285714285
+        },
+        "Multi-Hop Reasoning": {
+          "count": 1,
+          "mean_score": 0.5
+        },
+        "Person Understanding": {
+          "count": 21,
+          "mean_score": 0.5714285714285714
+        }
+      },
+      "qa_usage": {
+        "logical_calls": 310,
+        "prompt_tokens": 569796,
+        "completion_tokens": 28938,
+        "peak_prompt_tokens": 4740,
+        "unknown_usage_calls": 0
+      }
+    },
+    "m3_agent_native_tools": {
+      "questions": 65,
+      "valid_answers": 28,
+      "mean_score": 0.2153846153846154,
+      "video_macro_mean": 0.2122549019607843,
+      "judge_errors": 0,
+      "by_video": {
+        "study_05": {
+          "questions": 12,
+          "valid_answers": 4,
+          "mean_score": 0.20833333333333334,
+          "finish_reasons": {
+            "max_iterations": 8,
+            "done": 4
+          }
+        },
+        "gym_03": {
+          "questions": 11,
+          "valid_answers": 6,
+          "mean_score": 0.22727272727272727,
+          "finish_reasons": {
+            "done": 6,
+            "max_iterations": 5
+          }
+        },
+        "bedroom_04": {
+          "questions": 11,
+          "valid_answers": 4,
+          "mean_score": 0.2727272727272727,
+          "finish_reasons": {
+            "done": 4,
+            "max_iterations": 7
+          }
+        },
+        "study_18": {
+          "questions": 14,
+          "valid_answers": 4,
+          "mean_score": 0.0,
+          "finish_reasons": {
+            "max_iterations": 10,
+            "done": 4
+          }
+        },
+        "kitchen_20": {
+          "questions": 17,
+          "valid_answers": 10,
+          "mean_score": 0.35294117647058826,
+          "finish_reasons": {
+            "done": 11,
+            "max_iterations": 6
+          }
+        }
+      },
+      "score_counts": {
+        "0.0": 50,
+        "1.0": 13,
+        "0.5": 2
+      },
+      "source_results_sha256": "cdde85c5ca4e80d0cef48561fe179a2610343a7f2dc64b13e1c69ad2127c322c",
+      "by_label_overlapping": {
+        "Cross-Modal Reasoning": {
+          "count": 21,
+          "mean_score": 0.2619047619047619
+        },
+        "General Knowledge Extraction": {
+          "count": 25,
+          "mean_score": 0.22
+        },
+        "Multi-Detail Reasoning": {
+          "count": 28,
+          "mean_score": 0.19642857142857142
+        },
+        "Multi-Hop Reasoning": {
+          "count": 1,
+          "mean_score": 1.0
+        },
+        "Person Understanding": {
+          "count": 21,
+          "mean_score": 0.2857142857142857
+        }
+      },
+      "qa_usage": {
+        "logical_calls": 371,
+        "prompt_tokens": 967583,
+        "completion_tokens": 37346,
+        "peak_prompt_tokens": 6761,
+        "unknown_usage_calls": 0
+      }
+    }
+  },
+  "ogmemory_predictions_unchanged": true,
+  "all_65_temporal_cutoffs_match": true,
+  "ogmemory_grading_drift": [
+    {
+      "question_id": "study_05_Q06",
+      "previous_score": 0.0,
+      "common_judge_score": 0.5
+    },
+    {
+      "question_id": "study_18_Q12",
+      "previous_score": 0.5,
+      "common_judge_score": 0.0
+    },
+    {
+      "question_id": "gym_03_Q09",
+      "previous_score": 0.5,
+      "common_judge_score": 0.0
+    }
+  ],
+  "interpretation": "Five-video development comparison of adapted implementations, not official checkpoint reproduction or an architecture-only causal effect."
+}

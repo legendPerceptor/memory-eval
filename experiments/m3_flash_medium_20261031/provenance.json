@@ -45,6 +45,8 @@
     "finalize_m3.py": "52da7c303f9a2836d0ca99fc296de900e36f10c100ffb3c76abd475ad1b5fde1",
     "build_report.sh": "6809c189edee75ef963993279ea98c1aa1730cb5e4b1e5fa91dc19f0714a07f5"
   },
-  "pdf": "../../latex/report.pdf",
-  "pdf_sha256": "0d88dedf7a62b786000ee02577e6cbbfc46cdbd154d45ef53e15e50fc57922da"
+  "pdf": "report-first-pass.pdf",
+  "pdf_sha256": "0d88dedf7a62b786000ee02577e6cbbfc46cdbd154d45ef53e15e50fc57922da",
+  "archived_pdf": "report-first-pass.pdf",
+  "published_pdf_alias": "../../latex/report.pdf"
 }

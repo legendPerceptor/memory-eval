@@ -1,0 +1,168 @@
+{
+  "note": "Original frozen run remains unchanged. The post-run source fix deep-copies raw anchor metadata; text nodes, text/anchor embeddings, edges and character maps are identical for every evaluated temporal scope. Raw image/voice contents are not read by the reference QA search path.",
+  "live_model_calls": 0,
+  "videos": {
+    "study_05": {
+      "aliased_raw_contents_entries": 32,
+      "scopes_checked": [
+        {
+          "before_clip": 7,
+          "qa_visible_graph_sha256": "9eef3a9328adc85a06f389afe53d9f3eca72c7d9f64abaa879d019f5ce2efcf9"
+        },
+        {
+          "before_clip": 27,
+          "qa_visible_graph_sha256": "8644333234a3e92eb7ed45d92d070cc27365fd7da03d768f4230d625ec0b79bb"
+        },
+        {
+          "before_clip": 41,
+          "qa_visible_graph_sha256": "b38c36404010c211a05f235a04c61032fb1c8ad1e85b9654f642aad21519f890"
+        },
+        {
+          "before_clip": 45,
+          "qa_visible_graph_sha256": "9e92edd53069e87f1f43ca7655dc1ed6cb6afa806e9739f8e9e0e3ef10910cd0"
+        },
+        {
+          "before_clip": 60,
+          "qa_visible_graph_sha256": "5de59c50f42ed0cb95b923379e81e480bf499fd96fdff01eed9e64410813d5f8"
+        },
+        {
+          "before_clip": 68,
+          "qa_visible_graph_sha256": "f5e1c7f0377cd6e96a12363c73d2a67eb877ffb7b708b4ccb300f66b0b4f997f"
+        }
+      ],
+      "qa_projection_identical": true
+    },
+    "gym_03": {
+      "aliased_raw_contents_entries": 53,
+      "scopes_checked": [
+        {
+          "before_clip": 3,
+          "qa_visible_graph_sha256": "5f462515d36b42afd5b46bd6642d4a0072e9782200323223568f48be5ddedb03"
+        },
+        {
+          "before_clip": 9,
+          "qa_visible_graph_sha256": "048ee304d3040910e58b88258a90b24a5c1371b323bcb33864798a2f6a6ace01"
+        },
+        {
+          "before_clip": 28,
+          "qa_visible_graph_sha256": "926caf75986405566b50bcd9ecda79ed2bcea3de0081012649d5cd9c19aadcf3"
+        },
+        {
+          "before_clip": 30,
+          "qa_visible_graph_sha256": "8269aca1b1cf873dc6411325d920b1ce1b23fff246fd6faf2b2b694ff49d215d"
+        },
+        {
+          "before_clip": 38,
+          "qa_visible_graph_sha256": "df63d07e417d0a1454ac463c3d1df4d7729bfd6c4427dde4f9bf5dde8946840d"
+        },
+        {
+          "before_clip": 67,
+          "qa_visible_graph_sha256": "c8f6bb34cec4dc2114754b9848e2330c59448afb192c376e9bc34e8ce81d618b"
+        }
+      ],
+      "qa_projection_identical": true
+    },
+    "bedroom_04": {
+      "aliased_raw_contents_entries": 42,
+      "scopes_checked": [
+        {
+          "before_clip": 14,
+          "qa_visible_graph_sha256": "5a38fd553b99538698709daff886a0e7d215258b58963011cbe0064f26912430"
+        },
+        {
+          "before_clip": 49,
+          "qa_visible_graph_sha256": "81d8b2f41fbd501623aa561601f08bac2d8a2fd5231296e58a2474035e4a07fc"
+        },
+        {
+          "before_clip": 55,
+          "qa_visible_graph_sha256": "f45a22e3df34b9e555608f26b5a51efec4457f856da7ecd0b3679e03d99ce202"
+        }
+      ],
+      "qa_projection_identical": true
+    },
+    "study_18": {
+      "aliased_raw_contents_entries": 37,
+      "scopes_checked": [
+        {
+          "before_clip": 9,
+          "qa_visible_graph_sha256": "0ddee3eb6f56c7fd30d38fdecb5337d22c678aabec86f72853786ee074316b74"
+        },
+        {
+          "before_clip": 14,
+          "qa_visible_graph_sha256": "aa7195c7afe01da41bbf9d7bdba26832970029a3babca638f0dad4612fe025e8"
+        },
+        {
+          "before_clip": 30,
+          "qa_visible_graph_sha256": "29bf7b8b776f4b7a503f6bb7c707cb3753183338c411bb2d40aeb57c2db1a764"
+        },
+        {
+          "before_clip": 31,
+          "qa_visible_graph_sha256": "d495899fc01623d778ee3209afdde8cf4654df27fa6f69149152c58ae7c7a789"
+        },
+        {
+          "before_clip": 35,
+          "qa_visible_graph_sha256": "e9591298847bdc7a8cb191f0df2ceda89ca20a1a5e209ab62074243343a3a6d1"
+        },
+        {
+          "before_clip": 54,
+          "qa_visible_graph_sha256": "32db6859fe6077fbd34d129a416ba156738b4f089f944920724f11b305b87f0d"
+        },
+        {
+          "before_clip": 61,
+          "qa_visible_graph_sha256": "290ad32904e352c5093e78b6725318a463e4e6ba2f1af16afe42548cb58f7562"
+        },
+        {
+          "before_clip": 78,
+          "qa_visible_graph_sha256": "da269cd392278ebc3d39d2357c0cb31ecec4793d0b97121d12e5b54fb5b4b6df"
+        },
+        {
+          "before_clip": 83,
+          "qa_visible_graph_sha256": "26765e8fa8d53545dea62b5d72c754bb6ce22ab900f9d467ecb6af750ce0574a"
+        }
+      ],
+      "qa_projection_identical": true
+    },
+    "kitchen_20": {
+      "aliased_raw_contents_entries": 64,
+      "scopes_checked": [
+        {
+          "before_clip": 13,
+          "qa_visible_graph_sha256": "4e127dccded76d520df3a9602094a4891e2d0c46076f69674b2ed9515b93ad60"
+        },
+        {
+          "before_clip": 21,
+          "qa_visible_graph_sha256": "121ae7eb8a4d1c1d066a2b5fc33ab874a8616ae09891c39e5a9c4d27331bcb59"
+        },
+        {
+          "before_clip": 25,
+          "qa_visible_graph_sha256": "a929b9959237c265aee08cb8386e64e6107950d04a67dbb62fdf95dd49e416d7"
+        },
+        {
+          "before_clip": 28,
+          "qa_visible_graph_sha256": "0dcc4b133d0a6c1450b600fa7cc1a64cc49b3c9ab210004f405ba4489cedfff1"
+        },
+        {
+          "before_clip": 31,
+          "qa_visible_graph_sha256": "4e6f313227adac7e4b7a359384289d1f0bb51726eb15563d7fe6423b166bf246"
+        },
+        {
+          "before_clip": 33,
+          "qa_visible_graph_sha256": "d3b6956fd9a5d897c6b654d6cbec1b2139013257ac1c1350ff0f93b9ced21e50"
+        },
+        {
+          "before_clip": 37,
+          "qa_visible_graph_sha256": "e60ddb031e9bf39639423447e79b7abca1aefd00f7352601722e928ea902a293"
+        },
+        {
+          "before_clip": 54,
+          "qa_visible_graph_sha256": "e5758c8194a0f435bd1e1c8c3bd5dbf28a665597276eb0156b06097c9059b4d9"
+        },
+        {
+          "before_clip": 62,
+          "qa_visible_graph_sha256": "bee57c1ef02380ce3fd1dff4dd5d3658e55bc11e9cd80f20b0f2068603413f0a"
+        }
+      ],
+      "qa_projection_identical": true
+    }
+  }
+}

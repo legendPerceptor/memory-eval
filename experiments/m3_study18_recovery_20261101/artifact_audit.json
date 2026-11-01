@@ -1,0 +1,66 @@
+{
+  "study_18": {
+    "data.jsonl": {
+      "sha256": "8d3169bf41244fa0a48ca9011a54f1f780ee68c33048f16cfdfa0f7dd13adba5",
+      "bytes": 18010,
+      "records": 1
+    },
+    "frames.jsonl": {
+      "sha256": "5ad452699a890d0df7545b88b4f4e5ab266e601518ead72ac7c82681cdc39624",
+      "bytes": 66181,
+      "records": 84
+    },
+    "audio.jsonl": {
+      "sha256": "ecd481fb7a00bcd318ff13da1f7aa49bafef643670a4e0db882c430d4d5bae03",
+      "bytes": 19226,
+      "records": 84
+    },
+    "voice_asr.jsonl": {
+      "sha256": "7bc4e9adabec5210cfd10f389f2c1770e7f1c62ea954946ecaef4e07a73bc286",
+      "bytes": 117251,
+      "records": 320
+    },
+    "episodic_memory.jsonl": {
+      "sha256": "b837a6cf280ad7da4a4950ce88b06f5fd5260fe0e1260bb80afa853121f8b2df",
+      "bytes": 352577,
+      "records": 84
+    },
+    "episodic_index.jsonl": {
+      "sha256": "1d7d2e3bb5dc9e8222b0466ec158a10a766563c70ce51fd35c7ada1b6157bc47",
+      "bytes": 631323,
+      "records": 84
+    },
+    "m3_qa_results.jsonl": {
+      "sha256": "6765339165bcd96ab774b2944d622b7021b7827ef4476c9d8f923675ae77c063",
+      "bytes": 221587,
+      "records": 14
+    },
+    "semantic_memories.jsonl": {
+      "sha256": "b78d7d8bba6cd4b48939f490d27ed769e80f373312c052eca06cb559f73bc42e",
+      "bytes": 245435,
+      "records": 1
+    },
+    "speaker_turns.jsonl": {
+      "sha256": "31724ea90384f3a3fc9671aa8282ac6c0f270ef5ffc1bc5c81c94fd863a76ada",
+      "bytes": 169165,
+      "records": 523
+    },
+    "speaker_embeddings.jsonl": {
+      "sha256": "11196b562e182800e2800bb5dc8c6a9929b4b5d60919664da501fd90c51c20a4",
+      "bytes": 40173,
+      "records": 146
+    },
+    "observed_log_span_seconds": 397.92,
+    "last_stage_observed_span_seconds": 340.502,
+    "last_stage": "qa",
+    "stage_start_deltas_seconds": {
+      "episodic_memory": 16.78,
+      "create_memory_nodes": 0.307,
+      "build_index": 5.878,
+      "face_clustering": 6.494,
+      "voice_segmentation": 16.255,
+      "voice_clustering": 11.334,
+      "semantic_memory_consolidator": 0.37
+    }
+  }
+}

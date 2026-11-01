@@ -1,0 +1,74 @@
+{
+  "phase": "finished_with_report",
+  "pid": 1298332,
+  "observed_at": "2026-11-01T07:36:01.967192+08:00",
+  "per_video": [
+    {
+      "video": "study_05",
+      "status": "degraded_or_failed",
+      "agent_exit_code": 0,
+      "agent_seconds": 496.100291691022,
+      "qa_records": 12,
+      "valid_answers": 4,
+      "memory": {
+        "expected_clips": 69,
+        "completed_clips": 69,
+        "failed_clips": []
+      }
+    },
+    {
+      "video": "gym_03",
+      "status": "degraded_or_failed",
+      "agent_exit_code": 0,
+      "agent_seconds": 573.4958380248863,
+      "qa_records": 11,
+      "valid_answers": 6,
+      "memory": {
+        "expected_clips": 68,
+        "completed_clips": 68,
+        "failed_clips": []
+      }
+    },
+    {
+      "video": "bedroom_04",
+      "status": "degraded_or_failed",
+      "agent_exit_code": 0,
+      "agent_seconds": 537.9141586599872,
+      "qa_records": 11,
+      "valid_answers": 4,
+      "memory": {
+        "expected_clips": 56,
+        "completed_clips": 56,
+        "failed_clips": []
+      }
+    },
+    {
+      "video": "study_18",
+      "status": "degraded_or_failed",
+      "agent_exit_code": 0,
+      "agent_seconds": 669.2560078909155,
+      "qa_records": 14,
+      "valid_answers": 4,
+      "memory": {
+        "expected_clips": 84,
+        "completed_clips": 84,
+        "failed_clips": []
+      }
+    },
+    {
+      "video": "kitchen_20",
+      "status": "degraded_or_failed",
+      "agent_exit_code": 0,
+      "agent_seconds": 590.8035920171533,
+      "qa_records": 17,
+      "valid_answers": 10,
+      "memory": {
+        "expected_clips": 63,
+        "completed_clips": 63,
+        "failed_clips": []
+      }
+    }
+  ],
+  "comparison": "comparison.json",
+  "has_failures": true
+}

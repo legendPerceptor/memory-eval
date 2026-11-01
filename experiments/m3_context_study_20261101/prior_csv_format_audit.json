@@ -1,0 +1,18 @@
+[
+  {
+    "path": "experiments/m3_end_to_end_comparison_20261101/questions.csv",
+    "records_unchanged": true,
+    "before_sha256": "0f11e4b5e4a8bc7f91460f8b917117e23d008ff1700f79a9897a503daaae843d",
+    "after_sha256": "e635ded82690f08f8238806ead21b2c998a151b01d68e46128460e732de693ca",
+    "change": "CSV record terminators normalized to LF; field values preserved",
+    "verbatim_field_whitespace_preserved": true
+  },
+  {
+    "path": "experiments/m3_study18_recovery_20261101/questions.csv",
+    "records_unchanged": true,
+    "before_sha256": "8c747be8b5d33d9b7404151776accafccb694eee6057b5e1998dba95a680d63a",
+    "after_sha256": "4bf356b5e0c4eace3c75054a74d41f113c637f16c5cb28662367b04eb309cb60",
+    "change": "CSV record terminators normalized to LF; field values preserved",
+    "verbatim_field_whitespace_preserved": true
+  }
+]

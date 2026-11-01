@@ -1,0 +1,378 @@
+{
+  "status": "finished",
+  "driver_status": "completed",
+  "run_root": "/home/yuanjian/Development/memory-eval/runs/m3_study18_recovery_20261101",
+  "annotation_raw_sha256": "f43031bf0216a2ef2e7909f20ecd534e0098da17b63cdf94325a07f1bea372c1",
+  "annotation_canonical_sha256": "bb02225f22a097bbd077c4913bdf85e4f0c6f5cbd37eaee49c1de41ece30dded",
+  "manifest": {
+    "version": 1,
+    "method": "targeted_recovery_of_failed_video",
+    "seed": 42,
+    "sample_size": 1,
+    "exclude": [],
+    "annotations_sha256": "bb02225f22a097bbd077c4913bdf85e4f0c6f5cbd37eaee49c1de41ece30dded",
+    "candidate_ids": [
+      "bedroom_01",
+      "bedroom_02",
+      "bedroom_03",
+      "bedroom_04",
+      "bedroom_05",
+      "bedroom_06",
+      "bedroom_07",
+      "bedroom_08",
+      "bedroom_09",
+      "bedroom_10",
+      "bedroom_11",
+      "bedroom_12",
+      "gym_01",
+      "gym_02",
+      "gym_03",
+      "gym_04",
+      "kitchen_01",
+      "kitchen_02",
+      "kitchen_03",
+      "kitchen_04",
+      "kitchen_05",
+      "kitchen_06",
+      "kitchen_07",
+      "kitchen_08",
+      "kitchen_09",
+      "kitchen_10",
+      "kitchen_11",
+      "kitchen_12",
+      "kitchen_13",
+      "kitchen_14",
+      "kitchen_15",
+      "kitchen_16",
+      "kitchen_17",
+      "kitchen_18",
+      "kitchen_19",
+      "kitchen_20",
+      "kitchen_21",
+      "kitchen_22",
+      "kitchen_23",
+      "living_room_01",
+      "living_room_02",
+      "living_room_03",
+      "living_room_04",
+      "living_room_05",
+      "living_room_06",
+      "living_room_07",
+      "living_room_08",
+      "living_room_09",
+      "living_room_10",
+      "living_room_11",
+      "living_room_12",
+      "living_room_13",
+      "living_room_14",
+      "living_room_15",
+      "living_room_16",
+      "living_room_17",
+      "living_room_18",
+      "living_room_19",
+      "living_room_20",
+      "living_room_21",
+      "living_room_22",
+      "living_room_23",
+      "living_room_24",
+      "meeting_room_01",
+      "meeting_room_02",
+      "meeting_room_03",
+      "meeting_room_04",
+      "meeting_room_05",
+      "meeting_room_06",
+      "office_01",
+      "office_02",
+      "office_03",
+      "office_04",
+      "office_05",
+      "office_06",
+      "office_07",
+      "office_08",
+      "study_01",
+      "study_02",
+      "study_03",
+      "study_04",
+      "study_05",
+      "study_06",
+      "study_07",
+      "study_08",
+      "study_09",
+      "study_10",
+      "study_11",
+      "study_12",
+      "study_13",
+      "study_14",
+      "study_15",
+      "study_16",
+      "study_17",
+      "study_18",
+      "study_19",
+      "study_20",
+      "study_21",
+      "study_22",
+      "study_23"
+    ],
+    "selected_video_ids": [
+      "study_18"
+    ],
+    "question_counts": {
+      "study_18": 14
+    },
+    "total_questions": 14,
+    "parent_cohort": "m3_flash_medium_20261031"
+  },
+  "overall": {
+    "expected": 14,
+    "valid_answer_rate": 1.0,
+    "qa_records": 14,
+    "valid_answers": 14,
+    "judge_records": 14,
+    "judge_errors": 0,
+    "unscored_valid_answers": 0,
+    "missing_qa": 0,
+    "qa_failures": 0,
+    "score_counts": {
+      "0.0": 6,
+      "0.5": 5,
+      "1.0": 3
+    },
+    "mean_score": 0.39285714285714285,
+    "full_credit_rate": 0.21428571428571427,
+    "operational_score_missing_judges_zero": 0.39285714285714285,
+    "mean_score_valid_answers_only": 0.39285714285714285,
+    "finish_reasons": {
+      "done": 14
+    }
+  },
+  "by_video": {
+    "study_18": {
+      "expected": 14,
+      "valid_answer_rate": 1.0,
+      "qa_records": 14,
+      "valid_answers": 14,
+      "judge_records": 14,
+      "judge_errors": 0,
+      "unscored_valid_answers": 0,
+      "missing_qa": 0,
+      "qa_failures": 0,
+      "score_counts": {
+        "0.0": 6,
+        "0.5": 5,
+        "1.0": 3
+      },
+      "mean_score": 0.39285714285714285,
+      "full_credit_rate": 0.21428571428571427,
+      "operational_score_missing_judges_zero": 0.39285714285714285,
+      "mean_score_valid_answers_only": 0.39285714285714285,
+      "finish_reasons": {
+        "done": 14
+      },
+      "clips": 84,
+      "frames": 1337,
+      "episodic_records": 84,
+      "index_records": 84,
+      "episodic_summary": {
+        "status": "completed",
+        "video_filter": null,
+        "account_id": "m3-flash-medium-20261031",
+        "workers": 4,
+        "expected_clips": 84,
+        "completed_clips": 84,
+        "generated_clips": 1,
+        "resumed_clips": 83,
+        "failed_clips": 0,
+        "recovered_retries": 0,
+        "errors": [],
+        "failures_path": "/home/yuanjian/Development/memory-eval/runs/m3_study18_recovery_20261101/study_18/episodic_memory_failures.json"
+      },
+      "stage_statuses": {
+        "trim": "skipped",
+        "annotate": "skipped",
+        "preprocess": "skipped",
+        "load_clips": "skipped",
+        "extract_audio": "skipped",
+        "extract_frames": "skipped",
+        "detect_faces": "skipped",
+        "voice_asr": "skipped",
+        "speaker_diarization": "skipped",
+        "speaker_embedding": "skipped",
+        "episodic_memory": "success",
+        "create_memory_nodes": "success",
+        "build_index": "success",
+        "face_clustering": "success",
+        "voice_segmentation": "success",
+        "voice_clustering": "success",
+        "semantic_memory_consolidator": "success",
+        "qa": "success"
+      },
+      "failed_stages": [],
+      "pipeline_summary_present": true
+    }
+  },
+  "by_joint_type": {
+    "Cross-Modal Reasoning,General Knowledge Extraction": {
+      "expected": 4,
+      "valid_answer_rate": 1.0,
+      "qa_records": 4,
+      "valid_answers": 4,
+      "judge_records": 4,
+      "judge_errors": 0,
+      "unscored_valid_answers": 0,
+      "missing_qa": 0,
+      "qa_failures": 0,
+      "score_counts": {
+        "0.5": 3,
+        "1.0": 1
+      },
+      "mean_score": 0.625,
+      "full_credit_rate": 0.25,
+      "operational_score_missing_judges_zero": 0.625,
+      "mean_score_valid_answers_only": 0.625,
+      "finish_reasons": {
+        "done": 4
+      }
+    },
+    "Cross-Modal Reasoning,Multi-Detail Reasoning": {
+      "expected": 3,
+      "valid_answer_rate": 1.0,
+      "qa_records": 3,
+      "valid_answers": 3,
+      "judge_records": 3,
+      "judge_errors": 0,
+      "unscored_valid_answers": 0,
+      "missing_qa": 0,
+      "qa_failures": 0,
+      "score_counts": {
+        "0.0": 2,
+        "1.0": 1
+      },
+      "mean_score": 0.3333333333333333,
+      "full_credit_rate": 0.3333333333333333,
+      "operational_score_missing_judges_zero": 0.3333333333333333,
+      "mean_score_valid_answers_only": 0.3333333333333333,
+      "finish_reasons": {
+        "done": 3
+      }
+    },
+    "General Knowledge Extraction": {
+      "expected": 2,
+      "valid_answer_rate": 1.0,
+      "qa_records": 2,
+      "valid_answers": 2,
+      "judge_records": 2,
+      "judge_errors": 0,
+      "unscored_valid_answers": 0,
+      "missing_qa": 0,
+      "qa_failures": 0,
+      "score_counts": {
+        "0.0": 1,
+        "0.5": 1
+      },
+      "mean_score": 0.25,
+      "full_credit_rate": 0.0,
+      "operational_score_missing_judges_zero": 0.25,
+      "mean_score_valid_answers_only": 0.25,
+      "finish_reasons": {
+        "done": 2
+      }
+    },
+    "Multi-Detail Reasoning": {
+      "expected": 5,
+      "valid_answer_rate": 1.0,
+      "qa_records": 5,
+      "valid_answers": 5,
+      "judge_records": 5,
+      "judge_errors": 0,
+      "unscored_valid_answers": 0,
+      "missing_qa": 0,
+      "qa_failures": 0,
+      "score_counts": {
+        "0.0": 3,
+        "0.5": 1,
+        "1.0": 1
+      },
+      "mean_score": 0.3,
+      "full_credit_rate": 0.2,
+      "operational_score_missing_judges_zero": 0.3,
+      "mean_score_valid_answers_only": 0.3,
+      "finish_reasons": {
+        "done": 5
+      }
+    }
+  },
+  "by_label_overlapping": {
+    "Cross-Modal Reasoning": {
+      "expected": 7,
+      "valid_answer_rate": 1.0,
+      "qa_records": 7,
+      "valid_answers": 7,
+      "judge_records": 7,
+      "judge_errors": 0,
+      "unscored_valid_answers": 0,
+      "missing_qa": 0,
+      "qa_failures": 0,
+      "score_counts": {
+        "0.0": 2,
+        "1.0": 2,
+        "0.5": 3
+      },
+      "mean_score": 0.5,
+      "full_credit_rate": 0.2857142857142857,
+      "operational_score_missing_judges_zero": 0.5,
+      "mean_score_valid_answers_only": 0.5,
+      "finish_reasons": {
+        "done": 7
+      }
+    },
+    "General Knowledge Extraction": {
+      "expected": 6,
+      "valid_answer_rate": 1.0,
+      "qa_records": 6,
+      "valid_answers": 6,
+      "judge_records": 6,
+      "judge_errors": 0,
+      "unscored_valid_answers": 0,
+      "missing_qa": 0,
+      "qa_failures": 0,
+      "score_counts": {
+        "0.0": 1,
+        "0.5": 4,
+        "1.0": 1
+      },
+      "mean_score": 0.5,
+      "full_credit_rate": 0.16666666666666666,
+      "operational_score_missing_judges_zero": 0.5,
+      "mean_score_valid_answers_only": 0.5,
+      "finish_reasons": {
+        "done": 6
+      }
+    },
+    "Multi-Detail Reasoning": {
+      "expected": 8,
+      "valid_answer_rate": 1.0,
+      "qa_records": 8,
+      "valid_answers": 8,
+      "judge_records": 8,
+      "judge_errors": 0,
+      "unscored_valid_answers": 0,
+      "missing_qa": 0,
+      "qa_failures": 0,
+      "score_counts": {
+        "0.0": 5,
+        "0.5": 1,
+        "1.0": 2
+      },
+      "mean_score": 0.3125,
+      "full_credit_rate": 0.25,
+      "operational_score_missing_judges_zero": 0.3125,
+      "mean_score_valid_answers_only": 0.3125,
+      "finish_reasons": {
+        "done": 8
+      }
+    }
+  },
+  "label_note": "by_label_overlapping is multi-label: one question may appear in multiple buckets; never sum these counts as the overall denominator.",
+  "video_macro_mean": 0.39285714285714285,
+  "interpretation": "Same-model diagnostic {0,0.5,1} score, not independently verified accuracy. Missing QA scores zero; judge failures are unknown."
+}

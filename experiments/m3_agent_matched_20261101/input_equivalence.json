@@ -1,0 +1,116 @@
+{
+  "observed_at": "2026-11-01T07:12:45.019433+08:00",
+  "note": "Read-only comparison after independent fresh perception; no source outputs supplied to reference generation.",
+  "videos": {
+    "study_05": {
+      "frames": {
+        "original_files": 1093,
+        "new_files": 1093,
+        "same_relative_names_and_bytes": true
+      },
+      "audio": {
+        "original_files": 69,
+        "new_files": 69,
+        "same_relative_names_and_bytes": true
+      },
+      "voice_asr.jsonl": {
+        "original_records": 277,
+        "new_records": 277,
+        "selected_fields_equal": true
+      },
+      "speaker_turns.jsonl": {
+        "original_records": 547,
+        "new_records": 547,
+        "selected_fields_equal": true
+      }
+    },
+    "gym_03": {
+      "frames": {
+        "original_files": 1088,
+        "new_files": 1088,
+        "same_relative_names_and_bytes": true
+      },
+      "audio": {
+        "original_files": 68,
+        "new_files": 68,
+        "same_relative_names_and_bytes": true
+      },
+      "voice_asr.jsonl": {
+        "original_records": 269,
+        "new_records": 269,
+        "selected_fields_equal": true
+      },
+      "speaker_turns.jsonl": {
+        "original_records": 587,
+        "new_records": 587,
+        "selected_fields_equal": true
+      }
+    },
+    "bedroom_04": {
+      "frames": {
+        "original_files": 881,
+        "new_files": 881,
+        "same_relative_names_and_bytes": true
+      },
+      "audio": {
+        "original_files": 56,
+        "new_files": 56,
+        "same_relative_names_and_bytes": true
+      },
+      "voice_asr.jsonl": {
+        "original_records": 327,
+        "new_records": 327,
+        "selected_fields_equal": true
+      },
+      "speaker_turns.jsonl": {
+        "original_records": 635,
+        "new_records": 635,
+        "selected_fields_equal": true
+      }
+    },
+    "study_18": {
+      "frames": {
+        "original_files": 1337,
+        "new_files": 1337,
+        "same_relative_names_and_bytes": true
+      },
+      "audio": {
+        "original_files": 84,
+        "new_files": 84,
+        "same_relative_names_and_bytes": true
+      },
+      "voice_asr.jsonl": {
+        "original_records": 320,
+        "new_records": 320,
+        "selected_fields_equal": false
+      },
+      "speaker_turns.jsonl": {
+        "original_records": 523,
+        "new_records": 523,
+        "selected_fields_equal": true
+      }
+    },
+    "kitchen_20": {
+      "frames": {
+        "original_files": 1008,
+        "new_files": 1008,
+        "same_relative_names_and_bytes": true
+      },
+      "audio": {
+        "original_files": 63,
+        "new_files": 63,
+        "same_relative_names_and_bytes": true
+      },
+      "voice_asr.jsonl": {
+        "original_records": 248,
+        "new_records": 248,
+        "selected_fields_equal": true
+      },
+      "speaker_turns.jsonl": {
+        "original_records": 538,
+        "new_records": 538,
+        "selected_fields_equal": true
+      }
+    }
+  }
+}

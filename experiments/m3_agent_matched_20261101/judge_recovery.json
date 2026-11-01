@@ -1,0 +1,33 @@
+{
+  "only_judge_errors_retried": true,
+  "predictions_unchanged": true,
+  "successful_grades_unchanged": true,
+  "records": [
+    {
+      "question_id": "kitchen_20_Q09",
+      "old_error": "judge failed: OpenAI provider temporarily unavailable: Error code: 429 - {'type': 'error', 'error': {'type': 'rate_limit_error', 'message': '已达到 Token Plan 速率限制：请升级 Token Plan 套餐或切换为按量付费 API 使用。 (2062)', 'http_code': '429'}, 'request_id': '0735adfcb4f0df1608eb5383890392b5'}",
+      "attempts": [
+        {
+          "judge_error": false,
+          "reason": "The predicted answer correctly identifies that the instant noodle was on the top/first shelf of the refrigerator, matching the expected answer."
+        }
+      ],
+      "recovered": true,
+      "score": 1.0
+    },
+    {
+      "question_id": "study_18_Q05",
+      "old_error": "judge failed: OpenAI provider temporarily unavailable: Error code: 429 - {'type': 'error', 'error': {'type': 'rate_limit_error', 'message': '已达到 Token Plan 速率限制：请升级 Token Plan 套餐或切换为按量付费 API 使用。 (2062)', 'http_code': '429'}, 'request_id': '0735ae3860d454c53f0a45be6594c9d1'}",
+      "attempts": [
+        {
+          "judge_error": false,
+          "reason": "The predicted answer says one poster, while the expected answer is two, so it contradicts the ground truth."
+        }
+      ],
+      "recovered": true,
+      "score": 0.0
+    }
+  ],
+  "remaining_judge_errors": 0,
+  "corrected_score": 0.5461538461538461
+}

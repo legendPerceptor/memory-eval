@@ -1,0 +1,23 @@
+{
+  "expected": 14,
+  "valid_answer_rate": 1.0,
+  "qa_records": 14,
+  "valid_answers": 14,
+  "judge_records": 14,
+  "judge_errors": 0,
+  "unscored_valid_answers": 0,
+  "missing_qa": 0,
+  "qa_failures": 0,
+  "score_counts": {
+    "0.0": 6,
+    "0.5": 5,
+    "1.0": 3
+  },
+  "mean_score": 0.39285714285714285,
+  "full_credit_rate": 0.21428571428571427,
+  "operational_score_missing_judges_zero": 0.39285714285714285,
+  "mean_score_valid_answers_only": 0.39285714285714285,
+  "finish_reasons": {
+    "done": 14
+  }
+}

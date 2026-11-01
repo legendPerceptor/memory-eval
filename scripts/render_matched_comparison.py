@@ -137,7 +137,7 @@ def main():
                 item[f"{method}_{key}"] = r[method][key]
         flat.append(item)
     with (OUT / "questions.csv").open("w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=list(flat[0]))
+        writer = csv.DictWriter(f, fieldnames=list(flat[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(flat)
     labels = {"ogmemory_recovered": "oGMemory（恢复后固定答案）",

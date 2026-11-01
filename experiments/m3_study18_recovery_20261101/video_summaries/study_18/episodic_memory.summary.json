@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "video_filter": null,
+  "account_id": "m3-flash-medium-20261031",
+  "workers": 4,
+  "expected_clips": 84,
+  "completed_clips": 84,
+  "generated_clips": 1,
+  "resumed_clips": 83,
+  "failed_clips": 0,
+  "recovered_retries": 0,
+  "errors": [],
+  "failures_path": "/home/yuanjian/Development/memory-eval/runs/m3_study18_recovery_20261101/study_18/episodic_memory_failures.json"
+}

@@ -1,0 +1,22 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___ TestExtractAudioForClip.test_resume_re_extracts_when_audio_file_missing ____
+tests/integration/m3/test_extract_audio.py:345: in test_resume_re_extracts_when_audio_file_missing
+    second = extract_audio_for_clip(
+m3/extract_audio.py:195: in extract_audio_for_clip
+    result = op_service.persist_extraction(
+service/operator_service.py:271: in persist_extraction
+    extracted = self._graph.create_extracted_node(
+service/graph_service.py:324: in create_extracted_node
+    self._create_node_with_edges(node, [edge], ctx)
+service/graph_service.py:171: in _create_node_with_edges
+    return create(node.serialize(), edges, ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+core/interfaces.py:638: in create_node_with_edges
+    raise FileExistsError(f"Graph node already exists: {node_id}")
+E   FileExistsError: Graph node already exists: 0d6b7fd69e003d1c313cb61ab82666af
+------------------------------ Captured log call -------------------------------
+WARNING  m3.extract_audio:extract_audio.py:163 extract_audio resume: AUDIO node 742ef799c0e50146fc734e0cc162237a missing or its WAV (/tmp/pytest-of-yuanjian/pytest-131/test_resume_re_extracts_when_a0/audio/vid_a/0.wav) is gone — re-extracting vid_a clip 0
+=========================== short test summary info ============================
+FAILED tests/integration/m3/test_extract_audio.py::TestExtractAudioForClip::test_resume_re_extracts_when_audio_file_missing
+1 failed in 0.52s

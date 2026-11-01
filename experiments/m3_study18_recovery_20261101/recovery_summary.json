@@ -1,0 +1,23 @@
+{
+  "finished_at_observed": "2026-11-01T07:17:47.665614+08:00",
+  "video": "study_18",
+  "memory_expected": 84,
+  "memory_completed": 84,
+  "new_memories": 1,
+  "reused_memories": 83,
+  "existing_memories_unchanged": true,
+  "other_video_predictions_unchanged": true,
+  "qa_records": 14,
+  "valid_answers": 14,
+  "judge_errors": 0,
+  "recovery_score": 0.39285714285714285,
+  "combined_fixed_grade_score": 0.5538461538461539,
+  "combined_valid_answers": 59,
+  "combined_questions": 65,
+  "combined_score_counts": {
+    "0.0": 24,
+    "1.0": 31,
+    "0.5": 10
+  },
+  "grading_note": "Four original grades frozen; only recovered study_18 newly graded. Common-judge comparison will be a separate evaluation."
+}

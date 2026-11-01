@@ -1,0 +1,12 @@
+{
+  "real_llm_memory_clips": 2,
+  "reference_graph_nodes": 39,
+  "reference_graph_edges": 18,
+  "returned_clips": [
+    "CLIP_0",
+    "CLIP_1"
+  ],
+  "embedding_model": "BAAI/bge-m3",
+  "generation_source": "new perception and new MiniMax outputs",
+  "source_methods_unchanged": true
+}

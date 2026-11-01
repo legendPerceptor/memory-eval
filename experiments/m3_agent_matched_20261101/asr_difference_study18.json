@@ -1,0 +1,62 @@
+{
+  "original_only": [
+    {
+      "clip_id": 61,
+      "end_sec": 7.4,
+      "start_sec": 5.96,
+      "text": "Yep, I think so",
+      "video_id": "study_18"
+    },
+    {
+      "clip_id": 61,
+      "end_sec": 12.38,
+      "start_sec": 7.4,
+      "text": "So, Alan, could you help me take the text link?",
+      "video_id": "study_18"
+    },
+    {
+      "clip_id": 61,
+      "end_sec": 17.62,
+      "start_sec": 12.6,
+      "text": "So, I want to follow the links to check these details",
+      "video_id": "study_18"
+    },
+    {
+      "clip_id": 61,
+      "end_sec": 18.64,
+      "start_sec": 18.32,
+      "text": "Okay",
+      "video_id": "study_18"
+    }
+  ],
+  "matched_only": [
+    {
+      "clip_id": 61,
+      "end_sec": 7.42,
+      "start_sec": 5.96,
+      "text": "Yes, I think so",
+      "video_id": "study_18"
+    },
+    {
+      "clip_id": 61,
+      "end_sec": 12.44,
+      "start_sec": 7.42,
+      "text": "So, Alan, could you help me take the text lesson?",
+      "video_id": "study_18"
+    },
+    {
+      "clip_id": 61,
+      "end_sec": 17.6,
+      "start_sec": 12.62,
+      "text": "So, I want to follow the lesson to check this detail",
+      "video_id": "study_18"
+    },
+    {
+      "clip_id": 61,
+      "end_sec": 18.64,
+      "start_sec": 17.6,
+      "text": "Okay",
+      "video_id": "study_18"
+    }
+  ]
+}

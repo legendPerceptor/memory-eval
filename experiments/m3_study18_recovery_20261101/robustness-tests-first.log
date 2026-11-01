@@ -1,0 +1,124 @@
+........................................................................ [  6%]
+........................................................................ [ 13%]
+........................................................................ [ 20%]
+........................................................................ [ 27%]
+.....................................................................F.. [ 34%]
+........................................................................ [ 41%]
+.......................................FFFFFFFFFF....................... [ 48%]
+........................................................................ [ 55%]
+........................................................................ [ 62%]
+........................................................................ [ 69%]
+........................................................................ [ 76%]
+........................................................................ [ 83%]
+........................................................................ [ 90%]
+........................................................................ [ 97%]
+.....................F........                                           [100%]
+=================================== FAILURES ===================================
+_______ test_benchmark_pipeline_forwards_context_and_retrieval_settings ________
+/home/yuanjian/Development/memory/oGMemory/tests/unit/m3/test_exact_context.py:224: in test_benchmark_pipeline_forwards_context_and_retrieval_settings
+    ???
+m3/pipeline/stages.py:544: in qa_stage
+    episodic_result = ctx.stage_results.get("episodic_memory")
+                      ^^^^^^^^^^^^^^^^^
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'stage_results'
+_______ test_qa_stage_forwards_runtime_overrides[timeout_seconds-300.0] ________
+/home/yuanjian/Development/memory/oGMemory/tests/unit/m3/test_qa_runtime_wiring.py:34: in test_qa_stage_forwards_runtime_overrides
+    ???
+m3/pipeline/stages.py:544: in qa_stage
+    episodic_result = ctx.stage_results.get("episodic_memory")
+                      ^^^^^^^^^^^^^^^^^
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'stage_results'
+__________ test_qa_stage_forwards_runtime_overrides[no_gain_limit-0] ___________
+/home/yuanjian/Development/memory/oGMemory/tests/unit/m3/test_qa_runtime_wiring.py:34: in test_qa_stage_forwards_runtime_overrides
+    ???
+m3/pipeline/stages.py:544: in qa_stage
+    episodic_result = ctx.stage_results.get("episodic_memory")
+                      ^^^^^^^^^^^^^^^^^
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'stage_results'
+____ test_qa_stage_forwards_runtime_overrides[llm_model-local-served-model] ____
+/home/yuanjian/Development/memory/oGMemory/tests/unit/m3/test_qa_runtime_wiring.py:34: in test_qa_stage_forwards_runtime_overrides
+    ???
+m3/pipeline/stages.py:544: in qa_stage
+    episodic_result = ctx.stage_results.get("episodic_memory")
+                      ^^^^^^^^^^^^^^^^^
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'stage_results'
+_ test_qa_stage_forwards_runtime_overrides[llm_base_url-http://local-model.invalid/v1] _
+/home/yuanjian/Development/memory/oGMemory/tests/unit/m3/test_qa_runtime_wiring.py:34: in test_qa_stage_forwards_runtime_overrides
+    ???
+m3/pipeline/stages.py:544: in qa_stage
+    episodic_result = ctx.stage_results.get("episodic_memory")
+                      ^^^^^^^^^^^^^^^^^
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'stage_results'
+_______ test_qa_stage_forwards_runtime_overrides[llm_api_key-test-only] ________
+/home/yuanjian/Development/memory/oGMemory/tests/unit/m3/test_qa_runtime_wiring.py:34: in test_qa_stage_forwards_runtime_overrides
+    ???
+m3/pipeline/stages.py:544: in qa_stage
+    episodic_result = ctx.stage_results.get("episodic_memory")
+                      ^^^^^^^^^^^^^^^^^
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'stage_results'
+__ test_qa_stage_forwards_runtime_overrides[embedding_model-local-embedding] ___
+/home/yuanjian/Development/memory/oGMemory/tests/unit/m3/test_qa_runtime_wiring.py:34: in test_qa_stage_forwards_runtime_overrides
+    ???
+m3/pipeline/stages.py:544: in qa_stage
+    episodic_result = ctx.stage_results.get("episodic_memory")
+                      ^^^^^^^^^^^^^^^^^
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'stage_results'
+_ test_qa_stage_forwards_runtime_overrides[embedding_base_url-http://local-embedding.invalid/v1] _
+/home/yuanjian/Development/memory/oGMemory/tests/unit/m3/test_qa_runtime_wiring.py:34: in test_qa_stage_forwards_runtime_overrides
+    ???
+m3/pipeline/stages.py:544: in qa_stage
+    episodic_result = ctx.stage_results.get("episodic_memory")
+                      ^^^^^^^^^^^^^^^^^
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'stage_results'
+____ test_qa_stage_forwards_runtime_overrides[embedding_api_key-test-only] _____
+/home/yuanjian/Development/memory/oGMemory/tests/unit/m3/test_qa_runtime_wiring.py:34: in test_qa_stage_forwards_runtime_overrides
+    ???
+m3/pipeline/stages.py:544: in qa_stage
+    episodic_result = ctx.stage_results.get("episodic_memory")
+                      ^^^^^^^^^^^^^^^^^
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'stage_results'
+_______ test_qa_stage_forwards_runtime_overrides[temporal_policy-strict] _______
+/home/yuanjian/Development/memory/oGMemory/tests/unit/m3/test_qa_runtime_wiring.py:34: in test_qa_stage_forwards_runtime_overrides
+    ???
+m3/pipeline/stages.py:544: in qa_stage
+    episodic_result = ctx.stage_results.get("episodic_memory")
+                      ^^^^^^^^^^^^^^^^^
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'stage_results'
+_______ test_qa_stage_forwards_runtime_overrides[lookahead_seconds-3.0] ________
+/home/yuanjian/Development/memory/oGMemory/tests/unit/m3/test_qa_runtime_wiring.py:34: in test_qa_stage_forwards_runtime_overrides
+    ???
+m3/pipeline/stages.py:544: in qa_stage
+    episodic_result = ctx.stage_results.get("episodic_memory")
+                      ^^^^^^^^^^^^^^^^^
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'stage_results'
+___ TestExtractAudioForClip.test_resume_re_extracts_when_audio_file_missing ____
+tests/integration/m3/test_extract_audio.py:345: in test_resume_re_extracts_when_audio_file_missing
+    second = extract_audio_for_clip(
+m3/extract_audio.py:195: in extract_audio_for_clip
+    result = op_service.persist_extraction(
+service/operator_service.py:271: in persist_extraction
+    extracted = self._graph.create_extracted_node(
+service/graph_service.py:324: in create_extracted_node
+    self._create_node_with_edges(node, [edge], ctx)
+service/graph_service.py:171: in _create_node_with_edges
+    return create(node.serialize(), edges, ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+core/interfaces.py:638: in create_node_with_edges
+    raise FileExistsError(f"Graph node already exists: {node_id}")
+E   FileExistsError: Graph node already exists: 0d6b7fd69e003d1c313cb61ab82666af
+------------------------------ Captured log call -------------------------------
+WARNING  m3.extract_audio:extract_audio.py:163 extract_audio resume: AUDIO node 742ef799c0e50146fc734e0cc162237a missing or its WAV (/tmp/pytest-of-yuanjian/pytest-130/test_resume_re_extracts_when_a0/audio/vid_a/0.wav) is gone — re-extracting vid_a clip 0
+=========================== short test summary info ============================
+FAILED tests/unit/m3/test_exact_context.py::test_benchmark_pipeline_forwards_context_and_retrieval_settings
+FAILED tests/unit/m3/test_qa_runtime_wiring.py::test_qa_stage_forwards_runtime_overrides[timeout_seconds-300.0]
+FAILED tests/unit/m3/test_qa_runtime_wiring.py::test_qa_stage_forwards_runtime_overrides[no_gain_limit-0]
+FAILED tests/unit/m3/test_qa_runtime_wiring.py::test_qa_stage_forwards_runtime_overrides[llm_model-local-served-model]
+FAILED tests/unit/m3/test_qa_runtime_wiring.py::test_qa_stage_forwards_runtime_overrides[llm_base_url-http://local-model.invalid/v1]
+FAILED tests/unit/m3/test_qa_runtime_wiring.py::test_qa_stage_forwards_runtime_overrides[llm_api_key-test-only]
+FAILED tests/unit/m3/test_qa_runtime_wiring.py::test_qa_stage_forwards_runtime_overrides[embedding_model-local-embedding]
+FAILED tests/unit/m3/test_qa_runtime_wiring.py::test_qa_stage_forwards_runtime_overrides[embedding_base_url-http://local-embedding.invalid/v1]
+FAILED tests/unit/m3/test_qa_runtime_wiring.py::test_qa_stage_forwards_runtime_overrides[embedding_api_key-test-only]
+FAILED tests/unit/m3/test_qa_runtime_wiring.py::test_qa_stage_forwards_runtime_overrides[temporal_policy-strict]
+FAILED tests/unit/m3/test_qa_runtime_wiring.py::test_qa_stage_forwards_runtime_overrides[lookahead_seconds-3.0]
+FAILED tests/integration/m3/test_extract_audio.py::TestExtractAudioForClip::test_resume_re_extracts_when_audio_file_missing
+12 failed, 1026 passed in 13.32s

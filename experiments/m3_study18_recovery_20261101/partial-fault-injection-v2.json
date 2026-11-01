@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "test_kind": "SQL integration with injected persistent clip failure and stub answer",
+  "live_memory_llm_calls": 0,
+  "live_qa_llm_calls": 0,
+  "local_embedding_service_used": true,
+  "injected_attempts": [
+    52,
+    52
+  ],
+  "usable_memories_and_vectors": 83,
+  "expected_clips": 84,
+  "downstream_index_and_qa_executed": true,
+  "qa_coverage_disclosed": true,
+  "exit_code": 2,
+  "original_database_unchanged": true,
+  "test_database": "ogmem_m3_partial_fault_20261101_v2"
+}

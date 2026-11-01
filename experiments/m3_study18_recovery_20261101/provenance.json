@@ -1,0 +1,24 @@
+{
+  "status": "completed",
+  "base_experiment": "m3_flash_medium_20261031",
+  "database": "ogmem_m3_study18_recovery_20261101",
+  "cloned_database": "ogmem_m3_flash_medium_20261031",
+  "account": "m3-flash-medium-20261031",
+  "video": "study_18",
+  "expected_clips": 84,
+  "expected_questions": 14,
+  "retry_clips": [
+    52
+  ],
+  "settings_changed": false,
+  "original_database_preserved": true,
+  "config_sha256": "0e51dff66e82d572181e71dc2df3fc165a2b297ee443e3e2a0ddbd823a81b8b4",
+  "branch": "m3_dev_1031",
+  "recovery_summary": "recovery_summary.json",
+  "source_equivalent_commit": "99b22866",
+  "robustness_commits": [
+    "40ac1dcd",
+    "c992d45b"
+  ],
+  "note": "Recovery predictions were generated before subsequent robustness changes; first-pass results remain unchanged."
+}

@@ -1,0 +1,605 @@
+{
+  "protocol": "Matched MiniMax, common 0/0.5/1 judge; method names absent from judge prompts.",
+  "reference_is_adapted_not_official_weights": true,
+  "perception": "fresh shared GPU pipeline; M3 adds tagged face crops",
+  "cohort": {
+    "version": 1,
+    "method": "uniform_without_replacement_sorted_ids",
+    "seed": 42,
+    "sample_size": 5,
+    "exclude": [],
+    "annotations_sha256": "bb02225f22a097bbd077c4913bdf85e4f0c6f5cbd37eaee49c1de41ece30dded",
+    "candidate_ids": [
+      "bedroom_01",
+      "bedroom_02",
+      "bedroom_03",
+      "bedroom_04",
+      "bedroom_05",
+      "bedroom_06",
+      "bedroom_07",
+      "bedroom_08",
+      "bedroom_09",
+      "bedroom_10",
+      "bedroom_11",
+      "bedroom_12",
+      "gym_01",
+      "gym_02",
+      "gym_03",
+      "gym_04",
+      "kitchen_01",
+      "kitchen_02",
+      "kitchen_03",
+      "kitchen_04",
+      "kitchen_05",
+      "kitchen_06",
+      "kitchen_07",
+      "kitchen_08",
+      "kitchen_09",
+      "kitchen_10",
+      "kitchen_11",
+      "kitchen_12",
+      "kitchen_13",
+      "kitchen_14",
+      "kitchen_15",
+      "kitchen_16",
+      "kitchen_17",
+      "kitchen_18",
+      "kitchen_19",
+      "kitchen_20",
+      "kitchen_21",
+      "kitchen_22",
+      "kitchen_23",
+      "living_room_01",
+      "living_room_02",
+      "living_room_03",
+      "living_room_04",
+      "living_room_05",
+      "living_room_06",
+      "living_room_07",
+      "living_room_08",
+      "living_room_09",
+      "living_room_10",
+      "living_room_11",
+      "living_room_12",
+      "living_room_13",
+      "living_room_14",
+      "living_room_15",
+      "living_room_16",
+      "living_room_17",
+      "living_room_18",
+      "living_room_19",
+      "living_room_20",
+      "living_room_21",
+      "living_room_22",
+      "living_room_23",
+      "living_room_24",
+      "meeting_room_01",
+      "meeting_room_02",
+      "meeting_room_03",
+      "meeting_room_04",
+      "meeting_room_05",
+      "meeting_room_06",
+      "office_01",
+      "office_02",
+      "office_03",
+      "office_04",
+      "office_05",
+      "office_06",
+      "office_07",
+      "office_08",
+      "study_01",
+      "study_02",
+      "study_03",
+      "study_04",
+      "study_05",
+      "study_06",
+      "study_07",
+      "study_08",
+      "study_09",
+      "study_10",
+      "study_11",
+      "study_12",
+      "study_13",
+      "study_14",
+      "study_15",
+      "study_16",
+      "study_17",
+      "study_18",
+      "study_19",
+      "study_20",
+      "study_21",
+      "study_22",
+      "study_23"
+    ],
+    "selected_video_ids": [
+      "study_05",
+      "gym_03",
+      "bedroom_04",
+      "study_18",
+      "kitchen_20"
+    ],
+    "question_counts": {
+      "study_05": 12,
+      "gym_03": 11,
+      "bedroom_04": 11,
+      "study_18": 14,
+      "kitchen_20": 17
+    },
+    "total_questions": 65
+  },
+  "methods": {
+    "m3_agent_matched": {
+      "summary": {
+        "total_questions": 65,
+        "answered": 28,
+        "failed": 37,
+        "judge_error_count": 0,
+        "overall_mean_score": 0.2153846153846154,
+        "judge_provider": "minimax.cn",
+        "judge_model": "MiniMax-M3.1-Flash",
+        "by_type": {
+          "Cross-Modal Reasoning": {
+            "count": 5,
+            "answered": 4,
+            "failed": 1,
+            "mean_score": 0.6,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 2.181964680599049,
+            "p95_latency_seconds": 4.541394078172743
+          },
+          "Cross-Modal Reasoning,General Knowledge Extraction": {
+            "count": 4,
+            "answered": 2,
+            "failed": 2,
+            "mean_score": 0.0,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 0.9492375585250556,
+            "p95_latency_seconds": 2.2706005689688027
+          },
+          "Cross-Modal Reasoning,General Knowledge Extraction,Multi-Detail Reasoning": {
+            "count": 1,
+            "answered": 0,
+            "failed": 1,
+            "mean_score": 0.0,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 1.4151446521282196e-06,
+            "p95_latency_seconds": 1.4151446521282196e-06
+          },
+          "Cross-Modal Reasoning,Multi-Detail Reasoning": {
+            "count": 5,
+            "answered": 3,
+            "failed": 2,
+            "mean_score": 0.1,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 1.4820660792756826,
+            "p95_latency_seconds": 2.9408172457013277
+          },
+          "General Knowledge Extraction": {
+            "count": 14,
+            "answered": 6,
+            "failed": 8,
+            "mean_score": 0.17857142857142858,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 0.9995460597232783,
+            "p95_latency_seconds": 3.1344880191609263
+          },
+          "General Knowledge Extraction,Multi-Detail Reasoning": {
+            "count": 4,
+            "answered": 1,
+            "failed": 3,
+            "mean_score": 0.25,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 0.41258457652293146,
+            "p95_latency_seconds": 1.4027850798098371
+          },
+          "General Knowledge Extraction,Multi-Hop Reasoning,Multi-Detail Reasoning": {
+            "count": 1,
+            "answered": 1,
+            "failed": 0,
+            "mean_score": 1.0,
+            "p50_iterations": 5.0,
+            "p95_iterations": 5.0,
+            "mean_latency_seconds": 3.2587790170218796,
+            "p95_latency_seconds": 3.2587790170218796
+          },
+          "Multi-Detail Reasoning": {
+            "count": 10,
+            "answered": 2,
+            "failed": 8,
+            "mean_score": 0.0,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 0.30867738167289643,
+            "p95_latency_seconds": 1.5503570631728507
+          },
+          "Person Understanding": {
+            "count": 11,
+            "answered": 5,
+            "failed": 6,
+            "mean_score": 0.18181818181818182,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 1.011861031811515,
+            "p95_latency_seconds": 2.730704834451899
+          },
+          "Person Understanding,Cross-Modal Reasoning": {
+            "count": 3,
+            "answered": 1,
+            "failed": 2,
+            "mean_score": 0.3333333333333333,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 0.4193648232612759,
+            "p95_latency_seconds": 1.1322822663467378
+          },
+          "Person Understanding,Cross-Modal Reasoning,General Knowledge Extraction,Multi-Detail Reasoning": {
+            "count": 1,
+            "answered": 1,
+            "failed": 0,
+            "mean_score": 1.0,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 6.182895845966414,
+            "p95_latency_seconds": 6.182895845966414
+          },
+          "Person Understanding,Cross-Modal Reasoning,Multi-Detail Reasoning": {
+            "count": 2,
+            "answered": 0,
+            "failed": 2,
+            "mean_score": 0.0,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 1.1156080290675163e-06,
+            "p95_latency_seconds": 1.2150383554399014e-06
+          },
+          "Person Understanding,Multi-Detail Reasoning": {
+            "count": 4,
+            "answered": 2,
+            "failed": 2,
+            "mean_score": 0.5,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 0.7546506602666341,
+            "p95_latency_seconds": 1.8403197299223393
+          }
+        },
+        "by_video": {
+          "kitchen_20": {
+            "count": 17,
+            "answered": 10,
+            "failed": 7,
+            "mean_score": 0.35294117647058826,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 1.8052871249314837,
+            "p95_latency_seconds": 5.323860731581226
+          },
+          "study_18": {
+            "count": 14,
+            "answered": 4,
+            "failed": 10,
+            "mean_score": 0.0,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 0.56529073510319,
+            "p95_latency_seconds": 2.5047678880975583
+          },
+          "study_05": {
+            "count": 12,
+            "answered": 4,
+            "failed": 8,
+            "mean_score": 0.20833333333333334,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 0.6280593069192643,
+            "p95_latency_seconds": 2.2645038883551023
+          },
+          "bedroom_04": {
+            "count": 11,
+            "answered": 4,
+            "failed": 7,
+            "mean_score": 0.2727272727272727,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 0.8336953294505789,
+            "p95_latency_seconds": 3.0061067789793015
+          },
+          "gym_03": {
+            "count": 11,
+            "answered": 6,
+            "failed": 5,
+            "mean_score": 0.22727272727272727,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 0.9441269309344617,
+            "p95_latency_seconds": 2.078924317029305
+          }
+        },
+        "skipped": 0,
+        "missing_from_input": 0,
+        "status": "failed",
+        "prediction_coverage": 1.0,
+        "input_qa_results": "/home/yuanjian/Development/memory-eval/runs/m3_agent_matched_20261101/_aggregate/all_m3_qa_results.jsonl",
+        "annotations_path": "/data/m3_data/annotations/robot.json",
+        "results_path": "/home/yuanjian/Development/memory-eval/runs/m3_agent_matched_20261101/_aggregate/m3_eval_results.jsonl"
+      },
+      "predictions_sha256": "afeb7cb159bc239ce3ec6fb8ee6534359686227e4c7ecb605abdc086eede7acb"
+    },
+    "ogmemory_recovered": {
+      "summary": {
+        "total_questions": 65,
+        "answered": 59,
+        "failed": 6,
+        "judge_error_count": 2,
+        "overall_mean_score": 0.5307692307692308,
+        "judge_provider": "minimax.cn",
+        "judge_model": "MiniMax-M3.1-Flash",
+        "by_type": {
+          "Cross-Modal Reasoning": {
+            "count": 5,
+            "answered": 5,
+            "failed": 0,
+            "mean_score": 0.7,
+            "p50_iterations": 4.0,
+            "p95_iterations": 5.6,
+            "mean_latency_seconds": 2.5862989651970567,
+            "p95_latency_seconds": 4.127849343698472
+          },
+          "Cross-Modal Reasoning,General Knowledge Extraction": {
+            "count": 4,
+            "answered": 4,
+            "failed": 0,
+            "mean_score": 0.625,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 2.760541703668423,
+            "p95_latency_seconds": 3.6676058078068308
+          },
+          "Cross-Modal Reasoning,General Knowledge Extraction,Multi-Detail Reasoning": {
+            "count": 1,
+            "answered": 1,
+            "failed": 0,
+            "mean_score": 0.5,
+            "p50_iterations": 4.0,
+            "p95_iterations": 4.0,
+            "mean_latency_seconds": 2.271146554965526,
+            "p95_latency_seconds": 2.271146554965526
+          },
+          "Cross-Modal Reasoning,Multi-Detail Reasoning": {
+            "count": 5,
+            "answered": 5,
+            "failed": 0,
+            "mean_score": 0.3,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 2.2173259943723678,
+            "p95_latency_seconds": 2.905227416707203
+          },
+          "General Knowledge Extraction": {
+            "count": 14,
+            "answered": 14,
+            "failed": 0,
+            "mean_score": 0.35714285714285715,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 2.208141086872534,
+            "p95_latency_seconds": 3.923382778442465
+          },
+          "General Knowledge Extraction,Multi-Detail Reasoning": {
+            "count": 4,
+            "answered": 3,
+            "failed": 1,
+            "mean_score": 0.5,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 0.9931216627592221,
+            "p95_latency_seconds": 1.4104232444195077
+          },
+          "General Knowledge Extraction,Multi-Hop Reasoning,Multi-Detail Reasoning": {
+            "count": 1,
+            "answered": 1,
+            "failed": 0,
+            "mean_score": 1.0,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 3.0651064249686897,
+            "p95_latency_seconds": 3.0651064249686897
+          },
+          "Multi-Detail Reasoning": {
+            "count": 10,
+            "answered": 8,
+            "failed": 2,
+            "mean_score": 0.3,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 1.4079081239644438,
+            "p95_latency_seconds": 2.9829096595873126
+          },
+          "Person Understanding": {
+            "count": 11,
+            "answered": 9,
+            "failed": 2,
+            "mean_score": 0.7272727272727273,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 1.4724078222220256,
+            "p95_latency_seconds": 2.477778439060785
+          },
+          "Person Understanding,Cross-Modal Reasoning": {
+            "count": 3,
+            "answered": 3,
+            "failed": 0,
+            "mean_score": 1.0,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 1.403404838948821,
+            "p95_latency_seconds": 1.4817726822337136
+          },
+          "Person Understanding,Cross-Modal Reasoning,General Knowledge Extraction,Multi-Detail Reasoning": {
+            "count": 1,
+            "answered": 1,
+            "failed": 0,
+            "mean_score": 1.0,
+            "p50_iterations": 5.0,
+            "p95_iterations": 5.0,
+            "mean_latency_seconds": 1.6533696518745273,
+            "p95_latency_seconds": 1.6533696518745273
+          },
+          "Person Understanding,Cross-Modal Reasoning,Multi-Detail Reasoning": {
+            "count": 2,
+            "answered": 2,
+            "failed": 0,
+            "mean_score": 0.5,
+            "p50_iterations": 5.5,
+            "p95_iterations": 5.95,
+            "mean_latency_seconds": 1.7148545880336314,
+            "p95_latency_seconds": 2.188759508705698
+          },
+          "Person Understanding,Multi-Detail Reasoning": {
+            "count": 4,
+            "answered": 3,
+            "failed": 1,
+            "mean_score": 0.625,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 1.4850660846568644,
+            "p95_latency_seconds": 3.076163226168137
+          }
+        },
+        "by_video": {
+          "kitchen_20": {
+            "count": 17,
+            "answered": 17,
+            "failed": 0,
+            "mean_score": 0.6176470588235294,
+            "p50_iterations": 5.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 2.2581659038962028,
+            "p95_latency_seconds": 4.472345400135964
+          },
+          "study_18": {
+            "count": 14,
+            "answered": 14,
+            "failed": 0,
+            "mean_score": 0.35714285714285715,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 2.222456724682291,
+            "p95_latency_seconds": 3.820848798274528
+          },
+          "study_05": {
+            "count": 12,
+            "answered": 9,
+            "failed": 3,
+            "mean_score": 0.3333333333333333,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 1.321594634190357,
+            "p95_latency_seconds": 2.586989959119819
+          },
+          "bedroom_04": {
+            "count": 11,
+            "answered": 9,
+            "failed": 2,
+            "mean_score": 0.6363636363636364,
+            "p50_iterations": 6.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 1.6004603054078126,
+            "p95_latency_seconds": 2.974276455002837
+          },
+          "gym_03": {
+            "count": 11,
+            "answered": 10,
+            "failed": 1,
+            "mean_score": 0.7272727272727273,
+            "p50_iterations": 4.0,
+            "p95_iterations": 6.0,
+            "mean_latency_seconds": 1.6204289041501894,
+            "p95_latency_seconds": 2.8509895395254716
+          }
+        },
+        "skipped": 0,
+        "missing_from_input": 0,
+        "status": "failed",
+        "prediction_coverage": 1.0,
+        "input_qa_results": "/home/yuanjian/Development/memory-eval/runs/m3_agent_matched_20261101/_aggregate/fixed_ogmemory_predictions.jsonl",
+        "annotations_path": "/data/m3_data/annotations/robot.json",
+        "results_path": "/home/yuanjian/Development/memory-eval/runs/m3_agent_matched_20261101/_common_judge_ogmemory/m3_eval_results.jsonl"
+      },
+      "predictions_sha256": "081891fb0f337ecdffc0485dff979ce3c86c6a6784d8edf3af747b0e51df4850"
+    }
+  },
+  "execution": [
+    {
+      "video": "study_05",
+      "status": "degraded_or_failed",
+      "agent_exit_code": 0,
+      "agent_seconds": 496.100291691022,
+      "qa_records": 12,
+      "valid_answers": 4,
+      "memory": {
+        "expected_clips": 69,
+        "completed_clips": 69,
+        "failed_clips": []
+      }
+    },
+    {
+      "video": "gym_03",
+      "status": "degraded_or_failed",
+      "agent_exit_code": 0,
+      "agent_seconds": 573.4958380248863,
+      "qa_records": 11,
+      "valid_answers": 6,
+      "memory": {
+        "expected_clips": 68,
+        "completed_clips": 68,
+        "failed_clips": []
+      }
+    },
+    {
+      "video": "bedroom_04",
+      "status": "degraded_or_failed",
+      "agent_exit_code": 0,
+      "agent_seconds": 537.9141586599872,
+      "qa_records": 11,
+      "valid_answers": 4,
+      "memory": {
+        "expected_clips": 56,
+        "completed_clips": 56,
+        "failed_clips": []
+      }
+    },
+    {
+      "video": "study_18",
+      "status": "degraded_or_failed",
+      "agent_exit_code": 0,
+      "agent_seconds": 669.2560078909155,
+      "qa_records": 14,
+      "valid_answers": 4,
+      "memory": {
+        "expected_clips": 84,
+        "completed_clips": 84,
+        "failed_clips": []
+      }
+    },
+    {
+      "video": "kitchen_20",
+      "status": "degraded_or_failed",
+      "agent_exit_code": 0,
+      "agent_seconds": 590.8035920171533,
+      "qa_records": 17,
+      "valid_answers": 10,
+      "memory": {
+        "expected_clips": 63,
+        "completed_clips": 63,
+        "failed_clips": []
+      }
+    }
+  ]
+}

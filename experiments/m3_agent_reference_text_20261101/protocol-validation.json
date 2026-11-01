@@ -1,0 +1,7 @@
+{
+  "protocol_smoke": "passed (original Search and Answer parsing/consumer)",
+  "source_sha256": "5fd221b4255e45ee36afaab03c0680b9cdfecde57d93eed5dd57d8a5fcbf108b",
+  "upstream_control_sha256": "b8cd5884b1617ba64724367aebdc3e77b9cb3f8676006b37a94508d20a6ce03f",
+  "six_round_budget": true,
+  "regenerates_memories": false
+}

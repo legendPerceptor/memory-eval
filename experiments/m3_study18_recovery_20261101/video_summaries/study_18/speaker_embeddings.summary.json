@@ -1,0 +1,20 @@
+{
+  "status": "completed",
+  "account_id": "m3-flash-medium-20261031",
+  "video_filter": "study_18",
+  "attempted_audio": 84,
+  "cached_audio": 0,
+  "executed_audio": 75,
+  "failed_audio": 0,
+  "completed_audio": 84,
+  "cache_version": 1,
+  "skipped_speaker_count": 1,
+  "skipped_speakers": [
+    {
+      "audio_node_id": "ecf54a91-44ee-c976-dee7-8e6912df40f7",
+      "speaker_id": "SPEAKER_01",
+      "reason": "audio_too_short",
+      "duration_sec": 0.017
+    }
+  ]
+}

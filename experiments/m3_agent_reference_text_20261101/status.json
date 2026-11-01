@@ -1,0 +1,32 @@
+{
+  "phase": "finished",
+  "completed": [
+    {
+      "video": "study_05",
+      "qa_records": 12,
+      "valid_answers": 12
+    },
+    {
+      "video": "gym_03",
+      "qa_records": 11,
+      "valid_answers": 11
+    },
+    {
+      "video": "bedroom_04",
+      "qa_records": 11,
+      "valid_answers": 11
+    },
+    {
+      "video": "study_18",
+      "qa_records": 14,
+      "valid_answers": 14
+    },
+    {
+      "video": "kitchen_20",
+      "qa_records": 17,
+      "valid_answers": 17
+    }
+  ],
+  "mean_score": 0.46153846153846156,
+  "judge_exit_code": 0
+}
