@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Render completed context ablations, preserving first and joint judge passes."""
 from collections import Counter
+import csv
 import itertools
 import json
 from pathlib import Path
@@ -69,6 +70,26 @@ def replication_summary(grades):
         "best_of_selection": False,
         "note": "Same 65 questions twice, not 130 new questions. The two-run mean is descriptive, not a selected single-run score.",
     }
+
+
+def recovery_decomposition(grades, methods):
+    base = {r["question_id"]: r for r in grades if r["method"] == "historical_ogmemory"}
+    failed = {q for q, r in base.items() if r.get("error") or not r.get("predicted_answer")}
+    result = {"previous_answered_count": len(base) - len(failed),
+              "previous_nonanswer_count": len(failed), "methods": {}}
+    for method in methods:
+        selected = {r["question_id"]: r for r in grades if r["method"] == method}
+        assert selected.keys() == base.keys()
+        old_answered_delta = sum(selected[q]["judge_score"] - base[q]["judge_score"]
+                                 for q in base if q not in failed)
+        nonanswer_delta = sum(selected[q]["judge_score"] - base[q]["judge_score"] for q in failed)
+        result["methods"][method] = {
+            "score_point_change_on_previously_answered": old_answered_delta,
+            "score_point_change_on_previous_nonanswers": nonanswer_delta,
+            "net_score_point_change": old_answered_delta + nonanswer_delta,
+        }
+    result["note"] = "Descriptive decomposition of full-cohort score change, not a replacement denominator or a causal attribution proof."
+    return result
 
 
 def main():
@@ -140,15 +161,42 @@ def main():
                   "max_iterations", "timeout_seconds", "temporal_policy"):
         assert first_manifest[field] == repeat_manifest[field], field
     repeat = replication_summary(grades)
-    result = {"methods": methods, "replication": repeat,
+    decomposition = recovery_decomposition(grades, ARMS)
+    zero_cover = sum(methods[m]["video_cluster_interval"]["lower"] <= 0
+                     <= methods[m]["video_cluster_interval"]["upper"] for m in ARMS)
+    latency_summary = {
+        "qa_records": 65 * len(ARMS),
+        "valid_answers": sum(methods[m]["valid_answers"] for m in ARMS),
+        "timeout_records": sum(methods[m]["finish_reasons"].get("timeout", 0) for m in ARMS),
+        "max_observed_question_wall_seconds": max(methods[m]["wall_seconds"]["max"] for m in ARMS),
+        "time_reserve_triggers": sum(methods[m]["finalization_reasons"].get("answer_time_reserve", 0)
+                                     for m in ARMS),
+    }
+    result = {"methods": methods, "replication": repeat, "recovery_decomposition": decomposition,
+              "intervals_covering_zero": zero_cover,
+              "latency_and_coverage": latency_summary,
               "joint_grade_source": str(grade_path.relative_to(ROOT)),
               "interpretation": "Same stored memories for oGMemory arms; fixed prior M3 predictions. All 65 questions retained. Development/automatic-judge comparison."}
     admission_path = output / "compact_admission_comparison.json"
     if admission_path.exists():
         result["compact_admission_comparison"] = json.loads(admission_path.read_text())
+    ledger_path = output / "recorded_call_ledger.json"
+    if ledger_path.exists():
+        result["recorded_call_ledger"] = json.loads(ledger_path.read_text())["total_recorded"]
     (output / "comparison.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
     (output / "joint_questions.jsonl").write_text(
         "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in grades))
+    fields = ["method", "video_id", "question_id", "question_index", "question",
+              "expected_answer", "predicted_answer", "error", "finish_reason", "type",
+              "judge_score", "judge_error", "judge_reasoning", "judge_seconds"]
+    with (output / "joint_questions.csv").open("w", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=fields, lineterminator="\n", extrasaction="ignore")
+        writer.writeheader()
+        for row in grades:
+            item = dict(row)
+            if isinstance(item.get("type"), (list, dict)):
+                item["type"] = json.dumps(item["type"], ensure_ascii=False)
+            writer.writerow(item)
     md = [
         "# 上下文与 QA 收尾消融：完成结果",
         "",
@@ -188,6 +236,12 @@ def main():
             "原失败记录和未知usage的请求开销均保留，未按题挑选高分。",
             "评分为0、0.5、1自动评分的全65题均值，不是人工准确率。输入包含缓存tokens，"
             "不等于费用；跨时段服务负载不同，不能据此声称严格墙钟加速比。",
+            f"五组新轨迹共{latency_summary['qa_records']}条QA记录，"
+            f"{latency_summary['valid_answers']}条有效回答，"
+            f"记录到{latency_summary['timeout_records']}条QA超时；"
+            f"单题实际墙钟最大{latency_summary['max_observed_question_wall_seconds']:.2f}秒。"
+            "这些是恢复后的固定轨迹，先前额度失败另列。"
+            "C的一条协议校验失败保留计零；没有把done状态直接当作有效答案。",
             r"\subsection{逐视频共同评分}",
             r"\begin{center}\small\begin{tabular}{lrrrrrrr}\toprule",
             r"视频 & 原答案 & M3参考 & A & B & C & D & B重复\\\midrule"]
@@ -203,12 +257,22 @@ def main():
             "首轮约1250输入tokens，随后重复的完整片段对象使输入累积至9万--12万。"
             "A复用原仓已有但正式基线未开启的上下文预算模块：内容版本去重、"
             "连续原文选择、有效引用和完整请求计数。22528输入预算预留8192输出及2048安全空间。"
+            "新组还统一限制请求top-k不超过16、候选不超过32、单次总返回节点不超过24、"
+            "每题Search尝试不超过8次；A因此是整套有界策略，而不只是删除重复字符串。"
             "B增加45秒回答预留，并在最后一轮关闭Search；C将输入估计上限降为12000。"
             "D在相同12000预算下将已选原文按字段分组，去除重复包装和模型无需读取的内容哈希；"
             "原始值、来源范围、人物与时间元数据不改写，完整哈希保留在审计中。"
             "计数器使用本地Qwen tokenizer代理，不等同于MiniMax的精确模板。",
             ""]
     md += ["", "## 相对原固定答案的变化", ""]
+    md += [
+        f"新轨迹共{latency_summary['qa_records']}条QA记录、{latency_summary['valid_answers']}条有效回答，"
+        f"QA超时{latency_summary['timeout_records']}条；"
+        f"单题实际墙钟最大{latency_summary['max_observed_question_wall_seconds']:.2f}秒。"
+        f"时间预留实际触发{latency_summary['time_reserve_triggers']}次。"
+        "这不覆盖先前套餐额度失败，也不是未来请求硬截止的保证。",
+        "",
+    ]
     for method in ARMS:
         s = methods[method]
         ci = s["video_cluster_interval"]
@@ -220,6 +284,10 @@ def main():
                    f"峰值下降{s['peak_input_reduction']*100:.1f}\\%。"
                    f"按5个完整视频簇枚举重采样的95\\%区间为"
                    f"[{ci['lower']:+.4f}, {ci['upper']:+.4f}]。" + "\n")
+    md += ["", f"{zero_cover}/{len(ARMS)}个方案/重复运行的整视频簇区间包含0；"
+           "本轮不能据此宣称稳定的统计显著质量增益。"]
+    tex.append(f"{zero_cover}/{len(ARMS)}个方案或重复运行的上述区间包含0。"
+               "这些仅是五个开发视频的探索性重采样结果，不能据此宣称稳定的统计显著质量增益。")
     md += [
         "",
         "只有5个开发视频，整簇bootstrap仅帮助展示不确定性，不是泛化能力的强证据。",
@@ -232,6 +300,31 @@ def main():
     ]
     for method in ARMS:
         md.append(f"- {LABELS[method]}：`{json.dumps(methods[method]['finalization_reasons'], ensure_ascii=False)}`")
+    md += ["", "## 总分增益来自哪里", "",
+           f"以原来{decomposition['previous_answered_count']}道有答案题与"
+           f"{decomposition['previous_nonanswer_count']}道无答案题分解分值变化，主指标仍为全65题均分。",
+           "| 条件 | 原有答案题分值变化 | 原无答案题分值变化 | 净分值变化 |",
+           "|---|---:|---:|---:|"]
+    tex += [
+        r"\subsection{覆盖恢复与已有答案的取舍}",
+        f"主指标仍使用全65题。以下仅将总分变化分解为原{decomposition['previous_answered_count']}道有答案题与"
+        f"原{decomposition['previous_nonanswer_count']}道无答案题的贡献，"
+        "不改用成功子集均分，也不把这一记账分解当成单一因素的因果证明。",
+        r"\begin{center}\small\begin{tabular}{lrrr}\toprule",
+        f"条件 & 原{decomposition['previous_answered_count']}题分值变化 & "
+        f"原{decomposition['previous_nonanswer_count']}题分值变化 & 净分值变化" + r"\\\midrule",
+    ]
+    for method, parts in decomposition["methods"].items():
+        a = parts["score_point_change_on_previously_answered"]
+        b = parts["score_point_change_on_previous_nonanswers"]
+        total = parts["net_score_point_change"]
+        md.append(f"| {LABELS[method]} | {a:+.1f} | {b:+.1f} | {total:+.1f} |")
+        tex.append(f"{short[method]} & {a:+.1f} & {b:+.1f} & {total:+.1f}" + r"\\")
+    tex += [r"\bottomrule\end{tabular}\end{center}",
+            "本批总分进展主要伴随原超时题恢复，原已回答题仍有损失。"
+            "因此结论是效率与回答覆盖得到改善，但单题事实质量存在取舍，不能声称推理能力普遍提升。"]
+    md += ["", "收益主要伴随原超时题恢复；原已回答题仍有分值损失。"
+           "这支持效率和覆盖改善，不支持所有单题事实质量都提高。"]
     md += ["", "## B的完整独立重复", "",
            f"两次共同评分分别为{repeat['scores'][0]:.4f}和{repeat['scores'][1]:.4f}，"
            f"差值绝对值{repeat['absolute_score_difference']:.4f}；"
@@ -311,6 +404,26 @@ def main():
             "这不是独立事实计数；查询轨迹也不同，不能解读为固定查询的信息增益。"
             "压缩空间可能用于装入更多原文而非降低API输入，是否有助于答案质量仍需看实际评测。"
         ]
+    if "recorded_call_ledger" in result:
+        ledger = result["recorded_call_ledger"]
+        md += ["", "## 实际记录的试验开销", "",
+               f"本轮各日志不重复合计{ledger['recorded_logical_calls']}次逻辑调用，"
+               f"其中{ledger['unknown_usage_calls']}次未返回usage。"
+               f"已收到输入{ledger['received_prompt_tokens']:,}、输出{ledger['received_completion_tokens']:,} tokens，"
+               "另有209-token可用性探针。",
+               "该口径包含原A/B的失败和恢复，不把复用轨迹重复计费；"
+               "它不含先前的视频记忆生成、原基线/M3实验、本地embedding或只读额度接口。"
+               "强制停止时可能有未落盘的在途请求，不能把记录总数当成审计账单。"
+               "详见recorded_call_ledger.json。"]
+        tex += [
+            "本轮所有实际调用日志去除重复文件后共记录"
+            f"{ledger['recorded_logical_calls']}次逻辑调用，"
+            f"{ledger['unknown_usage_calls']}次usage未知；"
+            f"收到输入{ledger['received_prompt_tokens']/1e6:.3f}M和输出"
+            f"{ledger['received_completion_tokens']/1e6:.3f}M tokens，另有209-token可用性探针。"
+            "此为全部试验开销，与单条件固定轨迹用量不同；不含先前记忆生成与历史基线，"
+            "也不是账单。强制停止时未落盘的在途请求无法凭现有日志完整计量。"
+        ]
     tex += [
         r"\subsection{验证与配置使用}",
         "当前发布代码的M3/provider/core单元检查1041项通过；"
@@ -321,6 +434,28 @@ def main():
         r"可用\code{python -m m3.configure_qa_context}生成新的0600配置副本，"
         "保留模型与连接设置。它针对ReAct QA/pipeline，不是旧单次QA入口；"
         "切换策略必须使用新的输出目录，不应跨配置resume旧答案。",
+    ]
+    md += [
+        "", "## 本轮建议", "",
+        "- 质量优先时，先使用balanced：输入目标24000、窗口32768、输出8192和安全预留2048，"
+        "实际输入估计上限22528；6轮/180秒，保留终轮Answer-only及控制提示。",
+        "- 45秒时间预留是可选的保护机制；本轮实际未触发它，不能宣称它贡献了分数提升。",
+        "- compact/grouped作为成本更敏感的实验选项，不默认替代balanced；"
+        "编码无改写、保留更多原文并不保证模型理解更好。",
+        "- 后续优先验证前缀更稳定的证据交付、带可用时间的人物/物体事实索引，"
+        "并在新视频/严格时间策略下复核；不要用整视频拼接语义节点绕过时间边界。",
+        "- 采帧覆盖、身份归属和事件计数是另外的上游/推理问题，应单独消融。"
+        "不能把补看画面或事后正确答案混入本轮固定记忆成绩。",
+    ]
+    tex += [
+        r"\subsection{本轮建议}",
+        "质量优先时建议先采用balanced：输入目标24000，在8192输出和2048安全预留下"
+        "实际输入估计上限为22528，6轮/180秒，并保留终轮Answer-only与控制提示。"
+        "45秒预留本轮未实际触发，仅能作为经单元验证的保护机制。"
+        "compact/grouped保持可选，不因编码更短或原文更多就默认上线。",
+        "下一阶段应在新视频及严格时间策略下验证前缀更稳定的证据交付、"
+        "带来源与可用时间的实体事实索引；采帧覆盖、身份归属和事件计数应单独消融，"
+        "不能通过引入未来帧或事后答案改变本轮成绩。",
     ]
     (output / "REPORT.md").write_text("\n".join(md) + "\n")
     (ROOT / "latex/context_optimization_results.tex").write_text("\n".join(tex) + "\n")

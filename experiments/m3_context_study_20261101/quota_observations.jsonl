@@ -6,3 +6,6 @@
 {"observed_at_unix": 1793506732.6016932, "interval_remaining_percent": 29, "weekly_remaining_percent": 81, "window_end_unix": 1793516400.0}
 {"observed_at_unix": 1793516700.0002747, "interval_remaining_percent": 100, "weekly_remaining_percent": 81, "window_end_unix": 1793534400.0}
 {"observed_at_unix": 1793519405.874142, "interval_remaining_percent": 76, "weekly_remaining_percent": 79, "window_end_unix": 1793534400.0}
+{"observed_at_unix": 1793522160.6570032, "interval_remaining_percent": 76, "weekly_remaining_percent": 79, "window_end_unix": 1793534400.0}
+{"observed_at_unix": 1793522400.0002637, "interval_remaining_percent": 76, "weekly_remaining_percent": 79, "window_end_unix": 1793534400.0}
+{"observed_at_unix": 1793525772.2731142, "interval_remaining_percent": 35, "weekly_remaining_percent": 76, "window_end_unix": 1793534400.0}

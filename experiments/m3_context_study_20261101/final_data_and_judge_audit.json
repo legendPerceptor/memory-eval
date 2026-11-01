@@ -1,0 +1,13 @@
+{
+  "observed_at": "2026-11-01T18:05:55.019644+08:00",
+  "database_row_contents_unchanged_since_early_snapshot": true,
+  "joint_tasks": 455,
+  "logical_judge_api_calls": 448,
+  "invalid_qa_zero_scored_without_api": 7,
+  "all_judge_models_and_settings_match": true,
+  "all_judge_api_calls_returned_usage": true,
+  "judge_prompt_tokens": 278352,
+  "judge_completion_tokens": 36452,
+  "judge_length_terminations": 0,
+  "note": "Early DB snapshot was after A started. Counts are logical calls, not an independently audited bill."
+}

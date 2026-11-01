@@ -27,9 +27,9 @@ All five videos / 65 questions, same stored memories, same model/settings:
 MiniMax-M3.1-Flash, adaptive/medium, QA output8192, judge2048, 6 rounds/180s,
 current_clip. No memory regeneration or perception changes.
 
-The active coordinator is the frozen
-`runs/context_assets/coordinator_grouped_v2_20261101.py`,
-launched through exec session **93748**.
+The completed coordinator was the frozen
+`runs/context_assets/coordinator_repeat_advance_20261101.py`,
+launched through exec session **66342** (now exited0; do not restart).
 Its status is `experiments/m3_context_study_20261101/coordinator_status.json`.
 It launches each frozen `runs/<name>/runner.py`, checks read-only MiniMax quota,
 and writes logs under `private/`. It will not purchase/upgrade or switch models.
@@ -42,7 +42,7 @@ Current planned logical arms:
 | B | m3_context_finalization_recovered_20261101 | 9eb782e4 | finished |
 | C | m3_context_compact12k_guarded_20261101 | 68e1993c | finished:64/65, initial score0.523077 |
 | D | m3_context_grouped12k_v2_20261101 | 76879efa | finished:65/65, independent score0.530769 |
-| B repeat | m3_context_finalization_repeat_20261101 | 9eb782e4 | not before20:05 |
+| B repeat | m3_context_finalization_repeat_20261101 | 9eb782e4 | finished65/65, independent0.5615, joint0.5769 |
 
 B repeat is a **full independent repeat**, not best-of or answer reuse.
 It references B's exact frozen source/config, but its manifest explicitly marks
@@ -53,11 +53,11 @@ finish_reason=done, not a quota failure. Do not rerun it to improve the score.
 C received2,721,838 input tokens, peak9102,366 calls.
 Use metrics.json, not this note, for final tables.
 
-After these, coordinator runs `scripts/judge_context_comparison.py`
+After these, coordinator ran `scripts/judge_context_comparison.py`
 (freezes a copy at execution) for **455 shuffled (method, question) pairs**:
 historical oGMemory, historical M3 reference text, A/B/C/D, and B repeat.
-Method names are not sent to the judge. No joint judging has started as of
-the schedule amendment. Grade API errors may be repaired separately, but never
+Method names were not sent to the judge. No joint judging had started at
+the schedule amendment; it is now fully completed. Grade API errors may be repaired separately, but never
 regrade successful rows selectively or change predictions.
 
 Old coordinator session68378 was stopped while idle before C. Its first schedule
@@ -104,13 +104,17 @@ B had54 last-iteration finalizations, **zero time-reserve triggers**;
 max question wall time79.35s. Do not attribute its score change to the45s reserve.
 D finished atabout15:50 with no QA/judge errors and no loop-time overruns.
 It had56 last-round finalizations, no time-reserve triggers. Actual current
-quota remaining76%; coordinator is deliberately waiting for B repeat20:05.
+quota remaining76%; its initial repeat schedule was20:05, later advanced as below.
 Do not add extra trial arms to fill the waiting period.
 
 At the same12k budget, D admitted more original spans/entries than C
 (mean final-view78.83 vs66.66), but independent grades remain close. These are
 not counts of distinct facts and queries differ; don't treat this as a causal
 information-gain estimate. See compact_admission_comparison.json.
+Update16:36:read-only quota still76%. Existing B repeat moved to16:40 with a
+70% early-launch threshold, leaving more recovery time before23:30. Same frozen
+run, no extra condition or answer reuse. Old coordinator stopped only while
+idle; schedule and reason archived in repeat_schedule_advance.json.
 
 The original6 timeout questions all got answers in A;5 scored1 and scissors-count
 study_05_Q12 still scored0. A versus old independent grades:48 equal,8 higher,9 lower.
@@ -176,7 +180,53 @@ Additional evidence:
   current_clip allowance; no new frame was fed to any experiment.
 - Do not add new trial arms opportunistically. The plan remains A/B/C/D+B repeat.
 
-## Reporting still to finish
+## Final status and delivery
+
+Update18:15: ALL QA and455 joint grades are complete, zero judge errors.
+Coordinator session66342 has exited0. No further paid model requests are needed.
+Joint scores: old .5384615, M3 .4615385, A .5538462, B .6076923,
+C .5230769, D .5384615, B repeat .5769231. B descriptive mean .5923077.
+All five video-cluster intervals include0; don't claim significant gains.
+Final data/judge audit: DB contents unchanged since early snapshot;448 judge
+API calls plus7 automatic zero scores, all actual model/settings verified,
+all usage returned, no length terminations. Full input audit verifies455 tasks
+and35 source-prediction files unchanged. Recovery script was unit-tested but
+not used (no final judge errors).
+Final PDF rebuilt12 pages at18:19 and visually reviewed pages8–10. Root tests48
+passed. `release_audit.json` at18:24 records exact PDF/source/data hashes, all
+input/model/database checks, and the remaining timed user-facing delivery.
+No additional paid model calls are needed or planned.
+
+Final shared-judge results:
+
+| Method | Valid | Joint score |
+|---|---:|---:|
+| Original fixed oGMemory |59/65|0.5385|
+| M3 reference text adaptation |65/65|0.4615|
+| A |65/65|0.5538|
+| B first |65/65|0.6077|
+| B repeat |65/65|0.5769|
+| C |64/65|0.5231|
+| D |65/65|0.5385|
+
+B two-run descriptive mean0.5923; don't pick0.6077 alone.
+Five new trajectories have325 records,324 valid answers,0 timeouts; maximum
+observed question wall112.53 seconds. Time reserve never triggered.
+Score decomposition: on original59 answered questions, B first loses1.5 points
+and B repeat loses2.5; old6 timeout questions gain6 and5 points respectively.
+Overall gains thus primarily accompany recovered answer coverage, not universal
+per-question quality improvement. All five cluster intervals include0.
+
+Recorded call ledger:2635 logged calls,2590 withusage,45 unknown; received
+20,201,770 input and496,900 output tokens, plus separate209-token probe.
+This includes original failed attempts, not only fixed trajectories; not a bill.
+
+Remaining required action: commit final reviewed artifacts, then honor the user's
+23:30 reporting time. Use a real local timer if work finishes early; don't claim a
+future notification without keeping the goal active and observing a live handle.
+At delivery recheck artifact hashes/branches, mark goal complete and report.
+
+### Completed execution checklist (historical procedure)
 
 1. Monitor coordinator and each status/usage file; no unnecessary model probes.
 2. For completed arms, run `scripts/summarize_context_experiment.py <name>`.
@@ -189,8 +239,8 @@ Additional evidence:
    - `python3 scripts/render_context_comparison.py`
 4. Add generated `context_optimization_results.tex` to `latex/report.tex`;
    update abstract to distinguish prior and new grading batches, not overwrite
-   historical results. Current PDF has an11-page provisional context report
-   including A/B/C, explicitly labelled not final. Prior9-page PDF archived as
+   historical results. An earlier checkpoint had an11-page provisional report;
+   current PDF is the12-page final report. Prior9-page PDF archived as
    `report-before-context.pdf`.
 5. `bash scripts/build_report.sh`; inspect pdfinfo/pdftotext and final LaTeX log.
    Existing fontspec Fandol warnings are nonfatal; check undefined refs/overfulls.

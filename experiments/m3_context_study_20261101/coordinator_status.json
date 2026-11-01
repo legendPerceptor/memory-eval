@@ -1,6 +1,10 @@
 {
-  "observed_at": "2026-11-01T16:06:09.148231+08:00",
-  "status": "scheduled_wait",
-  "pending": "m3_context_finalization_repeat_20261101",
-  "next_start": "2026-11-01T20:05:00+08:00"
+  "observed_at": "2026-11-01T17:53:58.752222+08:00",
+  "status": "qa_and_judging_finished",
+  "judge_exit": 0,
+  "joint_status": {
+    "status": "finished",
+    "completed": 455,
+    "judge_errors": 0
+  }
 }

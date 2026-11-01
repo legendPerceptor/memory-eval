@@ -1,0 +1,461 @@
+{
+  "methods": {
+    "historical_ogmemory": {
+      "mean_score": 0.5384615384615384,
+      "valid_answers": 59,
+      "judge_errors": 0,
+      "by_video": {
+        "study_05": 0.3333333333333333,
+        "gym_03": 0.7272727272727273,
+        "bedroom_04": 0.6363636363636364,
+        "study_18": 0.32142857142857145,
+        "kitchen_20": 0.6764705882352942
+      },
+      "score_counts": {
+        "0.0": 25,
+        "1.0": 30,
+        "0.5": 10
+      },
+      "first_pass_score": 0.5461538461538461,
+      "qa_usage": {
+        "logical_calls": 319,
+        "prompt_tokens": 19905749,
+        "completion_tokens": 91213,
+        "peak_prompt_tokens": 156689,
+        "unknown_usage_calls": 0
+      }
+    },
+    "m3_reference_text": {
+      "mean_score": 0.46153846153846156,
+      "valid_answers": 65,
+      "judge_errors": 0,
+      "by_video": {
+        "study_05": 0.5416666666666666,
+        "gym_03": 0.5454545454545454,
+        "bedroom_04": 0.6363636363636364,
+        "study_18": 0.25,
+        "kitchen_20": 0.4117647058823529
+      },
+      "score_counts": {
+        "0.0": 29,
+        "0.5": 12,
+        "1.0": 24
+      },
+      "first_pass_score": 0.46153846153846156,
+      "qa_usage": {
+        "logical_calls": 310,
+        "prompt_tokens": 569796,
+        "completion_tokens": 28938,
+        "peak_prompt_tokens": 4740,
+        "unknown_usage_calls": 0
+      }
+    },
+    "budget_only": {
+      "mean_score": 0.5538461538461539,
+      "valid_answers": 65,
+      "judge_errors": 0,
+      "by_video": {
+        "study_05": 0.5,
+        "gym_03": 0.6363636363636364,
+        "bedroom_04": 0.8181818181818182,
+        "study_18": 0.2857142857142857,
+        "kitchen_20": 0.5882352941176471
+      },
+      "score_counts": {
+        "1.0": 31,
+        "0.0": 24,
+        "0.5": 10
+      },
+      "first_pass_score": 0.5538461538461539,
+      "qa_usage": {
+        "logical_calls": 359,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 4722001,
+        "completion_tokens": 91150,
+        "reasoning_tokens": 66367,
+        "peak_prompt_tokens": 16904,
+        "cached_prompt_tokens": 724155,
+        "unknown_cache_usage_calls": 0,
+        "model_seconds_sum": 1742.7460522651672
+      },
+      "finish_reasons": {
+        "done": 65
+      },
+      "finalization_reasons": {
+        "not_triggered": 65
+      },
+      "packing_seconds": {
+        "count": 359,
+        "min": 0.008187317987903953,
+        "max": 2.466672962065786,
+        "mean": 1.1917461732429684,
+        "median": 1.2311272169463336,
+        "p95_nearest_rank": 2.1519733760505915
+      },
+      "wall_seconds": {
+        "count": 65,
+        "min": 6.524595024995506,
+        "max": 63.92072824505158,
+        "mean": 34.771547555289445,
+        "median": 34.80234380392358,
+        "p95_nearest_rank": 50.43348559294827
+      },
+      "source_commit": "c992d45bacfabf1c1e18f8ecd54c70389b0d3721",
+      "counter_exceedances": [],
+      "paired_delta_vs_original": 0.015384615384615385,
+      "video_cluster_interval": {
+        "lower": -0.07857142857142857,
+        "upper": 0.125,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      },
+      "input_token_reduction": 0.7627820485428607,
+      "peak_input_reduction": 0.8921175066533069
+    },
+    "finalization": {
+      "mean_score": 0.6076923076923076,
+      "valid_answers": 65,
+      "judge_errors": 0,
+      "by_video": {
+        "study_05": 0.625,
+        "gym_03": 0.7272727272727273,
+        "bedroom_04": 0.8181818181818182,
+        "study_18": 0.32142857142857145,
+        "kitchen_20": 0.6176470588235294
+      },
+      "score_counts": {
+        "1.0": 36,
+        "0.0": 22,
+        "0.5": 7
+      },
+      "first_pass_score": 0.6,
+      "qa_usage": {
+        "logical_calls": 365,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 4804362,
+        "completion_tokens": 93971,
+        "reasoning_tokens": 67381,
+        "peak_prompt_tokens": 16922,
+        "cached_prompt_tokens": 618414,
+        "unknown_cache_usage_calls": 0,
+        "model_seconds_sum": 2020.0055303573608
+      },
+      "finish_reasons": {
+        "done": 65
+      },
+      "finalization_reasons": {
+        "not_triggered": 11,
+        "last_iteration": 54
+      },
+      "packing_seconds": {
+        "count": 365,
+        "min": 0.008070583920925856,
+        "max": 2.376057058107108,
+        "mean": 1.17561000491148,
+        "median": 1.1889608399942517,
+        "p95_nearest_rank": 2.10271484288387
+      },
+      "wall_seconds": {
+        "count": 65,
+        "min": 9.694897728040814,
+        "max": 79.34816746017896,
+        "mean": 39.099470068209875,
+        "median": 39.678382493089885,
+        "p95_nearest_rank": 63.740545408800244
+      },
+      "source_commit": "9eb782e413ac57ba6ac607d25cc56905e262100e",
+      "counter_exceedances": [],
+      "paired_delta_vs_original": 0.06923076923076923,
+      "video_cluster_interval": {
+        "lower": -0.02857142857142857,
+        "upper": 0.20491803278688525,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      },
+      "input_token_reduction": 0.7586445001391307,
+      "peak_input_reduction": 0.8920026294124029
+    },
+    "compact12k": {
+      "mean_score": 0.5230769230769231,
+      "valid_answers": 64,
+      "judge_errors": 0,
+      "by_video": {
+        "study_05": 0.5416666666666666,
+        "gym_03": 0.6818181818181818,
+        "bedroom_04": 0.6363636363636364,
+        "study_18": 0.25,
+        "kitchen_20": 0.5588235294117647
+      },
+      "score_counts": {
+        "1.0": 29,
+        "0.5": 10,
+        "0.0": 26
+      },
+      "first_pass_score": 0.5230769230769231,
+      "qa_usage": {
+        "logical_calls": 366,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 2721838,
+        "completion_tokens": 75676,
+        "reasoning_tokens": 48943,
+        "peak_prompt_tokens": 9102,
+        "cached_prompt_tokens": 635129,
+        "unknown_cache_usage_calls": 0,
+        "model_seconds_sum": 1732.6080992221832
+      },
+      "finish_reasons": {
+        "done": 65
+      },
+      "finalization_reasons": {
+        "not_triggered": 11,
+        "last_iteration": 54
+      },
+      "packing_seconds": {
+        "count": 366,
+        "min": 0.00815239711664617,
+        "max": 1.6818473769817501,
+        "mean": 0.5870089062732579,
+        "median": 0.56441379559692,
+        "p95_nearest_rank": 1.2895131960976869
+      },
+      "wall_seconds": {
+        "count": 65,
+        "min": 12.158822570927441,
+        "max": 64.3517304090783,
+        "mean": 31.306704841729683,
+        "median": 31.04446937679313,
+        "p95_nearest_rank": 44.64124909113161
+      },
+      "source_commit": "68e1993c623fcaffe06c7707825c03c024ebe3de",
+      "counter_exceedances": [],
+      "paired_delta_vs_original": -0.015384615384615385,
+      "video_cluster_interval": {
+        "lower": -0.09210526315789475,
+        "upper": 0.10655737704918032,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      },
+      "input_token_reduction": 0.8632637234599914,
+      "peak_input_reduction": 0.9419104085162328
+    },
+    "grouped12k": {
+      "mean_score": 0.5384615384615384,
+      "valid_answers": 65,
+      "judge_errors": 0,
+      "by_video": {
+        "study_05": 0.2916666666666667,
+        "gym_03": 0.7727272727272727,
+        "bedroom_04": 0.8181818181818182,
+        "study_18": 0.2857142857142857,
+        "kitchen_20": 0.5882352941176471
+      },
+      "score_counts": {
+        "0.0": 26,
+        "1.0": 31,
+        "0.5": 8
+      },
+      "first_pass_score": 0.5307692307692308,
+      "qa_usage": {
+        "logical_calls": 366,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 2760479,
+        "completion_tokens": 74990,
+        "reasoning_tokens": 48207,
+        "peak_prompt_tokens": 9251,
+        "cached_prompt_tokens": 571809,
+        "unknown_cache_usage_calls": 0,
+        "model_seconds_sum": 2204.0429739952087
+      },
+      "finish_reasons": {
+        "done": 65
+      },
+      "finalization_reasons": {
+        "not_triggered": 9,
+        "last_iteration": 56
+      },
+      "packing_seconds": {
+        "count": 366,
+        "min": 0.008621392073109746,
+        "max": 1.4116572400089353,
+        "mean": 0.5767954967456712,
+        "median": 0.5633587118936703,
+        "p95_nearest_rank": 1.1843080478720367
+      },
+      "wall_seconds": {
+        "count": 65,
+        "min": 10.10961503884755,
+        "max": 64.33306316914968,
+        "mean": 38.50675879264107,
+        "median": 39.41735692601651,
+        "p95_nearest_rank": 55.906844192883
+      },
+      "source_commit": "76879efa6c727f93f7bd437a35171437d892846e",
+      "counter_exceedances": [],
+      "paired_delta_vs_original": 0.0,
+      "video_cluster_interval": {
+        "lower": -0.0625,
+        "upper": 0.1,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      },
+      "input_token_reduction": 0.8613225254673913,
+      "peak_input_reduction": 0.9409594802443056
+    },
+    "finalization_repeat": {
+      "mean_score": 0.5769230769230769,
+      "valid_answers": 65,
+      "judge_errors": 0,
+      "by_video": {
+        "study_05": 0.5,
+        "gym_03": 0.6818181818181818,
+        "bedroom_04": 0.8181818181818182,
+        "study_18": 0.25,
+        "kitchen_20": 0.6764705882352942
+      },
+      "score_counts": {
+        "1.0": 33,
+        "0.0": 23,
+        "0.5": 9
+      },
+      "first_pass_score": 0.5615384615384615,
+      "qa_usage": {
+        "logical_calls": 361,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 4707523,
+        "completion_tokens": 96384,
+        "reasoning_tokens": 69190,
+        "peak_prompt_tokens": 16927,
+        "cached_prompt_tokens": 616596,
+        "unknown_cache_usage_calls": 0,
+        "model_seconds_sum": 2666.6423740386963
+      },
+      "finish_reasons": {
+        "done": 65
+      },
+      "finalization_reasons": {
+        "not_triggered": 11,
+        "last_iteration": 54
+      },
+      "packing_seconds": {
+        "count": 361,
+        "min": 0.008212381042540073,
+        "max": 2.4568250628653914,
+        "mean": 1.1677545700970409,
+        "median": 1.190257462207228,
+        "p95_nearest_rank": 2.0868888639379293
+      },
+      "wall_seconds": {
+        "count": 65,
+        "min": 7.850541586056352,
+        "max": 112.5256007371936,
+        "mean": 48.871663665527905,
+        "median": 49.26374099217355,
+        "p95_nearest_rank": 73.23934129998088
+      },
+      "source_commit": "9eb782e413ac57ba6ac607d25cc56905e262100e",
+      "counter_exceedances": [],
+      "paired_delta_vs_original": 0.038461538461538464,
+      "video_cluster_interval": {
+        "lower": -0.04477611940298507,
+        "upper": 0.13157894736842105,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      },
+      "input_token_reduction": 0.763509376110389,
+      "peak_input_reduction": 0.8919707190677073
+    }
+  },
+  "replication": {
+    "questions_per_run": 65,
+    "scores": [
+      0.6076923076923076,
+      0.5769230769230769
+    ],
+    "mean_of_two_run_scores": 0.5923076923076922,
+    "absolute_score_difference": 0.03076923076923077,
+    "question_score_disagreements": 12,
+    "identical_predictions": 0,
+    "identical_predictions_with_different_judge_scores": [],
+    "best_of_selection": false,
+    "note": "Same 65 questions twice, not 130 new questions. The two-run mean is descriptive, not a selected single-run score."
+  },
+  "recovery_decomposition": {
+    "previous_answered_count": 59,
+    "previous_nonanswer_count": 6,
+    "methods": {
+      "budget_only": {
+        "score_point_change_on_previously_answered": -4.0,
+        "score_point_change_on_previous_nonanswers": 5.0,
+        "net_score_point_change": 1.0
+      },
+      "finalization": {
+        "score_point_change_on_previously_answered": -1.5,
+        "score_point_change_on_previous_nonanswers": 6.0,
+        "net_score_point_change": 4.5
+      },
+      "compact12k": {
+        "score_point_change_on_previously_answered": -6.0,
+        "score_point_change_on_previous_nonanswers": 5.0,
+        "net_score_point_change": -1.0
+      },
+      "grouped12k": {
+        "score_point_change_on_previously_answered": -4.0,
+        "score_point_change_on_previous_nonanswers": 4.0,
+        "net_score_point_change": 0.0
+      },
+      "finalization_repeat": {
+        "score_point_change_on_previously_answered": -2.5,
+        "score_point_change_on_previous_nonanswers": 5.0,
+        "net_score_point_change": 2.5
+      }
+    },
+    "note": "Descriptive decomposition of full-cohort score change, not a replacement denominator or a causal attribution proof."
+  },
+  "intervals_covering_zero": 5,
+  "latency_and_coverage": {
+    "qa_records": 325,
+    "valid_answers": 324,
+    "timeout_records": 0,
+    "max_observed_question_wall_seconds": 112.5256007371936,
+    "time_reserve_triggers": 0
+  },
+  "joint_grade_source": "runs/m3_context_joint_judge_20261101/grades.jsonl",
+  "interpretation": "Same stored memories for oGMemory arms; fixed prior M3 predictions. All 65 questions retained. Development/automatic-judge comparison.",
+  "compact_admission_comparison": {
+    "C": {
+      "questions": 65,
+      "evidence_bearing_calls": 301,
+      "mean_selected_nodes": 12.551495016611296,
+      "mean_selected_passages": 72.00664451827242,
+      "mean_final_view_nodes": 11.523076923076923,
+      "mean_final_view_passages": 66.66153846153846,
+      "note": "Counts of admitted original entries/spans, not distinct facts. Queries and trajectories differ; this is not a fixed-input causal estimate."
+    },
+    "D": {
+      "questions": 65,
+      "evidence_bearing_calls": 301,
+      "mean_selected_nodes": 15.219269102990033,
+      "mean_selected_passages": 85.32225913621262,
+      "mean_final_view_nodes": 13.661538461538461,
+      "mean_final_view_passages": 78.83076923076923,
+      "note": "Counts of admitted original entries/spans, not distinct facts. Queries and trajectories differ; this is not a fixed-input causal estimate."
+    }
+  },
+  "recorded_call_ledger": {
+    "recorded_logical_calls": 2635,
+    "statuses": {
+      "returned": 2590,
+      "error": 45
+    },
+    "unknown_usage_calls": 45,
+    "received_prompt_tokens": 20201770,
+    "received_completion_tokens": 496900,
+    "received_total_tokens": 20698670,
+    "recorded_api_seconds_sum": 12427.981214761734
+  }
+}

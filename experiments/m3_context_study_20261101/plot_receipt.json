@@ -1,13 +1,14 @@
 {
   "matplotlib_version": "3.11.2",
-  "source_sha256": "4a4f60753746970f0ccd72affb967f61a2621cca3e0ed3f406db1a0e602cbf65",
+  "source_sha256": "8a7f66ecc7f90bee659eafe191a1925e11b8fffddb84977c6a32abbecb73ccb5",
   "methods": [
     "historical_ogmemory",
     "m3_reference_text",
     "budget_only",
     "finalization",
     "compact12k",
-    "grouped12k"
+    "grouped12k",
+    "finalization_repeat"
   ],
   "output": "latex/figures/context_cache.pdf",
   "values": {
@@ -92,6 +93,17 @@
       "unknown_usage_calls": 0,
       "total_input_reduction_vs_original": 0.8613225254673913,
       "uncached_input_reduction_vs_original": 0.6836257646381645,
+      "prior_attempts": {}
+    },
+    "finalization_repeat": {
+      "logical_calls": 361,
+      "prompt_tokens": 4707523,
+      "cached_prompt_tokens": 616596,
+      "uncached_prompt_tokens": 4090927,
+      "cache_fraction": 0.13098098511680134,
+      "unknown_usage_calls": 0,
+      "total_input_reduction_vs_original": 0.763509376110389,
+      "uncached_input_reduction_vs_original": 0.40865278843037667,
       "prior_attempts": {}
     }
   }

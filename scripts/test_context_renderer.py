@@ -1,6 +1,7 @@
 """Synthetic rendering fixtures live only in pytest tmp directories, never runs/."""
 import hashlib
 import json
+import csv
 
 import pytest
 
@@ -47,7 +48,7 @@ def prepare(tmp_path, monkeypatch):
                 "tokenizer_hash_mismatches": [], "counter_exceedances": [],
                 "mean_score_all_65": score, "qa_usage": usage,
                 "finish_reasons": {"done": 65}, "finalization_reasons": {},
-                "packing_seconds": {}, "question_wall_seconds": {},
+                "packing_seconds": {}, "question_wall_seconds": {"max": 10.},
                 "source_commit": "synthetic",
             })
             manifest = {
@@ -83,6 +84,10 @@ def test_full_seven_condition_report_and_repeat_mean(tmp_path, monkeypatch):
     tex = (tmp_path / "latex/context_optimization_results.tex").read_text()
     assert "CONTEXT_REPORT_STATUS: final" in tex
     assert "455" in tex and "B独立重复" in tex
+    with (output / "joint_questions.csv").open(newline="") as stream:
+        records = list(csv.DictReader(stream))
+    assert len(records) == 455
+    assert {r["method"] for r in records} == set(render.LABELS)
 
 
 def test_unresolved_judge_error_cannot_publish_final_report(tmp_path, monkeypatch):

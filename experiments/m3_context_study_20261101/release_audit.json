@@ -1,0 +1,43 @@
+{
+  "observed_at": "2026-11-01T18:24:53.079305+08:00",
+  "technical_artifacts_ready": true,
+  "report_delivery_requested_for": "2026-11-01T23:30:00+08:00",
+  "ogmemory_branch": "m3_dev_1031",
+  "ogmemory_commit": "83e51d987a9f00caa31d3220b70c669a8c9aa554",
+  "root_branch": "main",
+  "root_parent_before_publication": "680292af92d7a163cf32a587e0d54bd0867357f9",
+  "push_performed_by_this_task": false,
+  "fixed_cohort_questions_per_condition": 65,
+  "conditions": 7,
+  "joint_judgments": 455,
+  "joint_judge_errors": 0,
+  "csv_jsonl_predicted_answers_and_scores_match": true,
+  "all_model_and_scope_checks_passed": true,
+  "core_frozen_archives_verified": 5,
+  "prediction_files_verified": 35,
+  "database_fingerprints_match_early_snapshot": true,
+  "annotations_match_original_canonical_manifest": true,
+  "source_tests": "1041 passed; expanded1388 passed/108 skipped/9 documented existing exclusions",
+  "root_tests": "48 passed",
+  "pdf_pages": 12,
+  "latex_undefined_or_missing_or_overfull": false,
+  "artifacts_sha256": {
+    "latex/report.pdf": "5468d1ac1d85983d8d4c110a8c1fcc2d6c26ed40197959860e6b3ec3fc667ca5",
+    "latex/report.tex": "cd1e825114b1fb32401a76907826e2e699ccf8bfdec89b04e1a93d4e58170d35",
+    "latex/context_optimization_results.tex": "4c28e6536710d18eb40f1d38a7d376041a5dbf7b8725f393d78e7d95821c2b1a",
+    "latex/figures/context_cache.pdf": "032abdf9f50f6b8b7dc60722ab8c12daff570b9bb6fc64e95754cb992f0b200f",
+    "experiments/m3_context_study_20261101/REPORT.md": "d630b0252b6bfbcf88b5494e988e49e81c8bb6e47158a1c7aca8cb7b5289ff54",
+    "experiments/m3_context_study_20261101/comparison.json": "0591e8e1fba892f135a620d30e2f8dc2eb5ef871610f18af77216c3bb12b3f4c",
+    "experiments/m3_context_study_20261101/joint_questions.csv": "08af4323a9b1cc179ff5f8806f71e06ea5bba4611fa17a55cdf9b9f5ecf397b3",
+    "experiments/m3_context_study_20261101/joint_questions.jsonl": "24933575e2e3c13fe0967cddd540446d4dddf0fc8e5be57a7f344f14445c739e"
+  },
+  "limitations": [
+    "Five development videos, not a held-out or full benchmark result",
+    "Automatic same-model judge, not independent human accuracy",
+    "Current-clip visibility is not strict-causal",
+    "M3 reference is an adaptation, not official checkpoint reproduction",
+    "Quality gains mainly accompany recovered timeouts; previously answered questions still regress",
+    "All five cluster intervals include zero",
+    "Unknown-usage and interrupted requests are not treated as zero billing"
+  ]
+}

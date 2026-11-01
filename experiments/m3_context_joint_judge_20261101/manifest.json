@@ -1,0 +1,65 @@
+{
+  "seed": 42,
+  "tasks": 455,
+  "source_prediction_hashes": {
+    "historical_ogmemory": {
+      "runs/m3_flash_medium_20261031/study_05/m3_qa_results.jsonl": "91bff52036054bfc7568b207450f529e622336ef299ee767f2fada0267d87c90",
+      "runs/m3_flash_medium_20261031/gym_03/m3_qa_results.jsonl": "3198c84ba7e1e9b4ffd464d1fb53fde580e4b6f8930aafac9045eb41cc828282",
+      "runs/m3_flash_medium_20261031/bedroom_04/m3_qa_results.jsonl": "861a23febc68d9c93577b72546a53e823a4305f86f6924b18ce50a4f1b2b4c8e",
+      "runs/m3_study18_recovery_20261101/study_18/m3_qa_results.jsonl": "6765339165bcd96ab774b2944d622b7021b7827ef4476c9d8f923675ae77c063",
+      "runs/m3_flash_medium_20261031/kitchen_20/m3_qa_results.jsonl": "651cec15751e386aacd4c15d00314634d0b6bbba16007f7db006453a9fe657f8"
+    },
+    "m3_reference_text": {
+      "runs/m3_agent_reference_text_20261101/study_05/m3_qa_results.jsonl": "26e882b5d618f1d4e7362ce2033ed16f85ffe56c52e1fab09f8573c5529c8bf3",
+      "runs/m3_agent_reference_text_20261101/gym_03/m3_qa_results.jsonl": "58219ff65c23dbc9374e83b4c6a5eb8480f1365858146d8d53ca596afb5fe6fb",
+      "runs/m3_agent_reference_text_20261101/bedroom_04/m3_qa_results.jsonl": "defac1e3e285a82b7d09d850510f4a1881586edc9e35e1d0bb6b5fd68c2d3890",
+      "runs/m3_agent_reference_text_20261101/study_18/m3_qa_results.jsonl": "f24047c8b9db40d5adbcf3935336ebbd18f8feabf6778d7578e9686ea62d80f3",
+      "runs/m3_agent_reference_text_20261101/kitchen_20/m3_qa_results.jsonl": "06fb4776fc449ecc026d9a6122eedbd696b784a94524a5f0e52631758565e8eb"
+    },
+    "budget_only": {
+      "runs/m3_context_budget_recovered_20261101/study_05/m3_qa_results.jsonl": "0597bd5a8460191fde15250047bdea958bfb57f3921a97a25f4b5ea55ad6ee9c",
+      "runs/m3_context_budget_recovered_20261101/gym_03/m3_qa_results.jsonl": "4176d844fe9397515dc679bca0c2c038bd08c70167101b571fecfd1b06109ee4",
+      "runs/m3_context_budget_recovered_20261101/bedroom_04/m3_qa_results.jsonl": "3e15c3b990ebcbb1f2abf31c02a6f298b9dcfd41f427f12dce3e61f0e62400ab",
+      "runs/m3_context_budget_recovered_20261101/study_18/m3_qa_results.jsonl": "3dff113f5a2259994a164d6aadad651977686b1a95ed1c10cee404867e66d2fa",
+      "runs/m3_context_budget_recovered_20261101/kitchen_20/m3_qa_results.jsonl": "454067dd0bd3b3cd98f55e243e94b0b94d342cab64e95bcfe5dcc533941d743a"
+    },
+    "finalization": {
+      "runs/m3_context_finalization_recovered_20261101/study_05/m3_qa_results.jsonl": "99610fbcb07cb84746e522e5fc2a81cf0cc74469b04d87f397a49e530c658a54",
+      "runs/m3_context_finalization_recovered_20261101/gym_03/m3_qa_results.jsonl": "ed0ca8cadfb2e92e7aebd6f315745902c868c2d227ff6bf3cdbc2cad8d2a4299",
+      "runs/m3_context_finalization_recovered_20261101/bedroom_04/m3_qa_results.jsonl": "1da5369c5ea3820608d88d36bb571ee6a089673a7336f69c8c999082e070c24b",
+      "runs/m3_context_finalization_recovered_20261101/study_18/m3_qa_results.jsonl": "69be8d82a7053a827a9c00680c1fa76c52b25a6f67e3d579c7f400d4646fe2b4",
+      "runs/m3_context_finalization_recovered_20261101/kitchen_20/m3_qa_results.jsonl": "dc1901969204f07f8cc86ca700ab7aaf69381ac882484eb2dbc84cc227b744ac"
+    },
+    "compact12k": {
+      "runs/m3_context_compact12k_guarded_20261101/study_05/m3_qa_results.jsonl": "1a8b1266b386ee4d94951f52012ac2723d26a44f1f54c321a315c62d8ebc5579",
+      "runs/m3_context_compact12k_guarded_20261101/gym_03/m3_qa_results.jsonl": "a54ad3393a50513a9836997ef36cd5e28bd9e4acae81986f5ab99dc2ba011b05",
+      "runs/m3_context_compact12k_guarded_20261101/bedroom_04/m3_qa_results.jsonl": "ffe2bb4bd19123503b8264be2121b9155bfa90deb8e35097a113e01a2108938f",
+      "runs/m3_context_compact12k_guarded_20261101/study_18/m3_qa_results.jsonl": "c14686697559a4cd571565af9e4f616f2af218a1c70b2f6aa8babac850d43aeb",
+      "runs/m3_context_compact12k_guarded_20261101/kitchen_20/m3_qa_results.jsonl": "0a6ac94516b3e95063df9aeb45810c0eb477dd868142a6a8104a5800af1e4202"
+    },
+    "grouped12k": {
+      "runs/m3_context_grouped12k_v2_20261101/study_05/m3_qa_results.jsonl": "b1647c26bd616936dfd201dccab6888c34d61be39e808ebde47086024d8bd0ab",
+      "runs/m3_context_grouped12k_v2_20261101/gym_03/m3_qa_results.jsonl": "a9113bb8f1b70dd5d7ee09ac295730a93c2c22da6e390903c6f67233efdbab77",
+      "runs/m3_context_grouped12k_v2_20261101/bedroom_04/m3_qa_results.jsonl": "9078b6571f8279ad15ba7a4549640ea956ad8146987c3a91cd3246ec86e436da",
+      "runs/m3_context_grouped12k_v2_20261101/study_18/m3_qa_results.jsonl": "8f6da58a7297c05eac9beb7421e579cbd706438715ca9c3d825f34e48be580c3",
+      "runs/m3_context_grouped12k_v2_20261101/kitchen_20/m3_qa_results.jsonl": "4c2d385459e52cabb60b3345b2dbfa04d59f9d3985f39cd664c6da4b9fc6f7d7"
+    },
+    "finalization_repeat": {
+      "runs/m3_context_finalization_repeat_20261101/study_05/m3_qa_results.jsonl": "8dcbd818d98e2a4f4a72966053de4d636fe5464ad05f495b26da57e5c57eb5be",
+      "runs/m3_context_finalization_repeat_20261101/gym_03/m3_qa_results.jsonl": "217457bbb6be4f7535a75601c875a1623957650f5e288b4c88f8335bec85971f",
+      "runs/m3_context_finalization_repeat_20261101/bedroom_04/m3_qa_results.jsonl": "1452819a1b8ae5e271b56b2d8d7af328af0a224fa1b4c12b3256fe19e4e6b742",
+      "runs/m3_context_finalization_repeat_20261101/study_18/m3_qa_results.jsonl": "1110c966eb7c040237fe485d4ae688c11cbd64cf786a3a69a8edea47d899fd96",
+      "runs/m3_context_finalization_repeat_20261101/kitchen_20/m3_qa_results.jsonl": "ac34e0cb5033c1433fe2a8ac130ebf98a04f98f261a324aae62612d6d43e32df"
+    }
+  },
+  "evaluation_source_sha256": "1c8b769ac3b02554aeca5ce37449578b603136322f192e4164c38d1180c74c13",
+  "runner_sha256": "ccd7179848a47d49e8e42baae7c3f7fbc1ead5af872d87a21d7f5aecbe226b5b",
+  "model": "MiniMax-M3.1-Flash",
+  "reasoning_effort": "medium",
+  "max_completion_tokens": 2048,
+  "thinking": "adaptive",
+  "cooperative_request_deadline_seconds": 120,
+  "ordering": "all (method, question) pairs shuffled; method not sent to judge",
+  "retry_policy": "no selective success regrading; any API-error recovery saved separately",
+  "deadline": "2026-11-01T23:30:00+08:00"
+}

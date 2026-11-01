@@ -119,3 +119,19 @@ unchanged data from that time onward, not falsely prove an earlier snapshot exis
 - The older M3 adaptation unit tests were independently rerun: **9 passed**.
 - Archived prior CSVs only had record terminators normalized toLF; parsed field
   values, including embedded whitespace, were verified unchanged.
+
+## Final artifacts
+
+- All root tests: **48 passed**, including joint-judge recovery, renderer,
+  input-integrity checks and actual-call ledger accounting.
+- Joint evaluation:455 rows,448 real judge API calls and7 automatic zeros for
+  invalid QA; zero judge errors, all reported models/request settings match,
+  all calls returnedusage and none terminated at output length.
+- Final frozen-input audit verifies455 task records and35 prediction-file hashes.
+  All5 new-arm source snapshots match their recorded Git archives.
+- Final database row-content fingerprints match the early snapshot; canonical
+  annotations match the original sample manifest.
+- PDF successfully built12 pages; final log has no undefined reference,
+  missing-character or overfull warnings. Pages8–10 were visually inspected.
+- `release_audit.json` records artifact hashes and the technical completion
+  checks. User-facing delivery remains scheduled for23:30.

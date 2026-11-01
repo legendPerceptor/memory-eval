@@ -23,8 +23,9 @@ JOBS = [
     ("m3_context_finalization_recovered_20261101", "2026-11-01T10:00:00+08:00"),
     ("m3_context_compact12k_guarded_20261101", "2026-11-01T11:30:00+08:00"),
     ("m3_context_grouped12k_v2_20261101", "2026-11-01T15:05:00+08:00"),
-    ("m3_context_finalization_repeat_20261101", "2026-11-01T20:05:00+08:00"),
+    ("m3_context_finalization_repeat_20261101", "2026-11-01T16:40:00+08:00"),
 ]
+REPEAT_EVENING = datetime.datetime.fromisoformat("2026-11-01T20:05:00+08:00").timestamp()
 
 
 def save(path, data):
@@ -117,6 +118,8 @@ def main():
         "jobs": [{"name": name, "not_before": not_before} for name, not_before in JOBS],
         "deadline": "2026-11-01T23:30:00+08:00",
         "minimum_reported_interval_remaining_percent": 45,
+        "early_repeat_minimum_remaining_percent": 70,
+        "early_repeat_before": "2026-11-01T20:05:00+08:00",
         "coordinator_source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "note": "Conservative window pacing, not a claim of exact token capacity; no purchase or key/model switching.",
     })
@@ -138,9 +141,13 @@ def main():
             if available and available["weekly_remaining_percent"] <= 0:
                 status(status="provider_weekly_quota_exhausted", pending=name)
                 return
-            if available and available["interval_remaining_percent"] >= 45:
+            early_repeat = name == "m3_context_finalization_repeat_20261101" and time.time() < REPEAT_EVENING
+            threshold = 70 if early_repeat else 45
+            if available and available["interval_remaining_percent"] >= threshold:
                 break
             next_check = (available["window_end_unix"] + 60) if available else time.time() + 600
+            if available and early_repeat:
+                next_check = max(next_check, REPEAT_EVENING)
             if not wait_until(max(time.time() + 60, next_check), name):
                 return
         rc = run_command(

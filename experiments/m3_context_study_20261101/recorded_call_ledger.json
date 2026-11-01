@@ -1,0 +1,165 @@
+{
+  "scope": "Context-study calls only; excludes prior memory generation and earlier original/M3 benchmark runs.",
+  "by_run": {
+    "m3_context_budget_only_20261101": {
+      "recorded_logical_calls": 371,
+      "statuses": {
+        "returned": 354,
+        "error": 17
+      },
+      "unknown_usage_calls": 17,
+      "received_prompt_tokens": 4070434,
+      "received_completion_tokens": 84430,
+      "received_total_tokens": 4154864,
+      "recorded_api_seconds_sum": 1610.7279288768768
+    },
+    "m3_context_budget_recovered_20261101": {
+      "recorded_logical_calls": 71,
+      "statuses": {
+        "returned": 71
+      },
+      "unknown_usage_calls": 0,
+      "received_prompt_tokens": 693995,
+      "received_completion_tokens": 12567,
+      "received_total_tokens": 706562,
+      "recorded_api_seconds_sum": 337.98511505126953
+    },
+    "m3_context_finalization_20261101": {
+      "recorded_logical_calls": 28,
+      "statuses": {
+        "error": 28
+      },
+      "unknown_usage_calls": 28,
+      "received_prompt_tokens": 0,
+      "received_completion_tokens": 0,
+      "received_total_tokens": 0,
+      "recorded_api_seconds_sum": 106.62031078338623
+    },
+    "m3_context_finalization_recovered_20261101": {
+      "recorded_logical_calls": 430,
+      "statuses": {
+        "returned": 430
+      },
+      "unknown_usage_calls": 0,
+      "received_prompt_tokens": 4845610,
+      "received_completion_tokens": 99476,
+      "received_total_tokens": 4945086,
+      "recorded_api_seconds_sum": 2180.7076394557953
+    },
+    "m3_context_compact12k_guarded_20261101": {
+      "recorded_logical_calls": 430,
+      "statuses": {
+        "returned": 430
+      },
+      "unknown_usage_calls": 0,
+      "received_prompt_tokens": 2762290,
+      "received_completion_tokens": 81059,
+      "received_total_tokens": 2843349,
+      "recorded_api_seconds_sum": 1892.393862247467
+    },
+    "m3_context_grouped12k_v2_20261101": {
+      "recorded_logical_calls": 431,
+      "statuses": {
+        "returned": 431
+      },
+      "unknown_usage_calls": 0,
+      "received_prompt_tokens": 2801582,
+      "received_completion_tokens": 80574,
+      "received_total_tokens": 2882156,
+      "recorded_api_seconds_sum": 2391.220623254776
+    },
+    "m3_context_finalization_repeat_20261101": {
+      "recorded_logical_calls": 426,
+      "statuses": {
+        "returned": 426
+      },
+      "unknown_usage_calls": 0,
+      "received_prompt_tokens": 4749507,
+      "received_completion_tokens": 102342,
+      "received_total_tokens": 4851849,
+      "recorded_api_seconds_sum": 2846.348580121994
+    },
+    "m3_context_joint_judge_20261101": {
+      "recorded_logical_calls": 448,
+      "statuses": {
+        "returned": 448
+      },
+      "unknown_usage_calls": 0,
+      "received_prompt_tokens": 278352,
+      "received_completion_tokens": 36452,
+      "received_total_tokens": 314804,
+      "recorded_api_seconds_sum": 1061.977154970169
+    }
+  },
+  "by_role": {
+    "qa": {
+      "recorded_logical_calls": 1856,
+      "statuses": {
+        "returned": 1818,
+        "error": 38
+      },
+      "unknown_usage_calls": 38,
+      "received_prompt_tokens": 19717560,
+      "received_completion_tokens": 432221,
+      "received_total_tokens": 20149781,
+      "recorded_api_seconds_sum": 10514.750952482224
+    },
+    "judge": {
+      "recorded_logical_calls": 779,
+      "statuses": {
+        "returned": 772,
+        "error": 7
+      },
+      "unknown_usage_calls": 7,
+      "received_prompt_tokens": 484210,
+      "received_completion_tokens": 64679,
+      "received_total_tokens": 548889,
+      "recorded_api_seconds_sum": 1913.2302622795105
+    }
+  },
+  "total_recorded": {
+    "recorded_logical_calls": 2635,
+    "statuses": {
+      "returned": 2590,
+      "error": 45
+    },
+    "unknown_usage_calls": 45,
+    "received_prompt_tokens": 20201770,
+    "received_completion_tokens": 496900,
+    "received_total_tokens": 20698670,
+    "recorded_api_seconds_sum": 12427.981214761734
+  },
+  "separate_availability_probe": {
+    "calls": 1,
+    "received_usage": {
+      "total_tokens": 209,
+      "total_characters": 0,
+      "prompt_tokens": 206,
+      "completion_tokens": 3,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 197
+      }
+    },
+    "benchmark_answer": false
+  },
+  "source_log_sha256": {
+    "experiments/m3_context_budget_only_20261101/model-usage.jsonl": "ba61bf1e5144d0c4ae33faca3de16a78dcfb2478f076c4fb0965651314b87651",
+    "experiments/m3_context_budget_recovered_20261101/model-usage.jsonl": "e437f3da53ac62a073e0c51ad4a93cd26251ccb9b378837f76ea07f3d430e104",
+    "experiments/m3_context_finalization_20261101/model-usage.jsonl": "feea0cbda7f677807308a0939b3d8b37d0179142feca397894f602ee2c2bd97c",
+    "experiments/m3_context_finalization_recovered_20261101/model-usage.jsonl": "788855772aea2b54c60bab6ee281837e1c58496fd9c4b547a5e93fbf607e0223",
+    "experiments/m3_context_compact12k_guarded_20261101/model-usage.jsonl": "d3273cdb32c05a6dd73a9b0d07a986b833952641a4b120ff3b7ac7b49bf04c37",
+    "experiments/m3_context_grouped12k_v2_20261101/model-usage.jsonl": "6445cab172870fa0467adc91f619f1d51c4010765f0c72910667f9fbb423ce9e",
+    "experiments/m3_context_finalization_repeat_20261101/model-usage.jsonl": "10e86a61d9a7556244d703bc6b551aa2123480c138ad706d4c20826f014c0ee2",
+    "experiments/m3_context_joint_judge_20261101/model-usage.jsonl": "9745f09896ed9304f0713a595bd0a87727fcb3b7d86cb9308d28d218b5590106"
+  },
+  "cautions": [
+    "Each actual log is counted once. Reused successful trajectories are not double-counted.",
+    "Includes interrupted original A/B and their recorded failed requests, not just the final chosen trajectories.",
+    "Missing usage is unknown, not zero billing. A forcibly interrupted in-flight call may lack a completion log.",
+    "Logical call duration may include SDK retries; sums are not overall wall time or a bill.",
+    "Read-only quota queries, local embedding service and configuration/tests are not chat-generation token calls."
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "observed_at": "2026-11-01T18:19:27.005162+08:00",
+  "source_runs": {
+    "m3_context_budget_recovered_20261101": {
+      "source_commit": "c992d45bacfabf1c1e18f8ecd54c70389b0d3721",
+      "tracked_source_entries_verified": 1321,
+      "matches_recorded_archive_and_git_revision": true,
+      "runner_sha256_observed_now": "6abd0ee567e23d87970df9917f5a3a6c2167986cb424318390bbc5428951309d",
+      "instrumentation_sha256_observed_now": "8195577ef3e69d5d7b7811df100b52d0682a41fa74ee668eb7b8f31c6787cda0"
+    },
+    "m3_context_finalization_recovered_20261101": {
+      "source_commit": "9eb782e413ac57ba6ac607d25cc56905e262100e",
+      "tracked_source_entries_verified": 1322,
+      "matches_recorded_archive_and_git_revision": true,
+      "runner_sha256_observed_now": "6abd0ee567e23d87970df9917f5a3a6c2167986cb424318390bbc5428951309d",
+      "instrumentation_sha256_observed_now": "8195577ef3e69d5d7b7811df100b52d0682a41fa74ee668eb7b8f31c6787cda0"
+    },
+    "m3_context_compact12k_guarded_20261101": {
+      "source_commit": "68e1993c623fcaffe06c7707825c03c024ebe3de",
+      "tracked_source_entries_verified": 1322,
+      "matches_recorded_archive_and_git_revision": true,
+      "runner_sha256_observed_now": "6abd0ee567e23d87970df9917f5a3a6c2167986cb424318390bbc5428951309d",
+      "instrumentation_sha256_observed_now": "8195577ef3e69d5d7b7811df100b52d0682a41fa74ee668eb7b8f31c6787cda0"
+    },
+    "m3_context_grouped12k_v2_20261101": {
+      "source_commit": "76879efa6c727f93f7bd437a35171437d892846e",
+      "tracked_source_entries_verified": 1323,
+      "matches_recorded_archive_and_git_revision": true,
+      "runner_sha256_observed_now": "3f82c6e4057091404f97d45464dba90821c5c5d6d787587350b964bb9f5e1fda",
+      "instrumentation_sha256_observed_now": "8195577ef3e69d5d7b7811df100b52d0682a41fa74ee668eb7b8f31c6787cda0"
+    },
+    "m3_context_finalization_repeat_20261101": {
+      "source_commit": "9eb782e413ac57ba6ac607d25cc56905e262100e",
+      "tracked_source_entries_verified": 1322,
+      "matches_recorded_archive_and_git_revision": true,
+      "runner_sha256_observed_now": "3f82c6e4057091404f97d45464dba90821c5c5d6d787587350b964bb9f5e1fda",
+      "instrumentation_sha256_observed_now": "8195577ef3e69d5d7b7811df100b52d0682a41fa74ee668eb7b8f31c6787cda0"
+    }
+  },
+  "joint_judging": {
+    "tasks_verified": 455,
+    "prediction_files_verified": 35,
+    "all_predictions_and_task_fields_unchanged": true,
+    "judge_errors": 0
+  },
+  "annotations": {
+    "raw_file_sha256": "f43031bf0216a2ef2e7909f20ecd534e0098da17b63cdf94325a07f1bea372c1",
+    "canonical_json_sha256": "bb02225f22a097bbd077c4913bdf85e4f0c6f5cbd37eaee49c1de41ece30dded",
+    "matches_original_sampling_manifest": true,
+    "canonicalization": "json.dumps(parsed, sort_keys=True, ensure_ascii=False), default separators, UTF-8"
+  },
+  "note": "Core frozen files are checked against Git archives. Outer runner/instrumentation hashes are observations now, not retrospective proof of historical immutability."
+}

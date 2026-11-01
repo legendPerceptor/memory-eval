@@ -1,0 +1,10 @@
+{
+  "observed_at": "2026-11-01T16:37:49.588129+08:00",
+  "reason": "Read-only quota check still reports76%; advance the already planned full B repeat to leave more time for joint judging and recovery before23:30. No additional condition, changed model/config, reused answer, or best-of selection.",
+  "reported_interval_remaining_percent": 76,
+  "early_launch_threshold_percent": 70,
+  "not_before": "2026-11-01T16:40:00+08:00",
+  "fallback_window": "2026-11-01T20:05:00+08:00",
+  "repeat_answers_existing": 0,
+  "joint_judging_started": false
+}

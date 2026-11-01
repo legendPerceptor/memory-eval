@@ -3,7 +3,7 @@ import json
 import pytest
 
 from analyze_context_cache import observed_usage
-from render_context_comparison import clustered_interval, replication_summary
+from render_context_comparison import clustered_interval, replication_summary, recovery_decomposition
 
 
 def test_cached_and_unknown_usage_are_separate(tmp_path):
@@ -60,3 +60,19 @@ def test_repeat_is_not_best_of_and_identical_answer_grading_drift_is_visible():
     assert result["mean_of_two_run_scores"] == .625
     assert result["identical_predictions_with_different_judge_scores"] == ["q1"]
     assert not result["best_of_selection"]
+
+
+def test_recovery_gain_does_not_hide_regression_on_previously_answered_question():
+    grades = [
+        {"method": "historical_ogmemory", "question_id": "q1", "predicted_answer": "desk", "error": "", "judge_score": 1.},
+        {"method": "historical_ogmemory", "question_id": "q2", "predicted_answer": "", "error": "timeout", "judge_score": 0.},
+        {"method": "finalization", "question_id": "q1", "predicted_answer": "shelf", "error": "", "judge_score": .5},
+        {"method": "finalization", "question_id": "q2", "predicted_answer": "right", "error": "", "judge_score": 1.},
+    ]
+    result = recovery_decomposition(grades, ["finalization"])
+    assert result["previous_answered_count"] == result["previous_nonanswer_count"] == 1
+    assert result["methods"]["finalization"] == {
+        "score_point_change_on_previously_answered": -.5,
+        "score_point_change_on_previous_nonanswers": 1.,
+        "net_score_point_change": .5,
+    }
