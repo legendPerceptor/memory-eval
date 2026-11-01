@@ -1,6 +1,9 @@
 {
-  "observed_at": "2026-11-02T00:53:50.896302+08:00",
-  "status": "running",
-  "job": "m3_facts_only_20261102",
-  "active_process_group": 2022632
+  "observed_at": "2026-11-02T01:56:59.799830+08:00",
+  "status": "finished",
+  "jobs": [
+    "m3_facts_identity_incremental_20261102",
+    "m3_facts_only_20261102",
+    "m3_facts_identity_20261102"
+  ]
 }

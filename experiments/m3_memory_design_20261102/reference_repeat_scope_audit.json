@@ -1,0 +1,22 @@
+{
+  "tasks_verified": 130,
+  "reference_questions": 65,
+  "question_expected_answer_and_scope_match": true,
+  "prediction_hashes": {
+    "balanced_prior": {
+      "runs/m3_context_finalization_recovered_20261101/study_05/m3_qa_results.jsonl": "99610fbcb07cb84746e522e5fc2a81cf0cc74469b04d87f397a49e530c658a54",
+      "runs/m3_context_finalization_recovered_20261101/gym_03/m3_qa_results.jsonl": "ed0ca8cadfb2e92e7aebd6f315745902c868c2d227ff6bf3cdbc2cad8d2a4299",
+      "runs/m3_context_finalization_recovered_20261101/bedroom_04/m3_qa_results.jsonl": "1da5369c5ea3820608d88d36bb571ee6a089673a7336f69c8c999082e070c24b",
+      "runs/m3_context_finalization_recovered_20261101/study_18/m3_qa_results.jsonl": "69be8d82a7053a827a9c00680c1fa76c52b25a6f67e3d579c7f400d4646fe2b4",
+      "runs/m3_context_finalization_recovered_20261101/kitchen_20/m3_qa_results.jsonl": "dc1901969204f07f8cc86ca700ab7aaf69381ac882484eb2dbc84cc227b744ac"
+    },
+    "m3_reference_repeat": {
+      "runs/m3_reference_repeat_20261102/study_05/m3_qa_results.jsonl": "d901fad52b5a16ff132c771fdda36cc2d00b0c1bcf40478eccfdeb9326c36a37",
+      "runs/m3_reference_repeat_20261102/gym_03/m3_qa_results.jsonl": "eca407a8b60731a364165424ed54254cc713bd68a6d7b61904532f607749f88f",
+      "runs/m3_reference_repeat_20261102/bedroom_04/m3_qa_results.jsonl": "7e16ec4ebd060b3c6e5c7146266a4cbc4a9f5b7e04ca094625517338eb156e3d",
+      "runs/m3_reference_repeat_20261102/study_18/m3_qa_results.jsonl": "c5b663a6f9ff66b383c05591e77fcecca4a9468b5456bc783f15a28209c1c55d",
+      "runs/m3_reference_repeat_20261102/kitchen_20/m3_qa_results.jsonl": "2aa396496464731f860cdae442cab72ccce026d018bc7d969aa92ed95043749e"
+    }
+  },
+  "model_calls": 0
+}

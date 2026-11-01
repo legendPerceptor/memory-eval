@@ -33,7 +33,7 @@ def main():
         return
     while time.time() < runtime.DEADLINE - 3600:
         quota = runtime.quota()
-        if quota and quota["interval_remaining_percent"] >= 15:
+        if quota and quota["interval_remaining_percent"] >= 10:
             break
         until = quota["window_end_unix"] + 60 if quota else time.time() + 120
         if not runtime.wait_until(until, "joint_judging"):

@@ -1,0 +1,23 @@
+{
+  "source_nodes_by_video": {
+    "study_05": 69,
+    "gym_03": 68,
+    "bedroom_04": 56,
+    "study_18": 84,
+    "kitchen_20": 63
+  },
+  "indexed_nodes_by_video": {
+    "study_05": 69,
+    "gym_03": 68,
+    "bedroom_04": 56,
+    "study_18": 84,
+    "kitchen_20": 63
+  },
+  "skipped_sources": [],
+  "fact_windows": 7965,
+  "dry_run": true,
+  "embedding_calls": 0,
+  "chat_model_calls": 0,
+  "output_created": false,
+  "module_sha256": "121476e51404379eafbbf0ad9312e41ccefddf0b9c0e233498c0ebe2c1a57b58"
+}

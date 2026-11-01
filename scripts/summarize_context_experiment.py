@@ -133,6 +133,14 @@ def summarize(name):
             "temporal_scope": r["temporal_scope"],
         })
     all_packed = [p for r in qa for p in r["search_stats"].get("context_calls", [])]
+    increment_exceedances = [
+        {"call_index": i, "growth": p["estimated_input_tokens"] - p["non_evidence_input_tokens"],
+         "configured_increment": manifest["qa_context"].get("incremental_tokens", 5000)}
+        for i, p in enumerate(all_packed)
+        if (p.get("incremental_delivery") and not p.get("epoch_rebuilt")
+            and p.get("non_evidence_input_tokens") is not None
+            and p["estimated_input_tokens"] - p["non_evidence_input_tokens"]
+                > manifest["qa_context"].get("incremental_tokens", 5000))]
     score_sum = sum(g["judge_score"] for g in judge if not g["judge_error"])
     metrics = {
         "name": name, "source_commit": manifest["source_commit"],
@@ -169,6 +177,7 @@ def summarize(name):
         "packing_seconds": distribution([r["packing_seconds"] for r in all_packed]),
         "question_wall_seconds": distribution([r["wall_seconds"] for r in records if r["wall_seconds"] is not None]),
         "counter_exceedances": counter_exceedances,
+        "increment_budget_exceedances": increment_exceedances,
         "input_limit_exceedances": input_exceedances,
         "usage_pairing_errors": pairing_errors,
         "tokenizer_hash_mismatches": tokenizer_mismatches,
@@ -208,6 +217,11 @@ def summarize(name):
             "model_calls": sum(r["model_calls"] for r in selected),
             "judge_errors": sum(bool(r["judge_error"]) for r in graded),
         }
+    metrics["qa_complete"] = len(qa) == 65
+    if manifest.get("skip_initial_judge") and not judge:
+        metrics["score_sum"] = None
+        metrics["mean_score_all_65"] = None
+        metrics["grading_status"] = "not_initially_graded_common_judge_only"
     (exp / "metrics.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2) + "\n")
     (exp / "questions.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in records))
     if records:

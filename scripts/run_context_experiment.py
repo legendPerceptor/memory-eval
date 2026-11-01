@@ -9,6 +9,7 @@ import datetime
 import dataclasses
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import subprocess
@@ -39,6 +40,46 @@ def quota_exhausted(error):
     text = str(error)
     return ("已达到 Token Plan 用量上限" in text
             or ("Token Plan" in text and "(2056)" in text))
+
+
+def parse_quota_observation(body, observed):
+    if body.get("base_resp", {}).get("status_code") != 0:
+        raise ValueError("Quota response did not report success")
+    item = next(r for r in body["model_remains"] if r["model_name"] == "general")
+    percentage = item["current_interval_remaining_percent"]
+    weekly = item["current_weekly_remaining_percent"]
+    end = item["end_time"]
+    for value in (percentage, weekly):
+        if type(value) not in (int, float) or not 0 <= value <= 100:
+            raise ValueError("Invalid quota percentage")
+    if type(end) not in (int, float) or not math.isfinite(end):
+        raise ValueError("Invalid quota window")
+    end = end / 1000 if end > 1e11 else end
+    if end < observed - 60:
+        raise ValueError("Stale quota window")
+    return {"observed_at_unix": observed, "interval_remaining_percent": percentage,
+            "weekly_remaining_percent": weekly, "window_end_unix": end}
+
+
+def read_quota_observation():
+    import requests
+    observed = time.time()
+    for attempt in range(3):
+        try:
+            response = requests.get(
+                "https://www.minimax.cn/v1/token_plan/remains",
+                headers={"Authorization": "Bearer " + os.environ["MINIMAX_API_KEY"]},
+                timeout=15, allow_redirects=False)
+            if response.status_code != 200:
+                raise ValueError("Quota query failed")
+            result = parse_quota_observation(response.json(), time.time())
+            result["query_seconds"] = time.time() - observed
+            result["read_only_query_attempts"] = attempt + 1
+            return result
+        except (requests.RequestException, ValueError, KeyError, StopIteration):
+            if attempt == 2:
+                raise ValueError("Quota observation unavailable after bounded read-only retries") from None
+            time.sleep(1)
 
 
 def seed_recovery(destination, origin, source_name):
@@ -139,6 +180,8 @@ def prepare(args):
             settings[option] = True
     if getattr(args, "fact_memory", False):
         settings["max_passages_per_node"] = 12
+    if getattr(args, "incremental_tokens", 5000) != 5000:
+        settings["incremental_tokens"] = args.incremental_tokens
     if getattr(args, "fact_index", None):
         index_path = Path(args.fact_index).resolve()
         sys.path.insert(0, str(ROOT / "oGMemory"))
@@ -170,6 +213,10 @@ def prepare(args):
         max_iterations=6, timeout_seconds=180, temporal_policy="current_clip",
         note="QA-only, same stored memories. Historical baseline not contemporaneous. No best-of retries.",
         authorization_deadline=DEADLINE_ISO,
+        skip_initial_judge=(getattr(args, "skip_initial_judge", False)
+                            or bool(inherited and inherited.get("skip_initial_judge"))),
+        quota_reserve_percent=(getattr(args, "quota_reserve", 0)
+                               or (inherited or {}).get("quota_reserve_percent", 0)),
     )
     if inherited:
         manifest["source_from"] = source_from
@@ -224,6 +271,30 @@ def worker(args):
         nonlocal index, quota_stop
         if quota_stop:
             raise SystemExit(75)  # first error row was already persisted by QA
+        if time.time() >= DEADLINE - 300:
+            raise SystemExit(74)
+        reserve = manifest.get("quota_reserve_percent", 0)
+        if reserve:
+            next_index = pending_indices[index] if pending_indices is not None else index
+            try:
+                if (getattr(getattr(self._llm, "_client", None), "api_key", None)
+                        != os.environ.get("MINIMAX_API_KEY")):
+                    raise ValueError("Quota-account mismatch")
+                observation = read_quota_observation()
+                with (exp / "quota_guard.jsonl").open("a") as stream:
+                    stream.write(json.dumps({**observation, "video": args.video,
+                                             "next_question_index": next_index}) + "\n")
+            except Exception as error:
+                save(output / "quota_reserve_stop.json", {
+                    "reason": "quota_unavailable_or_account_mismatch",
+                    "error_type": type(error).__name__, "next_question_index": next_index})
+                raise SystemExit(76) from None
+            if (observation["interval_remaining_percent"] <= reserve
+                    or observation["weekly_remaining_percent"] <= 0):
+                save(output / "quota_reserve_stop.json", {
+                    "reason": "preserve_common_judge_quota", "reserve_percent": reserve,
+                    "observation": observation, "next_question_index": next_index})
+                raise SystemExit(76)
         index += 1
         if time.time() >= DEADLINE - 300:
             raise SystemExit(74)
@@ -257,7 +328,7 @@ def worker(args):
         "--context-k", "8", "--include-neighbors", "1", "--temporal-policy", "current_clip",
         ] + (["--resume"] if resume else []))
     except SystemExit as stopped:
-        if stopped.code not in (74, 75):
+        if stopped.code not in (74, 75, 76):
             raise
         rc = stopped.code
     if quota_stop:
@@ -327,6 +398,7 @@ def judge_worker(args):
 def driver(args):
     run = ROOT / "runs" / args.name
     exp = ROOT / "experiments" / args.name
+    manifest = json.loads((exp / "manifest.json").read_text())
     python = ROOT / "oGMemory/.venv/bin/python"
     env = {**os.environ, "M3_EVAL_ROOT": str(ROOT),
            "PYTHONPATH": f"{run}/_instrumentation:{run}/_source",
@@ -350,9 +422,10 @@ def driver(args):
                 save(exp / "status.json", {"status": "deadline_stopped", "videos": states})
                 return
         states[video] = {"qa_exit": result.returncode}
-        if result.returncode in (74, 75):
+        if result.returncode in (74, 75, 76):
             save(exp / "status.json", {
-                "status": "stopped_provider_quota" if result.returncode == 75 else "deadline_stopped",
+                "status": ("stopped_provider_quota" if result.returncode == 75 else
+                           "stopped_quota_reserve" if result.returncode == 76 else "deadline_stopped"),
                 "videos": states})
             return
         if result.returncode not in (0, 2):
@@ -361,6 +434,9 @@ def driver(args):
         qa = run / video / "m3_qa_results.jsonl"
         if qa.exists():
             states[video]["records"] = len(qa.read_text().splitlines())
+            if manifest.get("skip_initial_judge"):
+                states[video]["judge_exit"] = "skipped_common_judge_only"
+                continue
             if time.time() >= DEADLINE - 600:
                 save(exp / "status.json", {"status": "deadline_stopped", "videos": states})
                 return
@@ -400,6 +476,10 @@ if __name__ == "__main__":
     p.add_argument("--fact-index", help="Pinned source-fact sidecar manifest")
     p.add_argument("--force-answer-tool", action="store_true")
     p.add_argument("--fact-scene-anchors", action="store_true")
+    p.add_argument("--incremental-tokens", type=int, default=5000)
+    p.add_argument("--skip-initial-judge", action="store_true")
+    p.add_argument("--quota-reserve", type=float, default=0,
+                   help="Optional per-question guard preserving this remaining percentage for judging")
     p.add_argument("--source-from", help="Reuse a prior arm's exact frozen source and private configuration")
     p.add_argument("--resume-successes", action="store_true",
                    help="With --source-from, preserve successful answers and successful matching grades")
@@ -414,12 +494,15 @@ if __name__ == "__main__":
         raise SystemExit("Unsafe experiment name")
     if args.input_budget <= 0:
         raise SystemExit("Input budget must be positive")
+    if args.incremental_tokens <= 0 or not 0 <= args.quota_reserve < 100:
+        raise SystemExit("Invalid incremental or quota budget")
     if args.source_from and not args.source_from.replace("_", "").isalnum():
         raise SystemExit("Unsafe source experiment name")
     if args.source_from and (args.input_budget != 24000 or args.answer_reserve != 0
                              or args.evidence_format != "passages" or args.fact_memory
                              or args.identity_aware or args.incremental_delivery or args.fact_index
-                             or args.force_answer_tool or args.fact_scene_anchors):
+                             or args.force_answer_tool or args.fact_scene_anchors
+                             or args.incremental_tokens != 5000):
         raise SystemExit("--source-from preserves its configuration; do not combine it with tuning overrides")
     if args.resume_successes and not args.source_from:
         raise SystemExit("--resume-successes requires --source-from")

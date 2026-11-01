@@ -1,0 +1,13 @@
+{
+  "jobs": [
+    "m3_source_fact_index_v2_20261102",
+    "m3_source_fact_index_v2_repeat_20261102",
+    "m3_balanced_contemporary_20261102"
+  ],
+  "deadline": "2026-11-02T10:03:00+08:00",
+  "minimum_interval_remaining_percent": 30,
+  "per_job_minimum_interval_remaining_percent": {
+    "m3_balanced_contemporary_20261102": 40
+  },
+  "note": "First job already launched; wait for it, then serialize remaining prepared arms."
+}

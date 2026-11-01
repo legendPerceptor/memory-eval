@@ -1,0 +1,117 @@
+{
+  "name": "m3_facts_only_20261102",
+  "source_commit": "a9b0b2dc120c9cda04280d1cc01b2f41e14bdac6",
+  "independent_replication_of": null,
+  "prior_attempts": {},
+  "recovery_audit": {
+    "reused_answers": 0,
+    "reused_grades": 0,
+    "all_reused_rows_unchanged": true
+  },
+  "expected_questions": 65,
+  "qa_records": 65,
+  "judge_records": 65,
+  "valid_answers": 65,
+  "judge_errors": 0,
+  "complete": true,
+  "score_sum": 34.0,
+  "mean_score_all_65": 0.5230769230769231,
+  "mean_score_observed_judged": 0.5230769230769231,
+  "finish_reasons": {
+    "done": 65
+  },
+  "finalization_reasons": {
+    "not_triggered": 10,
+    "last_iteration": 55
+  },
+  "qa_usage": {
+    "logical_calls": 366,
+    "unknown_usage_calls": 0,
+    "prompt_tokens": 2560063,
+    "completion_tokens": 78256,
+    "reasoning_tokens": 50932,
+    "peak_prompt_tokens": 10858,
+    "cached_prompt_tokens": 511783,
+    "unknown_cache_usage_calls": 0,
+    "model_seconds_sum": 1471.426510334015
+  },
+  "packing_seconds": {
+    "count": 366,
+    "min": 0.008881655056029558,
+    "max": 1.593660794198513,
+    "mean": 0.8216500743126873,
+    "median": 0.9297172811347991,
+    "p95_nearest_rank": 1.2986125031020492
+  },
+  "question_wall_seconds": {
+    "count": 65,
+    "min": 4.449942843988538,
+    "max": 60.322027544956654,
+    "mean": 28.655710936119206,
+    "median": 27.490437536034733,
+    "p95_nearest_rank": 47.459003386087716
+  },
+  "counter_exceedances": [],
+  "input_limit_exceedances": [],
+  "usage_pairing_errors": [],
+  "tokenizer_hash_mismatches": [],
+  "questions_over_nominal_loop_timeout": [],
+  "historical_scope_audit_available": true,
+  "temporal_scope_mismatches": [],
+  "model_setting_deviations": [],
+  "by_video": {
+    "study_05": {
+      "records": 12,
+      "valid_answers": 12,
+      "judged": 12,
+      "mean_score": 0.4166666666666667,
+      "prompt_tokens": 484178,
+      "model_calls": 70,
+      "judge_errors": 0
+    },
+    "gym_03": {
+      "records": 11,
+      "valid_answers": 11,
+      "judged": 11,
+      "mean_score": 0.6363636363636364,
+      "prompt_tokens": 388484,
+      "model_calls": 57,
+      "judge_errors": 0
+    },
+    "bedroom_04": {
+      "records": 11,
+      "valid_answers": 11,
+      "judged": 11,
+      "mean_score": 0.8181818181818182,
+      "prompt_tokens": 463711,
+      "model_calls": 64,
+      "judge_errors": 0
+    },
+    "study_18": {
+      "records": 14,
+      "valid_answers": 14,
+      "judged": 14,
+      "mean_score": 0.32142857142857145,
+      "prompt_tokens": 557161,
+      "model_calls": 80,
+      "judge_errors": 0
+    },
+    "kitchen_20": {
+      "records": 17,
+      "valid_answers": 17,
+      "judged": 17,
+      "mean_score": 0.5,
+      "prompt_tokens": 666529,
+      "model_calls": 95,
+      "judge_errors": 0
+    }
+  },
+  "qa_files_sha256": {
+    "study_05": "c152751fd683c584147aca389a83a782dbd2ba58cc214e9b22d3c69757f75821",
+    "gym_03": "e44e0ded396789345b211becd4fe619c5fcaba487f7460ee369aa7276b727b8a",
+    "bedroom_04": "93f3923939b16f06049f4e39771ed05f42f5b805c1316301fddc1b016dd36320",
+    "study_18": "db239df48834049df06f406bc362b3625f6bae5433c0630946f109257687d303",
+    "kitchen_20": "757e955e821719ad48ff1950d4a6812db0e9bde50de5a8b5e5ef7efb1072db33"
+  },
+  "interpretation": "Fixed-memories QA development ablation, not independent human accuracy or an end-to-end memory regeneration."
+}

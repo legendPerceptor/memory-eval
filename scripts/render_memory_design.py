@@ -26,6 +26,9 @@ LABELS = {
     "source_index_scene": "H：S + 场景锚点 + 原生收尾",
     "source_index_scene_repeat": "H：独立重复",
     "incremental_only": "I：balanced 表示 + 增量交付",
+    "m3_reference_repeat": "M3-Agent：本轮同记忆重复",
+    "strict_incremental": "E：严格增量3500 + 原生收尾",
+    "strict_incremental_repeat": "E：独立重复",
 }
 
 
@@ -82,6 +85,33 @@ def behavior(name):
     }
 
 
+def paired_contrast(grades, left, right):
+    """Average repeated trajectories per question; never select the best answer."""
+    methods = set(left + right)
+    data = {m: {} for m in methods}
+    for row in grades:
+        if row["method"] in data:
+            key = row["video_id"], row["question_id"]
+            if key in data[row["method"]] or row.get("judge_error"):
+                raise ValueError("Duplicate/error grade in contrast")
+            data[row["method"]][key] = row["judge_score"]
+    keys = set(data[left[0]])
+    if not keys or any(set(rows) != keys for rows in data.values()):
+        raise ValueError("Contrast requires identical complete question sets")
+    deltas = {
+        key: statistics.mean(data[m][key] for m in left) - statistics.mean(data[m][key] for m in right)
+        for key in keys}
+    videos = sorted({key[0] for key in keys})
+    sums = [sum(delta for key, delta in deltas.items() if key[0] == video) for video in videos]
+    counts = [sum(key[0] == video for key in keys) for video in videos]
+    return {
+        "left_methods": left, "right_methods": right, "questions": len(keys),
+        "mean_paired_delta": sum(sums) / sum(counts),
+        "video_cluster_interval": clustered_interval(sums, counts),
+        "interpretation": "Exploratory paired video-cluster resampling; repeats averaged, not independent new questions.",
+    }
+
+
 def main():
     methods = json.loads((OUT / "methods.json").read_text())
     tasks, hashes = load_inputs()
@@ -96,13 +126,19 @@ def main():
         if method == "m3_reference":
             usage = previous["methods"]["m3_reference_text"]["qa_usage"]
             metrics = {}
+        elif method == "m3_reference_repeat":
+            metrics = json.loads((ROOT / "experiments" / name / "metrics.json").read_text())
+            usage = metrics["qa_usage"]
+            if metrics["model_setting_deviations"] or not metrics["frozen_inputs_unchanged"]:
+                raise ValueError("Reference repetition validation failed")
         else:
             if method not in REFERENCES:
                 summarize(name)
             metrics = json.loads((ROOT / "experiments" / name / "metrics.json").read_text())
             usage = metrics["qa_usage"]
             for key in ("temporal_scope_mismatches", "usage_pairing_errors",
-                        "input_limit_exceedances", "tokenizer_hash_mismatches", "model_setting_deviations"):
+                        "input_limit_exceedances", "tokenizer_hash_mismatches", "model_setting_deviations",
+                        "increment_budget_exceedances"):
                 if metrics.get(key):
                     raise ValueError(f"{name}: audit failure {key}")
         prompt, cached = usage["prompt_tokens"], usage.get("cached_prompt_tokens")
@@ -123,10 +159,11 @@ def main():
             "qa_usage": {**usage, "cached_prompt_tokens": cached,
                          "uncached_prompt_tokens": prompt - cached if cached is not None else None,
                          "cache_fraction": cached / prompt if prompt and cached is not None else None},
-            "initial_grade": metrics.get("mean_score_all_65"),
+            "initial_grade": (metrics.get("mean_score_all_65")
+                              if metrics.get("judge_records") == 65 else None),
             "finish_reasons": metrics.get("finish_reasons"),
             "wall_seconds": metrics.get("question_wall_seconds"),
-            "behavior": behavior(name) if method not in REFERENCES else None,
+            "behavior": behavior(name) if method not in REFERENCES and method != "m3_reference_repeat" else None,
         }
     for method in methods:
         deltas, counts = [], []
@@ -151,7 +188,45 @@ def main():
         replication["scene_scores"] = [result[m]["mean_score"] for m in optional]
         replication["scene_mean"] = statistics.mean(replication["scene_scores"])
         replication["scene_runs"] = len(optional)
+    if "m3_reference_repeat" in result:
+        replication["m3_reference_scores"] = [
+            result[m]["mean_score"] for m in ("m3_reference", "m3_reference_repeat")]
+        replication["m3_reference_mean"] = statistics.mean(replication["m3_reference_scores"])
+    if "strict_incremental" in result:
+        names = [m for m in ("strict_incremental", "strict_incremental_repeat") if m in result]
+        replication["strict_incremental_scores"] = [result[m]["mean_score"] for m in names]
+        replication["strict_incremental_mean"] = statistics.mean(replication["strict_incremental_scores"])
+        replication["strict_incremental_runs"] = len(names)
+    contrasts = {
+        "FI_minus_F": paired_contrast(grades, ["facts_identity"], ["facts"]),
+        "FIP_minus_FI": paired_contrast(grades, ["facts_identity_incremental"], ["facts_identity"]),
+        "S_mean_minus_FIP": paired_contrast(
+            grades, ["source_index", "source_index_repeat"], ["facts_identity_incremental"]),
+        "S_mean_minus_B_now": paired_contrast(
+            grades, ["source_index", "source_index_repeat"], ["balanced_contemporary"]),
+        "S_mean_minus_M3_mean": paired_contrast(
+            grades, ["source_index", "source_index_repeat"],
+            [m for m in ("m3_reference", "m3_reference_repeat") if m in result]),
+        "B_now_minus_B_prior_mean": paired_contrast(
+            grades, ["balanced_contemporary"], ["balanced_prior", "balanced_prior_repeat"]),
+    }
+    if "incremental_only" in result:
+        contrasts["I_minus_B_now"] = paired_contrast(
+            grades, ["incremental_only"], ["balanced_contemporary"])
+    if "source_index_scene" in result:
+        contrasts["H_mean_minus_S_mean"] = paired_contrast(
+            grades, [m for m in ("source_index_scene", "source_index_scene_repeat") if m in result],
+            ["source_index", "source_index_repeat"])
+    if "m3_reference_repeat" in result:
+        contrasts["M3_repeat_minus_prior"] = paired_contrast(
+            grades, ["m3_reference_repeat"], ["m3_reference"])
+    if "strict_incremental" in result:
+        names = [m for m in ("strict_incremental", "strict_incremental_repeat") if m in result]
+        contrasts["E_mean_minus_S_mean"] = paired_contrast(
+            grades, names, ["source_index", "source_index_repeat"])
+        contrasts["E_mean_minus_B_now"] = paired_contrast(grades, names, ["balanced_contemporary"])
     output = {"methods": result, "replication": replication, "joint_judge_tasks": len(grades),
+              "exploratory_paired_contrasts": contrasts,
               "judge_seed": manifest["seed"], "prediction_hashes": hashes,
               "limitations": [
                   "Fixed-memory QA development study, not a new audiovisual end-to-end run.",
@@ -171,7 +246,7 @@ def main():
     report = [
         "# 来源事实、人物条件与增量交付：最终共同评分",
         "", "固定5视频65题；下列为同批交错自动0/0.5/1评分，非人工准确率。",
-        "初评分保留在每组metrics.json，不择高拼接。", "",
+        "已执行的初评分保留在各组原目录，不择高拼接；仅共同评分的组不把缺失初评记为0。", "",
         "| 方案 | 有效答案 | 共同评分 | QA输入token | 未缓存输入 | 输入峰值 | 调用 |",
         "|---|---:|---:|---:|---:|---:|---:|",
     ]
@@ -191,7 +266,14 @@ def main():
                f'{result["balanced_contemporary"]["mean_score"]:.4f}；前次B两次答案在本批评委下'
                f'均值{replication["prior_balanced_mean"]:.4f}。',
                "详细行为、缓存、逐题结果、成对差异和五视频cluster bootstrap区间见comparison.json。",
-               "区间仅对照同期B，样本小且有多重开发比较，不作为确认性显著性结论。",
+               "逐方法区间对照同期B；组合对照在下表明确标出双方。重复先按题平均，不择高。",
+               "样本小且有多重开发比较，区间不作为确认性显著性结论。",
+               "", "| 探索性对照 | 平均分差 | 视频聚类区间 |", "|---|---:|---:|"]
+    for name, comparison in contrasts.items():
+        interval = comparison["video_cluster_interval"]
+        report.append(f'| {name} | {comparison["mean_paired_delta"]:+.4f} '
+                      f'| [{interval["lower"]:+.4f}, {interval["upper"]:+.4f}] |')
+    report += [
                "", "## 限制", *["- " + s for s in output["limitations"]]]
     (OUT / "REPORT.md").write_text("\n".join(report) + "\n")
     latex = [
@@ -217,6 +299,11 @@ def main():
               r"全部消融、失败、逐题评分与用量见\code{experiments/m3_memory_design_20261102/REPORT.md}。",
               "索引构建约63秒、37MB，QA用量不包含历史记忆生成。输入含缓存，",
               "不能将输入token比例当成费用或端到端加速比。",
+              r"\IfFileExists{figures/memory_design_tradeoff.pdf}{",
+              r"\begin{figure}[htbp]\centering",
+              r"\includegraphics[width=\linewidth]{figures/memory_design_tradeoff.pdf}",
+              r"\caption{同批自动评分与QA输入。每点为完整65题轨迹，重复运行分别显示；不是费用或端到端开销。}",
+              r"\end{figure}}{}",
               r"实现及安全边界见\code{docs/m3_memory_design.md}。"]
     (ROOT / "latex/memory_design_results.tex").write_text("\n".join(latex) + "\n")
     print(json.dumps({m: r["mean_score"] for m, r in result.items()}, indent=2))

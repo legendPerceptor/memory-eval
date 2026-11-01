@@ -1,0 +1,11 @@
+{
+  "model_calls": 0,
+  "configured_incremental_units": 1000,
+  "model_views_identical": true,
+  "clean_growth": 890,
+  "audit_heavy_growth": 890,
+  "clean_input_units": 1952,
+  "audit_heavy_input_units": 1952,
+  "counter": "UTF8 byte proxy for this fixture",
+  "global_budget_still_respected": true
+}

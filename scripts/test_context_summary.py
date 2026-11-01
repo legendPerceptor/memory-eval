@@ -86,3 +86,28 @@ def test_independent_repeat_does_not_count_reference_run_as_failed_overhead(tmp_
     assert result["qa_usage"]["logical_calls"] == 1
     assert result["prior_attempts"] == {}
     assert result["independent_replication_of"] == "reference"
+
+
+def test_strict_increment_overrun_is_reported_even_when_total_budget_fits(tmp_path, monkeypatch):
+    name, exp, run = fixture(tmp_path, monkeypatch)
+    (exp / "manifest.json").write_text(json.dumps({
+        "source_commit": "test", "qa_context": {"incremental_tokens": 10}}))
+    path = run / "study_05/m3_qa_results.jsonl"
+    record = summary.rows(path)[0]
+    record["search_stats"]["context_calls"][0].update(
+        incremental_delivery=True, epoch_rebuilt=False, non_evidence_input_tokens=100)
+    write_rows(path, [record])
+    result = summary.summarize(name)
+    assert result["input_limit_exceedances"] == []
+    assert result["increment_budget_exceedances"] == [
+        {"call_index": 0, "growth": 20, "configured_increment": 10}]
+
+
+def test_deliberately_ungraded_qa_only_run_is_not_reported_as_zero_score(tmp_path, monkeypatch):
+    name, exp, run = fixture(tmp_path, monkeypatch)
+    (exp / "manifest.json").write_text(json.dumps({
+        "source_commit": "test", "skip_initial_judge": True}))
+    (run / "study_05/judge/m3_eval_results.jsonl").unlink()
+    result = summary.summarize(name)
+    assert result["mean_score_all_65"] is None
+    assert result["grading_status"] == "not_initially_graded_common_judge_only"

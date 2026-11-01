@@ -7,5 +7,6 @@
   "facts_identity_incremental": "m3_facts_identity_incremental_20261102",
   "source_index": "m3_source_fact_index_v2_20261102",
   "source_index_repeat": "m3_source_fact_index_v2_repeat_20261102",
-  "balanced_contemporary": "m3_balanced_contemporary_20261102"
+  "balanced_contemporary": "m3_balanced_contemporary_20261102",
+  "m3_reference_repeat": "m3_reference_repeat_20261102"
 }

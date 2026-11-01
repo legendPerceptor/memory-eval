@@ -1,3 +1,5 @@
 {
-  "status": "prepared"
+  "status": "superseded_before_execution",
+  "reason": "Replaced by strict incremental-budget repair after an offline correctness counterexample. No model calls executed.",
+  "observed_at": "2026-11-02T03:59:01.664703+08:00"
 }

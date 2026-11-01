@@ -1,0 +1,116 @@
+{
+  "scope": "All newly recorded November 2 chat calls, not only completed method trajectories.",
+  "total_recorded": {
+    "recorded_logical_calls": 2027,
+    "statuses": {
+      "returned": 2027
+    },
+    "unknown_usage_calls": 0,
+    "received_prompt_tokens": 12597601,
+    "received_completion_tokens": 358708,
+    "received_total_tokens": 12956309,
+    "recorded_api_seconds_sum": 7255.661867141724
+  },
+  "by_run": {
+    "m3_facts_identity_20261102": {
+      "recorded_logical_calls": 430,
+      "statuses": {
+        "returned": 430
+      },
+      "unknown_usage_calls": 0,
+      "received_prompt_tokens": 2589667,
+      "received_completion_tokens": 79191,
+      "received_total_tokens": 2668858,
+      "recorded_api_seconds_sum": 1353.7571988105774
+    },
+    "m3_facts_identity_incremental_20261102": {
+      "recorded_logical_calls": 430,
+      "statuses": {
+        "returned": 430
+      },
+      "unknown_usage_calls": 0,
+      "received_prompt_tokens": 3355916,
+      "received_completion_tokens": 82461,
+      "received_total_tokens": 3438377,
+      "recorded_api_seconds_sum": 2181.893253326416
+    },
+    "m3_facts_only_20261102": {
+      "recorded_logical_calls": 431,
+      "statuses": {
+        "returned": 431
+      },
+      "unknown_usage_calls": 0,
+      "received_prompt_tokens": 2601765,
+      "received_completion_tokens": 83703,
+      "received_total_tokens": 2685468,
+      "recorded_api_seconds_sum": 1627.1207687854767
+    },
+    "m3_reference_repeat_20261102": {
+      "recorded_logical_calls": 302,
+      "statuses": {
+        "returned": 302
+      },
+      "unknown_usage_calls": 0,
+      "received_prompt_tokens": 551699,
+      "received_completion_tokens": 27709,
+      "received_total_tokens": 579408,
+      "recorded_api_seconds_sum": 679.5910131931305
+    },
+    "m3_source_fact_index_v2_20261102": {
+      "recorded_logical_calls": 434,
+      "statuses": {
+        "returned": 434
+      },
+      "unknown_usage_calls": 0,
+      "received_prompt_tokens": 3498554,
+      "received_completion_tokens": 85644,
+      "received_total_tokens": 3584198,
+      "recorded_api_seconds_sum": 1413.299633026123
+    }
+  },
+  "by_role": {
+    "qa": {
+      "recorded_logical_calls": 1768,
+      "statuses": {
+        "returned": 1768
+      },
+      "unknown_usage_calls": 0,
+      "received_prompt_tokens": 12431502,
+      "received_completion_tokens": 337466,
+      "received_total_tokens": 12768968,
+      "recorded_api_seconds_sum": 6642.943424463272
+    },
+    "judge": {
+      "recorded_logical_calls": 259,
+      "statuses": {
+        "returned": 259
+      },
+      "unknown_usage_calls": 0,
+      "received_prompt_tokens": 166099,
+      "received_completion_tokens": 21242,
+      "received_total_tokens": 187341,
+      "recorded_api_seconds_sum": 612.7184426784515
+    }
+  },
+  "source_usage_log_sha256": {
+    "experiments/m3_facts_identity_20261102/model-usage.jsonl": "c9b6a0a4a84aa582bc25ea76967f60d7202a147393f6553e70fe8f8243532343",
+    "experiments/m3_facts_identity_incremental_20261102/model-usage.jsonl": "debfebc552a1f83659c40fc4792531afbd48325b6f79cb4b8a6762c8e4d80978",
+    "experiments/m3_facts_only_20261102/model-usage.jsonl": "1bd642f68bd2a7c4651ecf7f0c1879963538eede820447d665fe38af8d911393",
+    "experiments/m3_reference_repeat_20261102/model-usage.jsonl": "375ad9488af6e9e2385ac6f497b241054b758e89275d161ec3253864f2e8fe03",
+    "experiments/m3_source_fact_index_v2_20261102/model-usage.jsonl": "c42825ed5d08cd78db19a5620254e5e327d877ae20235a2bc334fe312fca8280"
+  },
+  "separate_nonbenchmark_tool_choice_probe": {
+    "calls": 2,
+    "received_prompt_tokens": 920,
+    "received_completion_tokens": 252,
+    "unknown_usage_calls": 0
+  },
+  "cautions": [
+    "Counts each actual log once; repeated trajectories are independent calls, not reused answers.",
+    "A missing usage field is unknown billing, not a free failed request.",
+    "An interrupted in-flight call may have no completed log.",
+    "API seconds can include SDK retries and are not experiment wall time or money.",
+    "Local GPU embedding, read-only quota queries and prior audiovisual memory generation are excluded.",
+    "Protocol probes do not establish reasoning quality and are not benchmark scores."
+  ]
+}

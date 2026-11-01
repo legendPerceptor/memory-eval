@@ -1,0 +1,1241 @@
+{
+  "observed_at": "2026-11-02T02:37:18.007115+08:00",
+  "source_run": "m3_source_fact_index_v2_20261102",
+  "source_commit": "a1e3160bb9c96ddc843a809325fc66dd567f102f",
+  "script_sha256": "ce9f64892e4eff9787320726fcb359ae12cdb716a4f7074be64c719094f1221c",
+  "prediction_hashes": {
+    "study_05": "00cbc25ba4db7693ce2557cc044040f3205934e4a6dd7d7e39cee00f833cad6c"
+  },
+  "max_searches": 20,
+  "executed_queries": 20,
+  "primary_set_replay_matches": 20,
+  "queries_with_changed_primary_selection": 18,
+  "queries_selecting_nodes_outside_original_candidate_pool": 2,
+  "new_local_embedding_queries": 25,
+  "chat_model_calls": 0,
+  "expected_answers_used": false,
+  "wall_seconds": 12.827116095926613,
+  "caution": "Retrieval-path audit, not relevance labels or proof that changed evidence improves answers.",
+  "records": [
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q01",
+      "search_round": 1,
+      "query": "color paper",
+      "top_k": 10,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 6,
+        "annotation_timestamp": "03:45",
+        "question_sec": 225.0,
+        "resolved_before_clip": 7,
+        "effective_before_sec": 240.167,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 15.167000000000002,
+        "current_clip": {
+          "source_start_sec": 210.0,
+          "source_duration_sec": 30.167,
+          "source_end_sec": 240.167,
+          "clip_id": 7
+        },
+        "resolution": "source_interval"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "19eae50c-3e5f-70f0-16b9-d64b11569567",
+        "36b87340-aa5b-fb9f-20f3-c3bcf44a4e2d",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "c9d9be79-681b-4296-4c80-87e906ccc87f",
+        "cbae08f3-5d59-99ee-fb9f-1054e2942b78",
+        "cbcaceb2-f0a4-2010-7e64-64926f3efcf2",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92",
+        "f2ac91b3-dee8-8c7c-daf4-fc2606801a2b"
+      ],
+      "without_index_primary": [
+        "19eae50c-3e5f-70f0-16b9-d64b11569567",
+        "36b87340-aa5b-fb9f-20f3-c3bcf44a4e2d",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "c9d9be79-681b-4296-4c80-87e906ccc87f",
+        "cbae08f3-5d59-99ee-fb9f-1054e2942b78",
+        "cbcaceb2-f0a4-2010-7e64-64926f3efcf2",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92",
+        "f2ac91b3-dee8-8c7c-daf4-fc2606801a2b"
+      ],
+      "changed_primary_nodes": [],
+      "base_candidate_count": 8,
+      "fact_candidates_outside_base_pool": [],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q01",
+      "search_round": 2,
+      "query": "colored sheets of paper on the table",
+      "top_k": 10,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 6,
+        "annotation_timestamp": "03:45",
+        "question_sec": 225.0,
+        "resolved_before_clip": 7,
+        "effective_before_sec": 240.167,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 15.167000000000002,
+        "current_clip": {
+          "source_start_sec": 210.0,
+          "source_duration_sec": 30.167,
+          "source_end_sec": 240.167,
+          "clip_id": 7
+        },
+        "resolution": "source_interval"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "19eae50c-3e5f-70f0-16b9-d64b11569567",
+        "36b87340-aa5b-fb9f-20f3-c3bcf44a4e2d",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "c9d9be79-681b-4296-4c80-87e906ccc87f",
+        "cbae08f3-5d59-99ee-fb9f-1054e2942b78",
+        "cbcaceb2-f0a4-2010-7e64-64926f3efcf2",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92",
+        "f2ac91b3-dee8-8c7c-daf4-fc2606801a2b"
+      ],
+      "without_index_primary": [
+        "19eae50c-3e5f-70f0-16b9-d64b11569567",
+        "36b87340-aa5b-fb9f-20f3-c3bcf44a4e2d",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "c9d9be79-681b-4296-4c80-87e906ccc87f",
+        "cbae08f3-5d59-99ee-fb9f-1054e2942b78",
+        "cbcaceb2-f0a4-2010-7e64-64926f3efcf2",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92",
+        "f2ac91b3-dee8-8c7c-daf4-fc2606801a2b"
+      ],
+      "changed_primary_nodes": [],
+      "base_candidate_count": 8,
+      "fact_candidates_outside_base_pool": [],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q02",
+      "search_round": 1,
+      "query": "items taken out from the toolbox",
+      "top_k": 10,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "028d678e-b024-dbb2-f71b-7a5c8d282284",
+        "0625c5bf-e494-e115-d04d-ea9c3cdc6b9a",
+        "424cee06-005d-6ed6-b6ff-05a70e842820",
+        "6e5cbcd3-cc77-172f-6a7e-783c997f6c94",
+        "78619bd5-c8d4-1c57-ebea-638b1c351277",
+        "91828ac1-2932-f9b5-dfef-e4b91d1224d0",
+        "983f069f-c323-0379-0e64-3f55cf20deb0",
+        "a2e9f3ee-5fab-d816-d56f-01c64dedc677",
+        "ae8c7650-cd84-23ad-e6ad-e86e6c9d47e6",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92"
+      ],
+      "without_index_primary": [
+        "0625c5bf-e494-e115-d04d-ea9c3cdc6b9a",
+        "259a1d93-f379-901e-dcaa-322ec32c61e6",
+        "263ae562-4c2c-8133-15fa-bcccbd87d6d3",
+        "5fa70054-ee13-bfca-04b8-a6a866c8eaf3",
+        "663a179e-34b4-aa62-6ffc-5dadb6120279",
+        "78619bd5-c8d4-1c57-ebea-638b1c351277",
+        "9f0915d5-db54-f747-7625-1cfc8e9110ec",
+        "a89addaa-b301-29a7-9491-f6a2603395f6",
+        "cbcaceb2-f0a4-2010-7e64-64926f3efcf2",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92"
+      ],
+      "changed_primary_nodes": [
+        "028d678e-b024-dbb2-f71b-7a5c8d282284",
+        "424cee06-005d-6ed6-b6ff-05a70e842820",
+        "6e5cbcd3-cc77-172f-6a7e-783c997f6c94",
+        "91828ac1-2932-f9b5-dfef-e4b91d1224d0",
+        "983f069f-c323-0379-0e64-3f55cf20deb0",
+        "a2e9f3ee-5fab-d816-d56f-01c64dedc677",
+        "ae8c7650-cd84-23ad-e6ad-e86e6c9d47e6"
+      ],
+      "base_candidate_count": 34,
+      "fact_candidates_outside_base_pool": [
+        "0245165c-6095-5e5c-9fa1-ece3a88e8ade",
+        "12524915-0573-d377-fbad-e800151829f5",
+        "2bf22c17-562a-d1a2-3645-610a0f985c1f",
+        "9380b224-ac88-44f3-65e4-1440a823ddb1",
+        "9401bd8d-21be-d7cd-13e3-f08945d72db8",
+        "98d473e9-6979-8c31-2655-c941738b36fc",
+        "b4a93b3d-5240-65a3-b31d-d52ef86325c0",
+        "b4d6475f-5076-732b-cd86-dc249c25e882",
+        "e557ab67-240e-6794-93ec-02d09a3ed91f"
+      ],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q02",
+      "search_round": 2,
+      "query": "toolbox opening removing tools",
+      "top_k": 10,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "028d678e-b024-dbb2-f71b-7a5c8d282284",
+        "0aba7291-5e3d-d84d-860d-0875e78e2d09",
+        "3addc647-164b-0b43-fd9b-0b3291b7b715",
+        "3f8f540c-24e4-2b2a-e85e-a7eb0d3359b8",
+        "6e5cbcd3-cc77-172f-6a7e-783c997f6c94",
+        "78619bd5-c8d4-1c57-ebea-638b1c351277",
+        "8d9a6042-d27d-af87-f6f9-3471edfb35b0",
+        "98d473e9-6979-8c31-2655-c941738b36fc",
+        "ae8c7650-cd84-23ad-e6ad-e86e6c9d47e6",
+        "e557ab67-240e-6794-93ec-02d09a3ed91f"
+      ],
+      "without_index_primary": [
+        "028d678e-b024-dbb2-f71b-7a5c8d282284",
+        "0aba7291-5e3d-d84d-860d-0875e78e2d09",
+        "259a1d93-f379-901e-dcaa-322ec32c61e6",
+        "3addc647-164b-0b43-fd9b-0b3291b7b715",
+        "424cee06-005d-6ed6-b6ff-05a70e842820",
+        "663a179e-34b4-aa62-6ffc-5dadb6120279",
+        "6e5cbcd3-cc77-172f-6a7e-783c997f6c94",
+        "98d473e9-6979-8c31-2655-c941738b36fc",
+        "9f0915d5-db54-f747-7625-1cfc8e9110ec",
+        "c84460b5-1340-7bf9-ad6f-282c508a590f"
+      ],
+      "changed_primary_nodes": [
+        "3f8f540c-24e4-2b2a-e85e-a7eb0d3359b8",
+        "78619bd5-c8d4-1c57-ebea-638b1c351277",
+        "8d9a6042-d27d-af87-f6f9-3471edfb35b0",
+        "ae8c7650-cd84-23ad-e6ad-e86e6c9d47e6",
+        "e557ab67-240e-6794-93ec-02d09a3ed91f"
+      ],
+      "base_candidate_count": 20,
+      "fact_candidates_outside_base_pool": [
+        "0d170c53-7f66-9eaa-4287-0aa65b0482bd",
+        "12524915-0573-d377-fbad-e800151829f5",
+        "4f160183-925d-2b20-76c9-2135ce74289f",
+        "8571563f-b707-c0f2-0d95-4ef6779b3ea5",
+        "91828ac1-2932-f9b5-dfef-e4b91d1224d0",
+        "983f069f-c323-0379-0e64-3f55cf20deb0",
+        "a89addaa-b301-29a7-9491-f6a2603395f6",
+        "b4a93b3d-5240-65a3-b31d-d52ef86325c0",
+        "b4d6475f-5076-732b-cd86-dc249c25e882",
+        "e557ab67-240e-6794-93ec-02d09a3ed91f",
+        "e5730862-dd8b-26df-bc7d-0c7d95d43f06",
+        "fc456b14-9500-88b5-c913-fa79827e7580"
+      ],
+      "selected_primary_outside_base_pool": [
+        "e557ab67-240e-6794-93ec-02d09a3ed91f"
+      ]
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q02",
+      "search_round": 3,
+      "query": "toolbox items inside case on shelf robot takes out",
+      "top_k": 10,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "028d678e-b024-dbb2-f71b-7a5c8d282284",
+        "299615de-3ebf-44d9-b3be-2b1864b80006",
+        "2bf22c17-562a-d1a2-3645-610a0f985c1f",
+        "5ed88591-d0a6-960b-e76f-550730d29225",
+        "663a179e-34b4-aa62-6ffc-5dadb6120279",
+        "77ea86f4-63a3-793e-e8cf-eaa773b8f0a7",
+        "78619bd5-c8d4-1c57-ebea-638b1c351277",
+        "8d9a6042-d27d-af87-f6f9-3471edfb35b0",
+        "91828ac1-2932-f9b5-dfef-e4b91d1224d0",
+        "b4d6475f-5076-732b-cd86-dc249c25e882"
+      ],
+      "without_index_primary": [
+        "0245165c-6095-5e5c-9fa1-ece3a88e8ade",
+        "0aba7291-5e3d-d84d-860d-0875e78e2d09",
+        "19eae50c-3e5f-70f0-16b9-d64b11569567",
+        "1a49f841-d0ce-882c-7f80-f0f7f6474ff4",
+        "2bf22c17-562a-d1a2-3645-610a0f985c1f",
+        "5ed88591-d0a6-960b-e76f-550730d29225",
+        "663a179e-34b4-aa62-6ffc-5dadb6120279",
+        "77ea86f4-63a3-793e-e8cf-eaa773b8f0a7",
+        "9401bd8d-21be-d7cd-13e3-f08945d72db8",
+        "b4d6475f-5076-732b-cd86-dc249c25e882"
+      ],
+      "changed_primary_nodes": [
+        "028d678e-b024-dbb2-f71b-7a5c8d282284",
+        "299615de-3ebf-44d9-b3be-2b1864b80006",
+        "78619bd5-c8d4-1c57-ebea-638b1c351277",
+        "8d9a6042-d27d-af87-f6f9-3471edfb35b0",
+        "91828ac1-2932-f9b5-dfef-e4b91d1224d0"
+      ],
+      "base_candidate_count": 35,
+      "fact_candidates_outside_base_pool": [
+        "648bbd37-b52c-7c5c-9f3c-c3e2041e68db",
+        "8571563f-b707-c0f2-0d95-4ef6779b3ea5",
+        "9380b224-ac88-44f3-65e4-1440a823ddb1",
+        "98d473e9-6979-8c31-2655-c941738b36fc",
+        "a2e9f3ee-5fab-d816-d56f-01c64dedc677"
+      ],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q02",
+      "search_round": 4,
+      "query": "green case opened reveals contents glue pen tool inside case bedside shelf",
+      "top_k": 8,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "028d678e-b024-dbb2-f71b-7a5c8d282284",
+        "1a49f841-d0ce-882c-7f80-f0f7f6474ff4",
+        "254c26b6-a8d8-5100-0239-20c8bc759943",
+        "77ea86f4-63a3-793e-e8cf-eaa773b8f0a7",
+        "91828ac1-2932-f9b5-dfef-e4b91d1224d0",
+        "9f0915d5-db54-f747-7625-1cfc8e9110ec",
+        "a16b2bb2-83cb-0362-eaa3-602a968c0abd",
+        "c4edc835-3fab-67c8-4332-c4b0a5642028"
+      ],
+      "without_index_primary": [
+        "0625c5bf-e494-e115-d04d-ea9c3cdc6b9a",
+        "1a49f841-d0ce-882c-7f80-f0f7f6474ff4",
+        "254c26b6-a8d8-5100-0239-20c8bc759943",
+        "672afaa4-1143-4983-017f-b2721b4ab8b0",
+        "98d473e9-6979-8c31-2655-c941738b36fc",
+        "c4edc835-3fab-67c8-4332-c4b0a5642028",
+        "e7a922ca-43e1-00d6-f9e0-fe340130c6a5",
+        "fc456b14-9500-88b5-c913-fa79827e7580"
+      ],
+      "changed_primary_nodes": [
+        "028d678e-b024-dbb2-f71b-7a5c8d282284",
+        "77ea86f4-63a3-793e-e8cf-eaa773b8f0a7",
+        "91828ac1-2932-f9b5-dfef-e4b91d1224d0",
+        "9f0915d5-db54-f747-7625-1cfc8e9110ec",
+        "a16b2bb2-83cb-0362-eaa3-602a968c0abd"
+      ],
+      "base_candidate_count": 24,
+      "fact_candidates_outside_base_pool": [
+        "3addc647-164b-0b43-fd9b-0b3291b7b715",
+        "78619bd5-c8d4-1c57-ebea-638b1c351277",
+        "7f9bbbc4-c9c7-eb09-26db-08eb221909c5",
+        "82827acb-ef43-7d53-e768-d76710a1f5c1",
+        "8d9a6042-d27d-af87-f6f9-3471edfb35b0",
+        "9401bd8d-21be-d7cd-13e3-f08945d72db8",
+        "983f069f-c323-0379-0e64-3f55cf20deb0",
+        "a2e9f3ee-5fab-d816-d56f-01c64dedc677",
+        "a89addaa-b301-29a7-9491-f6a2603395f6",
+        "b4a93b3d-5240-65a3-b31d-d52ef86325c0",
+        "cbae08f3-5d59-99ee-fb9f-1054e2942b78",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92"
+      ],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q02",
+      "search_round": 5,
+      "query": "toolbox",
+      "top_k": 8,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "0625c5bf-e494-e115-d04d-ea9c3cdc6b9a",
+        "3f8f540c-24e4-2b2a-e85e-a7eb0d3359b8",
+        "6e5cbcd3-cc77-172f-6a7e-783c997f6c94",
+        "78619bd5-c8d4-1c57-ebea-638b1c351277",
+        "91828ac1-2932-f9b5-dfef-e4b91d1224d0",
+        "983f069f-c323-0379-0e64-3f55cf20deb0",
+        "ae8c7650-cd84-23ad-e6ad-e86e6c9d47e6",
+        "b4d6475f-5076-732b-cd86-dc249c25e882"
+      ],
+      "without_index_primary": [
+        "028d678e-b024-dbb2-f71b-7a5c8d282284",
+        "21424ead-2c94-537a-2ea7-2f4f9966e819",
+        "3f8f540c-24e4-2b2a-e85e-a7eb0d3359b8",
+        "424cee06-005d-6ed6-b6ff-05a70e842820",
+        "663a179e-34b4-aa62-6ffc-5dadb6120279",
+        "9f0915d5-db54-f747-7625-1cfc8e9110ec",
+        "ae8c7650-cd84-23ad-e6ad-e86e6c9d47e6",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92"
+      ],
+      "changed_primary_nodes": [
+        "0625c5bf-e494-e115-d04d-ea9c3cdc6b9a",
+        "6e5cbcd3-cc77-172f-6a7e-783c997f6c94",
+        "78619bd5-c8d4-1c57-ebea-638b1c351277",
+        "91828ac1-2932-f9b5-dfef-e4b91d1224d0",
+        "983f069f-c323-0379-0e64-3f55cf20deb0",
+        "b4d6475f-5076-732b-cd86-dc249c25e882"
+      ],
+      "base_candidate_count": 20,
+      "fact_candidates_outside_base_pool": [
+        "254c26b6-a8d8-5100-0239-20c8bc759943",
+        "299615de-3ebf-44d9-b3be-2b1864b80006",
+        "4f160183-925d-2b20-76c9-2135ce74289f",
+        "5ed88591-d0a6-960b-e76f-550730d29225",
+        "648bbd37-b52c-7c5c-9f3c-c3e2041e68db",
+        "9401bd8d-21be-d7cd-13e3-f08945d72db8",
+        "98d473e9-6979-8c31-2655-c941738b36fc",
+        "a0d29360-4da4-114b-3718-d0fdb3c83e56",
+        "b4a93b3d-5240-65a3-b31d-d52ef86325c0",
+        "c4edc835-3fab-67c8-4332-c4b0a5642028",
+        "f2ac91b3-dee8-8c7c-daf4-fc2606801a2b",
+        "fc456b14-9500-88b5-c913-fa79827e7580"
+      ],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q02",
+      "search_round": 6,
+      "query": "opens kit box takes out green clay pieces and red piece from container",
+      "top_k": 8,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "0aba7291-5e3d-d84d-860d-0875e78e2d09",
+        "299615de-3ebf-44d9-b3be-2b1864b80006",
+        "6e5cbcd3-cc77-172f-6a7e-783c997f6c94",
+        "77ea86f4-63a3-793e-e8cf-eaa773b8f0a7",
+        "98d473e9-6979-8c31-2655-c941738b36fc",
+        "a16b2bb2-83cb-0362-eaa3-602a968c0abd",
+        "b4a93b3d-5240-65a3-b31d-d52ef86325c0",
+        "b4d6475f-5076-732b-cd86-dc249c25e882"
+      ],
+      "without_index_primary": [
+        "254c26b6-a8d8-5100-0239-20c8bc759943",
+        "263ae562-4c2c-8133-15fa-bcccbd87d6d3",
+        "299615de-3ebf-44d9-b3be-2b1864b80006",
+        "672afaa4-1143-4983-017f-b2721b4ab8b0",
+        "98d473e9-6979-8c31-2655-c941738b36fc",
+        "b4a93b3d-5240-65a3-b31d-d52ef86325c0",
+        "b4d6475f-5076-732b-cd86-dc249c25e882",
+        "c4edc835-3fab-67c8-4332-c4b0a5642028"
+      ],
+      "changed_primary_nodes": [
+        "0aba7291-5e3d-d84d-860d-0875e78e2d09",
+        "6e5cbcd3-cc77-172f-6a7e-783c997f6c94",
+        "77ea86f4-63a3-793e-e8cf-eaa773b8f0a7",
+        "a16b2bb2-83cb-0362-eaa3-602a968c0abd"
+      ],
+      "base_candidate_count": 33,
+      "fact_candidates_outside_base_pool": [
+        "0245165c-6095-5e5c-9fa1-ece3a88e8ade",
+        "1a49f841-d0ce-882c-7f80-f0f7f6474ff4",
+        "481fc503-5172-9bb0-b93d-6efed09da8e6",
+        "8d9a6042-d27d-af87-f6f9-3471edfb35b0",
+        "91828ac1-2932-f9b5-dfef-e4b91d1224d0",
+        "983f069f-c323-0379-0e64-3f55cf20deb0",
+        "a0d29360-4da4-114b-3718-d0fdb3c83e56"
+      ],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q03",
+      "search_round": 1,
+      "query": "making trees craft paper trees how many trees",
+      "top_k": 10,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "0245165c-6095-5e5c-9fa1-ece3a88e8ade",
+        "1a49f841-d0ce-882c-7f80-f0f7f6474ff4",
+        "3addc647-164b-0b43-fd9b-0b3291b7b715",
+        "481fc503-5172-9bb0-b93d-6efed09da8e6",
+        "672afaa4-1143-4983-017f-b2721b4ab8b0",
+        "7f9bbbc4-c9c7-eb09-26db-08eb221909c5",
+        "82827acb-ef43-7d53-e768-d76710a1f5c1",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "e7a922ca-43e1-00d6-f9e0-fe340130c6a5",
+        "fc456b14-9500-88b5-c913-fa79827e7580"
+      ],
+      "without_index_primary": [
+        "2bf22c17-562a-d1a2-3645-610a0f985c1f",
+        "672afaa4-1143-4983-017f-b2721b4ab8b0",
+        "7f9bbbc4-c9c7-eb09-26db-08eb221909c5",
+        "82827acb-ef43-7d53-e768-d76710a1f5c1",
+        "98d473e9-6979-8c31-2655-c941738b36fc",
+        "b3be666c-f1bc-3ba0-a230-165c075674a1",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "c84460b5-1340-7bf9-ad6f-282c508a590f",
+        "e5730862-dd8b-26df-bc7d-0c7d95d43f06",
+        "fc456b14-9500-88b5-c913-fa79827e7580"
+      ],
+      "changed_primary_nodes": [
+        "0245165c-6095-5e5c-9fa1-ece3a88e8ade",
+        "1a49f841-d0ce-882c-7f80-f0f7f6474ff4",
+        "3addc647-164b-0b43-fd9b-0b3291b7b715",
+        "481fc503-5172-9bb0-b93d-6efed09da8e6",
+        "e7a922ca-43e1-00d6-f9e0-fe340130c6a5"
+      ],
+      "base_candidate_count": 29,
+      "fact_candidates_outside_base_pool": [
+        "3f8f540c-24e4-2b2a-e85e-a7eb0d3359b8",
+        "424cee06-005d-6ed6-b6ff-05a70e842820",
+        "91828ac1-2932-f9b5-dfef-e4b91d1224d0",
+        "d2c42882-8ca0-05a2-6610-572e5fc9ba59"
+      ],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q03",
+      "search_round": 2,
+      "query": "tree ornament folding paper tree completed",
+      "top_k": 10,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "0245165c-6095-5e5c-9fa1-ece3a88e8ade",
+        "1a49f841-d0ce-882c-7f80-f0f7f6474ff4",
+        "424cee06-005d-6ed6-b6ff-05a70e842820",
+        "481fc503-5172-9bb0-b93d-6efed09da8e6",
+        "82827acb-ef43-7d53-e768-d76710a1f5c1",
+        "8dcc8641-a5d2-25b1-11ff-355daff80f5e",
+        "c4edc835-3fab-67c8-4332-c4b0a5642028",
+        "c84460b5-1340-7bf9-ad6f-282c508a590f",
+        "e7a922ca-43e1-00d6-f9e0-fe340130c6a5",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92"
+      ],
+      "without_index_primary": [
+        "1a49f841-d0ce-882c-7f80-f0f7f6474ff4",
+        "424cee06-005d-6ed6-b6ff-05a70e842820",
+        "663a179e-34b4-aa62-6ffc-5dadb6120279",
+        "7f9bbbc4-c9c7-eb09-26db-08eb221909c5",
+        "82827acb-ef43-7d53-e768-d76710a1f5c1",
+        "b3be666c-f1bc-3ba0-a230-165c075674a1",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "c84460b5-1340-7bf9-ad6f-282c508a590f",
+        "c9d9be79-681b-4296-4c80-87e906ccc87f",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92"
+      ],
+      "changed_primary_nodes": [
+        "0245165c-6095-5e5c-9fa1-ece3a88e8ade",
+        "481fc503-5172-9bb0-b93d-6efed09da8e6",
+        "8dcc8641-a5d2-25b1-11ff-355daff80f5e",
+        "c4edc835-3fab-67c8-4332-c4b0a5642028",
+        "e7a922ca-43e1-00d6-f9e0-fe340130c6a5"
+      ],
+      "base_candidate_count": 25,
+      "fact_candidates_outside_base_pool": [
+        "3addc647-164b-0b43-fd9b-0b3291b7b715",
+        "3f8f540c-24e4-2b2a-e85e-a7eb0d3359b8",
+        "91828ac1-2932-f9b5-dfef-e4b91d1224d0",
+        "9401bd8d-21be-d7cd-13e3-f08945d72db8",
+        "d2c42882-8ca0-05a2-6610-572e5fc9ba59",
+        "e5730862-dd8b-26df-bc7d-0c7d95d43f06"
+      ],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q03",
+      "search_round": 3,
+      "query": "we made trees together count finished trees show finished",
+      "top_k": 10,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "0245165c-6095-5e5c-9fa1-ece3a88e8ade",
+        "0625c5bf-e494-e115-d04d-ea9c3cdc6b9a",
+        "1a49f841-d0ce-882c-7f80-f0f7f6474ff4",
+        "36b87340-aa5b-fb9f-20f3-c3bcf44a4e2d",
+        "672afaa4-1143-4983-017f-b2721b4ab8b0",
+        "7f9bbbc4-c9c7-eb09-26db-08eb221909c5",
+        "82827acb-ef43-7d53-e768-d76710a1f5c1",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "cbcaceb2-f0a4-2010-7e64-64926f3efcf2",
+        "e5730862-dd8b-26df-bc7d-0c7d95d43f06"
+      ],
+      "without_index_primary": [
+        "0245165c-6095-5e5c-9fa1-ece3a88e8ade",
+        "0625c5bf-e494-e115-d04d-ea9c3cdc6b9a",
+        "36b87340-aa5b-fb9f-20f3-c3bcf44a4e2d",
+        "481fc503-5172-9bb0-b93d-6efed09da8e6",
+        "672afaa4-1143-4983-017f-b2721b4ab8b0",
+        "7f9bbbc4-c9c7-eb09-26db-08eb221909c5",
+        "82827acb-ef43-7d53-e768-d76710a1f5c1",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "cbcaceb2-f0a4-2010-7e64-64926f3efcf2",
+        "e5730862-dd8b-26df-bc7d-0c7d95d43f06"
+      ],
+      "changed_primary_nodes": [
+        "1a49f841-d0ce-882c-7f80-f0f7f6474ff4"
+      ],
+      "base_candidate_count": 28,
+      "fact_candidates_outside_base_pool": [
+        "028d678e-b024-dbb2-f71b-7a5c8d282284",
+        "4f160183-925d-2b20-76c9-2135ce74289f",
+        "648bbd37-b52c-7c5c-9f3c-c3e2041e68db",
+        "a16b2bb2-83cb-0362-eaa3-602a968c0abd",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92"
+      ],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q03",
+      "search_round": 4,
+      "query": "another tree make a second tree for yourself leaves",
+      "top_k": 10,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "1a49f841-d0ce-882c-7f80-f0f7f6474ff4",
+        "254c26b6-a8d8-5100-0239-20c8bc759943",
+        "3addc647-164b-0b43-fd9b-0b3291b7b715",
+        "481fc503-5172-9bb0-b93d-6efed09da8e6",
+        "7f9bbbc4-c9c7-eb09-26db-08eb221909c5",
+        "82827acb-ef43-7d53-e768-d76710a1f5c1",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "e5730862-dd8b-26df-bc7d-0c7d95d43f06",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92",
+        "fc456b14-9500-88b5-c913-fa79827e7580"
+      ],
+      "without_index_primary": [
+        "1a49f841-d0ce-882c-7f80-f0f7f6474ff4",
+        "263ae562-4c2c-8133-15fa-bcccbd87d6d3",
+        "3addc647-164b-0b43-fd9b-0b3291b7b715",
+        "481fc503-5172-9bb0-b93d-6efed09da8e6",
+        "7f9bbbc4-c9c7-eb09-26db-08eb221909c5",
+        "82827acb-ef43-7d53-e768-d76710a1f5c1",
+        "b4a93b3d-5240-65a3-b31d-d52ef86325c0",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "e5730862-dd8b-26df-bc7d-0c7d95d43f06",
+        "fc456b14-9500-88b5-c913-fa79827e7580"
+      ],
+      "changed_primary_nodes": [
+        "254c26b6-a8d8-5100-0239-20c8bc759943",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92"
+      ],
+      "base_candidate_count": 29,
+      "fact_candidates_outside_base_pool": [
+        "0245165c-6095-5e5c-9fa1-ece3a88e8ade",
+        "663a179e-34b4-aa62-6ffc-5dadb6120279",
+        "9380b224-ac88-44f3-65e4-1440a823ddb1",
+        "9ee1e022-1905-07cb-5686-e598192b0432",
+        "a16b2bb2-83cb-0362-eaa3-602a968c0abd",
+        "d8af4535-9d2c-c0fb-be0a-ac3dabe11259"
+      ],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q03",
+      "search_round": 5,
+      "query": "two trees both trees mom finished her own tree cardboard tube",
+      "top_k": 12,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "0625c5bf-e494-e115-d04d-ea9c3cdc6b9a",
+        "299615de-3ebf-44d9-b3be-2b1864b80006",
+        "3addc647-164b-0b43-fd9b-0b3291b7b715",
+        "3f8f540c-24e4-2b2a-e85e-a7eb0d3359b8",
+        "4f160183-925d-2b20-76c9-2135ce74289f",
+        "663a179e-34b4-aa62-6ffc-5dadb6120279",
+        "78619bd5-c8d4-1c57-ebea-638b1c351277",
+        "7f9bbbc4-c9c7-eb09-26db-08eb221909c5",
+        "82827acb-ef43-7d53-e768-d76710a1f5c1",
+        "9ee1e022-1905-07cb-5686-e598192b0432",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "e7a922ca-43e1-00d6-f9e0-fe340130c6a5"
+      ],
+      "without_index_primary": [
+        "0625c5bf-e494-e115-d04d-ea9c3cdc6b9a",
+        "19eae50c-3e5f-70f0-16b9-d64b11569567",
+        "1a49f841-d0ce-882c-7f80-f0f7f6474ff4",
+        "36b87340-aa5b-fb9f-20f3-c3bcf44a4e2d",
+        "3addc647-164b-0b43-fd9b-0b3291b7b715",
+        "3f8f540c-24e4-2b2a-e85e-a7eb0d3359b8",
+        "663a179e-34b4-aa62-6ffc-5dadb6120279",
+        "78619bd5-c8d4-1c57-ebea-638b1c351277",
+        "7f9bbbc4-c9c7-eb09-26db-08eb221909c5",
+        "82827acb-ef43-7d53-e768-d76710a1f5c1",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "c9d9be79-681b-4296-4c80-87e906ccc87f"
+      ],
+      "changed_primary_nodes": [
+        "299615de-3ebf-44d9-b3be-2b1864b80006",
+        "4f160183-925d-2b20-76c9-2135ce74289f",
+        "9ee1e022-1905-07cb-5686-e598192b0432",
+        "e7a922ca-43e1-00d6-f9e0-fe340130c6a5"
+      ],
+      "base_candidate_count": 29,
+      "fact_candidates_outside_base_pool": [
+        "0245165c-6095-5e5c-9fa1-ece3a88e8ade",
+        "4f160183-925d-2b20-76c9-2135ce74289f",
+        "83d29c3b-ff5f-cb5b-4154-686a0e722819",
+        "a16b2bb2-83cb-0362-eaa3-602a968c0abd",
+        "d2c42882-8ca0-05a2-6610-572e5fc9ba59"
+      ],
+      "selected_primary_outside_base_pool": [
+        "4f160183-925d-2b20-76c9-2135ce74289f"
+      ]
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q03",
+      "search_round": 6,
+      "query": "final finished tree display end video showing trees on desk",
+      "top_k": 12,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "0245165c-6095-5e5c-9fa1-ece3a88e8ade",
+        "1a49f841-d0ce-882c-7f80-f0f7f6474ff4",
+        "263ae562-4c2c-8133-15fa-bcccbd87d6d3",
+        "481fc503-5172-9bb0-b93d-6efed09da8e6",
+        "7f9bbbc4-c9c7-eb09-26db-08eb221909c5",
+        "82827acb-ef43-7d53-e768-d76710a1f5c1",
+        "8571563f-b707-c0f2-0d95-4ef6779b3ea5",
+        "983f069f-c323-0379-0e64-3f55cf20deb0",
+        "b4a93b3d-5240-65a3-b31d-d52ef86325c0",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "c9d9be79-681b-4296-4c80-87e906ccc87f",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92"
+      ],
+      "without_index_primary": [
+        "0245165c-6095-5e5c-9fa1-ece3a88e8ade",
+        "0625c5bf-e494-e115-d04d-ea9c3cdc6b9a",
+        "0aba7291-5e3d-d84d-860d-0875e78e2d09",
+        "19eae50c-3e5f-70f0-16b9-d64b11569567",
+        "1a49f841-d0ce-882c-7f80-f0f7f6474ff4",
+        "36b87340-aa5b-fb9f-20f3-c3bcf44a4e2d",
+        "481fc503-5172-9bb0-b93d-6efed09da8e6",
+        "7f9bbbc4-c9c7-eb09-26db-08eb221909c5",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "c9d9be79-681b-4296-4c80-87e906ccc87f",
+        "e557ab67-240e-6794-93ec-02d09a3ed91f",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92"
+      ],
+      "changed_primary_nodes": [
+        "263ae562-4c2c-8133-15fa-bcccbd87d6d3",
+        "82827acb-ef43-7d53-e768-d76710a1f5c1",
+        "8571563f-b707-c0f2-0d95-4ef6779b3ea5",
+        "983f069f-c323-0379-0e64-3f55cf20deb0",
+        "b4a93b3d-5240-65a3-b31d-d52ef86325c0"
+      ],
+      "base_candidate_count": 29,
+      "fact_candidates_outside_base_pool": [
+        "254c26b6-a8d8-5100-0239-20c8bc759943",
+        "3addc647-164b-0b43-fd9b-0b3291b7b715",
+        "3f8f540c-24e4-2b2a-e85e-a7eb0d3359b8",
+        "8dcc8641-a5d2-25b1-11ff-355daff80f5e",
+        "98d473e9-6979-8c31-2655-c941738b36fc",
+        "a0d29360-4da4-114b-3718-d0fdb3c83e56",
+        "a16b2bb2-83cb-0362-eaa3-602a968c0abd",
+        "cbcaceb2-f0a4-2010-7e64-64926f3efcf2"
+      ],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q04",
+      "search_round": 1,
+      "query": "Raam and Quispe argue fighting disagreement",
+      "top_k": 10,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "19eae50c-3e5f-70f0-16b9-d64b11569567",
+        "42b48d3b-cf32-2f15-341f-8b12d992bd51",
+        "648bbd37-b52c-7c5c-9f3c-c3e2041e68db",
+        "6e5cbcd3-cc77-172f-6a7e-783c997f6c94",
+        "77ea86f4-63a3-793e-e8cf-eaa773b8f0a7",
+        "7f9bbbc4-c9c7-eb09-26db-08eb221909c5",
+        "83d29c3b-ff5f-cb5b-4154-686a0e722819",
+        "9380b224-ac88-44f3-65e4-1440a823ddb1",
+        "d8af4535-9d2c-c0fb-be0a-ac3dabe11259",
+        "e557ab67-240e-6794-93ec-02d09a3ed91f"
+      ],
+      "without_index_primary": [
+        "12524915-0573-d377-fbad-e800151829f5",
+        "19eae50c-3e5f-70f0-16b9-d64b11569567",
+        "254c26b6-a8d8-5100-0239-20c8bc759943",
+        "259a1d93-f379-901e-dcaa-322ec32c61e6",
+        "481fc503-5172-9bb0-b93d-6efed09da8e6",
+        "5ed88591-d0a6-960b-e76f-550730d29225",
+        "5fa70054-ee13-bfca-04b8-a6a866c8eaf3",
+        "9ee1e022-1905-07cb-5686-e598192b0432",
+        "c84460b5-1340-7bf9-ad6f-282c508a590f",
+        "e557ab67-240e-6794-93ec-02d09a3ed91f"
+      ],
+      "changed_primary_nodes": [
+        "42b48d3b-cf32-2f15-341f-8b12d992bd51",
+        "648bbd37-b52c-7c5c-9f3c-c3e2041e68db",
+        "6e5cbcd3-cc77-172f-6a7e-783c997f6c94",
+        "77ea86f4-63a3-793e-e8cf-eaa773b8f0a7",
+        "7f9bbbc4-c9c7-eb09-26db-08eb221909c5",
+        "83d29c3b-ff5f-cb5b-4154-686a0e722819",
+        "9380b224-ac88-44f3-65e4-1440a823ddb1",
+        "d8af4535-9d2c-c0fb-be0a-ac3dabe11259"
+      ],
+      "base_candidate_count": 39,
+      "fact_candidates_outside_base_pool": [
+        "0245165c-6095-5e5c-9fa1-ece3a88e8ade",
+        "3addc647-164b-0b43-fd9b-0b3291b7b715",
+        "3f8f540c-24e4-2b2a-e85e-a7eb0d3359b8",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "c4edc835-3fab-67c8-4332-c4b0a5642028",
+        "cbcaceb2-f0a4-2010-7e64-64926f3efcf2",
+        "e7a922ca-43e1-00d6-f9e0-fe340130c6a5",
+        "f2ac91b3-dee8-8c7c-daf4-fc2606801a2b"
+      ],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q04",
+      "search_round": 2,
+      "query": "Raam Quispe relationship friends discuss",
+      "top_k": 10,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "254c26b6-a8d8-5100-0239-20c8bc759943",
+        "424cee06-005d-6ed6-b6ff-05a70e842820",
+        "42b48d3b-cf32-2f15-341f-8b12d992bd51",
+        "481fc503-5172-9bb0-b93d-6efed09da8e6",
+        "83d29c3b-ff5f-cb5b-4154-686a0e722819",
+        "9380b224-ac88-44f3-65e4-1440a823ddb1",
+        "b3be666c-f1bc-3ba0-a230-165c075674a1",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa",
+        "cbcaceb2-f0a4-2010-7e64-64926f3efcf2",
+        "e5730862-dd8b-26df-bc7d-0c7d95d43f06"
+      ],
+      "without_index_primary": [
+        "36b87340-aa5b-fb9f-20f3-c3bcf44a4e2d",
+        "42b48d3b-cf32-2f15-341f-8b12d992bd51",
+        "481fc503-5172-9bb0-b93d-6efed09da8e6",
+        "78619bd5-c8d4-1c57-ebea-638b1c351277",
+        "83d29c3b-ff5f-cb5b-4154-686a0e722819",
+        "9401bd8d-21be-d7cd-13e3-f08945d72db8",
+        "9ee1e022-1905-07cb-5686-e598192b0432",
+        "cbcaceb2-f0a4-2010-7e64-64926f3efcf2",
+        "e5730862-dd8b-26df-bc7d-0c7d95d43f06",
+        "fc456b14-9500-88b5-c913-fa79827e7580"
+      ],
+      "changed_primary_nodes": [
+        "254c26b6-a8d8-5100-0239-20c8bc759943",
+        "424cee06-005d-6ed6-b6ff-05a70e842820",
+        "9380b224-ac88-44f3-65e4-1440a823ddb1",
+        "b3be666c-f1bc-3ba0-a230-165c075674a1",
+        "b928c3a7-4b10-1cd8-4581-6e457426bfaa"
+      ],
+      "base_candidate_count": 26,
+      "fact_candidates_outside_base_pool": [
+        "0245165c-6095-5e5c-9fa1-ece3a88e8ade",
+        "1a6be18f-e964-2b99-db62-4c5ff6925c54",
+        "648bbd37-b52c-7c5c-9f3c-c3e2041e68db",
+        "6e5cbcd3-cc77-172f-6a7e-783c997f6c94",
+        "77ea86f4-63a3-793e-e8cf-eaa773b8f0a7",
+        "7f9bbbc4-c9c7-eb09-26db-08eb221909c5",
+        "8571563f-b707-c0f2-0d95-4ef6779b3ea5",
+        "c9d9be79-681b-4296-4c80-87e906ccc87f",
+        "f2ac91b3-dee8-8c7c-daf4-fc2606801a2b"
+      ],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q04",
+      "search_round": 3,
+      "query": "Quispe",
+      "top_k": 10,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "259a1d93-f379-901e-dcaa-322ec32c61e6",
+        "2bf22c17-562a-d1a2-3645-610a0f985c1f",
+        "424cee06-005d-6ed6-b6ff-05a70e842820",
+        "6e5cbcd3-cc77-172f-6a7e-783c997f6c94",
+        "78619bd5-c8d4-1c57-ebea-638b1c351277",
+        "8d9a6042-d27d-af87-f6f9-3471edfb35b0",
+        "9380b224-ac88-44f3-65e4-1440a823ddb1",
+        "ae8c7650-cd84-23ad-e6ad-e86e6c9d47e6",
+        "b3be666c-f1bc-3ba0-a230-165c075674a1",
+        "e5730862-dd8b-26df-bc7d-0c7d95d43f06"
+      ],
+      "without_index_primary": [
+        "21424ead-2c94-537a-2ea7-2f4f9966e819",
+        "254c26b6-a8d8-5100-0239-20c8bc759943",
+        "259a1d93-f379-901e-dcaa-322ec32c61e6",
+        "6e5cbcd3-cc77-172f-6a7e-783c997f6c94",
+        "78619bd5-c8d4-1c57-ebea-638b1c351277",
+        "8d9a6042-d27d-af87-f6f9-3471edfb35b0",
+        "9f0915d5-db54-f747-7625-1cfc8e9110ec",
+        "ae8c7650-cd84-23ad-e6ad-e86e6c9d47e6",
+        "b3be666c-f1bc-3ba0-a230-165c075674a1",
+        "e5730862-dd8b-26df-bc7d-0c7d95d43f06"
+      ],
+      "changed_primary_nodes": [
+        "2bf22c17-562a-d1a2-3645-610a0f985c1f",
+        "424cee06-005d-6ed6-b6ff-05a70e842820",
+        "9380b224-ac88-44f3-65e4-1440a823ddb1"
+      ],
+      "base_candidate_count": 20,
+      "fact_candidates_outside_base_pool": [
+        "19eae50c-3e5f-70f0-16b9-d64b11569567",
+        "42b48d3b-cf32-2f15-341f-8b12d992bd51",
+        "481fc503-5172-9bb0-b93d-6efed09da8e6",
+        "663a179e-34b4-aa62-6ffc-5dadb6120279",
+        "672afaa4-1143-4983-017f-b2721b4ab8b0",
+        "83d29c3b-ff5f-cb5b-4154-686a0e722819",
+        "a0d29360-4da4-114b-3718-d0fdb3c83e56",
+        "f2ac91b3-dee8-8c7c-daf4-fc2606801a2b",
+        "fc456b14-9500-88b5-c913-fa79827e7580"
+      ],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q04",
+      "search_round": 4,
+      "query": "Raam",
+      "top_k": 10,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "19eae50c-3e5f-70f0-16b9-d64b11569567",
+        "424cee06-005d-6ed6-b6ff-05a70e842820",
+        "42b48d3b-cf32-2f15-341f-8b12d992bd51",
+        "481fc503-5172-9bb0-b93d-6efed09da8e6",
+        "8dcc8641-a5d2-25b1-11ff-355daff80f5e",
+        "b3be666c-f1bc-3ba0-a230-165c075674a1",
+        "c2b1e4e1-0e14-c79b-a7c2-5315eaef9d8d",
+        "cbae08f3-5d59-99ee-fb9f-1054e2942b78",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92",
+        "f2ac91b3-dee8-8c7c-daf4-fc2606801a2b"
+      ],
+      "without_index_primary": [
+        "0625c5bf-e494-e115-d04d-ea9c3cdc6b9a",
+        "21424ead-2c94-537a-2ea7-2f4f9966e819",
+        "42b48d3b-cf32-2f15-341f-8b12d992bd51",
+        "481fc503-5172-9bb0-b93d-6efed09da8e6",
+        "663a179e-34b4-aa62-6ffc-5dadb6120279",
+        "8dcc8641-a5d2-25b1-11ff-355daff80f5e",
+        "98d473e9-6979-8c31-2655-c941738b36fc",
+        "cbae08f3-5d59-99ee-fb9f-1054e2942b78",
+        "f2ab8252-4955-d9b1-1b8d-b14c7ec5ce92",
+        "f2ac91b3-dee8-8c7c-daf4-fc2606801a2b"
+      ],
+      "changed_primary_nodes": [
+        "19eae50c-3e5f-70f0-16b9-d64b11569567",
+        "424cee06-005d-6ed6-b6ff-05a70e842820",
+        "b3be666c-f1bc-3ba0-a230-165c075674a1",
+        "c2b1e4e1-0e14-c79b-a7c2-5315eaef9d8d"
+      ],
+      "base_candidate_count": 20,
+      "fact_candidates_outside_base_pool": [
+        "2bf22c17-562a-d1a2-3645-610a0f985c1f",
+        "672afaa4-1143-4983-017f-b2721b4ab8b0",
+        "6a5efc42-515e-e11d-14ab-8c568388a238",
+        "83d29c3b-ff5f-cb5b-4154-686a0e722819",
+        "9380b224-ac88-44f3-65e4-1440a823ddb1",
+        "9401bd8d-21be-d7cd-13e3-f08945d72db8",
+        "9f0915d5-db54-f747-7625-1cfc8e9110ec",
+        "a0d29360-4da4-114b-3718-d0fdb3c83e56",
+        "a16b2bb2-83cb-0362-eaa3-602a968c0abd",
+        "c4edc835-3fab-67c8-4332-c4b0a5642028",
+        "e5730862-dd8b-26df-bc7d-0c7d95d43f06"
+      ],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q04",
+      "search_round": 5,
+      "query": "quarrel upset angry mad complain bickering",
+      "top_k": 12,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "263ae562-4c2c-8133-15fa-bcccbd87d6d3",
+        "36b87340-aa5b-fb9f-20f3-c3bcf44a4e2d",
+        "42b48d3b-cf32-2f15-341f-8b12d992bd51",
+        "5fa70054-ee13-bfca-04b8-a6a866c8eaf3",
+        "78619bd5-c8d4-1c57-ebea-638b1c351277",
+        "8dcc8641-a5d2-25b1-11ff-355daff80f5e",
+        "9380b224-ac88-44f3-65e4-1440a823ddb1",
+        "9401bd8d-21be-d7cd-13e3-f08945d72db8",
+        "9f0915d5-db54-f747-7625-1cfc8e9110ec",
+        "b4d6475f-5076-732b-cd86-dc249c25e882",
+        "d8af4535-9d2c-c0fb-be0a-ac3dabe11259",
+        "e7a922ca-43e1-00d6-f9e0-fe340130c6a5"
+      ],
+      "without_index_primary": [
+        "0d170c53-7f66-9eaa-4287-0aa65b0482bd",
+        "254c26b6-a8d8-5100-0239-20c8bc759943",
+        "36b87340-aa5b-fb9f-20f3-c3bcf44a4e2d",
+        "42b48d3b-cf32-2f15-341f-8b12d992bd51",
+        "5fa70054-ee13-bfca-04b8-a6a866c8eaf3",
+        "663a179e-34b4-aa62-6ffc-5dadb6120279",
+        "78619bd5-c8d4-1c57-ebea-638b1c351277",
+        "8dcc8641-a5d2-25b1-11ff-355daff80f5e",
+        "9401bd8d-21be-d7cd-13e3-f08945d72db8",
+        "9ee1e022-1905-07cb-5686-e598192b0432",
+        "d8af4535-9d2c-c0fb-be0a-ac3dabe11259",
+        "e7a922ca-43e1-00d6-f9e0-fe340130c6a5"
+      ],
+      "changed_primary_nodes": [
+        "263ae562-4c2c-8133-15fa-bcccbd87d6d3",
+        "9380b224-ac88-44f3-65e4-1440a823ddb1",
+        "9f0915d5-db54-f747-7625-1cfc8e9110ec",
+        "b4d6475f-5076-732b-cd86-dc249c25e882"
+      ],
+      "base_candidate_count": 20,
+      "fact_candidates_outside_base_pool": [
+        "3f8f540c-24e4-2b2a-e85e-a7eb0d3359b8",
+        "5ed88591-d0a6-960b-e76f-550730d29225",
+        "77ea86f4-63a3-793e-e8cf-eaa773b8f0a7",
+        "83d29c3b-ff5f-cb5b-4154-686a0e722819",
+        "98d473e9-6979-8c31-2655-c941738b36fc",
+        "a0d29360-4da4-114b-3718-d0fdb3c83e56",
+        "a89addaa-b301-29a7-9491-f6a2603395f6",
+        "b4a93b3d-5240-65a3-b31d-d52ef86325c0"
+      ],
+      "selected_primary_outside_base_pool": []
+    },
+    {
+      "video_id": "study_05",
+      "question_id": "study_05_Q04",
+      "search_round": 6,
+      "query": "do you argue often Raam and Quispe fight a lot",
+      "top_k": 10,
+      "scope": {
+        "policy": "current_clip",
+        "annotation_before_clip": 67,
+        "annotation_timestamp": "34:05",
+        "question_sec": 2045.0,
+        "resolved_before_clip": null,
+        "effective_before_sec": 2045.0,
+        "lookahead_seconds": 0.0,
+        "future_allowance_sec": 0.0,
+        "current_clip": null,
+        "resolution": "no_containing_clip_strict_fallback"
+      },
+      "replay_matches_recorded_primary_set": true,
+      "with_index_primary": [
+        "19eae50c-3e5f-70f0-16b9-d64b11569567",
+        "254c26b6-a8d8-5100-0239-20c8bc759943",
+        "36b87340-aa5b-fb9f-20f3-c3bcf44a4e2d",
+        "3addc647-164b-0b43-fd9b-0b3291b7b715",
+        "42b48d3b-cf32-2f15-341f-8b12d992bd51",
+        "6e5cbcd3-cc77-172f-6a7e-783c997f6c94",
+        "b3be666c-f1bc-3ba0-a230-165c075674a1",
+        "c9d9be79-681b-4296-4c80-87e906ccc87f",
+        "cbcaceb2-f0a4-2010-7e64-64926f3efcf2",
+        "d94cc4c8-f4df-ad4d-7b9d-c9425caa9e5f"
+      ],
+      "without_index_primary": [
+        "0aba7291-5e3d-d84d-860d-0875e78e2d09",
+        "19eae50c-3e5f-70f0-16b9-d64b11569567",
+        "36b87340-aa5b-fb9f-20f3-c3bcf44a4e2d",
+        "3addc647-164b-0b43-fd9b-0b3291b7b715",
+        "42b48d3b-cf32-2f15-341f-8b12d992bd51",
+        "98d473e9-6979-8c31-2655-c941738b36fc",
+        "b3be666c-f1bc-3ba0-a230-165c075674a1",
+        "c84460b5-1340-7bf9-ad6f-282c508a590f",
+        "c9d9be79-681b-4296-4c80-87e906ccc87f",
+        "cbcaceb2-f0a4-2010-7e64-64926f3efcf2"
+      ],
+      "changed_primary_nodes": [
+        "254c26b6-a8d8-5100-0239-20c8bc759943",
+        "6e5cbcd3-cc77-172f-6a7e-783c997f6c94",
+        "d94cc4c8-f4df-ad4d-7b9d-c9425caa9e5f"
+      ],
+      "base_candidate_count": 45,
+      "fact_candidates_outside_base_pool": [
+        "299615de-3ebf-44d9-b3be-2b1864b80006"
+      ],
+      "selected_primary_outside_base_pool": []
+    }
+  ]
+}

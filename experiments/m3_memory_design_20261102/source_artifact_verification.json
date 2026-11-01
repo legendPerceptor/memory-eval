@@ -1,0 +1,132 @@
+{
+  "observed_at": "2026-11-02T04:25:53.186448+08:00",
+  "source_runs": {
+    "m3_balanced_contemporary_20261102": {
+      "source_commit": "9eb782e413ac57ba6ac607d25cc56905e262100e",
+      "source_entries_verified": 1322,
+      "archive_matches_git": true,
+      "runner_sha256_observed_now": "b11c3460b53153c122f8924eaa0a3ce277d430f80f16bc3aacf303c903055a83",
+      "instrumentation_sha256_observed_now": "8195577ef3e69d5d7b7811df100b52d0682a41fa74ee668eb7b8f31c6787cda0"
+    },
+    "m3_balanced_incremental_20261102": {
+      "source_commit": "39fb6392ef5ee489e11828f3ea79d826989ae6a7",
+      "source_entries_verified": 1330,
+      "archive_matches_git": true,
+      "runner_sha256_observed_now": "96abfe533bcc558d1d1c1107043cbaf3496e969a0a81b723df403664097420e9",
+      "instrumentation_sha256_observed_now": "fc3f472b66f7c2d1cf77c971db08aeb4530f1b10f8e027ecd99f464b9da4f4d0"
+    },
+    "m3_facts_identity_20261102": {
+      "source_commit": "a9b0b2dc120c9cda04280d1cc01b2f41e14bdac6",
+      "source_entries_verified": 1328,
+      "archive_matches_git": true,
+      "runner_sha256_observed_now": "259a264002e676a0115c882b3e27f75c37e018e4a78989fa51b829ea666f39e9",
+      "instrumentation_sha256_observed_now": "8195577ef3e69d5d7b7811df100b52d0682a41fa74ee668eb7b8f31c6787cda0"
+    },
+    "m3_facts_identity_incremental_20261102": {
+      "source_commit": "a9b0b2dc120c9cda04280d1cc01b2f41e14bdac6",
+      "source_entries_verified": 1328,
+      "archive_matches_git": true,
+      "runner_sha256_observed_now": "259a264002e676a0115c882b3e27f75c37e018e4a78989fa51b829ea666f39e9",
+      "instrumentation_sha256_observed_now": "8195577ef3e69d5d7b7811df100b52d0682a41fa74ee668eb7b8f31c6787cda0"
+    },
+    "m3_facts_only_20261102": {
+      "source_commit": "a9b0b2dc120c9cda04280d1cc01b2f41e14bdac6",
+      "source_entries_verified": 1328,
+      "archive_matches_git": true,
+      "runner_sha256_observed_now": "259a264002e676a0115c882b3e27f75c37e018e4a78989fa51b829ea666f39e9",
+      "instrumentation_sha256_observed_now": "8195577ef3e69d5d7b7811df100b52d0682a41fa74ee668eb7b8f31c6787cda0"
+    },
+    "m3_source_fact_index_20261102": {
+      "source_commit": "0256e574cc02dc9561100a385fd045e58486c89f",
+      "source_entries_verified": 1330,
+      "archive_matches_git": true,
+      "runner_sha256_observed_now": "b11c3460b53153c122f8924eaa0a3ce277d430f80f16bc3aacf303c903055a83",
+      "instrumentation_sha256_observed_now": "8195577ef3e69d5d7b7811df100b52d0682a41fa74ee668eb7b8f31c6787cda0"
+    },
+    "m3_source_fact_index_repeat_20261102": {
+      "source_commit": "0256e574cc02dc9561100a385fd045e58486c89f",
+      "source_entries_verified": 1330,
+      "archive_matches_git": true,
+      "runner_sha256_observed_now": "b11c3460b53153c122f8924eaa0a3ce277d430f80f16bc3aacf303c903055a83",
+      "instrumentation_sha256_observed_now": "8195577ef3e69d5d7b7811df100b52d0682a41fa74ee668eb7b8f31c6787cda0"
+    },
+    "m3_source_fact_index_v2_20261102": {
+      "source_commit": "a1e3160bb9c96ddc843a809325fc66dd567f102f",
+      "source_entries_verified": 1330,
+      "archive_matches_git": true,
+      "runner_sha256_observed_now": "b11c3460b53153c122f8924eaa0a3ce277d430f80f16bc3aacf303c903055a83",
+      "instrumentation_sha256_observed_now": "8195577ef3e69d5d7b7811df100b52d0682a41fa74ee668eb7b8f31c6787cda0"
+    },
+    "m3_source_fact_index_v2_repeat_20261102": {
+      "source_commit": "a1e3160bb9c96ddc843a809325fc66dd567f102f",
+      "source_entries_verified": 1330,
+      "archive_matches_git": true,
+      "runner_sha256_observed_now": "b11c3460b53153c122f8924eaa0a3ce277d430f80f16bc3aacf303c903055a83",
+      "instrumentation_sha256_observed_now": "8195577ef3e69d5d7b7811df100b52d0682a41fa74ee668eb7b8f31c6787cda0"
+    },
+    "m3_source_fact_scene_20261102": {
+      "source_commit": "39fb6392ef5ee489e11828f3ea79d826989ae6a7",
+      "source_entries_verified": 1330,
+      "archive_matches_git": true,
+      "runner_sha256_observed_now": "96abfe533bcc558d1d1c1107043cbaf3496e969a0a81b723df403664097420e9",
+      "instrumentation_sha256_observed_now": "fc3f472b66f7c2d1cf77c971db08aeb4530f1b10f8e027ecd99f464b9da4f4d0"
+    },
+    "m3_source_fact_scene_repeat_20261102": {
+      "source_commit": "39fb6392ef5ee489e11828f3ea79d826989ae6a7",
+      "source_entries_verified": 1330,
+      "archive_matches_git": true,
+      "runner_sha256_observed_now": "96abfe533bcc558d1d1c1107043cbaf3496e969a0a81b723df403664097420e9",
+      "instrumentation_sha256_observed_now": "fc3f472b66f7c2d1cf77c971db08aeb4530f1b10f8e027ecd99f464b9da4f4d0"
+    },
+    "m3_strict_incremental_20261102": {
+      "source_commit": "a6abc119360e39beb232217746b36d27dcf3a290",
+      "source_entries_verified": 1333,
+      "archive_matches_git": true,
+      "runner_sha256_observed_now": "229fc1a6f6de80f41374723a0931989a83e445c69292b5deec7d2dd6ade60389",
+      "instrumentation_sha256_observed_now": "fc3f472b66f7c2d1cf77c971db08aeb4530f1b10f8e027ecd99f464b9da4f4d0"
+    },
+    "m3_strict_incremental_repeat_20261102": {
+      "source_commit": "a6abc119360e39beb232217746b36d27dcf3a290",
+      "source_entries_verified": 1333,
+      "archive_matches_git": true,
+      "runner_sha256_observed_now": "229fc1a6f6de80f41374723a0931989a83e445c69292b5deec7d2dd6ade60389",
+      "instrumentation_sha256_observed_now": "fc3f472b66f7c2d1cf77c971db08aeb4530f1b10f8e027ecd99f464b9da4f4d0"
+    }
+  },
+  "independent_repetitions": {
+    "m3_balanced_contemporary_20261102": {
+      "source": "m3_context_finalization_recovered_20261101",
+      "model_source_and_config_equal": true
+    },
+    "m3_source_fact_index_repeat_20261102": {
+      "source": "m3_source_fact_index_20261102",
+      "model_source_and_config_equal": true
+    },
+    "m3_source_fact_index_v2_repeat_20261102": {
+      "source": "m3_source_fact_index_v2_20261102",
+      "model_source_and_config_equal": true
+    },
+    "m3_source_fact_scene_repeat_20261102": {
+      "source": "m3_source_fact_scene_20261102",
+      "model_source_and_config_equal": true
+    },
+    "m3_strict_incremental_repeat_20261102": {
+      "source": "m3_strict_incremental_20261102",
+      "model_source_and_config_equal": true
+    }
+  },
+  "reference_repeat": {
+    "inputs_verified": 1335,
+    "all_unchanged": true
+  },
+  "annotations": {
+    "raw_file_sha256": "f43031bf0216a2ef2e7909f20ecd534e0098da17b63cdf94325a07f1bea372c1",
+    "canonical_json_sha256": "bb02225f22a097bbd077c4913bdf85e4f0c6f5cbd37eaee49c1de41ece30dded",
+    "matches_original_sampling_manifest": true,
+    "canonicalization": "json.dumps(parsed, sort_keys=True, ensure_ascii=False), default separators, UTF-8"
+  },
+  "joint_judging": {},
+  "index_manifest_sha256": "ab0e952ac83fb96ff3df47b2d6d663199dfd3b5386101050e62d8307b4b016f5",
+  "index_vectors_sha256": "f66e16d07052b35f740abad7c2cfaddd8503d572f15fec312f403ebf009e2689",
+  "note": "Core archives verified against Git; runner/instrumentation hashes without original pins are current observations only."
+}

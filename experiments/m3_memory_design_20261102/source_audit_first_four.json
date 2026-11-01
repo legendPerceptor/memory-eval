@@ -1,0 +1,77 @@
+{
+  "observed_at": "2026-11-02T02:38:01.441041+08:00",
+  "index": {
+    "fact_windows_verified": 7965,
+    "source_nodes_verified": 340,
+    "source_nodes_by_video": {
+      "study_05": 69,
+      "gym_03": 68,
+      "bedroom_04": 56,
+      "study_18": 84,
+      "kitchen_20": 63
+    },
+    "all_original_text_and_scope_metadata_exact": true
+  },
+  "runs": {
+    "m3_facts_only_20261102": {
+      "records": 65,
+      "context_calls": 366,
+      "source_occurrences": 5091,
+      "ranges": 30249,
+      "prediction_hashes": {
+        "study_05": "c152751fd683c584147aca389a83a782dbd2ba58cc214e9b22d3c69757f75821",
+        "gym_03": "e44e0ded396789345b211becd4fe619c5fcaba487f7460ee369aa7276b727b8a",
+        "bedroom_04": "93f3923939b16f06049f4e39771ed05f42f5b805c1316301fddc1b016dd36320",
+        "study_18": "db239df48834049df06f406bc362b3625f6bae5433c0630946f109257687d303",
+        "kitchen_20": "757e955e821719ad48ff1950d4a6812db0e9bde50de5a8b5e5ef7efb1072db33"
+      },
+      "all_delivered_ranges_exact_and_in_scope": true,
+      "no_duplicate_visible_source_positions": true
+    },
+    "m3_facts_identity_20261102": {
+      "records": 65,
+      "context_calls": 365,
+      "source_occurrences": 5086,
+      "ranges": 30230,
+      "prediction_hashes": {
+        "study_05": "cdd064f785b2ed04781f324574c83d2f2d1354a9d141522856ccdb24c6377f83",
+        "gym_03": "756ca66440b382e5c08add75b4e7d8b6660fb5787162b837999e166b6369f87e",
+        "bedroom_04": "9fa326468f8d7b4803ae10471dbcc5265dc28c01519dd2f04df7927092045b1b",
+        "study_18": "b746a9ecf2eaf8d47a4833dcb631d2e859b24d971b90d03ee208f19e75ef28d2",
+        "kitchen_20": "cd0896e4b159d4822018b21ae704cf993fb64d000a70675df3a853e7d48df53e"
+      },
+      "all_delivered_ranges_exact_and_in_scope": true,
+      "no_duplicate_visible_source_positions": true
+    },
+    "m3_facts_identity_incremental_20261102": {
+      "records": 65,
+      "context_calls": 366,
+      "source_occurrences": 7196,
+      "ranges": 39599,
+      "prediction_hashes": {
+        "study_05": "9593b2b8dc43e3f89d54d78c1d11d6a3c7fb8d9eac4e7d952709fdee93da440b",
+        "gym_03": "df1607a34946d7aba485876d236fe8c16cc34ba1944571834654b59d406599b5",
+        "bedroom_04": "2809377ae3dec8f46d4714aaaea78b99503c90408a2ccb72862f7d4cb1c25e1f",
+        "study_18": "c7fcf1ca20344264ad415761c0c9e05784304b22f1b992609f61f69276353f4c",
+        "kitchen_20": "afefa0e8f274b9c8ddf02749b03a88d9f7b9f98033b00cb51f6386e0f9d97e4c"
+      },
+      "all_delivered_ranges_exact_and_in_scope": true,
+      "no_duplicate_visible_source_positions": true
+    },
+    "m3_source_fact_index_v2_20261102": {
+      "records": 65,
+      "context_calls": 369,
+      "source_occurrences": 8525,
+      "ranges": 39634,
+      "prediction_hashes": {
+        "study_05": "00cbc25ba4db7693ce2557cc044040f3205934e4a6dd7d7e39cee00f833cad6c",
+        "gym_03": "e8d3550c7125d040d35bec6361130c37e6dbdd3967f01353e8348fb4fbaeccc6",
+        "bedroom_04": "1580128d298e5d745a9be6b43cc59375edb3c7618cc0654276a9df287c6e0f41",
+        "study_18": "71d4b2ccdb521b35325219d14a1e4995de5de29eaa637f6b273cbb15588f51b1",
+        "kitchen_20": "3b26415604c5c25ef325be5707591b55ac3bfb5de1c02f9f387493bbc435d55a"
+      },
+      "all_delivered_ranges_exact_and_in_scope": true,
+      "no_duplicate_visible_source_positions": true
+    }
+  }
+}

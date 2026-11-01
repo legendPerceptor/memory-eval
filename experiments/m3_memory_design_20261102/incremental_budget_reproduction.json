@@ -1,0 +1,13 @@
+{
+  "configured_incremental_units": 1000,
+  "non_evidence_projection_units": 1062,
+  "clean_projected_units": 1740,
+  "audit_heavy_projected_units": 8157,
+  "clean_evidence_growth": 678,
+  "audit_heavy_evidence_growth": 7095,
+  "model_views_identical": false,
+  "global_input_limit": 12000,
+  "global_budget_still_respected": true,
+  "model_calls": 0,
+  "counter": "UTF8 byte proxy for this offline fixture"
+}

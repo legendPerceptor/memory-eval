@@ -86,3 +86,72 @@ def test_judge_persists_first_quota_failure_then_stops(tmp_path, monkeypatch):
     assert runner.judge_worker(SimpleNamespace(name="test", video="study_05")) == 75
     assert calls == [1]
     assert json.loads((directory / "m3_eval_results.jsonl").read_text())["judge_error"]
+
+
+def test_quota_observation_requires_valid_current_window():
+    body = {"base_resp": {"status_code": 0}, "model_remains": [{
+        "model_name": "general", "current_interval_remaining_percent": 20,
+        "current_weekly_remaining_percent": 80, "end_time": 2000}]}
+    assert runner.parse_quota_observation(body, 1000)["interval_remaining_percent"] == 20
+    body["model_remains"][0]["current_interval_remaining_percent"] = float("nan")
+    with pytest.raises(ValueError):
+        runner.parse_quota_observation(body, 1000)
+    body["model_remains"][0]["current_interval_remaining_percent"] = 20
+    with pytest.raises(ValueError, match="Stale"):
+        runner.parse_quota_observation(body, 3000)
+
+
+def test_quota_query_retries_only_read_only_metadata(monkeypatch):
+    import requests
+    from unittest.mock import Mock
+    monkeypatch.setenv("MINIMAX_API_KEY", "unit-test-key")
+    monkeypatch.setattr(runner.time, "sleep", lambda seconds: None)
+    body = {"base_resp": {"status_code": 0}, "model_remains": [{
+        "model_name": "general", "current_interval_remaining_percent": 30,
+        "current_weekly_remaining_percent": 90, "end_time": 9999999999}]}
+    get = Mock(side_effect=[requests.Timeout("private"), requests.Timeout("private"),
+                           SimpleNamespace(status_code=200, json=lambda: body)])
+    monkeypatch.setattr(requests, "get", get)
+    result = runner.read_quota_observation()
+    assert result["read_only_query_attempts"] == 3
+    assert result["interval_remaining_percent"] == 30
+    assert get.call_count == 3
+
+
+@pytest.mark.parametrize("available", [False, True])
+def test_quota_reserve_stops_before_unattempted_question_without_fake_row(
+    tmp_path, monkeypatch, available,
+):
+    from m3 import qa, config, control_adapter
+    monkeypatch.setattr(runner, "ROOT", tmp_path)
+    monkeypatch.syspath_prepend(str(tmp_path / "sentinel"))
+    monkeypatch.setenv("MINIMAX_API_KEY", "unit-test-key")
+    monkeypatch.setenv("OGMEM_GRAPH_CONNECTION_STRING", "test")
+    monkeypatch.setattr(runner, "DEADLINE", float("inf"))
+    monkeypatch.setattr(config, "load_m3_runtime_config",
+                        lambda _: SimpleNamespace(graph_connection_string="test"))
+    run = tmp_path / "runs/test"
+    run.mkdir(parents=True)
+    exp = tmp_path / "experiments/test"
+    exp.mkdir(parents=True)
+    (exp / "manifest.json").write_text('{"quota_reserve_percent":12}')
+    def quota():
+        if not available:
+            raise TimeoutError("private service details")
+        return {"interval_remaining_percent": 11, "weekly_remaining_percent": 90,
+                "window_end_unix": 9999999999, "observed_at_unix": 1}
+    monkeypatch.setattr(runner, "read_quota_observation", quota)
+    original_calls = []
+    monkeypatch.setattr(control_adapter.OGMemoryControlAdapter, "run",
+                        lambda *args: original_calls.append(1))
+    def fake_qa(argv):
+        adapter = object.__new__(control_adapter.OGMemoryControlAdapter)
+        adapter._llm = SimpleNamespace(_client=SimpleNamespace(api_key="unit-test-key"))
+        adapter.run(None, SimpleNamespace(search_stats={}))
+        raise AssertionError("Must stop before model execution")
+    monkeypatch.setattr(qa, "main_react_qa", fake_qa)
+    assert runner.worker(SimpleNamespace(name="test", video="study_05")) == 76
+    assert not original_calls
+    assert not (run / "study_05/m3_qa_results.jsonl").exists()
+    receipt = (run / "study_05/quota_reserve_stop.json").read_text()
+    assert "private service details" not in receipt

@@ -1,0 +1,28 @@
+{
+  "name": "m3_reference_repeat_20261102",
+  "qa_records": 65,
+  "judge_records": 0,
+  "initial_judging": "Omitted; all fixed answers will enter the common blinded judge.",
+  "valid_answers": 65,
+  "finish_reasons": {
+    "done": 65
+  },
+  "question_wall_seconds": {
+    "count": 65,
+    "mean": 12.254961446862524,
+    "max": 36.295299123972654,
+    "median": 12.023608969058841
+  },
+  "qa_usage": {
+    "logical_calls": 302,
+    "unknown_usage_calls": 0,
+    "prompt_tokens": 551699,
+    "completion_tokens": 27709,
+    "peak_prompt_tokens": 4830,
+    "cached_prompt_tokens": 354700,
+    "unknown_cache_usage_calls": 0,
+    "model_seconds_sum": 679.5910131931305
+  },
+  "model_setting_deviations": [],
+  "frozen_inputs_unchanged": true
+}

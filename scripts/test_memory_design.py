@@ -88,3 +88,71 @@ def test_final_verifier_rejects_incomplete_or_changed_judging(tmp_path, change):
         grades[0]["judge_score"] = .7
     with pytest.raises(ValueError):
         verify(tasks, grades, hashes, manifest)
+
+
+def test_optional_repeat_quota_rule_uses_consumption_not_quality():
+    from continue_memory_design import optional_quota_threshold
+    previous = [{"method": "source_index_scene", "status": "finished", "quota_before": {
+        "window_end_unix": 100, "interval_remaining_percent": 56}}]
+    current = {"window_end_unix": 100, "interval_remaining_percent": 37}
+    assert optional_quota_threshold("source_index_scene_repeat", current, previous) == 36
+    previous[0]["score"] = 0  # Even a low score does not cancel a repeat.
+    assert optional_quota_threshold("source_index_scene_repeat", current, previous) == 36
+    assert optional_quota_threshold("incremental_only", current, previous) == 40
+    assert optional_quota_threshold("source_index_scene_repeat", {**current, "window_end_unix": 200}, previous) == 40
+    assert optional_quota_threshold("source_index_scene_repeat", None, previous) == 40
+    previous[0]["method"] = "strict_incremental"
+    assert optional_quota_threshold("strict_incremental", current, previous) == 30
+    assert optional_quota_threshold("strict_incremental_repeat", current, previous) == 31
+
+
+def test_replay_embedding_cache_preserves_order_and_does_not_duplicate_queries():
+    from replay_source_fact_retrieval import CachedEmbedding
+    class Embedder:
+        def __init__(self):
+            self.calls = []
+        def embed_texts(self, texts):
+            self.calls.append(texts)
+            return [[len(t), 1.] for t in texts]
+    inner = Embedder()
+    cached = CachedEmbedding(inner)
+    assert cached.embed_texts(["one", "two", "one"]) == [[3, 1.], [3, 1.], [3, 1.]]
+    assert cached.embed_texts(["two", "three"]) == [[3, 1.], [5, 1.]]
+    assert inner.calls == [["one", "two"], ["three"]]
+    assert cached.new_queries == 3
+
+
+def test_replay_embedding_cache_rejects_missing_vectors():
+    from types import SimpleNamespace
+    from replay_source_fact_retrieval import CachedEmbedding
+    with pytest.raises(ValueError):
+        CachedEmbedding(SimpleNamespace(embed_texts=lambda texts: [])).embed_texts(["one"])
+
+
+def test_tradeoff_plot_refuses_incomplete_or_unknown_usage():
+    from plot_memory_design import validate
+    row = {"questions": 65, "mean_score": .5,
+           "qa_usage": {"prompt_tokens": 100, "uncached_prompt_tokens": 40, "unknown_usage_calls": 0}}
+    data = {"joint_judge_tasks": 65, "methods": {"facts": row}}
+    assert validate(data) == data["methods"]
+    with pytest.raises(ValueError):
+        validate({**data, "joint_judge_tasks": 64})
+    row["qa_usage"]["unknown_usage_calls"] = 1
+    with pytest.raises(ValueError):
+        validate(data)
+
+
+def test_paired_contrast_averages_repeats_instead_of_best_of_selection():
+    from render_memory_design import paired_contrast
+    grades = [
+        {"method": method, "video_id": f"v{i}", "question_id": f"q{i}",
+         "judge_score": score, "judge_error": False}
+        for method, scores in {"a": [1., 0.], "a_repeat": [0., 1.], "b": [0., 0.]}.items()
+        for i, score in enumerate(scores)]
+    result = paired_contrast(grades, ["a", "a_repeat"], ["b"])
+    assert result["questions"] == 2
+    assert result["mean_paired_delta"] == .5  # Not 1.0 from cherry-picking.
+    assert result["video_cluster_interval"]["lower"] == .5
+    assert result["video_cluster_interval"]["upper"] == .5
+    with pytest.raises(ValueError):
+        paired_contrast(grades[:-1], ["a", "a_repeat"], ["b"])
