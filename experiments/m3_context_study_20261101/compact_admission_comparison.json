@@ -1,0 +1,20 @@
+{
+  "C": {
+    "questions": 65,
+    "evidence_bearing_calls": 301,
+    "mean_selected_nodes": 12.551495016611296,
+    "mean_selected_passages": 72.00664451827242,
+    "mean_final_view_nodes": 11.523076923076923,
+    "mean_final_view_passages": 66.66153846153846,
+    "note": "Counts of admitted original entries/spans, not distinct facts. Queries and trajectories differ; this is not a fixed-input causal estimate."
+  },
+  "D": {
+    "questions": 65,
+    "evidence_bearing_calls": 301,
+    "mean_selected_nodes": 15.219269102990033,
+    "mean_selected_passages": 85.32225913621262,
+    "mean_final_view_nodes": 13.661538461538461,
+    "mean_final_view_passages": 78.83076923076923,
+    "note": "Counts of admitted original entries/spans, not distinct facts. Queries and trajectories differ; this is not a fixed-input causal estimate."
+  }
+}

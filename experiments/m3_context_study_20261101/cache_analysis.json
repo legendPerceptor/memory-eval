@@ -1,5 +1,5 @@
 {
-  "observed_at": "2026-11-01T12:32:52.526882+08:00",
+  "observed_at": "2026-11-01T15:57:30.212563+08:00",
   "methods": {
     "historical_ogmemory": {
       "logical_calls": 319,
@@ -72,6 +72,17 @@
         "prior_unknown_usage_calls": 0,
         "note": "All prior failures remain in the source run. Trajectory token totals are not a complete bill for failed/retried calls."
       }
+    },
+    "grouped12k": {
+      "logical_calls": 366,
+      "prompt_tokens": 2760479,
+      "cached_prompt_tokens": 571809,
+      "uncached_prompt_tokens": 2188670,
+      "cache_fraction": 0.20714122440344593,
+      "unknown_usage_calls": 0,
+      "total_input_reduction_vs_original": 0.8613225254673913,
+      "uncached_input_reduction_vs_original": 0.6836257646381645,
+      "prior_attempts": {}
     }
   },
   "interpretation": [

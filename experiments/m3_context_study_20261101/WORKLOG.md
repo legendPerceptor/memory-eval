@@ -18,6 +18,8 @@ oGMemory branch `m3_dev_1031`, clean:
 Root repository `main` has checkpoints through `1f56f45`.
 Some earlier M3-Agent/report artifacts predate this phase and were already
 uncommitted when this work began; preserve them.
+Newer checkpoints: `2b03f3b` (A/B/C and provisional report), `d367375`
+(archive completed prior M3/study18 artifacts; no prediction changes).
 
 ## Experiments and scheduling
 
@@ -39,7 +41,7 @@ Current planned logical arms:
 | A | m3_context_budget_recovered_20261101 | c992d45b | finished |
 | B | m3_context_finalization_recovered_20261101 | 9eb782e4 | finished |
 | C | m3_context_compact12k_guarded_20261101 | 68e1993c | finished:64/65, initial score0.523077 |
-| D | m3_context_grouped12k_v2_20261101 | 76879efa | not before15:05 |
+| D | m3_context_grouped12k_v2_20261101 | 76879efa | finished:65/65, independent score0.530769 |
 | B repeat | m3_context_finalization_repeat_20261101 | 9eb782e4 | not before20:05 |
 
 B repeat is a **full independent repeat**, not best-of or answer reuse.
@@ -93,11 +95,22 @@ These are independent/retained grades, **not final joint-judge scores**:
 | Old M3 reference text adaptation |65/65|0.4615|310|569,796|4,740|
 | A recovered |65/65|0.553846|359|4,722,001|16,904|
 | B |65/65|0.600000|365|4,804,362|16,922|
+| C |64/65|0.523077|366|2,721,838|9,102|
+| D |65/65|0.530769|366|2,760,479|9,251|
 
 A by-video: .4583 / .6364 / .8182 / .3214 / .5882.
 B by-video: .5833 / .7273 / .8182 / .3214 / .6176.
 B had54 last-iteration finalizations, **zero time-reserve triggers**;
 max question wall time79.35s. Do not attribute its score change to the45s reserve.
+D finished atabout15:50 with no QA/judge errors and no loop-time overruns.
+It had56 last-round finalizations, no time-reserve triggers. Actual current
+quota remaining76%; coordinator is deliberately waiting for B repeat20:05.
+Do not add extra trial arms to fill the waiting period.
+
+At the same12k budget, D admitted more original spans/entries than C
+(mean final-view78.83 vs66.66), but independent grades remain close. These are
+not counts of distinct facts and queries differ; don't treat this as a causal
+information-gain estimate. See compact_admission_comparison.json.
 
 The original6 timeout questions all got answers in A;5 scored1 and scissors-count
 study_05_Q12 still scored0. A versus old independent grades:48 equal,8 higher,9 lower.
@@ -150,6 +163,10 @@ committed83e51d98 checks:1041 unit passed;1388 passed/108 skipped/9 known
 exclusions in the expanded selection. Root tools29 passed.
 Utility invocation and output path are documented in
 oGMemory/docs/m3_bounded_context.md.
+All root tests together now39 passed; older reference adapter recheck9 passed.
+Before-D DB fingerprints match early snapshot, and annotations match the
+original canonical-JSON hash. Do not compare raw bytes against that canonical
+manifest hash; both hashes and the correction are recorded.
 
 Additional evidence:
 - `compact_protocol_failure.json` records C's final API input8607/output622,

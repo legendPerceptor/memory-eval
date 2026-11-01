@@ -1,5 +1,5 @@
 {
-  "observed_at": "2026-11-01T13:58:55.567548+08:00",
+  "observed_at": "2026-11-01T16:05:45.962587+08:00",
   "source_runs": {
     "m3_context_budget_recovered_20261101": {
       "source_commit": "c992d45bacfabf1c1e18f8ecd54c70389b0d3721",
@@ -38,5 +38,11 @@
     }
   },
   "joint_judging": {},
+  "annotations": {
+    "raw_file_sha256": "f43031bf0216a2ef2e7909f20ecd534e0098da17b63cdf94325a07f1bea372c1",
+    "canonical_json_sha256": "bb02225f22a097bbd077c4913bdf85e4f0c6f5cbd37eaee49c1de41ece30dded",
+    "matches_original_sampling_manifest": true,
+    "canonicalization": "json.dumps(parsed, sort_keys=True, ensure_ascii=False), default separators, UTF-8"
+  },
   "note": "Core frozen files are checked against Git archives. Outer runner/instrumentation hashes are observations now, not retrospective proof of historical immutability."
 }

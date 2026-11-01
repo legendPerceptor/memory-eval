@@ -1,3 +1,31 @@
 {
-  "status": "prepared"
+  "status": "finished",
+  "videos": {
+    "study_05": {
+      "qa_exit": 0,
+      "records": 12,
+      "judge_exit": 0
+    },
+    "gym_03": {
+      "qa_exit": 0,
+      "records": 11,
+      "judge_exit": 0
+    },
+    "bedroom_04": {
+      "qa_exit": 0,
+      "records": 11,
+      "judge_exit": 0
+    },
+    "study_18": {
+      "qa_exit": 0,
+      "records": 14,
+      "judge_exit": 0
+    },
+    "kitchen_20": {
+      "qa_exit": 0,
+      "records": 17,
+      "judge_exit": 0
+    }
+  },
+  "wall_seconds": 2704.2287967205048
 }

@@ -107,3 +107,15 @@ unchanged data from that time onward, not falsely prove an earlier snapshot exis
 - Root analysis/recovery/integrity suite: **29 passed**, including preservation
   of both B runs rather than selecting the higher run and detection of changed
   prediction files or judge task fields.
+
+## Input and artifact checks before D
+
+- All root test files together: **39 passed**, including the legacy summarizer.
+- Canonical annotation JSON matches the original sampling manifest. The manifest
+  hashes `json.dumps(parsed, sort_keys=True, ensure_ascii=False)` with default
+  separators, not raw file bytes. An initial raw-versus-canonical comparison was
+  corrected and recorded; no annotation content change was found.
+- Both databases' row-content fingerprints still match the early snapshot.
+- The older M3 adaptation unit tests were independently rerun: **9 passed**.
+- Archived prior CSVs only had record terminators normalized toLF; parsed field
+  values, including embedded whitespace, were verified unchanged.

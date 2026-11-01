@@ -17,6 +17,19 @@ def rows(path):
     return [json.loads(s) for s in path.read_text().splitlines() if s.strip()]
 
 
+def verify_annotations(path, expected_canonical_sha256):
+    raw = path.read_bytes()
+    canonical = json.dumps(json.loads(raw), sort_keys=True, ensure_ascii=False).encode("utf-8")
+    digest = hashlib.sha256(canonical).hexdigest()
+    assert digest == expected_canonical_sha256, "Annotation content differs from the original cohort manifest"
+    return {
+        "raw_file_sha256": hashlib.sha256(raw).hexdigest(),
+        "canonical_json_sha256": digest,
+        "matches_original_sampling_manifest": True,
+        "canonicalization": "json.dumps(parsed, sort_keys=True, ensure_ascii=False), default separators, UTF-8",
+    }
+
+
 def verify_joint(root, grades):
     run = root / "runs/m3_context_joint_judge_20261101"
     manifest = json.loads((root / "experiments/m3_context_joint_judge_20261101/manifest.json").read_text())
@@ -44,6 +57,8 @@ def main():
     parser.add_argument("--require-final", action="store_true")
     args = parser.parse_args()
     from judge_context_comparison import ARMS
+    cohort = json.loads((ROOT / "experiments/m3_flash_medium_20261031/sample_manifest.json").read_text())
+    annotations = verify_annotations(Path("/data/m3_data/annotations/robot.json"), cohort["annotations_sha256"])
 
     archives = {}
     verified = {}
@@ -92,7 +107,7 @@ def main():
                 assert not metrics[field], (name, field)
     result = {
         "observed_at": datetime.datetime.now().astimezone().isoformat(),
-        "source_runs": verified, "joint_judging": joint,
+        "source_runs": verified, "joint_judging": joint, "annotations": annotations,
         "note": "Core frozen files are checked against Git archives. Outer runner/instrumentation hashes are observations now, not retrospective proof of historical immutability.",
     }
     name = "final_artifact_verification.json" if args.require_final else "source_artifact_verification.json"

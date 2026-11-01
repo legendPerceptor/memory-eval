@@ -143,6 +143,9 @@ def main():
     result = {"methods": methods, "replication": repeat,
               "joint_grade_source": str(grade_path.relative_to(ROOT)),
               "interpretation": "Same stored memories for oGMemory arms; fixed prior M3 predictions. All 65 questions retained. Development/automatic-judge comparison."}
+    admission_path = output / "compact_admission_comparison.json"
+    if admission_path.exists():
+        result["compact_admission_comparison"] = json.loads(admission_path.read_text())
     (output / "comparison.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
     (output / "joint_questions.jsonl").write_text(
         "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in grades))
@@ -294,6 +297,20 @@ def main():
         "既有问题后1388通过、108跳过、9排除，不是整个仓库全部通过。",
         "每个实验仍使用自身manifest记录的冻结版本，不用当前HEAD改写历史结果。",
     ]
+    if "compact_admission_comparison" in result:
+        counts = result["compact_admission_comparison"]
+        md += ["",
+               f"相同12k预算下，D最终请求平均包含{counts['D']['mean_final_view_passages']:.2f}条原文条目/片段，"
+               f"C为{counts['C']['mean_final_view_passages']:.2f}；"
+               "这不是独立事实计数，也不是固定查询下的因果信息增益。"
+               "格式节省可能用于容纳更多材料，而不是降低整轮API输入；"
+               "更多材料仍可能包含重复或混淆，不能只凭离线编码压缩率推荐上线。"]
+        tex += [
+            f"相同12000预算下，D最终视图平均保留{counts['D']['mean_final_view_passages']:.2f}条原文条目/片段，"
+            f"C为{counts['C']['mean_final_view_passages']:.2f}。"
+            "这不是独立事实计数；查询轨迹也不同，不能解读为固定查询的信息增益。"
+            "压缩空间可能用于装入更多原文而非降低API输入，是否有助于答案质量仍需看实际评测。"
+        ]
     tex += [
         r"\subsection{验证与配置使用}",
         "当前发布代码的M3/provider/core单元检查1041项通过；"

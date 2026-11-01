@@ -1,0 +1,10 @@
+{
+  "observed_at": "2026-11-01T14:37:06.223378+08:00",
+  "database_contents_match_early_snapshot": true,
+  "annotation_raw_sha256": "f43031bf0216a2ef2e7909f20ecd534e0098da17b63cdf94325a07f1bea372c1",
+  "annotation_canonical_sha256": "bb02225f22a097bbd077c4913bdf85e4f0c6f5cbd37eaee49c1de41ece30dded",
+  "canonicalization": "json.dumps(parsed_json, sort_keys=True, ensure_ascii=False), default separators, UTF-8",
+  "annotations_match_original_manifest": true,
+  "audit_correction": "An initial check incorrectly compared raw file bytes with the manifest canonical-JSON hash. Inspection of the original sampling code confirmed the canonicalization; no data change was found.",
+  "note": "Early DB snapshot was after A started, not a pre-A snapshot."
+}
