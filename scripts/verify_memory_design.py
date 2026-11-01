@@ -87,6 +87,9 @@ def main():
         from render_memory_design import verify
         tasks, hashes = load_inputs()
         manifest = json.loads((ROOT / "experiments" / NAME / "manifest.json").read_text())
+        assert sha(ROOT / "runs" / NAME / "runner.py") == manifest["runner_sha256"]
+        assert sha(ROOT / "runs/m3_source_fact_index_v2_20261102/_source/m3/eval.py") == (
+            manifest["evaluation_source_sha256"])
         grades = rows(ROOT / "runs" / NAME / "grades.jsonl")
         verify(tasks, grades, hashes, manifest)
         frozen_tasks = rows(ROOT / "runs" / NAME / "inputs.jsonl")
@@ -94,6 +97,14 @@ def main():
         assert len(grades) == manifest["tasks"]
         joint = {"tasks_verified": len(tasks), "prediction_files_verified": sum(map(len, hashes.values())),
                  "all_predictions_and_tasks_unchanged": True, "judge_errors": 0}
+        usage = ROOT / "experiments" / NAME / "model-usage.jsonl"
+        joint["usage_trace_complete"] = usage.exists()
+        if not usage.exists():
+            incident = json.loads((OUT / "judge_instrumentation_incident.json").read_text())
+            assert incident["grades_sha256"] == sha(ROOT / "runs" / NAME / "grades.jsonl")
+            assert incident["tasks_requiring_judge_model"] == sum(
+                bool(row["predicted_answer"]) and not row["error"] for row in grades)
+            joint["usage_gap_documented_not_backfilled"] = True
         initial = json.loads((OUT / "input_audit_initial.json").read_text())
         final = json.loads((OUT / "input_audit_final.json").read_text())
         assert initial["databases"] == final["databases"], "Database rows changed"
@@ -102,7 +113,7 @@ def main():
         "independent_repetitions": repetitions, "reference_repeat": reference,
         "annotations": annotation, "joint_judging": joint,
         "index_manifest_sha256": receipt["manifest_sha256"], "index_vectors_sha256": receipt["vectors_sha256"],
-        "note": "Core archives verified against Git; runner/instrumentation hashes without original pins are current observations only.",
+        "note": "Core archives verified against Git; runner/instrumentation hashes without original pins are current observations only. Common-judge accounting completeness is reported separately, not inferred from successful scores.",
     }
     name = "final_artifact_verification.json" if args.require_final else "source_artifact_verification.json"
     (OUT / name).write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")

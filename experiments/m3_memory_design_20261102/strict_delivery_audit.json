@@ -1,0 +1,30 @@
+{
+  "run": "m3_strict_incremental_20261102",
+  "questions": 65,
+  "behavior": {
+    "epoch_rebuild_calls": 0,
+    "calls_reusing_tool_messages": 240,
+    "visible_fact_no_gain_finalizations": 0,
+    "required_answer_calls": 57,
+    "identity_rank_searches": 382,
+    "identity_rank_searches_with_explicit_matches": 81,
+    "fact_index_searches": 382,
+    "fact_index_proposed_nodes": 7311,
+    "fact_index_verified_nodes": 7311,
+    "fact_index_stale_nodes": 0,
+    "consecutive_message_prefix_comparisons": 305,
+    "consecutive_message_prefix_preserved": 305,
+    "note": "Message-prefix hashes exclude tool schema; cached-token usage is measured separately."
+  },
+  "maximum_incremental_units": 3500,
+  "configured_incremental_units": 3500,
+  "all_increment_bounds_satisfied": true,
+  "forced_requests": 57,
+  "forced_requests_with_only_native_answer": 41,
+  "time_reserve_triggers": 0,
+  "max_visible_nodes": 38,
+  "node_cap_note": "32 is the per-admission projection cap, not the retained-history global node cap; total input is globally bounded.",
+  "required_requests_returning_plain_text": 16,
+  "required_wire_parameters_verified": 57,
+  "protocol_caution": "MiniMax accepted required with only Answer in the schema, but 16/57 responses were ordinary stop text; existing valid-text fallback accepted them without extra model calls. This is not guaranteed native enforcement."
+}

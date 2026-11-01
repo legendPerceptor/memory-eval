@@ -1,0 +1,106 @@
+{
+  "seed": 1102,
+  "tasks": 715,
+  "source_prediction_hashes": {
+    "balanced_prior": {
+      "runs/m3_context_finalization_recovered_20261101/study_05/m3_qa_results.jsonl": "99610fbcb07cb84746e522e5fc2a81cf0cc74469b04d87f397a49e530c658a54",
+      "runs/m3_context_finalization_recovered_20261101/gym_03/m3_qa_results.jsonl": "ed0ca8cadfb2e92e7aebd6f315745902c868c2d227ff6bf3cdbc2cad8d2a4299",
+      "runs/m3_context_finalization_recovered_20261101/bedroom_04/m3_qa_results.jsonl": "1da5369c5ea3820608d88d36bb571ee6a089673a7336f69c8c999082e070c24b",
+      "runs/m3_context_finalization_recovered_20261101/study_18/m3_qa_results.jsonl": "69be8d82a7053a827a9c00680c1fa76c52b25a6f67e3d579c7f400d4646fe2b4",
+      "runs/m3_context_finalization_recovered_20261101/kitchen_20/m3_qa_results.jsonl": "dc1901969204f07f8cc86ca700ab7aaf69381ac882484eb2dbc84cc227b744ac"
+    },
+    "balanced_prior_repeat": {
+      "runs/m3_context_finalization_repeat_20261101/study_05/m3_qa_results.jsonl": "8dcbd818d98e2a4f4a72966053de4d636fe5464ad05f495b26da57e5c57eb5be",
+      "runs/m3_context_finalization_repeat_20261101/gym_03/m3_qa_results.jsonl": "217457bbb6be4f7535a75601c875a1623957650f5e288b4c88f8335bec85971f",
+      "runs/m3_context_finalization_repeat_20261101/bedroom_04/m3_qa_results.jsonl": "1452819a1b8ae5e271b56b2d8d7af328af0a224fa1b4c12b3256fe19e4e6b742",
+      "runs/m3_context_finalization_repeat_20261101/study_18/m3_qa_results.jsonl": "1110c966eb7c040237fe485d4ae688c11cbd64cf786a3a69a8edea47d899fd96",
+      "runs/m3_context_finalization_repeat_20261101/kitchen_20/m3_qa_results.jsonl": "ac34e0cb5033c1433fe2a8ac130ebf98a04f98f261a324aae62612d6d43e32df"
+    },
+    "m3_reference": {
+      "runs/m3_agent_reference_text_20261101/study_05/m3_qa_results.jsonl": "26e882b5d618f1d4e7362ce2033ed16f85ffe56c52e1fab09f8573c5529c8bf3",
+      "runs/m3_agent_reference_text_20261101/gym_03/m3_qa_results.jsonl": "58219ff65c23dbc9374e83b4c6a5eb8480f1365858146d8d53ca596afb5fe6fb",
+      "runs/m3_agent_reference_text_20261101/bedroom_04/m3_qa_results.jsonl": "defac1e3e285a82b7d09d850510f4a1881586edc9e35e1d0bb6b5fd68c2d3890",
+      "runs/m3_agent_reference_text_20261101/study_18/m3_qa_results.jsonl": "f24047c8b9db40d5adbcf3935336ebbd18f8feabf6778d7578e9686ea62d80f3",
+      "runs/m3_agent_reference_text_20261101/kitchen_20/m3_qa_results.jsonl": "06fb4776fc449ecc026d9a6122eedbd696b784a94524a5f0e52631758565e8eb"
+    },
+    "facts": {
+      "runs/m3_facts_only_20261102/study_05/m3_qa_results.jsonl": "c152751fd683c584147aca389a83a782dbd2ba58cc214e9b22d3c69757f75821",
+      "runs/m3_facts_only_20261102/gym_03/m3_qa_results.jsonl": "e44e0ded396789345b211becd4fe619c5fcaba487f7460ee369aa7276b727b8a",
+      "runs/m3_facts_only_20261102/bedroom_04/m3_qa_results.jsonl": "93f3923939b16f06049f4e39771ed05f42f5b805c1316301fddc1b016dd36320",
+      "runs/m3_facts_only_20261102/study_18/m3_qa_results.jsonl": "db239df48834049df06f406bc362b3625f6bae5433c0630946f109257687d303",
+      "runs/m3_facts_only_20261102/kitchen_20/m3_qa_results.jsonl": "757e955e821719ad48ff1950d4a6812db0e9bde50de5a8b5e5ef7efb1072db33"
+    },
+    "facts_identity": {
+      "runs/m3_facts_identity_20261102/study_05/m3_qa_results.jsonl": "cdd064f785b2ed04781f324574c83d2f2d1354a9d141522856ccdb24c6377f83",
+      "runs/m3_facts_identity_20261102/gym_03/m3_qa_results.jsonl": "756ca66440b382e5c08add75b4e7d8b6660fb5787162b837999e166b6369f87e",
+      "runs/m3_facts_identity_20261102/bedroom_04/m3_qa_results.jsonl": "9fa326468f8d7b4803ae10471dbcc5265dc28c01519dd2f04df7927092045b1b",
+      "runs/m3_facts_identity_20261102/study_18/m3_qa_results.jsonl": "b746a9ecf2eaf8d47a4833dcb631d2e859b24d971b90d03ee208f19e75ef28d2",
+      "runs/m3_facts_identity_20261102/kitchen_20/m3_qa_results.jsonl": "cd0896e4b159d4822018b21ae704cf993fb64d000a70675df3a853e7d48df53e"
+    },
+    "facts_identity_incremental": {
+      "runs/m3_facts_identity_incremental_20261102/study_05/m3_qa_results.jsonl": "9593b2b8dc43e3f89d54d78c1d11d6a3c7fb8d9eac4e7d952709fdee93da440b",
+      "runs/m3_facts_identity_incremental_20261102/gym_03/m3_qa_results.jsonl": "df1607a34946d7aba485876d236fe8c16cc34ba1944571834654b59d406599b5",
+      "runs/m3_facts_identity_incremental_20261102/bedroom_04/m3_qa_results.jsonl": "2809377ae3dec8f46d4714aaaea78b99503c90408a2ccb72862f7d4cb1c25e1f",
+      "runs/m3_facts_identity_incremental_20261102/study_18/m3_qa_results.jsonl": "c7fcf1ca20344264ad415761c0c9e05784304b22f1b992609f61f69276353f4c",
+      "runs/m3_facts_identity_incremental_20261102/kitchen_20/m3_qa_results.jsonl": "afefa0e8f274b9c8ddf02749b03a88d9f7b9f98033b00cb51f6386e0f9d97e4c"
+    },
+    "source_index": {
+      "runs/m3_source_fact_index_v2_20261102/study_05/m3_qa_results.jsonl": "00cbc25ba4db7693ce2557cc044040f3205934e4a6dd7d7e39cee00f833cad6c",
+      "runs/m3_source_fact_index_v2_20261102/gym_03/m3_qa_results.jsonl": "e8d3550c7125d040d35bec6361130c37e6dbdd3967f01353e8348fb4fbaeccc6",
+      "runs/m3_source_fact_index_v2_20261102/bedroom_04/m3_qa_results.jsonl": "1580128d298e5d745a9be6b43cc59375edb3c7618cc0654276a9df287c6e0f41",
+      "runs/m3_source_fact_index_v2_20261102/study_18/m3_qa_results.jsonl": "71d4b2ccdb521b35325219d14a1e4995de5de29eaa637f6b273cbb15588f51b1",
+      "runs/m3_source_fact_index_v2_20261102/kitchen_20/m3_qa_results.jsonl": "3b26415604c5c25ef325be5707591b55ac3bfb5de1c02f9f387493bbc435d55a"
+    },
+    "source_index_repeat": {
+      "runs/m3_source_fact_index_v2_repeat_20261102/study_05/m3_qa_results.jsonl": "a241a49e0c12fea71e1746a5286b779496dccbf3e74bcf44017e71c4c6a27275",
+      "runs/m3_source_fact_index_v2_repeat_20261102/gym_03/m3_qa_results.jsonl": "6a3f25010644c1472fc4cf345fd5c8e8c2e0b9c5dc111d0bee41f1a3bdc52fbf",
+      "runs/m3_source_fact_index_v2_repeat_20261102/bedroom_04/m3_qa_results.jsonl": "c3f4db350fba66d743e432cde27128438988305264a9b3cbc71c8a726dbea7d7",
+      "runs/m3_source_fact_index_v2_repeat_20261102/study_18/m3_qa_results.jsonl": "183ec4a9b6bb81929006089a0e8426c14d9d81706f0a56dc5bd43861c4888028",
+      "runs/m3_source_fact_index_v2_repeat_20261102/kitchen_20/m3_qa_results.jsonl": "92e237a506710b5fb17b6253c970af018ce1af6d2d8dbb9bdd03d79a21928306"
+    },
+    "balanced_contemporary": {
+      "runs/m3_balanced_contemporary_20261102/study_05/m3_qa_results.jsonl": "135eece5b733758eb9504379da5a6b2c399e0a5966bb98958f24bffe6dc3dd5d",
+      "runs/m3_balanced_contemporary_20261102/gym_03/m3_qa_results.jsonl": "0c850b571427e6e73896536f045cf9f26473b210e386f1589702886610002a4d",
+      "runs/m3_balanced_contemporary_20261102/bedroom_04/m3_qa_results.jsonl": "e067fc96b2f90efcfee41b8284daf20c3d4a4599e23fcaa552bd46b8ae32370d",
+      "runs/m3_balanced_contemporary_20261102/study_18/m3_qa_results.jsonl": "93eb0fc09ac0e7c0a994b6752913dc019a4c9e5542a79dedb8968442e2cb4712",
+      "runs/m3_balanced_contemporary_20261102/kitchen_20/m3_qa_results.jsonl": "9cb53c81970444a4c0c29f4946c1fa12b35f70136a76ab89dc19c36a8f9736a8"
+    },
+    "m3_reference_repeat": {
+      "runs/m3_reference_repeat_20261102/study_05/m3_qa_results.jsonl": "d901fad52b5a16ff132c771fdda36cc2d00b0c1bcf40478eccfdeb9326c36a37",
+      "runs/m3_reference_repeat_20261102/gym_03/m3_qa_results.jsonl": "eca407a8b60731a364165424ed54254cc713bd68a6d7b61904532f607749f88f",
+      "runs/m3_reference_repeat_20261102/bedroom_04/m3_qa_results.jsonl": "7e16ec4ebd060b3c6e5c7146266a4cbc4a9f5b7e04ca094625517338eb156e3d",
+      "runs/m3_reference_repeat_20261102/study_18/m3_qa_results.jsonl": "c5b663a6f9ff66b383c05591e77fcecca4a9468b5456bc783f15a28209c1c55d",
+      "runs/m3_reference_repeat_20261102/kitchen_20/m3_qa_results.jsonl": "2aa396496464731f860cdae442cab72ccce026d018bc7d969aa92ed95043749e"
+    },
+    "strict_incremental": {
+      "runs/m3_strict_incremental_20261102/study_05/m3_qa_results.jsonl": "52d68fadb74ff2c1c3abc9230eb65c7094f92d2137d5d5744bc49397a5f9c6b8",
+      "runs/m3_strict_incremental_20261102/gym_03/m3_qa_results.jsonl": "9a19182d8e4e3939eeb6357e1d798b11b20e17e48bc5432d003ae2d0b85aaa68",
+      "runs/m3_strict_incremental_20261102/bedroom_04/m3_qa_results.jsonl": "7dcb94b0dcb9b06f93f88045f24ca57b12697d93cb5fa8a9dd54321e2e4f9a04",
+      "runs/m3_strict_incremental_20261102/study_18/m3_qa_results.jsonl": "48c61f861f9efae06bd78f70413a8742bd1238ff1725f8d618fe81501fd05b1b",
+      "runs/m3_strict_incremental_20261102/kitchen_20/m3_qa_results.jsonl": "7d1818b2fb2b320f7933378cfc3bba31a76be7d71c0347902a107473cf2d5b3e"
+    }
+  },
+  "evaluation_source_sha256": "1c8b769ac3b02554aeca5ce37449578b603136322f192e4164c38d1180c74c13",
+  "runner_sha256": "651d6d3ed4339b17a0604dd415102b390ef261599ae102b0db0008ac83875ac3",
+  "methods": {
+    "balanced_prior": "m3_context_finalization_recovered_20261101",
+    "balanced_prior_repeat": "m3_context_finalization_repeat_20261101",
+    "m3_reference": "m3_agent_reference_text_20261101",
+    "facts": "m3_facts_only_20261102",
+    "facts_identity": "m3_facts_identity_20261102",
+    "facts_identity_incremental": "m3_facts_identity_incremental_20261102",
+    "source_index": "m3_source_fact_index_v2_20261102",
+    "source_index_repeat": "m3_source_fact_index_v2_repeat_20261102",
+    "balanced_contemporary": "m3_balanced_contemporary_20261102",
+    "m3_reference_repeat": "m3_reference_repeat_20261102",
+    "strict_incremental": "m3_strict_incremental_20261102"
+  },
+  "model": "MiniMax-M3.1-Flash",
+  "reasoning_effort": "medium",
+  "thinking": "adaptive",
+  "max_completion_tokens": 2048,
+  "cooperative_request_deadline_seconds": 120,
+  "ordering": "all method/question pairs shuffled; method not sent to judge",
+  "retry_policy": "No success regrading or answer retries. API recovery, if needed, separate.",
+  "deadline": "2026-11-02T10:03:00+08:00"
+}

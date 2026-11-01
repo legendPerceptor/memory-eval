@@ -1,0 +1,47 @@
+{
+  "observed_at": "2026-11-02T06:38:08.333376+08:00",
+  "index": {
+    "fact_windows_verified": 7965,
+    "source_nodes_verified": 340,
+    "source_nodes_by_video": {
+      "study_05": 69,
+      "gym_03": 68,
+      "bedroom_04": 56,
+      "study_18": 84,
+      "kitchen_20": 63
+    },
+    "all_original_text_and_scope_metadata_exact": true
+  },
+  "runs": {
+    "m3_balanced_contemporary_20261102": {
+      "records": 65,
+      "context_calls": 361,
+      "source_occurrences": 7279,
+      "ranges": 43070,
+      "prediction_hashes": {
+        "study_05": "135eece5b733758eb9504379da5a6b2c399e0a5966bb98958f24bffe6dc3dd5d",
+        "gym_03": "0c850b571427e6e73896536f045cf9f26473b210e386f1589702886610002a4d",
+        "bedroom_04": "e067fc96b2f90efcfee41b8284daf20c3d4a4599e23fcaa552bd46b8ae32370d",
+        "study_18": "93eb0fc09ac0e7c0a994b6752913dc019a4c9e5542a79dedb8968442e2cb4712",
+        "kitchen_20": "9cb53c81970444a4c0c29f4946c1fa12b35f70136a76ab89dc19c36a8f9736a8"
+      },
+      "all_delivered_ranges_exact_and_in_scope": true,
+      "no_duplicate_visible_source_positions": true
+    },
+    "m3_strict_incremental_20261102": {
+      "records": 65,
+      "context_calls": 370,
+      "source_occurrences": 8776,
+      "ranges": 28719,
+      "prediction_hashes": {
+        "study_05": "52d68fadb74ff2c1c3abc9230eb65c7094f92d2137d5d5744bc49397a5f9c6b8",
+        "gym_03": "9a19182d8e4e3939eeb6357e1d798b11b20e17e48bc5432d003ae2d0b85aaa68",
+        "bedroom_04": "7dcb94b0dcb9b06f93f88045f24ca57b12697d93cb5fa8a9dd54321e2e4f9a04",
+        "study_18": "48c61f861f9efae06bd78f70413a8742bd1238ff1725f8d618fe81501fd05b1b",
+        "kitchen_20": "7d1818b2fb2b320f7933378cfc3bba31a76be7d71c0347902a107473cf2d5b3e"
+      },
+      "all_delivered_ranges_exact_and_in_scope": true,
+      "no_duplicate_visible_source_positions": true
+    }
+  }
+}

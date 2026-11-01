@@ -5,7 +5,7 @@
 \usepackage{xurl}
 \usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
 \DeclareRobustCommand{\code}[1]{\nolinkurl{#1}}
-\title{oGMemory 多模态记忆评估与上下文优化\\M3-Bench 五视频对照实验}
+\title{oGMemory 多模态记忆与检索优化评估\\M3-Bench 五视频对照实验}
 \author{memory-eval 工作区实验记录}
 \date{2026 年 11 月 2 日}
 \begin{document}
@@ -29,6 +29,11 @@
 后续固定记忆的上下文预算、收尾控制、紧预算与分组表示消融见第
 \ref{sec:context-optimization} 节，运行中与最终共同评分明确区分。
 用量分析同时区分缓存和未缓存输入，不将总token缩减直接解释为费用缩减。
+}{}
+\IfFileExists{memory_design_results.tex}{
+11月2日进一步评估来源事实索引、人物词条件和增量交付，见第
+\ref{sec:memory-design} 节。主要可确认收益是QA输入效率，稳定提分与身份绑定
+仍需验证；共同评委用量漏采单列说明，QA用量记录完整。
 }{}
 \end{abstract}
 
@@ -175,6 +180,7 @@ seed=42 只固定视频抽样；远端模型没有固定生成 seed，后端权�
 \IfFileExists{matched_comparison_results.tex}{\input{matched_comparison_results.tex}}{}
 \IfFileExists{context_optimization_results.tex}{\input{context_optimization_results.tex}}{}
 \IfFileExists{memory_design_results.tex}{\input{memory_design_results.tex}}{}
+\IfFileExists{memory_design_discussion.tex}{\input{memory_design_discussion.tex}}{}
 
 \section{改进方向与后续对照设计}
 \begin{enumerate}
@@ -182,9 +188,9 @@ seed=42 只固定视频抽样；远端模型没有固定生成 seed，后端权�
 统计记忆截断、QA 上下文超限与评委异常，分别处理而非笼统归为低准确率。
 \item \textbf{视觉覆盖：}固定 16 帧预算，对比前缀采样与整片段等距采样，
 再讨论动作自适应采样，避免同时改变帧数和采样位置而无法归因。
-\item \textbf{有界上下文：}本报告后续消融已按固定记忆开展预算和控制验证；
-下一步应研究前缀更稳定的增量证据交付，同时报告缓存、质量、请求大小、
-调用次数和失败率，而不只报告 token 缩减。
+\item \textbf{有界上下文：}固定记忆的预算、控制与增量交付已开展验证；
+下一步先完成严格增量方案的独立重复，再研究完整请求（含工具schema）的前缀稳定性，
+同时报告缓存、质量、请求大小、调用次数和失败率，而不只报告token缩减。
 \item \textbf{事实和时序：}为对象位置、材料、人物归属保存可定位证据；
 区分计划、建议与已完成事件；计数使用可去重事件时间轴而非检索条数。
 \item \textbf{图结构价值：}明确语义节点与身份边何时进入检索，

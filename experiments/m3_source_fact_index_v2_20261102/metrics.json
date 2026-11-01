@@ -52,6 +52,7 @@
     "p95_nearest_rank": 42.211145967943594
   },
   "counter_exceedances": [],
+  "increment_budget_exceedances": [],
   "input_limit_exceedances": [],
   "usage_pairing_errors": [],
   "tokenizer_hash_mismatches": [],
@@ -113,5 +114,6 @@
     "study_18": "71d4b2ccdb521b35325219d14a1e4995de5de29eaa637f6b273cbb15588f51b1",
     "kitchen_20": "3b26415604c5c25ef325be5707591b55ac3bfb5de1c02f9f387493bbc435d55a"
   },
-  "interpretation": "Fixed-memories QA development ablation, not independent human accuracy or an end-to-end memory regeneration."
+  "interpretation": "Fixed-memories QA development ablation, not independent human accuracy or an end-to-end memory regeneration.",
+  "qa_complete": true
 }

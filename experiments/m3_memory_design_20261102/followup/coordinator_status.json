@@ -1,6 +1,6 @@
 {
-  "observed_at": "2026-11-02T04:32:08.822696+08:00",
-  "status": "scheduled_wait",
-  "pending": "m3_source_fact_index_v2_repeat_20261102",
-  "next_start": "2026-11-02T05:01:00+08:00"
+  "observed_at": "2026-11-02T06:02:15.376242+08:00",
+  "status": "running",
+  "job": "m3_strict_incremental_20261102",
+  "active_process_group": 2247922
 }

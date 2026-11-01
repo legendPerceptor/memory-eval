@@ -1,3 +1,7 @@
 {"observed_at_unix": 1793555829.9185526, "interval_remaining_percent": 36, "weekly_remaining_percent": 95, "window_end_unix": 1793566800.0}
 {"observed_at_unix": 1793557766.9977934, "interval_remaining_percent": 11, "weekly_remaining_percent": 94, "window_end_unix": 1793566800.0}
 {"observed_at_unix": 1793563267.4060605, "interval_remaining_percent": 8, "weekly_remaining_percent": 93, "window_end_unix": 1793566800.0}
+{"observed_at_unix": 1793566860.0002148, "interval_remaining_percent": 100, "weekly_remaining_percent": 93, "window_end_unix": 1793584800.0}
+{"observed_at_unix": 1793568647.6829278, "interval_remaining_percent": 76, "weekly_remaining_percent": 92, "window_end_unix": 1793584800.0}
+{"observed_at_unix": 1793570534.0340056, "interval_remaining_percent": 34, "weekly_remaining_percent": 89, "window_end_unix": 1793584800.0}
+{"observed_at_unix": 1793572083.106991, "interval_remaining_percent": 16, "weekly_remaining_percent": 88, "window_end_unix": 1793584800.0}

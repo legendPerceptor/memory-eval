@@ -1,0 +1,20 @@
+{
+  "detected_at": "2026-11-02T07:01:24.251048+08:00",
+  "stage": "m3_memory_design_joint_judge_20261102",
+  "issue": "sitecustomize could not import providers at Python startup because frozen source was missing from PYTHONPATH",
+  "grading_records": 715,
+  "judge_errors": 0,
+  "tasks_requiring_judge_model": 714,
+  "automatic_zero_without_model": 1,
+  "per_response_usage_and_reported_model_trace_available": false,
+  "missing_prompt_tokens": null,
+  "missing_completion_tokens": null,
+  "missing_cache_tokens": null,
+  "recovery": "No durable usage sink was configured; in-memory TokenTracker was lost when the judge process ended. No successful scores are rerun or replaced to fabricate missing accounting.",
+  "qa_usage_affected": false,
+  "results_preserved": true,
+  "grades_sha256": "f0168679315d662adc3a0bdd65d1d70d410e1d0663dff79cc27e695482486aab",
+  "original_runner_sha256": "651d6d3ed4339b17a0604dd415102b390ef261599ae102b0db0008ac83875ac3",
+  "warning_log_sha256": "aadb129b9eaf04b68cc54372d1de67d52cd92fd18d29e186eb5474c6162341e3",
+  "future_fix": "Source included in startup PYTHONPATH, explicit judge model override, fail-closed startup instrumentation check; offline subprocess regression tests."
+}

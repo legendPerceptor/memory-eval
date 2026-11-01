@@ -1,0 +1,11 @@
+{
+  "current_env_model_override": null,
+  "configured_resolved_judge_model_now": "MiniMax-M3.1-Flash",
+  "max_tokens": 2048,
+  "reasoning_effort": "medium",
+  "thinking": {
+    "type": "adaptive"
+  },
+  "model_calls": 0,
+  "qualification": "Configuration recheck only, not a recovered historical response trace."
+}

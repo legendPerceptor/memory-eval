@@ -67,7 +67,8 @@ def test_failed_qa_is_retained_not_removed(tmp_path):
     assert len(tasks) == 130 and sum(bool(t["error"]) for t in tasks) == 1
 
 
-@pytest.mark.parametrize("change", ["missing", "duplicate", "predicted", "judge_error", "hash", "score"])
+@pytest.mark.parametrize("change", ["missing", "duplicate", "predicted", "judge_error", "hash", "score",
+                                   "type", "question_index"])
 def test_final_verifier_rejects_incomplete_or_changed_judging(tmp_path, change):
     methods = fixture(tmp_path)
     tasks, hashes = load_inputs(tmp_path, methods)
@@ -86,6 +87,10 @@ def test_final_verifier_rejects_incomplete_or_changed_judging(tmp_path, change):
         manifest["source_prediction_hashes"] = {}
     elif change == "score":
         grades[0]["judge_score"] = .7
+    elif change == "type":
+        grades[0]["type"] = "changed category"
+    elif change == "question_index":
+        grades[0]["question_index"] = 999
     with pytest.raises(ValueError):
         verify(tasks, grades, hashes, manifest)
 
@@ -156,3 +161,75 @@ def test_paired_contrast_averages_repeats_instead_of_best_of_selection():
     assert result["video_cluster_interval"]["upper"] == .5
     with pytest.raises(ValueError):
         paired_contrast(grades[:-1], ["a", "a_repeat"], ["b"])
+
+
+def test_dataset_categories_overlap_but_duplicate_tags_do_not_double_count():
+    from render_memory_design import category_scores
+    rows = [
+        {"type": ["Person", "Cross", "Person"], "judge_score": 1., "predicted_answer": "yes", "error": ""},
+        {"type": ["Person"], "judge_score": 0., "predicted_answer": "", "error": "failed"},
+    ]
+    result = category_scores(rows)
+    assert result["Person"] == {"questions": 2, "mean_score": .5, "valid_answers": 1}
+    assert result["Cross"] == {"questions": 1, "mean_score": 1., "valid_answers": 1}
+    assert sum(value["questions"] for value in result.values()) == 3  # Two unique questions, overlapping labels.
+
+
+def test_judge_environment_has_source_before_python_startup_and_renderer_is_uninstrumented(tmp_path):
+    from finish_memory_design import judge_environment, analysis_environment
+    env = judge_environment({"M3_AUDIT_VIDEO": "stale"}, tmp_path, "judge")
+    assert str(tmp_path / "runs/m3_source_fact_index_v2_20261102/_source") in env["PYTHONPATH"].split(":")
+    assert env["OGMEM_MINIMAX_MODEL"] == "MiniMax-M3.1-Flash"
+    assert "M3_AUDIT_VIDEO" not in env
+    clean = analysis_environment(env)
+    assert "PYTHONPATH" not in clean and "M3_USAGE_LOG" not in clean
+
+
+@pytest.mark.parametrize("include_source", [False, True])
+def test_judge_bootstrap_detects_missing_source_without_any_model_call(tmp_path, include_source):
+    import os
+    import subprocess
+    import sys
+    from pathlib import Path
+    root = Path(__file__).resolve().parent.parent
+    instrument = root / "scripts/instrumentation"
+    source = root / "oGMemory"
+    log = tmp_path / "never-called.jsonl"
+    env = {**os.environ, "M3_USAGE_LOG": str(log),
+           "PYTHONPATH": str(instrument) + (":" + str(source) if include_source else "")}
+    program = (
+        f"import sys; sys.path.insert(0,{str(source)!r}); sys.path.insert(0,{str(root / 'scripts')!r});"
+        f"from judge_memory_design import verify_usage_bootstrap;"
+        f"verify_usage_bootstrap({str(log)!r})")
+    result = subprocess.run([sys.executable, "-c", program], env=env, cwd=tmp_path,
+                            capture_output=True, text=True, timeout=30)
+    assert (result.returncode == 0) == include_source
+    if not include_source:
+        assert "refusing judge model calls" in result.stderr
+    assert not log.exists()
+
+
+def test_cost_ledger_keeps_missing_judge_usage_unknown_not_zero(tmp_path, monkeypatch):
+    import memory_design_call_ledger as ledger
+    study = tmp_path / "experiments/m3_memory_design_20261102"
+    study.mkdir(parents=True)
+    run = tmp_path / "experiments/m3_fixture_20261102"
+    run.mkdir()
+    (run / "model-usage.jsonl").write_text(json.dumps({
+        "status": "returned", "seconds": 1, "qa_video_id": "v",
+        "usage": {"prompt_tokens": 100, "completion_tokens": 10}}) + "\n")
+    (study / "answer_choice_probe.json").write_text('{"results":[]}')
+    judge = tmp_path / "runs/m3_memory_design_joint_judge_20261102"
+    judge.mkdir(parents=True)
+    (judge / "grades.jsonl").write_text(
+        '{"predicted_answer":"answer","error":""}\n{"predicted_answer":"","error":"failed QA"}\n')
+    monkeypatch.setattr(ledger, "ROOT", tmp_path)
+    monkeypatch.setattr(ledger, "OUT", study)
+    ledger.main()
+    result = json.loads((study / "recorded_call_ledger.json").read_text())
+    assert not result["entire_experiment_token_total_available"]
+    gap = result["unrecorded_common_judge_usage"]
+    assert gap["tasks_requiring_judge_model"] == 1
+    assert gap["automatic_zero_without_judge_call"] == 1
+    assert gap["prompt_tokens"] is None
+    assert result["total_recorded"]["received_prompt_tokens"] == 100

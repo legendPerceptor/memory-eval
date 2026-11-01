@@ -10,7 +10,7 @@ LABELS = {
     "balanced_prior": ("B old 1", "#777777", "o"),
     "balanced_prior_repeat": ("B old 2", "#777777", "o"),
     "balanced_contemporary": ("B now", "#333333", "s"),
-    "m3_reference": ("M3 adapted", "#1976a3", "*"),
+    "m3_reference": ("M3 old", "#1976a3", "*"),
     "facts": ("F", "#be7e18", "o"),
     "facts_identity": ("FI", "#bd4a26", "o"),
     "facts_identity_incremental": ("FIP", "#34884a", "o"),
@@ -49,16 +49,24 @@ def main():
     methods = validate(json.loads(source.read_text()))
     plt.rcParams.update({"font.size": 9, "pdf.fonttype": 42, "ps.fonttype": 42})
     fig, axes = plt.subplots(1, 2, figsize=(9, 4.2), sharey=True)
-    offsets = [(6, 6), (6, -12), (-24, 7), (6, 8), (-16, -14), (6, 6),
-               (6, -13), (6, 7), (-22, -15), (6, 7), (-22, 8), (6, -14)]
+    offsets = {
+        "balanced_prior": (8, -17), "balanced_prior_repeat": (-38, 10),
+        "balanced_contemporary": (-36, -17),
+        "m3_reference": (8, 12), "m3_reference_repeat": (8, -17),
+        "facts": (-20, 10), "facts_identity": (-22, -17),
+        "facts_identity_incremental": (8, 7),
+        "source_index": (8, -17), "source_index_repeat": (8, 9),
+        "strict_incremental": (-22, 9), "strict_incremental_repeat": (8, -17),
+    }
     for ax, field, title in zip(axes, ("prompt_tokens", "uncached_prompt_tokens"),
                                 ("All QA input (includes cached)", "Uncached QA input")):
-        for i, (method, row) in enumerate(methods.items()):
+        for method, row in methods.items():
             label, color, marker = LABELS[method]
             x, y = row["qa_usage"][field] / 1e6, row["mean_score"]
             ax.scatter(x, y, marker=marker, color=color, s=60 if marker == "*" else 32, zorder=3)
-            ax.annotate(label, (x, y), xytext=offsets[i % len(offsets)], textcoords="offset points",
-                        fontsize=8, color=color)
+            ax.annotate(label, (x, y), xytext=offsets.get(method, (8, 7)), textcoords="offset points",
+                        fontsize=8, color=color,
+                        arrowprops={"arrowstyle": "-", "color": color, "lw": .45, "alpha": .7})
         ax.set_xlabel("Input tokens (millions)")
         ax.set_title(title, fontsize=10)
         ax.grid(alpha=.25, linestyle="--")

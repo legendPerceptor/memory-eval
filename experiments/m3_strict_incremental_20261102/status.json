@@ -1,3 +1,31 @@
 {
-  "status": "prepared"
+  "status": "finished",
+  "videos": {
+    "study_05": {
+      "qa_exit": 0,
+      "records": 12,
+      "judge_exit": "skipped_common_judge_only"
+    },
+    "gym_03": {
+      "qa_exit": 0,
+      "records": 11,
+      "judge_exit": "skipped_common_judge_only"
+    },
+    "bedroom_04": {
+      "qa_exit": 0,
+      "records": 11,
+      "judge_exit": "skipped_common_judge_only"
+    },
+    "study_18": {
+      "qa_exit": 0,
+      "records": 14,
+      "judge_exit": "skipped_common_judge_only"
+    },
+    "kitchen_20": {
+      "qa_exit": 0,
+      "records": 17,
+      "judge_exit": "skipped_common_judge_only"
+    }
+  },
+  "wall_seconds": 1547.6213703155518
 }

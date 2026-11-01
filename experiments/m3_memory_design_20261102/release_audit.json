@@ -1,0 +1,51 @@
+{
+  "observed_at": "2026-11-02T07:41:38.299523+08:00",
+  "ogmemory_commit": "8626d24ae9a2409a98fbb15f019c81407135a285",
+  "root_commit_before_publication": "b08c606be6a3c48b0f8d33b775b6f2e00801f332",
+  "branches": {
+    "root": "main",
+    "ogmemory": "m3_dev_1031"
+  },
+  "pdf_pages": 16,
+  "visual_review_pages": [
+    12,
+    13,
+    14
+  ],
+  "source_and_prediction_verification": {
+    "tasks_verified": 715,
+    "prediction_files_verified": 55,
+    "all_predictions_and_tasks_unchanged": true,
+    "judge_errors": 0,
+    "usage_trace_complete": false,
+    "usage_gap_documented_not_backfilled": true
+  },
+  "tests": {
+    "ogmemory_passed": 1447,
+    "ogmemory_skipped": 108,
+    "preexisting_exclusions": 9,
+    "root_passed": 79
+  },
+  "latex_warnings": "Two fontspec Script CJK feature warnings remain; no missing glyph/overfull/undefined-reference diagnostics, Chinese rendering visually checked.",
+  "model_generation_complete": true,
+  "E_independent_repeat_executed": false,
+  "common_judge_accounting_complete": false,
+  "qa_accounting_complete": true,
+  "artifact_sha256": {
+    "latex/report.pdf": "4391cd05304a0a041537eeff5d85ff7204b39dc41660f9e71aabaca2cb101cc4",
+    "latex/report.tex": "f30e67af9d03ebdaf4d7b95e7945febc4b6cdd5889591eb31de1ce4a1c2c0670",
+    "latex/memory_design_results.tex": "97e210eb51b8ad87001f55268751afbf008ad7751afe6310a0e3f3d7ed847aa8",
+    "latex/memory_design_discussion.tex": "f8d9205526736351f7f1e48d47418584ac9e1b0c086352f89037793d2352cfec",
+    "latex/figures/memory_design_tradeoff.pdf": "7abf74dcf315b7774a3e05400bd3f03c7dcc2dd718cd65ce982500db535f5edd",
+    "docs/m3_memory_design_findings.md": "6519e8dd6b2a88e4e0278790e15f2760e573afa3d8fdfea85284ff0b440bb547",
+    "experiments/m3_memory_design_20261102/comparison.json": "290eb594e9d46f9e27191e0456188c338e765563173e9ba31793dbd45dd3ab0a",
+    "experiments/m3_memory_design_20261102/REPORT.md": "976b90d0135faed6c7696e2c7c1ebe1748705845b406a70ba25c17274fe9fa90",
+    "experiments/m3_memory_design_20261102/joint_questions.jsonl": "f0168679315d662adc3a0bdd65d1d70d410e1d0663dff79cc27e695482486aab",
+    "experiments/m3_memory_design_20261102/joint_questions.csv": "823327a584d0c6e0bcfb80d36ad80a82e2c1f93a02512d87e91a3aa33d3be99b"
+  },
+  "review_image_sha256": {
+    "runs/report_review_20261102/release-13.png": "035b9f8927df9eadcc02ff812e6ed8cdc31c9bf3caf9bdc6f4ffed5aea221fff",
+    "runs/report_review_20261102/release-14.png": "d9d5d219d8f65d5326cdf033c3cca23a82a61c0d33ad0984614e019cfc3d7202",
+    "runs/report_review_20261102/release-12.png": "c6699e04cec3a1707991e198b4143f2f720e845e4a493255fffe8abc19812955"
+  }
+}

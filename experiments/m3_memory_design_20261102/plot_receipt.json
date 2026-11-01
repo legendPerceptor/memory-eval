@@ -1,0 +1,9 @@
+{
+  "comparison_sha256": "290eb594e9d46f9e27191e0456188c338e765563173e9ba31793dbd45dd3ab0a",
+  "plot_sha256": "7abf74dcf315b7774a3e05400bd3f03c7dcc2dd718cd65ce982500db535f5edd",
+  "plot": "latex/figures/memory_design_tradeoff.pdf",
+  "script_sha256": "ff1abd7e73db98705036ec77e4104c40f9f1be99e9f57b44e144fca1827ae37c",
+  "points": 11,
+  "uses_common_judge_only": true,
+  "interpretation": "Measured QA token usage, not price, latency or full pipeline cost."
+}

@@ -1,0 +1,1255 @@
+{
+  "methods": {
+    "balanced_prior": {
+      "run": "m3_context_finalization_recovered_20261101",
+      "label": "B：前次 balanced",
+      "questions": 65,
+      "valid_answers": 65,
+      "mean_score": 0.5923076923076923,
+      "score_counts": {
+        "0.0": 23,
+        "1.0": 35,
+        "0.5": 7
+      },
+      "by_video": {
+        "study_05": 0.5833333333333334,
+        "gym_03": 0.6818181818181818,
+        "bedroom_04": 0.8181818181818182,
+        "study_18": 0.32142857142857145,
+        "kitchen_20": 0.6176470588235294
+      },
+      "by_dataset_category": {
+        "Cross-Modal Reasoning": {
+          "questions": 21,
+          "mean_score": 0.5476190476190477,
+          "valid_answers": 21
+        },
+        "General Knowledge Extraction": {
+          "questions": 25,
+          "mean_score": 0.44,
+          "valid_answers": 25
+        },
+        "Multi-Detail Reasoning": {
+          "questions": 28,
+          "mean_score": 0.5535714285714286,
+          "valid_answers": 28
+        },
+        "Multi-Hop Reasoning": {
+          "questions": 1,
+          "mean_score": 1.0,
+          "valid_answers": 1
+        },
+        "Person Understanding": {
+          "questions": 21,
+          "mean_score": 0.8809523809523809,
+          "valid_answers": 21
+        }
+      },
+      "qa_usage": {
+        "logical_calls": 365,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 4804362,
+        "completion_tokens": 93971,
+        "reasoning_tokens": 67381,
+        "peak_prompt_tokens": 16922,
+        "cached_prompt_tokens": 618414,
+        "unknown_cache_usage_calls": 0,
+        "model_seconds_sum": 2020.0055303573608,
+        "uncached_prompt_tokens": 4185948,
+        "cache_fraction": 0.12871927635761002
+      },
+      "initial_grade": 0.6,
+      "finish_reasons": {
+        "done": 65
+      },
+      "wall_seconds": {
+        "count": 65,
+        "min": 9.694897728040814,
+        "max": 79.34816746017896,
+        "mean": 39.099470068209875,
+        "median": 39.678382493089885,
+        "p95_nearest_rank": 63.740545408800244
+      },
+      "behavior": null,
+      "paired_delta_vs_contemporary_balanced": 0.06153846153846154,
+      "video_cluster_interval_vs_contemporary_balanced": {
+        "lower": 0.01492537313432836,
+        "upper": 0.1206896551724138,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      }
+    },
+    "balanced_prior_repeat": {
+      "run": "m3_context_finalization_repeat_20261101",
+      "label": "B：前次独立重复",
+      "questions": 65,
+      "valid_answers": 65,
+      "mean_score": 0.6,
+      "score_counts": {
+        "0.0": 22,
+        "1.0": 35,
+        "0.5": 8
+      },
+      "by_video": {
+        "study_05": 0.5416666666666666,
+        "gym_03": 0.7272727272727273,
+        "bedroom_04": 0.8181818181818182,
+        "study_18": 0.2857142857142857,
+        "kitchen_20": 0.6764705882352942
+      },
+      "by_dataset_category": {
+        "Cross-Modal Reasoning": {
+          "questions": 21,
+          "mean_score": 0.5952380952380952,
+          "valid_answers": 21
+        },
+        "General Knowledge Extraction": {
+          "questions": 25,
+          "mean_score": 0.52,
+          "valid_answers": 25
+        },
+        "Multi-Detail Reasoning": {
+          "questions": 28,
+          "mean_score": 0.5892857142857143,
+          "valid_answers": 28
+        },
+        "Multi-Hop Reasoning": {
+          "questions": 1,
+          "mean_score": 1.0,
+          "valid_answers": 1
+        },
+        "Person Understanding": {
+          "questions": 21,
+          "mean_score": 0.8333333333333334,
+          "valid_answers": 21
+        }
+      },
+      "qa_usage": {
+        "logical_calls": 361,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 4707523,
+        "completion_tokens": 96384,
+        "reasoning_tokens": 69190,
+        "peak_prompt_tokens": 16927,
+        "cached_prompt_tokens": 616596,
+        "unknown_cache_usage_calls": 0,
+        "model_seconds_sum": 2666.6423740386963,
+        "uncached_prompt_tokens": 4090927,
+        "cache_fraction": 0.13098098511680134
+      },
+      "initial_grade": 0.5615384615384615,
+      "finish_reasons": {
+        "done": 65
+      },
+      "wall_seconds": {
+        "count": 65,
+        "min": 7.850541586056352,
+        "max": 112.5256007371936,
+        "mean": 48.871663665527905,
+        "median": 49.26374099217355,
+        "p95_nearest_rank": 73.23934129998088
+      },
+      "behavior": null,
+      "paired_delta_vs_contemporary_balanced": 0.06923076923076923,
+      "video_cluster_interval_vs_contemporary_balanced": {
+        "lower": 0.0078125,
+        "upper": 0.11594202898550725,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      }
+    },
+    "m3_reference": {
+      "run": "m3_agent_reference_text_20261101",
+      "label": "M3-Agent 同模型参考适配",
+      "questions": 65,
+      "valid_answers": 65,
+      "mean_score": 0.46153846153846156,
+      "score_counts": {
+        "0.0": 31,
+        "1.0": 26,
+        "0.5": 8
+      },
+      "by_video": {
+        "study_05": 0.5,
+        "gym_03": 0.5909090909090909,
+        "bedroom_04": 0.5909090909090909,
+        "study_18": 0.2857142857142857,
+        "kitchen_20": 0.4117647058823529
+      },
+      "by_dataset_category": {
+        "Cross-Modal Reasoning": {
+          "questions": 21,
+          "mean_score": 0.47619047619047616,
+          "valid_answers": 21
+        },
+        "General Knowledge Extraction": {
+          "questions": 25,
+          "mean_score": 0.44,
+          "valid_answers": 25
+        },
+        "Multi-Detail Reasoning": {
+          "questions": 28,
+          "mean_score": 0.375,
+          "valid_answers": 28
+        },
+        "Multi-Hop Reasoning": {
+          "questions": 1,
+          "mean_score": 0.5,
+          "valid_answers": 1
+        },
+        "Person Understanding": {
+          "questions": 21,
+          "mean_score": 0.5952380952380952,
+          "valid_answers": 21
+        }
+      },
+      "qa_usage": {
+        "logical_calls": 310,
+        "prompt_tokens": 569796,
+        "completion_tokens": 28938,
+        "peak_prompt_tokens": 4740,
+        "unknown_usage_calls": 0,
+        "cached_prompt_tokens": 378528,
+        "uncached_prompt_tokens": 191268,
+        "cache_fraction": 0.6643219678621822
+      },
+      "initial_grade": null,
+      "finish_reasons": null,
+      "wall_seconds": null,
+      "behavior": null,
+      "paired_delta_vs_contemporary_balanced": -0.06923076923076923,
+      "video_cluster_interval_vs_contemporary_balanced": {
+        "lower": -0.13432835820895522,
+        "upper": 0.01639344262295082,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      }
+    },
+    "facts": {
+      "run": "m3_facts_only_20261102",
+      "label": "F：原文事实窗口",
+      "questions": 65,
+      "valid_answers": 65,
+      "mean_score": 0.5,
+      "score_counts": {
+        "1.0": 29,
+        "0.0": 29,
+        "0.5": 7
+      },
+      "by_video": {
+        "study_05": 0.2916666666666667,
+        "gym_03": 0.6363636363636364,
+        "bedroom_04": 0.8181818181818182,
+        "study_18": 0.32142857142857145,
+        "kitchen_20": 0.5
+      },
+      "by_dataset_category": {
+        "Cross-Modal Reasoning": {
+          "questions": 21,
+          "mean_score": 0.42857142857142855,
+          "valid_answers": 21
+        },
+        "General Knowledge Extraction": {
+          "questions": 25,
+          "mean_score": 0.4,
+          "valid_answers": 25
+        },
+        "Multi-Detail Reasoning": {
+          "questions": 28,
+          "mean_score": 0.39285714285714285,
+          "valid_answers": 28
+        },
+        "Multi-Hop Reasoning": {
+          "questions": 1,
+          "mean_score": 1.0,
+          "valid_answers": 1
+        },
+        "Person Understanding": {
+          "questions": 21,
+          "mean_score": 0.8333333333333334,
+          "valid_answers": 21
+        }
+      },
+      "qa_usage": {
+        "logical_calls": 366,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 2560063,
+        "completion_tokens": 78256,
+        "reasoning_tokens": 50932,
+        "peak_prompt_tokens": 10858,
+        "cached_prompt_tokens": 511783,
+        "unknown_cache_usage_calls": 0,
+        "model_seconds_sum": 1471.426510334015,
+        "uncached_prompt_tokens": 2048280,
+        "cache_fraction": 0.199910314707099
+      },
+      "initial_grade": 0.5230769230769231,
+      "finish_reasons": {
+        "done": 65
+      },
+      "wall_seconds": {
+        "count": 65,
+        "min": 4.449942843988538,
+        "max": 60.322027544956654,
+        "mean": 28.655710936119206,
+        "median": 27.490437536034733,
+        "p95_nearest_rank": 47.459003386087716
+      },
+      "behavior": {
+        "epoch_rebuild_calls": 0,
+        "calls_reusing_tool_messages": 0,
+        "visible_fact_no_gain_finalizations": 0,
+        "required_answer_calls": 0,
+        "identity_rank_searches": 0,
+        "identity_rank_searches_with_explicit_matches": 0,
+        "fact_index_searches": 0,
+        "fact_index_proposed_nodes": 0,
+        "fact_index_verified_nodes": 0,
+        "fact_index_stale_nodes": 0,
+        "consecutive_message_prefix_comparisons": 0,
+        "consecutive_message_prefix_preserved": 0,
+        "note": "Message-prefix hashes exclude tool schema; cached-token usage is measured separately."
+      },
+      "paired_delta_vs_contemporary_balanced": -0.03076923076923077,
+      "video_cluster_interval_vs_contemporary_balanced": {
+        "lower": -0.08208955223880597,
+        "upper": 0.03125,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      }
+    },
+    "facts_identity": {
+      "run": "m3_facts_identity_20261102",
+      "label": "FI：事实 + 显式人物条件",
+      "questions": 65,
+      "valid_answers": 65,
+      "mean_score": 0.49230769230769234,
+      "score_counts": {
+        "0.5": 8,
+        "1.0": 28,
+        "0.0": 29
+      },
+      "by_video": {
+        "study_05": 0.3333333333333333,
+        "gym_03": 0.6363636363636364,
+        "bedroom_04": 0.8181818181818182,
+        "study_18": 0.25,
+        "kitchen_20": 0.5
+      },
+      "by_dataset_category": {
+        "Cross-Modal Reasoning": {
+          "questions": 21,
+          "mean_score": 0.5238095238095238,
+          "valid_answers": 21
+        },
+        "General Knowledge Extraction": {
+          "questions": 25,
+          "mean_score": 0.32,
+          "valid_answers": 25
+        },
+        "Multi-Detail Reasoning": {
+          "questions": 28,
+          "mean_score": 0.39285714285714285,
+          "valid_answers": 28
+        },
+        "Multi-Hop Reasoning": {
+          "questions": 1,
+          "mean_score": 1.0,
+          "valid_answers": 1
+        },
+        "Person Understanding": {
+          "questions": 21,
+          "mean_score": 0.8809523809523809,
+          "valid_answers": 21
+        }
+      },
+      "qa_usage": {
+        "logical_calls": 365,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 2548205,
+        "completion_tokens": 74112,
+        "reasoning_tokens": 47218,
+        "peak_prompt_tokens": 10715,
+        "cached_prompt_tokens": 545735,
+        "unknown_cache_usage_calls": 0,
+        "model_seconds_sum": 1205.726214170456,
+        "uncached_prompt_tokens": 2002470,
+        "cache_fraction": 0.21416448048724493
+      },
+      "initial_grade": 0.49230769230769234,
+      "finish_reasons": {
+        "done": 65
+      },
+      "wall_seconds": {
+        "count": 65,
+        "min": 3.9503053268417716,
+        "max": 47.320556523045525,
+        "mean": 24.501214469045113,
+        "median": 24.821376936044544,
+        "p95_nearest_rank": 35.57130005815998
+      },
+      "behavior": {
+        "epoch_rebuild_calls": 0,
+        "calls_reusing_tool_messages": 0,
+        "visible_fact_no_gain_finalizations": 0,
+        "required_answer_calls": 0,
+        "identity_rank_searches": 369,
+        "identity_rank_searches_with_explicit_matches": 75,
+        "fact_index_searches": 0,
+        "fact_index_proposed_nodes": 0,
+        "fact_index_verified_nodes": 0,
+        "fact_index_stale_nodes": 0,
+        "consecutive_message_prefix_comparisons": 0,
+        "consecutive_message_prefix_preserved": 0,
+        "note": "Message-prefix hashes exclude tool schema; cached-token usage is measured separately."
+      },
+      "paired_delta_vs_contemporary_balanced": -0.038461538461538464,
+      "video_cluster_interval_vs_contemporary_balanced": {
+        "lower": -0.07352941176470588,
+        "upper": 0.02459016393442623,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      }
+    },
+    "facts_identity_incremental": {
+      "run": "m3_facts_identity_incremental_20261102",
+      "label": "FIP：事实 + 人物 + 增量",
+      "questions": 65,
+      "valid_answers": 64,
+      "mean_score": 0.5461538461538461,
+      "score_counts": {
+        "0.0": 25,
+        "1.0": 31,
+        "0.5": 9
+      },
+      "by_video": {
+        "study_05": 0.4583333333333333,
+        "gym_03": 0.7727272727272727,
+        "bedroom_04": 0.6363636363636364,
+        "study_18": 0.39285714285714285,
+        "kitchen_20": 0.5294117647058824
+      },
+      "by_dataset_category": {
+        "Cross-Modal Reasoning": {
+          "questions": 21,
+          "mean_score": 0.5714285714285714,
+          "valid_answers": 21
+        },
+        "General Knowledge Extraction": {
+          "questions": 25,
+          "mean_score": 0.54,
+          "valid_answers": 25
+        },
+        "Multi-Detail Reasoning": {
+          "questions": 28,
+          "mean_score": 0.44642857142857145,
+          "valid_answers": 27
+        },
+        "Multi-Hop Reasoning": {
+          "questions": 1,
+          "mean_score": 1.0,
+          "valid_answers": 1
+        },
+        "Person Understanding": {
+          "questions": 21,
+          "mean_score": 0.6904761904761905,
+          "valid_answers": 21
+        }
+      },
+      "qa_usage": {
+        "logical_calls": 366,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 3314963,
+        "completion_tokens": 77332,
+        "reasoning_tokens": 50429,
+        "peak_prompt_tokens": 16461,
+        "cached_prompt_tokens": 1776756,
+        "unknown_cache_usage_calls": 0,
+        "model_seconds_sum": 2010.6613817214966,
+        "uncached_prompt_tokens": 1538207,
+        "cache_fraction": 0.5359806429212031
+      },
+      "initial_grade": 0.5307692307692308,
+      "finish_reasons": {
+        "done": 65
+      },
+      "wall_seconds": {
+        "count": 65,
+        "min": 11.0955091600772,
+        "max": 62.945307314163074,
+        "mean": 37.192441091099035,
+        "median": 37.490411926060915,
+        "p95_nearest_rank": 54.6363845479209
+      },
+      "behavior": {
+        "epoch_rebuild_calls": 53,
+        "calls_reusing_tool_messages": 183,
+        "visible_fact_no_gain_finalizations": 0,
+        "required_answer_calls": 0,
+        "identity_rank_searches": 371,
+        "identity_rank_searches_with_explicit_matches": 65,
+        "fact_index_searches": 0,
+        "fact_index_proposed_nodes": 0,
+        "fact_index_verified_nodes": 0,
+        "fact_index_stale_nodes": 0,
+        "consecutive_message_prefix_comparisons": 0,
+        "consecutive_message_prefix_preserved": 0,
+        "note": "Message-prefix hashes exclude tool schema; cached-token usage is measured separately."
+      },
+      "paired_delta_vs_contemporary_balanced": 0.015384615384615385,
+      "video_cluster_interval_vs_contemporary_balanced": {
+        "lower": -0.040983606557377046,
+        "upper": 0.07258064516129033,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      }
+    },
+    "source_index": {
+      "run": "m3_source_fact_index_v2_20261102",
+      "label": "S：来源事实索引 + 增量修正",
+      "questions": 65,
+      "valid_answers": 65,
+      "mean_score": 0.5846153846153846,
+      "score_counts": {
+        "1.0": 34,
+        "0.0": 23,
+        "0.5": 8
+      },
+      "by_video": {
+        "study_05": 0.4166666666666667,
+        "gym_03": 0.6363636363636364,
+        "bedroom_04": 0.7727272727272727,
+        "study_18": 0.42857142857142855,
+        "kitchen_20": 0.6764705882352942
+      },
+      "by_dataset_category": {
+        "Cross-Modal Reasoning": {
+          "questions": 21,
+          "mean_score": 0.6666666666666666,
+          "valid_answers": 21
+        },
+        "General Knowledge Extraction": {
+          "questions": 25,
+          "mean_score": 0.46,
+          "valid_answers": 25
+        },
+        "Multi-Detail Reasoning": {
+          "questions": 28,
+          "mean_score": 0.5178571428571429,
+          "valid_answers": 28
+        },
+        "Multi-Hop Reasoning": {
+          "questions": 1,
+          "mean_score": 1.0,
+          "valid_answers": 1
+        },
+        "Person Understanding": {
+          "questions": 21,
+          "mean_score": 0.8571428571428571,
+          "valid_answers": 21
+        }
+      },
+      "qa_usage": {
+        "logical_calls": 369,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 3456572,
+        "completion_tokens": 80057,
+        "reasoning_tokens": 53181,
+        "peak_prompt_tokens": 16457,
+        "cached_prompt_tokens": 1341771,
+        "unknown_cache_usage_calls": 0,
+        "model_seconds_sum": 1275.5383050441742,
+        "uncached_prompt_tokens": 2114801,
+        "cache_fraction": 0.38817967628043043
+      },
+      "initial_grade": 0.5692307692307692,
+      "finish_reasons": {
+        "done": 65
+      },
+      "wall_seconds": {
+        "count": 65,
+        "min": 3.9981056640390307,
+        "max": 52.21687583811581,
+        "mean": 27.435582499761278,
+        "median": 26.627592012053356,
+        "p95_nearest_rank": 42.211145967943594
+      },
+      "behavior": {
+        "epoch_rebuild_calls": 57,
+        "calls_reusing_tool_messages": 182,
+        "visible_fact_no_gain_finalizations": 0,
+        "required_answer_calls": 0,
+        "identity_rank_searches": 371,
+        "identity_rank_searches_with_explicit_matches": 78,
+        "fact_index_searches": 371,
+        "fact_index_proposed_nodes": 7160,
+        "fact_index_verified_nodes": 7160,
+        "fact_index_stale_nodes": 0,
+        "consecutive_message_prefix_comparisons": 304,
+        "consecutive_message_prefix_preserved": 247,
+        "note": "Message-prefix hashes exclude tool schema; cached-token usage is measured separately."
+      },
+      "paired_delta_vs_contemporary_balanced": 0.05384615384615385,
+      "video_cluster_interval_vs_contemporary_balanced": {
+        "lower": -0.008771929824561403,
+        "upper": 0.10273972602739725,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      }
+    },
+    "source_index_repeat": {
+      "run": "m3_source_fact_index_v2_repeat_20261102",
+      "label": "S：独立重复",
+      "questions": 65,
+      "valid_answers": 65,
+      "mean_score": 0.6076923076923076,
+      "score_counts": {
+        "1.0": 34,
+        "0.5": 11,
+        "0.0": 20
+      },
+      "by_video": {
+        "study_05": 0.5,
+        "gym_03": 0.6818181818181818,
+        "bedroom_04": 0.8181818181818182,
+        "study_18": 0.42857142857142855,
+        "kitchen_20": 0.6470588235294118
+      },
+      "by_dataset_category": {
+        "Cross-Modal Reasoning": {
+          "questions": 21,
+          "mean_score": 0.6428571428571429,
+          "valid_answers": 21
+        },
+        "General Knowledge Extraction": {
+          "questions": 25,
+          "mean_score": 0.6,
+          "valid_answers": 25
+        },
+        "Multi-Detail Reasoning": {
+          "questions": 28,
+          "mean_score": 0.4642857142857143,
+          "valid_answers": 28
+        },
+        "Multi-Hop Reasoning": {
+          "questions": 1,
+          "mean_score": 1.0,
+          "valid_answers": 1
+        },
+        "Person Understanding": {
+          "questions": 21,
+          "mean_score": 0.8809523809523809,
+          "valid_answers": 21
+        }
+      },
+      "qa_usage": {
+        "logical_calls": 365,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 3408547,
+        "completion_tokens": 79956,
+        "reasoning_tokens": 53400,
+        "peak_prompt_tokens": 16448,
+        "cached_prompt_tokens": 1361429,
+        "unknown_cache_usage_calls": 0,
+        "model_seconds_sum": 1146.5190651416779,
+        "uncached_prompt_tokens": 2047118,
+        "cache_fraction": 0.39941623219512595
+      },
+      "initial_grade": 0.6153846153846154,
+      "finish_reasons": {
+        "done": 65
+      },
+      "wall_seconds": {
+        "count": 65,
+        "min": 4.005480011925101,
+        "max": 44.125368911074474,
+        "mean": 25.368912591240726,
+        "median": 24.411970989080146,
+        "p95_nearest_rank": 42.07563751284033
+      },
+      "behavior": {
+        "epoch_rebuild_calls": 54,
+        "calls_reusing_tool_messages": 181,
+        "visible_fact_no_gain_finalizations": 0,
+        "required_answer_calls": 0,
+        "identity_rank_searches": 373,
+        "identity_rank_searches_with_explicit_matches": 75,
+        "fact_index_searches": 373,
+        "fact_index_proposed_nodes": 7185,
+        "fact_index_verified_nodes": 7185,
+        "fact_index_stale_nodes": 0,
+        "consecutive_message_prefix_comparisons": 300,
+        "consecutive_message_prefix_preserved": 246,
+        "note": "Message-prefix hashes exclude tool schema; cached-token usage is measured separately."
+      },
+      "paired_delta_vs_contemporary_balanced": 0.07692307692307693,
+      "video_cluster_interval_vs_contemporary_balanced": {
+        "lower": 0.04032258064516129,
+        "upper": 0.09859154929577464,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      }
+    },
+    "balanced_contemporary": {
+      "run": "m3_balanced_contemporary_20261102",
+      "label": "B：本轮同期独立重复",
+      "questions": 65,
+      "valid_answers": 65,
+      "mean_score": 0.5307692307692308,
+      "score_counts": {
+        "0.5": 9,
+        "0.0": 26,
+        "1.0": 30
+      },
+      "by_video": {
+        "study_05": 0.4166666666666667,
+        "gym_03": 0.6818181818181818,
+        "bedroom_04": 0.7272727272727273,
+        "study_18": 0.32142857142857145,
+        "kitchen_20": 0.5588235294117647
+      },
+      "by_dataset_category": {
+        "Cross-Modal Reasoning": {
+          "questions": 21,
+          "mean_score": 0.5476190476190477,
+          "valid_answers": 21
+        },
+        "General Knowledge Extraction": {
+          "questions": 25,
+          "mean_score": 0.42,
+          "valid_answers": 25
+        },
+        "Multi-Detail Reasoning": {
+          "questions": 28,
+          "mean_score": 0.42857142857142855,
+          "valid_answers": 28
+        },
+        "Multi-Hop Reasoning": {
+          "questions": 1,
+          "mean_score": 1.0,
+          "valid_answers": 1
+        },
+        "Person Understanding": {
+          "questions": 21,
+          "mean_score": 0.8333333333333334,
+          "valid_answers": 21
+        }
+      },
+      "qa_usage": {
+        "logical_calls": 361,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 4721119,
+        "completion_tokens": 92117,
+        "reasoning_tokens": 66313,
+        "peak_prompt_tokens": 16914,
+        "cached_prompt_tokens": 584340,
+        "unknown_cache_usage_calls": 0,
+        "model_seconds_sum": 1230.5302999019623,
+        "uncached_prompt_tokens": 4136779,
+        "cache_fraction": 0.12377150417093914
+      },
+      "initial_grade": 0.5307692307692308,
+      "finish_reasons": {
+        "done": 65
+      },
+      "wall_seconds": {
+        "count": 65,
+        "min": 4.808803278952837,
+        "max": 59.70395856304094,
+        "mean": 26.690321170191208,
+        "median": 25.48314363299869,
+        "p95_nearest_rank": 40.11253412300721
+      },
+      "behavior": {
+        "epoch_rebuild_calls": 0,
+        "calls_reusing_tool_messages": 0,
+        "visible_fact_no_gain_finalizations": 0,
+        "required_answer_calls": 0,
+        "identity_rank_searches": 0,
+        "identity_rank_searches_with_explicit_matches": 0,
+        "fact_index_searches": 0,
+        "fact_index_proposed_nodes": 0,
+        "fact_index_verified_nodes": 0,
+        "fact_index_stale_nodes": 0,
+        "consecutive_message_prefix_comparisons": 0,
+        "consecutive_message_prefix_preserved": 0,
+        "note": "Message-prefix hashes exclude tool schema; cached-token usage is measured separately."
+      },
+      "paired_delta_vs_contemporary_balanced": 0.0,
+      "video_cluster_interval_vs_contemporary_balanced": {
+        "lower": 0.0,
+        "upper": 0.0,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      }
+    },
+    "m3_reference_repeat": {
+      "run": "m3_reference_repeat_20261102",
+      "label": "M3-Agent：本轮同记忆重复",
+      "questions": 65,
+      "valid_answers": 65,
+      "mean_score": 0.46153846153846156,
+      "score_counts": {
+        "1.0": 26,
+        "0.0": 31,
+        "0.5": 8
+      },
+      "by_video": {
+        "study_05": 0.4166666666666667,
+        "gym_03": 0.6818181818181818,
+        "bedroom_04": 0.6818181818181818,
+        "study_18": 0.25,
+        "kitchen_20": 0.38235294117647056
+      },
+      "by_dataset_category": {
+        "Cross-Modal Reasoning": {
+          "questions": 21,
+          "mean_score": 0.4523809523809524,
+          "valid_answers": 21
+        },
+        "General Knowledge Extraction": {
+          "questions": 25,
+          "mean_score": 0.44,
+          "valid_answers": 25
+        },
+        "Multi-Detail Reasoning": {
+          "questions": 28,
+          "mean_score": 0.39285714285714285,
+          "valid_answers": 28
+        },
+        "Multi-Hop Reasoning": {
+          "questions": 1,
+          "mean_score": 0.5,
+          "valid_answers": 1
+        },
+        "Person Understanding": {
+          "questions": 21,
+          "mean_score": 0.6428571428571429,
+          "valid_answers": 21
+        }
+      },
+      "qa_usage": {
+        "logical_calls": 302,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 551699,
+        "completion_tokens": 27709,
+        "peak_prompt_tokens": 4830,
+        "cached_prompt_tokens": 354700,
+        "unknown_cache_usage_calls": 0,
+        "model_seconds_sum": 679.5910131931305,
+        "uncached_prompt_tokens": 196999,
+        "cache_fraction": 0.6429230431811549
+      },
+      "initial_grade": null,
+      "finish_reasons": {
+        "done": 65
+      },
+      "wall_seconds": {
+        "count": 65,
+        "mean": 12.254961446862524,
+        "max": 36.295299123972654,
+        "median": 12.023608969058841
+      },
+      "behavior": null,
+      "paired_delta_vs_contemporary_balanced": -0.06923076923076923,
+      "video_cluster_interval_vs_contemporary_balanced": {
+        "lower": -0.13157894736842105,
+        "upper": -0.008771929824561403,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      }
+    },
+    "strict_incremental": {
+      "run": "m3_strict_incremental_20261102",
+      "label": "E：严格增量3500 + 收尾请求",
+      "questions": 65,
+      "valid_answers": 65,
+      "mean_score": 0.5846153846153846,
+      "score_counts": {
+        "1.0": 33,
+        "0.0": 22,
+        "0.5": 10
+      },
+      "by_video": {
+        "study_05": 0.4583333333333333,
+        "gym_03": 0.6363636363636364,
+        "bedroom_04": 0.7727272727272727,
+        "study_18": 0.4642857142857143,
+        "kitchen_20": 0.6176470588235294
+      },
+      "by_dataset_category": {
+        "Cross-Modal Reasoning": {
+          "questions": 21,
+          "mean_score": 0.5714285714285714,
+          "valid_answers": 21
+        },
+        "General Knowledge Extraction": {
+          "questions": 25,
+          "mean_score": 0.48,
+          "valid_answers": 25
+        },
+        "Multi-Detail Reasoning": {
+          "questions": 28,
+          "mean_score": 0.5178571428571429,
+          "valid_answers": 28
+        },
+        "Multi-Hop Reasoning": {
+          "questions": 1,
+          "mean_score": 0.5,
+          "valid_answers": 1
+        },
+        "Person Understanding": {
+          "questions": 21,
+          "mean_score": 0.8809523809523809,
+          "valid_answers": 21
+        }
+      },
+      "qa_usage": {
+        "logical_calls": 370,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 2915704,
+        "completion_tokens": 77208,
+        "reasoning_tokens": 50150,
+        "peak_prompt_tokens": 14952,
+        "cached_prompt_tokens": 1407982,
+        "unknown_cache_usage_calls": 0,
+        "model_seconds_sum": 1123.9352848529816,
+        "uncached_prompt_tokens": 1507722,
+        "cache_fraction": 0.4828960690111205
+      },
+      "initial_grade": null,
+      "finish_reasons": {
+        "done": 65
+      },
+      "wall_seconds": {
+        "count": 65,
+        "min": 6.40284123388119,
+        "max": 47.661283642053604,
+        "mean": 22.292152871037477,
+        "median": 20.5623739620205,
+        "p95_nearest_rank": 35.03126963204704
+      },
+      "behavior": {
+        "epoch_rebuild_calls": 0,
+        "calls_reusing_tool_messages": 240,
+        "visible_fact_no_gain_finalizations": 0,
+        "required_answer_calls": 57,
+        "identity_rank_searches": 382,
+        "identity_rank_searches_with_explicit_matches": 81,
+        "fact_index_searches": 382,
+        "fact_index_proposed_nodes": 7311,
+        "fact_index_verified_nodes": 7311,
+        "fact_index_stale_nodes": 0,
+        "consecutive_message_prefix_comparisons": 305,
+        "consecutive_message_prefix_preserved": 305,
+        "note": "Message-prefix hashes exclude tool schema; cached-token usage is measured separately."
+      },
+      "paired_delta_vs_contemporary_balanced": 0.05384615384615385,
+      "video_cluster_interval_vs_contemporary_balanced": {
+        "lower": 0.0,
+        "upper": 0.10606060606060606,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      }
+    }
+  },
+  "replication": {
+    "source_index_scores": [
+      0.5846153846153846,
+      0.6076923076923076
+    ],
+    "source_index_mean": 0.5961538461538461,
+    "source_index_mean_prompt_tokens": 3432559.5,
+    "prior_balanced_mean": 0.5961538461538461,
+    "note": "Descriptive repeated trajectories on the same 65 questions; not independent dataset samples.",
+    "m3_reference_scores": [
+      0.46153846153846156,
+      0.46153846153846156
+    ],
+    "m3_reference_mean": 0.46153846153846156,
+    "strict_incremental_scores": [
+      0.5846153846153846
+    ],
+    "strict_incremental_mean": 0.5846153846153846,
+    "strict_incremental_runs": 1
+  },
+  "joint_judge_tasks": 715,
+  "exploratory_paired_contrasts": {
+    "FI_minus_F": {
+      "left_methods": [
+        "facts_identity"
+      ],
+      "right_methods": [
+        "facts"
+      ],
+      "questions": 65,
+      "mean_paired_delta": -0.007692307692307693,
+      "video_cluster_interval": {
+        "lower": -0.04285714285714286,
+        "upper": 0.0234375,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      },
+      "interpretation": "Exploratory paired video-cluster resampling; repeats averaged, not independent new questions."
+    },
+    "FIP_minus_FI": {
+      "left_methods": [
+        "facts_identity_incremental"
+      ],
+      "right_methods": [
+        "facts_identity"
+      ],
+      "questions": 65,
+      "mean_paired_delta": 0.05384615384615385,
+      "video_cluster_interval": {
+        "lower": -0.0546875,
+        "upper": 0.13709677419354838,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      },
+      "interpretation": "Exploratory paired video-cluster resampling; repeats averaged, not independent new questions."
+    },
+    "S_mean_minus_FIP": {
+      "left_methods": [
+        "source_index",
+        "source_index_repeat"
+      ],
+      "right_methods": [
+        "facts_identity_incremental"
+      ],
+      "questions": 65,
+      "mean_paired_delta": 0.05,
+      "video_cluster_interval": {
+        "lower": -0.03571428571428571,
+        "upper": 0.12142857142857143,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      },
+      "interpretation": "Exploratory paired video-cluster resampling; repeats averaged, not independent new questions."
+    },
+    "S_mean_minus_B_now": {
+      "left_methods": [
+        "source_index",
+        "source_index_repeat"
+      ],
+      "right_methods": [
+        "balanced_contemporary"
+      ],
+      "questions": 65,
+      "mean_paired_delta": 0.06538461538461539,
+      "video_cluster_interval": {
+        "lower": 0.0211864406779661,
+        "upper": 0.09931506849315068,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      },
+      "interpretation": "Exploratory paired video-cluster resampling; repeats averaged, not independent new questions."
+    },
+    "S_mean_minus_M3_mean": {
+      "left_methods": [
+        "source_index",
+        "source_index_repeat"
+      ],
+      "right_methods": [
+        "m3_reference",
+        "m3_reference_repeat"
+      ],
+      "questions": 65,
+      "mean_paired_delta": 0.1346153846153846,
+      "video_cluster_interval": {
+        "lower": 0.039473684210526314,
+        "upper": 0.21232876712328766,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      },
+      "interpretation": "Exploratory paired video-cluster resampling; repeats averaged, not independent new questions."
+    },
+    "B_now_minus_B_prior_mean": {
+      "left_methods": [
+        "balanced_contemporary"
+      ],
+      "right_methods": [
+        "balanced_prior",
+        "balanced_prior_repeat"
+      ],
+      "questions": 65,
+      "mean_paired_delta": -0.06538461538461539,
+      "video_cluster_interval": {
+        "lower": -0.11206896551724138,
+        "upper": -0.014285714285714285,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      },
+      "interpretation": "Exploratory paired video-cluster resampling; repeats averaged, not independent new questions."
+    },
+    "M3_repeat_minus_prior": {
+      "left_methods": [
+        "m3_reference_repeat"
+      ],
+      "right_methods": [
+        "m3_reference"
+      ],
+      "questions": 65,
+      "mean_paired_delta": 0.0,
+      "video_cluster_interval": {
+        "lower": -0.050724637681159424,
+        "upper": 0.0603448275862069,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      },
+      "interpretation": "Exploratory paired video-cluster resampling; repeats averaged, not independent new questions."
+    },
+    "E_mean_minus_S_mean": {
+      "left_methods": [
+        "strict_incremental"
+      ],
+      "right_methods": [
+        "source_index",
+        "source_index_repeat"
+      ],
+      "questions": 65,
+      "mean_paired_delta": -0.011538461538461539,
+      "video_cluster_interval": {
+        "lower": -0.033783783783783786,
+        "upper": 0.015625,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      },
+      "interpretation": "Exploratory paired video-cluster resampling; repeats averaged, not independent new questions."
+    },
+    "E_mean_minus_B_now": {
+      "left_methods": [
+        "strict_incremental"
+      ],
+      "right_methods": [
+        "balanced_contemporary"
+      ],
+      "questions": 65,
+      "mean_paired_delta": 0.05384615384615385,
+      "video_cluster_interval": {
+        "lower": 0.0,
+        "upper": 0.10606060606060606,
+        "samples": 3125,
+        "clusters": 5,
+        "caution": "Only five development videos; illustrative cluster bootstrap, not strong generalization evidence."
+      },
+      "interpretation": "Exploratory paired video-cluster resampling; repeats averaged, not independent new questions."
+    }
+  },
+  "accounting": {
+    "common_judge_usage_trace_complete": false,
+    "unrecorded_judge_tasks": 714,
+    "qa_usage_trace_affected": false,
+    "complete_experiment_token_total_available": false,
+    "incident": "experiments/m3_memory_design_20261102/judge_instrumentation_incident.json",
+    "no_regrading_or_estimated_backfill": true
+  },
+  "judge_seed": 1102,
+  "prediction_hashes": {
+    "balanced_prior": {
+      "runs/m3_context_finalization_recovered_20261101/study_05/m3_qa_results.jsonl": "99610fbcb07cb84746e522e5fc2a81cf0cc74469b04d87f397a49e530c658a54",
+      "runs/m3_context_finalization_recovered_20261101/gym_03/m3_qa_results.jsonl": "ed0ca8cadfb2e92e7aebd6f315745902c868c2d227ff6bf3cdbc2cad8d2a4299",
+      "runs/m3_context_finalization_recovered_20261101/bedroom_04/m3_qa_results.jsonl": "1da5369c5ea3820608d88d36bb571ee6a089673a7336f69c8c999082e070c24b",
+      "runs/m3_context_finalization_recovered_20261101/study_18/m3_qa_results.jsonl": "69be8d82a7053a827a9c00680c1fa76c52b25a6f67e3d579c7f400d4646fe2b4",
+      "runs/m3_context_finalization_recovered_20261101/kitchen_20/m3_qa_results.jsonl": "dc1901969204f07f8cc86ca700ab7aaf69381ac882484eb2dbc84cc227b744ac"
+    },
+    "balanced_prior_repeat": {
+      "runs/m3_context_finalization_repeat_20261101/study_05/m3_qa_results.jsonl": "8dcbd818d98e2a4f4a72966053de4d636fe5464ad05f495b26da57e5c57eb5be",
+      "runs/m3_context_finalization_repeat_20261101/gym_03/m3_qa_results.jsonl": "217457bbb6be4f7535a75601c875a1623957650f5e288b4c88f8335bec85971f",
+      "runs/m3_context_finalization_repeat_20261101/bedroom_04/m3_qa_results.jsonl": "1452819a1b8ae5e271b56b2d8d7af328af0a224fa1b4c12b3256fe19e4e6b742",
+      "runs/m3_context_finalization_repeat_20261101/study_18/m3_qa_results.jsonl": "1110c966eb7c040237fe485d4ae688c11cbd64cf786a3a69a8edea47d899fd96",
+      "runs/m3_context_finalization_repeat_20261101/kitchen_20/m3_qa_results.jsonl": "ac34e0cb5033c1433fe2a8ac130ebf98a04f98f261a324aae62612d6d43e32df"
+    },
+    "m3_reference": {
+      "runs/m3_agent_reference_text_20261101/study_05/m3_qa_results.jsonl": "26e882b5d618f1d4e7362ce2033ed16f85ffe56c52e1fab09f8573c5529c8bf3",
+      "runs/m3_agent_reference_text_20261101/gym_03/m3_qa_results.jsonl": "58219ff65c23dbc9374e83b4c6a5eb8480f1365858146d8d53ca596afb5fe6fb",
+      "runs/m3_agent_reference_text_20261101/bedroom_04/m3_qa_results.jsonl": "defac1e3e285a82b7d09d850510f4a1881586edc9e35e1d0bb6b5fd68c2d3890",
+      "runs/m3_agent_reference_text_20261101/study_18/m3_qa_results.jsonl": "f24047c8b9db40d5adbcf3935336ebbd18f8feabf6778d7578e9686ea62d80f3",
+      "runs/m3_agent_reference_text_20261101/kitchen_20/m3_qa_results.jsonl": "06fb4776fc449ecc026d9a6122eedbd696b784a94524a5f0e52631758565e8eb"
+    },
+    "facts": {
+      "runs/m3_facts_only_20261102/study_05/m3_qa_results.jsonl": "c152751fd683c584147aca389a83a782dbd2ba58cc214e9b22d3c69757f75821",
+      "runs/m3_facts_only_20261102/gym_03/m3_qa_results.jsonl": "e44e0ded396789345b211becd4fe619c5fcaba487f7460ee369aa7276b727b8a",
+      "runs/m3_facts_only_20261102/bedroom_04/m3_qa_results.jsonl": "93f3923939b16f06049f4e39771ed05f42f5b805c1316301fddc1b016dd36320",
+      "runs/m3_facts_only_20261102/study_18/m3_qa_results.jsonl": "db239df48834049df06f406bc362b3625f6bae5433c0630946f109257687d303",
+      "runs/m3_facts_only_20261102/kitchen_20/m3_qa_results.jsonl": "757e955e821719ad48ff1950d4a6812db0e9bde50de5a8b5e5ef7efb1072db33"
+    },
+    "facts_identity": {
+      "runs/m3_facts_identity_20261102/study_05/m3_qa_results.jsonl": "cdd064f785b2ed04781f324574c83d2f2d1354a9d141522856ccdb24c6377f83",
+      "runs/m3_facts_identity_20261102/gym_03/m3_qa_results.jsonl": "756ca66440b382e5c08add75b4e7d8b6660fb5787162b837999e166b6369f87e",
+      "runs/m3_facts_identity_20261102/bedroom_04/m3_qa_results.jsonl": "9fa326468f8d7b4803ae10471dbcc5265dc28c01519dd2f04df7927092045b1b",
+      "runs/m3_facts_identity_20261102/study_18/m3_qa_results.jsonl": "b746a9ecf2eaf8d47a4833dcb631d2e859b24d971b90d03ee208f19e75ef28d2",
+      "runs/m3_facts_identity_20261102/kitchen_20/m3_qa_results.jsonl": "cd0896e4b159d4822018b21ae704cf993fb64d000a70675df3a853e7d48df53e"
+    },
+    "facts_identity_incremental": {
+      "runs/m3_facts_identity_incremental_20261102/study_05/m3_qa_results.jsonl": "9593b2b8dc43e3f89d54d78c1d11d6a3c7fb8d9eac4e7d952709fdee93da440b",
+      "runs/m3_facts_identity_incremental_20261102/gym_03/m3_qa_results.jsonl": "df1607a34946d7aba485876d236fe8c16cc34ba1944571834654b59d406599b5",
+      "runs/m3_facts_identity_incremental_20261102/bedroom_04/m3_qa_results.jsonl": "2809377ae3dec8f46d4714aaaea78b99503c90408a2ccb72862f7d4cb1c25e1f",
+      "runs/m3_facts_identity_incremental_20261102/study_18/m3_qa_results.jsonl": "c7fcf1ca20344264ad415761c0c9e05784304b22f1b992609f61f69276353f4c",
+      "runs/m3_facts_identity_incremental_20261102/kitchen_20/m3_qa_results.jsonl": "afefa0e8f274b9c8ddf02749b03a88d9f7b9f98033b00cb51f6386e0f9d97e4c"
+    },
+    "source_index": {
+      "runs/m3_source_fact_index_v2_20261102/study_05/m3_qa_results.jsonl": "00cbc25ba4db7693ce2557cc044040f3205934e4a6dd7d7e39cee00f833cad6c",
+      "runs/m3_source_fact_index_v2_20261102/gym_03/m3_qa_results.jsonl": "e8d3550c7125d040d35bec6361130c37e6dbdd3967f01353e8348fb4fbaeccc6",
+      "runs/m3_source_fact_index_v2_20261102/bedroom_04/m3_qa_results.jsonl": "1580128d298e5d745a9be6b43cc59375edb3c7618cc0654276a9df287c6e0f41",
+      "runs/m3_source_fact_index_v2_20261102/study_18/m3_qa_results.jsonl": "71d4b2ccdb521b35325219d14a1e4995de5de29eaa637f6b273cbb15588f51b1",
+      "runs/m3_source_fact_index_v2_20261102/kitchen_20/m3_qa_results.jsonl": "3b26415604c5c25ef325be5707591b55ac3bfb5de1c02f9f387493bbc435d55a"
+    },
+    "source_index_repeat": {
+      "runs/m3_source_fact_index_v2_repeat_20261102/study_05/m3_qa_results.jsonl": "a241a49e0c12fea71e1746a5286b779496dccbf3e74bcf44017e71c4c6a27275",
+      "runs/m3_source_fact_index_v2_repeat_20261102/gym_03/m3_qa_results.jsonl": "6a3f25010644c1472fc4cf345fd5c8e8c2e0b9c5dc111d0bee41f1a3bdc52fbf",
+      "runs/m3_source_fact_index_v2_repeat_20261102/bedroom_04/m3_qa_results.jsonl": "c3f4db350fba66d743e432cde27128438988305264a9b3cbc71c8a726dbea7d7",
+      "runs/m3_source_fact_index_v2_repeat_20261102/study_18/m3_qa_results.jsonl": "183ec4a9b6bb81929006089a0e8426c14d9d81706f0a56dc5bd43861c4888028",
+      "runs/m3_source_fact_index_v2_repeat_20261102/kitchen_20/m3_qa_results.jsonl": "92e237a506710b5fb17b6253c970af018ce1af6d2d8dbb9bdd03d79a21928306"
+    },
+    "balanced_contemporary": {
+      "runs/m3_balanced_contemporary_20261102/study_05/m3_qa_results.jsonl": "135eece5b733758eb9504379da5a6b2c399e0a5966bb98958f24bffe6dc3dd5d",
+      "runs/m3_balanced_contemporary_20261102/gym_03/m3_qa_results.jsonl": "0c850b571427e6e73896536f045cf9f26473b210e386f1589702886610002a4d",
+      "runs/m3_balanced_contemporary_20261102/bedroom_04/m3_qa_results.jsonl": "e067fc96b2f90efcfee41b8284daf20c3d4a4599e23fcaa552bd46b8ae32370d",
+      "runs/m3_balanced_contemporary_20261102/study_18/m3_qa_results.jsonl": "93eb0fc09ac0e7c0a994b6752913dc019a4c9e5542a79dedb8968442e2cb4712",
+      "runs/m3_balanced_contemporary_20261102/kitchen_20/m3_qa_results.jsonl": "9cb53c81970444a4c0c29f4946c1fa12b35f70136a76ab89dc19c36a8f9736a8"
+    },
+    "m3_reference_repeat": {
+      "runs/m3_reference_repeat_20261102/study_05/m3_qa_results.jsonl": "d901fad52b5a16ff132c771fdda36cc2d00b0c1bcf40478eccfdeb9326c36a37",
+      "runs/m3_reference_repeat_20261102/gym_03/m3_qa_results.jsonl": "eca407a8b60731a364165424ed54254cc713bd68a6d7b61904532f607749f88f",
+      "runs/m3_reference_repeat_20261102/bedroom_04/m3_qa_results.jsonl": "7e16ec4ebd060b3c6e5c7146266a4cbc4a9f5b7e04ca094625517338eb156e3d",
+      "runs/m3_reference_repeat_20261102/study_18/m3_qa_results.jsonl": "c5b663a6f9ff66b383c05591e77fcecca4a9468b5456bc783f15a28209c1c55d",
+      "runs/m3_reference_repeat_20261102/kitchen_20/m3_qa_results.jsonl": "2aa396496464731f860cdae442cab72ccce026d018bc7d969aa92ed95043749e"
+    },
+    "strict_incremental": {
+      "runs/m3_strict_incremental_20261102/study_05/m3_qa_results.jsonl": "52d68fadb74ff2c1c3abc9230eb65c7094f92d2137d5d5744bc49397a5f9c6b8",
+      "runs/m3_strict_incremental_20261102/gym_03/m3_qa_results.jsonl": "9a19182d8e4e3939eeb6357e1d798b11b20e17e48bc5432d003ae2d0b85aaa68",
+      "runs/m3_strict_incremental_20261102/bedroom_04/m3_qa_results.jsonl": "7dcb94b0dcb9b06f93f88045f24ca57b12697d93cb5fa8a9dd54321e2e4f9a04",
+      "runs/m3_strict_incremental_20261102/study_18/m3_qa_results.jsonl": "48c61f861f9efae06bd78f70413a8742bd1238ff1725f8d618fe81501fd05b1b",
+      "runs/m3_strict_incremental_20261102/kitchen_20/m3_qa_results.jsonl": "7d1818b2fb2b320f7933378cfc3bba31a76be7d71c0347902a107473cf2d5b3e"
+    }
+  },
+  "limitations": [
+    "固定记忆的QA开发实验，不是重新生成AV感知的端到端实验。",
+    "0/0.5/1自动评分，不是人工准确率。",
+    "同五个开发视频，没有独立留出集泛化结论。",
+    "M3参考为同模型适配，不是官方checkpoint复现。",
+    "表中token仅QA阶段；输入比例不等于费用或时延比例。",
+    "S同时改变事实召回和可见事实停止条件，不是索引单因素消融。",
+    "共同评委714个需模型任务的usage未落盘；QA用量完整，但整轮总token/费用未知。"
+  ]
+}

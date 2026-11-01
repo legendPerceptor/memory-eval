@@ -18,6 +18,20 @@ def main():
         sources[str(path.relative_to(ROOT))] = hashlib.sha256(path.read_bytes()).hexdigest()
         by_run[path.parent.name] = summarize(records)
     probe = json.loads((OUT / "answer_choice_probe.json").read_text())
+    judge_path = ROOT / "runs/m3_memory_design_joint_judge_20261102/grades.jsonl"
+    joint_usage = ROOT / "experiments/m3_memory_design_joint_judge_20261102/model-usage.jsonl"
+    gap = {}
+    if judge_path.exists() and not joint_usage.exists():
+        graded = [json.loads(s) for s in judge_path.read_text().splitlines() if s.strip()]
+        gap = {
+            "source": str(judge_path.relative_to(ROOT)),
+            "graded_task_records": len(graded),
+            "tasks_requiring_judge_model": sum(bool(r["predicted_answer"]) and not r["error"] for r in graded),
+            "automatic_zero_without_judge_call": sum(not r["predicted_answer"] or bool(r["error"]) for r in graded),
+            "prompt_tokens": None, "completion_tokens": None, "cache_tokens": None,
+            "scope": "Startup instrumentation import failed; completed grading responses did not retain usage.",
+            "not_included_in_recorded_token_totals": True,
+        }
     result = {
         "scope": "All newly recorded November 2 chat calls, not only completed method trajectories.",
         "total_recorded": summarize(calls), "by_run": by_run,
@@ -26,6 +40,8 @@ def main():
             "judge": summarize([r for r in calls if not r.get("qa_video_id")]),
         },
         "source_usage_log_sha256": sources,
+        "unrecorded_common_judge_usage": gap,
+        "entire_experiment_token_total_available": not bool(gap),
         "separate_nonbenchmark_tool_choice_probe": {
             "calls": len(probe["results"]),
             "received_prompt_tokens": sum(r.get("usage", {}).get("prompt_tokens", 0) for r in probe["results"]),

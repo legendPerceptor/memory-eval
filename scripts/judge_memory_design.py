@@ -32,6 +32,18 @@ def save(path, value):
     tmp.replace(path)
 
 
+def verify_usage_bootstrap(expected_log):
+    """Python silently tolerates sitecustomize failures; model calls must not."""
+    from providers.llm.openai_llm import OpenAILLM
+    installed = OpenAILLM._create_completion
+    module = sys.modules.get("sitecustomize")
+    actual = getattr(installed, "__globals__", {}).get("path")
+    if (module is None or not getattr(installed, "_m3_usage_audit", False)
+            or not actual or Path(actual).resolve() != Path(expected_log).resolve()):
+        raise RuntimeError("Usage instrumentation is not active at startup; refusing judge model calls")
+    return True
+
+
 def load_inputs(root=ROOT, methods=None):
     if methods is None:
         methods = json.loads((root / "experiments/m3_memory_design_20261102/methods.json").read_text())
@@ -55,7 +67,7 @@ def load_inputs(root=ROOT, methods=None):
             raise ValueError("Question cohort mismatch")
         for key, record in keyed.items():
             base = reference[key]
-            for field in ("question", "expected_answer"):
+            for field in ("question", "expected_answer", "type"):
                 if record[field] != base[field]:
                     raise ValueError(f"Changed task field {field}")
             for field in ("policy", "resolved_before_clip", "effective_before_sec"):
@@ -80,6 +92,7 @@ def main():
     from core.operation_deadline import operation_deadline
     from m3.eval import build_judge_llm, judge_answer
 
+    verify_usage_bootstrap(exp / "model-usage.jsonl")
     config = ROOT / "experiments/m3_source_fact_index_v2_20261102/private/study_05.yaml"
     llm = build_judge_llm(config_path=str(config))
     save(exp / "manifest.json", {
@@ -93,6 +106,7 @@ def main():
         "ordering": "all method/question pairs shuffled; method not sent to judge",
         "retry_policy": "No success regrading or answer retries. API recovery, if needed, separate.",
         "deadline": DEADLINE_ISO,
+        "startup_usage_logging_verified": True,
     })
     with (run / "inputs.jsonl").open("x") as stream:
         stream.writelines(json.dumps(t, ensure_ascii=False) + "\n" for t in tasks)

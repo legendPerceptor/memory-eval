@@ -1,0 +1,34 @@
+{
+  "minimum_quota_percent": 30,
+  "repeat_rule": "max(30, preceding E observed consumption + 12), same window only",
+  "minimum_seconds_remaining": 7200,
+  "decisions": [
+    {
+      "method": "strict_incremental",
+      "run": "m3_strict_incremental_20261102",
+      "status": "finished",
+      "exit_code": 0,
+      "quota_before": {
+        "observed_at_unix": 1793570534.0340056,
+        "interval_remaining_percent": 34,
+        "weekly_remaining_percent": 89,
+        "window_end_unix": 1793584800.0
+      },
+      "minimum_quota": 30
+    },
+    {
+      "method": "strict_incremental_repeat",
+      "run": "m3_strict_incremental_repeat_20261102",
+      "status": "not_executed_budget",
+      "remaining_seconds": 12896.893011569977,
+      "quota": {
+        "observed_at_unix": 1793572083.106991,
+        "interval_remaining_percent": 16,
+        "weekly_remaining_percent": 88,
+        "window_end_unix": 1793584800.0
+      },
+      "minimum_quota": 30
+    }
+  ],
+  "quality_selection": false
+}

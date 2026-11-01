@@ -1,5 +1,14 @@
 # M3-Agent vs. the current oGMemory M3 pipeline
 
+**2026-11-02 update:** the new fixed-memory study adds source-fact vector recall,
+explicit name/role soft ranking and incremental evidence delivery, plus a fresh
+QA-only repeat of the same-model M3 reference adapter. See
+`docs/m3_memory_design.md` and `experiments/m3_memory_design_20261102/REPORT.md`.
+The older review below describes the original paths, not all later opt-in variants.
+Name/role matching still is not verified face–voice–name identity grounding.
+The new common judging has complete scores but a separately disclosed usage-logging
+gap; QA-stage usage remains recorded. These are not official-checkpoint results.
+
 **2026-11-01 update:** a separately recorded MiniMax/shared-perception adaptation
 has now completed. This document's reference-code analysis
 still describes the unmodified upstream path; the adaptation and all deviations

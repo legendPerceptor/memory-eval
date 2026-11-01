@@ -27,8 +27,15 @@ LABELS = {
     "source_index_scene_repeat": "H：独立重复",
     "incremental_only": "I：balanced 表示 + 增量交付",
     "m3_reference_repeat": "M3-Agent：本轮同记忆重复",
-    "strict_incremental": "E：严格增量3500 + 原生收尾",
+    "strict_incremental": "E：严格增量3500 + 收尾请求",
     "strict_incremental_repeat": "E：独立重复",
+}
+TAGS = {
+    "Person Understanding": "人物理解",
+    "Cross-Modal Reasoning": "跨模态推理",
+    "Multi-Detail Reasoning": "多细节推理",
+    "General Knowledge Extraction": "知识提取",
+    "Multi-Hop Reasoning": "多跳推理",
 }
 
 
@@ -39,8 +46,8 @@ def rows(path):
 def verify(tasks, grades, hashes, manifest, root=ROOT):
     if hashes != manifest["source_prediction_hashes"]:
         raise ValueError("Prediction files changed since judge registration")
-    fields = ("method", "video_id", "question_id", "question", "expected_answer",
-              "predicted_answer", "error", "finish_reason")
+    fields = ("method", "video_id", "question_id", "question_index", "question", "expected_answer",
+              "predicted_answer", "error", "finish_reason", "type")
     keyed = {(r["method"], r["video_id"], r["question_id"]): r for r in tasks}
     scored = {(r["method"], r["video_id"], r["question_id"]): r for r in grades}
     if len(scored) != len(grades) or set(scored) != set(keyed):
@@ -112,6 +119,21 @@ def paired_contrast(grades, left, right):
     }
 
 
+def category_scores(records):
+    grouped = {}
+    for row in records:
+        tags = row.get("type") or ["Unspecified"]
+        tags = [tags] if isinstance(tags, str) else tags
+        if not isinstance(tags, list) or not all(isinstance(tag, str) for tag in tags):
+            raise ValueError("Unexpected dataset category representation")
+        for tag in set(tags):
+            grouped.setdefault(tag, []).append(row)
+    return {tag: {"questions": len(rows),
+                  "mean_score": statistics.mean(row["judge_score"] for row in rows),
+                  "valid_answers": sum(bool(row["predicted_answer"]) and not row["error"] for row in rows)}
+            for tag, rows in sorted(grouped.items())}
+
+
 def main():
     methods = json.loads((OUT / "methods.json").read_text())
     tasks, hashes = load_inputs()
@@ -156,6 +178,7 @@ def main():
             "score_counts": dict(Counter(str(r["judge_score"]) for r in scores)),
             "by_video": {v: statistics.mean(r["judge_score"] for r in scores if r["video_id"] == v)
                          for v in VIDEOS},
+            "by_dataset_category": category_scores(scores),
             "qa_usage": {**usage, "cached_prompt_tokens": cached,
                          "uncached_prompt_tokens": prompt - cached if cached is not None else None,
                          "cache_fraction": cached / prompt if prompt and cached is not None else None},
@@ -225,17 +248,34 @@ def main():
         contrasts["E_mean_minus_S_mean"] = paired_contrast(
             grades, names, ["source_index", "source_index_repeat"])
         contrasts["E_mean_minus_B_now"] = paired_contrast(grades, names, ["balanced_contemporary"])
+    incident_path = OUT / "judge_instrumentation_incident.json"
+    accounting = {}
+    if incident_path.exists():
+        incident = json.loads(incident_path.read_text())
+        accounting = {
+            "common_judge_usage_trace_complete": False,
+            "unrecorded_judge_tasks": incident["tasks_requiring_judge_model"],
+            "qa_usage_trace_affected": incident["qa_usage_affected"],
+            "complete_experiment_token_total_available": False,
+            "incident": str(incident_path.relative_to(ROOT)),
+            "no_regrading_or_estimated_backfill": True,
+        }
     output = {"methods": result, "replication": replication, "joint_judge_tasks": len(grades),
               "exploratory_paired_contrasts": contrasts,
+              "accounting": accounting,
               "judge_seed": manifest["seed"], "prediction_hashes": hashes,
               "limitations": [
-                  "Fixed-memory QA development study, not a new audiovisual end-to-end run.",
-                  "Automatic scores 0/0.5/1, not human accuracy.",
-                  "Same five development videos; no held-out generalization claim.",
-                  "M3 reference is a same-model adaptation, not official checkpoint reproduction.",
-                  "Token counts are QA only; input ratios are not monetary or latency ratios.",
-                  "S also changes visible-fact no-gain control; not a single-factor index ablation.",
+                  "固定记忆的QA开发实验，不是重新生成AV感知的端到端实验。",
+                  "0/0.5/1自动评分，不是人工准确率。",
+                  "同五个开发视频，没有独立留出集泛化结论。",
+                  "M3参考为同模型适配，不是官方checkpoint复现。",
+                  "表中token仅QA阶段；输入比例不等于费用或时延比例。",
+                  "S同时改变事实召回和可见事实停止条件，不是索引单因素消融。",
               ]}
+    if accounting:
+        output["limitations"].append(
+            f"共同评委{accounting['unrecorded_judge_tasks']}个需模型任务的usage未落盘；"
+            "QA用量完整，但整轮总token/费用未知。")
     (OUT / "comparison.json").write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n")
     with (OUT / "joint_questions.jsonl").open("w") as stream:
         stream.writelines(json.dumps(r, ensure_ascii=False) + "\n" for r in grades)
@@ -273,8 +313,23 @@ def main():
         interval = comparison["video_cluster_interval"]
         report.append(f'| {name} | {comparison["mean_paired_delta"]:+.4f} '
                       f'| [{interval["lower"]:+.4f}, {interval["upper"]:+.4f}] |')
+    categories = result["balanced_contemporary"]["by_dataset_category"]
+    report += ["", "## 数据集多标签类别", "",
+               "类别重叠，不能把各类别样本数或得分相加当作总样本/总分；多跳只有1题，不作泛化判断。",
+               "| 方案 | " + " | ".join(
+                   f"{label} (n={categories[tag]['questions']})" for tag, label in TAGS.items()) + " |",
+               "|---|" + "---:|" * len(TAGS)]
+    for value in result.values():
+        assert {tag: item["questions"] for tag, item in value["by_dataset_category"].items()} == {
+            tag: item["questions"] for tag, item in categories.items()}
+        report.append("| " + value["label"] + " | " + " | ".join(
+            f'{value["by_dataset_category"][tag]["mean_score"]:.4f}' for tag in TAGS) + " |")
     report += [
                "", "## 限制", *["- " + s for s in output["limitations"]]]
+    findings = ROOT / "docs/m3_memory_design_findings.md"
+    if findings.exists():
+        report += ["", "\n".join("#" + line if line.startswith("#") else line
+                                 for line in findings.read_text().splitlines())]
     (OUT / "REPORT.md").write_text("\n".join(report) + "\n")
     latex = [
         "% MEMORY_DESIGN_REPORT_STATUS: final",
@@ -305,6 +360,42 @@ def main():
               r"\caption{同批自动评分与QA输入。每点为完整65题轨迹，重复运行分别显示；不是费用或端到端开销。}",
               r"\end{figure}}{}",
               r"实现及安全边界见\code{docs/m3_memory_design.md}。"]
+    latex += [
+        r"\subsection{五视频结果}",
+        "S为两次轨迹的分视频平均，M3为原轨迹与本轮重复的平均；重复不增加独立题数。",
+        r"\begin{center}\small\begin{tabular}{lrrrrr}\toprule",
+        r"视频 & 题数 & B同期 & S均值 & E & M3均值\\\midrule",
+    ]
+    for video in VIDEOS:
+        n = sum(row["method"] == "balanced_contemporary" and row["video_id"] == video for row in grades)
+        s_mean = statistics.mean(result[m]["by_video"][video] for m in ("source_index", "source_index_repeat"))
+        m3_mean = statistics.mean(result[m]["by_video"][video]
+                                  for m in ("m3_reference", "m3_reference_repeat") if m in result)
+        e_score = f'{result["strict_incremental"]["by_video"][video]:.4f}' if "strict_incremental" in result else "--"
+        latex.append(r"\code{" + video + "} & "
+                     + f'{n} & {result["balanced_contemporary"]["by_video"][video]:.4f}'
+                     + f" & {s_mean:.4f} & {e_score} & {m3_mean:.4f}" + r"\\")
+    latex += [r"\bottomrule\end{tabular}\end{center}",
+              "例如E在gym\\_03低于同期B，不能宣称每个视频都提升；study\\_18仍是短板。"]
+    latex += [
+        r"\subsection{按数据集类别的诊断}",
+        "类别为数据集多标签，同一道题可属于多个类别，不能相加当作总分。",
+        "多跳推理只有1题，不作能力泛化判断。以下仍是同批自动评分。",
+        r"\begin{center}\small\begin{tabular}{lrrrrr}\toprule",
+        "方案 & " + " & ".join(f"{label}({categories[tag]['questions']})"
+                                for tag, label in TAGS.items()) + r"\\\midrule",
+    ]
+    for method in ("m3_reference_repeat", "balanced_contemporary", "source_index", "source_index_repeat",
+                   "strict_incremental", "strict_incremental_repeat"):
+        if method not in result:
+            continue
+        value = result[method]
+        short = {"m3_reference_repeat": "M3同期重复", "balanced_contemporary": "B同期",
+                 "source_index": "S首次", "source_index_repeat": "S重复",
+                 "strict_incremental": "E首次", "strict_incremental_repeat": "E重复"}[method]
+        latex.append(short + " & " + " & ".join(
+            f'{value["by_dataset_category"][tag]["mean_score"]:.3f}' for tag in TAGS) + r"\\")
+    latex += [r"\bottomrule\end{tabular}\end{center}"]
     (ROOT / "latex/memory_design_results.tex").write_text("\n".join(latex) + "\n")
     print(json.dumps({m: r["mean_score"] for m, r in result.items()}, indent=2))
 

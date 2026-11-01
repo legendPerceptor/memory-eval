@@ -13,6 +13,24 @@ STUDY = ROOT / "experiments/m3_memory_design_20261102"
 DEADLINE = "2026-11-02T10:03:00+08:00"
 
 
+def judge_environment(parent, root, name):
+    source = root / "runs/m3_source_fact_index_v2_20261102"
+    env = {**parent, "M3_EVAL_ROOT": str(root),
+           "M3_EXPERIMENT_DEADLINE": DEADLINE, "OGMEM_MINIMAX_MODEL": "MiniMax-M3.1-Flash",
+           "PYTHONPATH": f"{source / '_instrumentation'}:{source / '_source'}",
+           "M3_USAGE_LOG": str(root / "experiments" / name / "model-usage.jsonl")}
+    for key in ("M3_AUDIT_VIDEO", "M3_AUDIT_QUESTION_INDEX"):
+        env.pop(key, None)
+    return env
+
+
+def analysis_environment(env):
+    result = dict(env)
+    for key in ("PYTHONPATH", "M3_USAGE_LOG", "M3_AUDIT_VIDEO", "M3_AUDIT_QUESTION_INDEX"):
+        result.pop(key, None)
+    return result
+
+
 def main():
     runtime.EXP = STUDY / "judging"
     (runtime.EXP / "private").mkdir(parents=True, exist_ok=True, mode=0o700)
@@ -43,12 +61,7 @@ def main():
         return
     name = "m3_memory_design_joint_judge_20261102"
     python = str(ROOT / "oGMemory/.venv/bin/python")
-    env = {**os.environ, "M3_EVAL_ROOT": str(ROOT),
-           "M3_EXPERIMENT_DEADLINE": DEADLINE,
-           "PYTHONPATH": str(ROOT / "runs/m3_source_fact_index_v2_20261102/_instrumentation"),
-           "M3_USAGE_LOG": str(ROOT / "experiments" / name / "model-usage.jsonl")}
-    for key in ("M3_AUDIT_VIDEO", "M3_AUDIT_QUESTION_INDEX"):
-        env.pop(key, None)
+    env = judge_environment(os.environ, ROOT, name)
     code = runtime.run_command(
         [python, str(ROOT / "scripts/judge_memory_design.py")],
         runtime.EXP / "private/judge.log", env, "joint_judge")
@@ -59,7 +72,7 @@ def main():
         return
     code = runtime.run_command(
         [python, str(ROOT / "scripts/render_memory_design.py")],
-        runtime.EXP / "private/renderer.log", env, "render_comparison")
+        runtime.EXP / "private/renderer.log", analysis_environment(env), "render_comparison")
     runtime.status(status="ready_for_analysis" if code == 0 else "renderer_failed", exit_code=code)
 
 

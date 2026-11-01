@@ -1,17 +1,28 @@
 {
   "scope": "All newly recorded November 2 chat calls, not only completed method trajectories.",
   "total_recorded": {
-    "recorded_logical_calls": 2027,
+    "recorded_logical_calls": 3253,
     "statuses": {
-      "returned": 2027
+      "returned": 3253
     },
     "unknown_usage_calls": 0,
-    "received_prompt_tokens": 12597601,
-    "received_completion_tokens": 358708,
-    "received_total_tokens": 12956309,
-    "recorded_api_seconds_sum": 7255.661867141724
+    "received_prompt_tokens": 23725683,
+    "received_completion_tokens": 618817,
+    "received_total_tokens": 24344500,
+    "recorded_api_seconds_sum": 11015.247242689133
   },
   "by_run": {
+    "m3_balanced_contemporary_20261102": {
+      "recorded_logical_calls": 426,
+      "statuses": {
+        "returned": 426
+      },
+      "unknown_usage_calls": 0,
+      "received_prompt_tokens": 4762513,
+      "received_completion_tokens": 97274,
+      "received_total_tokens": 4859787,
+      "recorded_api_seconds_sum": 1366.346049785614
+    },
     "m3_facts_identity_20261102": {
       "recorded_logical_calls": 430,
       "statuses": {
@@ -66,39 +77,76 @@
       "received_completion_tokens": 85644,
       "received_total_tokens": 3584198,
       "recorded_api_seconds_sum": 1413.299633026123
+    },
+    "m3_source_fact_index_v2_repeat_20261102": {
+      "recorded_logical_calls": 430,
+      "statuses": {
+        "returned": 430
+      },
+      "unknown_usage_calls": 0,
+      "received_prompt_tokens": 3449865,
+      "received_completion_tokens": 85627,
+      "received_total_tokens": 3535492,
+      "recorded_api_seconds_sum": 1269.3040409088135
+    },
+    "m3_strict_incremental_20261102": {
+      "recorded_logical_calls": 370,
+      "statuses": {
+        "returned": 370
+      },
+      "unknown_usage_calls": 0,
+      "received_prompt_tokens": 2915704,
+      "received_completion_tokens": 77208,
+      "received_total_tokens": 2992912,
+      "recorded_api_seconds_sum": 1123.9352848529816
     }
   },
   "by_role": {
     "qa": {
-      "recorded_logical_calls": 1768,
+      "recorded_logical_calls": 2864,
       "statuses": {
-        "returned": 1768
+        "returned": 2864
       },
       "unknown_usage_calls": 0,
-      "received_prompt_tokens": 12431502,
-      "received_completion_tokens": 337466,
-      "received_total_tokens": 12768968,
-      "recorded_api_seconds_sum": 6642.943424463272
+      "received_prompt_tokens": 23476872,
+      "received_completion_tokens": 586747,
+      "received_total_tokens": 24063619,
+      "recorded_api_seconds_sum": 10143.928074359894
     },
     "judge": {
-      "recorded_logical_calls": 259,
+      "recorded_logical_calls": 389,
       "statuses": {
-        "returned": 259
+        "returned": 389
       },
       "unknown_usage_calls": 0,
-      "received_prompt_tokens": 166099,
-      "received_completion_tokens": 21242,
-      "received_total_tokens": 187341,
-      "recorded_api_seconds_sum": 612.7184426784515
+      "received_prompt_tokens": 248811,
+      "received_completion_tokens": 32070,
+      "received_total_tokens": 280881,
+      "recorded_api_seconds_sum": 871.3191683292389
     }
   },
   "source_usage_log_sha256": {
+    "experiments/m3_balanced_contemporary_20261102/model-usage.jsonl": "d65d1f3e8b181665f24a0a8778981da8c33b4daaa8cc49cb849540c8df3a75cc",
     "experiments/m3_facts_identity_20261102/model-usage.jsonl": "c9b6a0a4a84aa582bc25ea76967f60d7202a147393f6553e70fe8f8243532343",
     "experiments/m3_facts_identity_incremental_20261102/model-usage.jsonl": "debfebc552a1f83659c40fc4792531afbd48325b6f79cb4b8a6762c8e4d80978",
     "experiments/m3_facts_only_20261102/model-usage.jsonl": "1bd642f68bd2a7c4651ecf7f0c1879963538eede820447d665fe38af8d911393",
     "experiments/m3_reference_repeat_20261102/model-usage.jsonl": "375ad9488af6e9e2385ac6f497b241054b758e89275d161ec3253864f2e8fe03",
-    "experiments/m3_source_fact_index_v2_20261102/model-usage.jsonl": "c42825ed5d08cd78db19a5620254e5e327d877ae20235a2bc334fe312fca8280"
+    "experiments/m3_source_fact_index_v2_20261102/model-usage.jsonl": "c42825ed5d08cd78db19a5620254e5e327d877ae20235a2bc334fe312fca8280",
+    "experiments/m3_source_fact_index_v2_repeat_20261102/model-usage.jsonl": "d3bbd28294b41336262389f7ca5cea869a56c95147f3c9b0a4a138c1bdad814e",
+    "experiments/m3_strict_incremental_20261102/model-usage.jsonl": "85191a2e0fc604ed6626ad55214b1ba7ade88c258504e6f297ebc77db1b77d39"
   },
+  "unrecorded_common_judge_usage": {
+    "source": "runs/m3_memory_design_joint_judge_20261102/grades.jsonl",
+    "graded_task_records": 715,
+    "tasks_requiring_judge_model": 714,
+    "automatic_zero_without_judge_call": 1,
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "cache_tokens": null,
+    "scope": "Startup instrumentation import failed; completed grading responses did not retain usage.",
+    "not_included_in_recorded_token_totals": true
+  },
+  "entire_experiment_token_total_available": false,
   "separate_nonbenchmark_tool_choice_probe": {
     "calls": 2,
     "received_prompt_tokens": 920,

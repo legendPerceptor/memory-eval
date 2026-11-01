@@ -209,8 +209,9 @@ def main():
     ]
     tex = [
         "% CONTEXT_REPORT_STATUS: final",
-        r"\section{上下文预算与 QA 收尾消融}",
+        r"\section{上下文预算与 QA 收尾消融（11月1日）}",
         r"\label{sec:context-optimization}",
+        "本节保留11月1日的实验、评分及当时的验证记录；11月2日的追加实验另列，不择高拼接不同批次分数。",
         "本节固定已生成的多模态记忆，仅重新运行 QA。"
         "旧 oGMemory 和 M3-Agent 为固定的既有答案；A/B/C/D及B的完整重复均保留，未择高。"
         "将七组共455条答案交错打乱后用相同 MiniMax 评委重新评分，评委不接收方案名称。"

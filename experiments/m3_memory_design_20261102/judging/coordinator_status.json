@@ -1,5 +1,5 @@
 {
-  "observed_at": "2026-11-02T04:32:07.454179+08:00",
-  "status": "waiting_followup",
-  "followup_status": "not_started"
+  "observed_at": "2026-11-02T06:50:26.523605+08:00",
+  "status": "ready_for_analysis",
+  "exit_code": 0
 }

@@ -1,0 +1,14 @@
+{
+  "S_mean_score": 0.5961538461538461,
+  "E_score": 0.5846153846153846,
+  "B_now_score": 0.5307692307692308,
+  "prior_B_mean_score": 0.5961538461538461,
+  "all_three_B_mean_score": 0.5743589743589743,
+  "M3_mean_score": 0.46153846153846156,
+  "E_input_reduction_vs_B_now": 0.38241251703250856,
+  "E_uncached_reduction_vs_B_now": 0.6355323791771328,
+  "E_input_ratio_vs_M3_mean": 5.199673649904814,
+  "E_uncached_ratio_vs_M3_mean": 7.766418469764363,
+  "E_input_reduction_vs_S_mean": 0.15057437460297485,
+  "E_uncached_reduction_vs_S_mean": 0.27546787912018467
+}
