@@ -37,6 +37,19 @@ def summarize(name):
     exp, run = ROOT / "experiments" / name, ROOT / "runs" / name
     manifest = json.loads((exp / "manifest.json").read_text())
     qa = [r for v in COHORT for r in rows(run / v / "m3_qa_results.jsonl")]
+    assert len({(r["video_id"], r["question_id"]) for r in qa}) == len(qa)
+    historical = {}
+    for video in COHORT:
+        source = "m3_study18_recovery_20261101" if video == "study_18" else "m3_flash_medium_20261031"
+        for r in rows(ROOT / "runs" / source / video / "m3_qa_results.jsonl"):
+            historical[(video, r["question_id"])] = r
+    scope_mismatches = []
+    if len(historical) == 65:
+        for r in qa:
+            previous = historical[(r["video_id"], r["question_id"])]
+            assert r["question"] == previous["question"]
+            if r["temporal_scope"] != previous["temporal_scope"]:
+                scope_mismatches.append(r["question_id"])
     judge = [r for v in COHORT for r in rows(run / v / "judge/m3_eval_results.jsonl")]
     grade_map = {(r["video_id"], r["question_id"]): r for r in judge}
     assert len(grade_map) == len(judge)
@@ -118,6 +131,18 @@ def summarize(name):
         "counter_exceedances": counter_exceedances,
         "input_limit_exceedances": input_exceedances,
         "usage_pairing_errors": pairing_errors,
+        "historical_scope_audit_available": len(historical) == 65,
+        "temporal_scope_mismatches": scope_mismatches,
+        "model_setting_deviations": [
+            {"video": c["qa_video_id"], "question_index": c["qa_question_index"],
+             "started_at_unix": c["started_at_unix"]}
+            for c in qa_calls if (
+                c.get("requested_model") != "MiniMax-M3.1-Flash"
+                or c.get("max_tokens") != 8192
+                or c.get("reasoning_effort") != "medium"
+                or c.get("thinking") != {"type": "adaptive"}
+            )
+        ],
         "by_video": {},
         "qa_files_sha256": {
             v: hashlib.sha256((run / v / "m3_qa_results.jsonl").read_bytes()).hexdigest()
