@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-11-02T09:56:04.020504+08:00",
-  "scope": "Architecture-first revision: all multimodal capabilities presented as newly designed for oGMemory; abstract emphasizes supported advantages. No experiments rerun.",
-  "pages": 6,
+  "created_at": "2026-11-02T10:04:01.925223+08:00",
+  "scope": "Related work expanded with seven research papers; experimental records removed from bibliography; no experiment data changed.",
+  "pages": 7,
   "page_limit_including_references": 8,
   "sections": [
     "Introduction",
@@ -15,16 +15,26 @@
     "bash_syntax": "passed",
     "git_diff_check": "passed",
     "overfull_underfull_missing_characters_undefined_references": false,
-    "visual_review": "Revised title, abstract and Introduction on page 1 checked.",
-    "page_limit_guard": "Current real build passed at 6 pages; simulated 9-page rejection tested in prior revision (build script unchanged)."
+    "visual_review": "Page 7 bibliography layout checked; final revision only changes M3 venue to verified arXiv identifier/year.",
+    "page_limit_guard": "Current real build passed at 7 pages; simulated 9-page rejection tested in prior revision (build script unchanged).",
+    "bibliography": "All seven papers cited; titles and first authors checked against arXiv metadata; CVPR/ECCV/NeurIPS venues verified from paper comments."
   },
   "known_warnings": [
     "FandolSong/FandolFang Script CJK fontspec warnings; no missing characters"
   ],
   "sha256": {
-    "latex/report.tex": "dcc8f2d9eb6effb72c55bad19c8a06c56bc623f3c80e7e2d3e83be16ac25e92b",
-    "latex/report.pdf": "6dd73f9c8415c9e24db771724445eed1651355980b272be8ad32c22a51d8d433",
+    "latex/report.tex": "4ecd4ec57d04533d988b2f6ea49b4f6c011f4f4379731bb57924fdb4ecd5c241",
+    "latex/report.pdf": "bc5b5b279b9337339022aa8dbd50f95d9268672d0582f516261d668eb276452a",
     "scripts/build_report.sh": "9a56712e3605ee93941cae94b7810e65db634d862dd6aa74c20c101bd546d2a8",
     "experiments/m3_memory_design_20261102/comparison.json": "290eb594e9d46f9e27191e0456188c338e765563173e9ba31793dbd45dd3ab0a"
-  }
+  },
+  "paper_arxiv_ids": [
+    "2307.16449",
+    "2403.11481",
+    "2508.09736",
+    "2304.03442",
+    "2310.08560",
+    "2504.19413",
+    "2502.12110"
+  ]
 }

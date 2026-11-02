@@ -54,36 +54,48 @@ MiniMax-M3.1-Flash模型与共同自动评委，oGMemory来源事实组合两次
 这一评估用于检验问答阶段的设计取舍；系统完整架构与本轮实验测量范围分别说明。
 
 \section{Related Work}
-\subsection{片段检索与结构化多模态记忆}
-从系统设计看，长视频记忆可以采用片段描述检索，也可以进一步组织为事件、人物、
-实体关系及语义结论。前者保留局部上下文、便于回源，代价是检索结果冗长；
-后者有利于紧凑交付和跨片段关联，但依赖抽取与身份绑定的可靠性。
-本文关注这两类设计之间的折中：事实窗口仍来自已有原文，不以额外生成的摘要替代来源；
-检索粒度细化后，仍回到源节点校验时间、权限与内容一致性。
+\subsection{多模态记忆与长视频理解}
+长视频记忆的一条路线是在视觉表示层压缩历史信息。MovieChat\cite{moviechat}
+以视觉token为记忆载体，借鉴短期与长期记忆机制，将密集视频信息组织为稀疏记忆，
+以支持长视频理解。另一条路线把视频转化为可查询的结构化观察。
+VideoAgent\cite{videoagent}同时保存时序事件描述和以对象为中心的跟踪状态，
+通过片段定位、对象记忆查询等工具，由语言模型交互式求解视频任务。
+这些工作分别体现了表示压缩与结构化检索两种设计思路。
 
-\subsection{M3-Agent：身份锚点、分层事实与控制器}
-本地 M3-Agent 参考实现\cite{m3code}以人脸和声音作为持久锚点，
-将视觉与带说话人标记的转写共同用于生成短情景事实和高层语义结论。
-它显式表达脸--声等价关系，并归并为人物标识，支持姓名或人物标识解析后的实体条件检索。
-因此，身份线索参与记忆生成和检索，而不只是与文本并列保存的特征。
+M3-Agent\cite{m3agent}进一步面向持续的视听输入，构建以实体为中心的多模态记忆，
+同时保存情景事实与高层语义知识，并通过迭代检索进行推理。
+其人脸和声音线索参与人物关联，使不同模态中的观察能够围绕人物组织；
+配套M3-Bench评估人物理解、跨模态推理等长视频记忆能力。
+与仅压缩视觉表示的路线相比，这类系统更关注可持续更新的实体与事实记忆。
+本文同样从视频与音频构建记忆，但以源片段、字段位置和时间边界连接结构化证据，
+强调检索结果的可回溯性及多轮问答中的细粒度交付。
 
-其普通控制路径每次主要返回 top-2 片段，并记录已经交付的片段，只追加新的片段；
-人物标识查询另有按记忆条目检索的路径。该机制并非无限制的多跳图遍历。
-参考控制器采用 Action 文本协议，末轮允许合理猜测。
-本研究保留这一参考控制思路，但以共同模型适配替代专用记忆和控制权重，
-因此报告的是\textbf{同模型参考适配结果}，不是官方 checkpoint 或论文成绩复现。
+\subsection{文本记忆与语言智能体}
+文本记忆研究为记忆组织和有限上下文管理提供了基础。
+Generative Agents\cite{generative}以自然语言保存经历，通过检索和高层反思支持行为规划，
+体现了从观察到抽象记忆的组织方式。MemGPT\cite{memgpt}借鉴操作系统分层存储，
+在有限上下文和外部记忆之间管理信息流，将上下文管理作为智能体控制的一部分。
+二者分别突出记忆内容的组织与工作上下文的调度。
 
-\subsection{与本文设计的区别}
-M3-Agent 强调生成阶段的紧凑事实、语义结论和持久身份关联；
-本文为 oGMemory 构建的多模态子系统按原始数据（Raw）、抽取结果（Extracted）
-与记忆（Memory）组织来源，
-并在默认QA路径检索情景节点。
-本文新增的来源事实索引不是完整的 M3-Agent 语义层：它不生成额外推断，
-而是将原文单位变成可召回的证据。人物条件也仅利用已有姓名/角色声明，
-未形成已验证的人脸--声音--姓名链接。
-在交付上，M3-Agent 主要按片段避免重复；本文按\emph{源位置}去重，
-允许后续查询继续补充同一片段中尚未看到的事实。两者的设计取舍是：
-更强的紧凑性与身份结构，对比更细粒度的回源能力和增量证据覆盖。
+面向长期对话，Mem0\cite{mem0}通过抽取、整合和检索重要信息维护持久记忆，
+并提出图式变体表达关系；A-MEM\cite{amem}借鉴卡片笔记法，
+为记忆生成结构化属性、建立关联，并随新记忆加入更新既有记忆表示。
+这些系统说明，持久记忆不只是扩大提示窗口，还需要选择、关联和维护信息。
+但从文本对话迁移到视听输入，还需处理感知误差、时间对齐和人物归属。
+本文将来源约束、事实检索与受控上下文连接起来，不把文本相关性直接当作跨模态身份等价。
+上述论文用于定位设计，并未全部纳入本次五视频实验对比。
+
+\subsection{与M3-Agent的设计区别}
+M3-Agent强调紧凑的情景/语义事实和实体关联；本文在oGMemory中新增的多模态子系统，
+将媒体、抽取结果与记忆关联存储，默认QA检索情景节点及其来源事实。
+事实窗口保留原文位置，不额外生成高层语义推断；人物条件采用来源中的姓名/角色软排序，
+而不是已核实的人脸--声音--姓名链接。
+
+在本文审阅的参考实现中，M3-Agent普通控制路径主要每次取top-2片段，
+记录已交付片段并追加新片段；本文按\emph{源位置}去重，允许补充同一片段中尚未看到的事实。
+上述控制细节来自本地实现审阅，不是对所有多模态记忆方法的通用假设。
+本次对照保留M3-Agent参考控制思路，以共同模型替代其专用记忆和控制权重，
+因此是\textbf{同模型参考适配}，不是原论文官方权重或成绩复现。
 
 \section{Method}
 \subsection{总体架构与数据流}
@@ -174,7 +186,7 @@ entities的片段级结构化输出，分别记录场景描述、人物、事件
 
 \section{Evaluation}
 \subsection{数据、设置与指标}
-固定 M3-Bench robot 子集的五视频（原抽样seed=42），共65题，视频不按成绩替换。
+固定 M3-Bench\cite{m3agent} robot 子集的五视频（原抽样seed=42），共65题，视频不按成绩替换。
 记忆生成、QA与自动评委均配置 MiniMax-M3.1-Flash，
 \code{thinking=adaptive}、\code{reasoning_effort=medium}；
 QA输出预算8192，评委2048，最多6轮及180秒软循环预算。
@@ -267,7 +279,7 @@ oGMemory采用原生工具并强调证据不足时说明；参考方未加载专
 共同评委虽完成715条评分，但714个需模型评分任务的usage及逐响应模型标识未持久化
 （另1条无效答案自动计零）；配置与冻结代码可核查，历史响应trace无法恢复。
 全部QA用量记录完整，表中QA比较有效，\textbf{整轮总token和总费用不能完整报告}。
-详细逐题结果、配置与审计保留于实验记录\cite{artifacts}，未以估算补账或重评替代原结果。
+详细逐题结果、配置与审计保留于本地实验目录，未以估算补账或重评替代原结果。
 
 \section{Conclusion and Discussion}
 本文为原本不具备多模态记忆能力的oGMemory构建了完整的多模态记忆子系统，
@@ -288,13 +300,26 @@ oGMemory采用原生工具并强调证据不足时说明；参考方未加载专
 完整历史实验日志保留在仓库中，不作为本文主体展开。
 
 \begin{thebibliography}{9}
-\bibitem{m3code} M3-Agent参考代码（本地快照）.
-\code{m3-agent/}, commit \code{0e3e41939bd8a0b66d756e7b7eb8d5fe9992da5c}.
-重点审阅 \code{m3_agent/control.py}、\code{mmagent/retrieve.py} 和
-\code{mmagent/videograph.py}；源码对照说明见 \code{docs/m3_agent_comparison.md}.
-\bibitem{artifacts} oGMemory / memory-eval实验记录.
-\code{experiments/m3_memory_design_20261102/}，2026-11-02.
-最终共同评分见 \code{comparison.json} 和 \code{joint_questions.csv}；
-方法说明见 \code{docs/m3_memory_design.md}.
+\bibitem{moviechat} Enxin Song, Wenhao Chai, Guanhong Wang, et al.
+MovieChat: From Dense Token to Sparse Memory for Long Video Understanding.
+\textit{CVPR}, 2024. arXiv:2307.16449.
+\bibitem{videoagent} Yue Fan, Xiaojian Ma, Rujie Wu, et al.
+VideoAgent: A Memory-augmented Multimodal Agent for Video Understanding.
+\textit{ECCV}, 2024. arXiv:2403.11481.
+\bibitem{m3agent} Lin Long, Yichen He, Wentao Ye, et al.
+Seeing, Listening, Remembering, and Reasoning: A Multimodal Agent with Long-Term Memory.
+arXiv:2508.09736, 2025.
+\bibitem{generative} Joon Sung Park, Joseph C. O'Brien, Carrie J. Cai, et al.
+Generative Agents: Interactive Simulacra of Human Behavior.
+arXiv:2304.03442, 2023.
+\bibitem{memgpt} Charles Packer, Sarah Wooders, Kevin Lin, et al.
+MemGPT: Towards LLMs as Operating Systems.
+arXiv:2310.08560, 2023.
+\bibitem{mem0} Prateek Chhikara, Dev Khant, Saket Aryan, Taranjeet Singh, Deshraj Yadav.
+Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory.
+arXiv:2504.19413, 2025.
+\bibitem{amem} Wujiang Xu, Zujie Liang, Kai Mei, Hang Gao, Juntao Tan, Yongfeng Zhang.
+A-MEM: Agentic Memory for LLM Agents.
+\textit{NeurIPS}, 2025. arXiv:2502.12110.
 \end{thebibliography}
 \end{document}
