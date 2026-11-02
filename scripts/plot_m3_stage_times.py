@@ -148,7 +148,7 @@ def plot(data, prefix):
     scope = f"{data['status'].upper()}: {count}/{data['planned_videos']} paired-completed videos | {data['questions_per_method']} questions / method"
     if count <= 2:
         scope += '\n' + ', '.join(data['selected_videos'])
-    fig, axes = plt.subplots(2, 1, figsize=(9.0, 5.4), gridspec_kw={'height_ratios': [1, 1]}, layout='constrained')
+    fig, axes = plt.subplots(2, 1, figsize=(9.0, 5.8), gridspec_kw={'height_ratios': [1, 1]}, layout='constrained')
     max_total = max(data['totals_seconds'][m]['allocated_total'] / 60 for m in METHODS)
     for ax, percent in zip(axes, (False, True)):
         for row, method in enumerate(METHODS):
@@ -173,9 +173,9 @@ def plot(data, prefix):
         ax.spines[['top', 'right', 'left']].set_visible(False)
     fig.suptitle('Video processing time: stage breakdown\n' + scope, fontsize=12)
     fig.legend(handles=[Patch(color=c, label=l) for c, l in zip(colors, labels)],
-               loc='outside lower center', ncols=3, frameon=False, fontsize=9)
-    fig.get_layout_engine().set(rect=(0, .055, 1, .945))
-    fig.text(.5, .008, 'Shared perception executed once, allocated to each path. Final judging excluded.',
+               loc='lower center', bbox_to_anchor=(.5, .055), ncols=3, frameon=False, fontsize=9)
+    fig.get_layout_engine().set(rect=(0, .14, 1, .86))
+    fig.text(.5, .015, 'Shared perception executed once, allocated to each path. Final judging excluded.',
              ha='center', fontsize=8, color='#444444')
     prefix.parent.mkdir(parents=True, exist_ok=True)
     for ext in ('pdf', 'png'):
