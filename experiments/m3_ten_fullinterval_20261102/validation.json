@@ -1,0 +1,18 @@
+{
+  "at": "2026-11-02T14:39:09.001692+08:00",
+  "root_tests": {
+    "passed": 87
+  },
+  "ogmemory_targeted_tests": {
+    "passed": 128
+  },
+  "real_preflight": {
+    "cv_health_http": 200,
+    "embedding_vectors": 1,
+    "embedding_dimension": 1024,
+    "first_clip_frame_count": 30,
+    "first_clip_first_second": 0.0,
+    "first_clip_last_second": 29.0
+  },
+  "limitations": "Run is active; this receipt is not QA results or a completed experiment audit."
+}

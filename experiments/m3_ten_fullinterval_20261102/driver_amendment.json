@@ -1,0 +1,10 @@
+{
+  "time": "2026-11-02T14:35:45.857747+08:00",
+  "reason": "Bind isolated graph DSN explicitly in standalone QA before any QA has started; pipeline worker logic unchanged.",
+  "old_sha256": "4c8023ee359c2f32c0ba1eed940decc30a40920fb84a6a9dd7591ff20095db16",
+  "new_sha256": "f33edbb5c01cd830702a86f524e03eb94c4b55af2c0eec05849ec30b5cd8ee62",
+  "already_started_phases": [
+    "study_09/pipeline"
+  ],
+  "protocol_changed": false
+}

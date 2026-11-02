@@ -18,8 +18,8 @@ import time
 from pathlib import Path
 
 ROOT = Path(os.environ["M3_EVAL_ROOT"])
-RUN = ROOT / "runs/m3_agent_matched_20261101"
-EXP = ROOT / "experiments/m3_agent_reference_text_20261101"
+RUN = ROOT / "runs" / os.environ.get("M3_MATCHED_NAME", "m3_agent_matched_20261101")
+EXP = ROOT / "experiments" / os.environ.get("M3_REFERENCE_NAME", "m3_agent_reference_text_20261101")
 EXP.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0, str(RUN / "_adapter"))
 from runner import build_prefix, rows, save
@@ -31,8 +31,8 @@ from m3.temporal import resolve_question_scope
 from core.llm_output import final_text
 
 logger = logging.getLogger("m3.reference_text")
-CONFIG = ROOT / "experiments/m3_agent_matched_20261101/private/config.yaml"
-OUTPUT = ROOT / "runs/m3_agent_reference_text_20261101"
+CONFIG = ROOT / "experiments" / os.environ.get("M3_MATCHED_NAME", "m3_agent_matched_20261101") / "private/config.yaml"
+OUTPUT = Path(os.environ.get("M3_REFERENCE_OUTPUT", str(ROOT / "runs/m3_agent_reference_text_20261101")))
 LAST_INSTRUCTION = "\n(The Action of this round must be [Answer]. If there is insufficient information, you can make reasonable guesses.)"
 
 

@@ -16,8 +16,9 @@ from io import BytesIO
 from pathlib import Path
 
 ROOT = Path(os.environ.get("M3_EVAL_ROOT", Path(__file__).resolve().parents[2])).resolve()
-RUN = ROOT / "runs/m3_agent_matched_20261101"
-EXP = ROOT / "experiments/m3_agent_matched_20261101"
+EXPERIMENT = os.environ.get("M3_MATCHED_NAME", "m3_agent_matched_20261101")
+RUN = ROOT / "runs" / EXPERIMENT
+EXP = ROOT / "experiments" / EXPERIMENT
 sys.path.insert(0, str(RUN / "_source/oGMemory"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -25,7 +26,9 @@ from PIL import Image
 from reference import CachedEmbeddings, load_reference, normalise_memory
 from core.models import RequestContext
 from core.react_loop import ReactLoop, ReactTaskContext
-from extraction.operators.builtin.episodic_memory_generator import _audio_part_from_node, _image_part_from_node
+from extraction.operators.builtin.episodic_memory_generator import (
+    _audio_part_from_node, _image_part_from_node, _evenly_spaced_indices,
+)
 from m3.config import load_m3_runtime_config
 from m3.episodic_memory import _index_asr_segments, _index_audio_records, _index_frame_records, _retryable_generation_error
 from m3.index_episodic import build_embedder
@@ -143,7 +146,10 @@ def prepare_clips(video, store, ctx, ref):
             })
         parts = [{"type": "text", "text": ref.prompt + f"\nvideo_id: {video}\nclip_id: {clip}\n"
                   + "Voice features (clip-relative seconds):\n" + json.dumps(tagged_voices, ensure_ascii=False)}]
-        parts.extend(_image_part_from_node(frame, "auto") for frame in frames)
+        # Match oGMemory's model-visible frame selection, while allowing the
+        # shared perception pipeline to collect the entire 30-second interval.
+        frame_indices = _evenly_spaced_indices(len(frames), 16)
+        parts.extend(_image_part_from_node(frames[i], "auto") for i in frame_indices)
         selected_faces = sorted(tagged_faces.items(), key=lambda x: (-x[1]["confidence"], x[0]))[:8]
         for node_id, data in selected_faces:
             parts += [{"type": "text", "text": f"<face_{node_id}>:"},
@@ -159,6 +165,9 @@ def prepare_clips(video, store, ctx, ref):
             "duration_sec": raw.metadata["duration_sec"],
             "face_crops": len(selected_faces), "available_face_ids": sorted(tagged_faces),
             "audio_attached": bool(audio_part),
+            "base_frame_indices": frame_indices,
+            "base_frame_node_ids": [str(frames[i].node_id) for i in frame_indices],
+            "base_frame_count": len(frame_indices),
         })
         updates.append({"clip_id": clip, "updates": current_updates})
     return clips, updates, anchors.next_node_id
@@ -273,7 +282,7 @@ def run_video(video, config, limit_clips=None, skip_qa=False):
         raise RuntimeError("Fresh perception must finish successfully before this stage")
     runtime = load_m3_runtime_config(str(config))
     store, _ = build_graph_service("sql", runtime.graph_connection_string)
-    account = "m3-agent-matched-20261101"
+    account = os.environ.get("M3_MATCHED_ACCOUNT", "m3-agent-matched-20261101")
     ctx = RequestContext(account_id=account, user_id="m3bench-user", agent_id="m3bench-agent",
                          session_id=video, trace_id="m3-matched")
     embeddings = CachedEmbeddings(build_embedder(None, config_path=str(config)))
