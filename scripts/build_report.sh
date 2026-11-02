@@ -10,14 +10,14 @@ case "${1:-}" in
   --help|-h)
     echo "Usage: bash scripts/build_report.sh"
     echo "Output: latex/report.pdf; diagnostics: latex/build/"
-    echo "Requires latexmk, XeLaTeX, ctex/xeCJK and Fandol fonts."
+    echo "Requires latexmk, XeLaTeX, pdfinfo, ctex/xeCJK and Fandol fonts. Maximum: 8 pages."
     exit 0 ;;
   "") ;;
   *) echo "Unknown argument: $1" >&2; exit 2 ;;
 esac
 
 missing=()
-for tool in latexmk xelatex kpsewhich flock; do
+for tool in latexmk xelatex kpsewhich flock pdfinfo; do
   command -v "$tool" >/dev/null 2>&1 || missing+=("$tool")
 done
 if command -v kpsewhich >/dev/null 2>&1; then
@@ -40,29 +40,20 @@ cd "$TEX_DIR"
   echo "Build started: $(date -Is)"
   echo "Engine: $(command -v xelatex)"
   xelatex --version | head -n 2
-  if [[ -f results.tex ]]; then
-    echo "Document scope: historical baseline numerical section is present."
-  else
-    echo "Document scope: interim report; final five-video scores are unavailable."
-  fi
-  if [[ -f context_optimization_results.tex ]]; then
-    if grep -q 'CONTEXT_REPORT_STATUS: final' context_optimization_results.tex; then
-      echo "Context ablation section: final joint judging."
-    else
-      echo "Context ablation section: provisional; joint judging is not final."
-    fi
-  fi
-  # Force a build: a newly created results.tex must replace the draft even if
-  # latexmk previously recorded the file as absent inside IfFileExists.
+  echo "Document scope: five-section paper; final common judging; maximum 8 pages."
   latexmk -norc -g -xelatex -interaction=nonstopmode -halt-on-error \
     -file-line-error -no-shell-escape -outdir="$BUILD_DIR" report.tex
 } 2>&1 | tee "$BUILD_DIR/build.log"
 
 test -s "$BUILD_DIR/report.pdf"
 [[ "$(head -c 5 "$BUILD_DIR/report.pdf")" == '%PDF-' ]]
-if command -v pdfinfo >/dev/null 2>&1; then
-  pdfinfo "$BUILD_DIR/report.pdf" > "$BUILD_DIR/pdfinfo.txt"
+pdfinfo "$BUILD_DIR/report.pdf" > "$BUILD_DIR/pdfinfo.txt"
+pages="$(awk '/^Pages:/ {print $2}' "$BUILD_DIR/pdfinfo.txt")"
+if [[ ! "$pages" =~ ^[0-9]+$ ]] || ((pages < 1 || pages > 8)); then
+  echo "Report rejected: page count '${pages}' must be between 1 and 8; published PDF unchanged." >&2
+  exit 1
 fi
+echo "Page limit verified: $pages / 8 (including references)."
 tmp_pdf="$(mktemp "$TEX_DIR/.report.XXXXXX.pdf")"
 trap 'rm -f "$tmp_pdf"' EXIT
 cp "$BUILD_DIR/report.pdf" "$tmp_pdf"
@@ -71,8 +62,7 @@ mv -f "$tmp_pdf" "$TEX_DIR/report.pdf"
 {
   echo "Built at: $(date -Is)"
   sha256sum report.tex report.pdf
-  for file in results.tex interim_results.tex findings.tex m3_agent_comparison.tex recovery_results.tex matched_comparison_results.tex context_optimization_results.tex memory_design_results.tex memory_design_discussion.tex figures/context_cache.pdf figures/memory_design_tradeoff.pdf; do
-    [[ ! -f "$file" ]] || sha256sum "$file"
-  done
+  echo "Pages: $pages / 8"
+  sha256sum "$ROOT/scripts/build_report.sh"
 } > "$BUILD_DIR/build-manifest.txt"
 echo "PDF successfully published: $TEX_DIR/report.pdf"

@@ -124,7 +124,11 @@ bash /home/yuanjian/Development/memory-eval/scripts/build_report.sh
 构建入口为 `scripts/build_report.sh`，成品是 `latex/report.pdf`，
 编译日志与输入哈希位于 `latex/build/`。脚本使用 XeLaTeX + latexmk，
 支持从任意目录运行；只有编译成功才原子替换已发布的 PDF。
-当前 PDF 已包含最终共同评分；历史首轮与各次独立评分分别保留。
+当前 PDF 为不超过8页（含参考文献）的五章论文：Introduction、Related Work、Method、
+Evaluation、Conclusion and Discussion。正文统一使用11月2日最终共同评分，
+比较同模型M3-Agent参考适配；历史过程、逐题结果与工程审计仍保留在 `docs/`、
+`experiments/` 和旧的LaTeX片段中，不再全部插入正文。构建依赖 `pdfinfo`，
+编译后检查页数；超出8页时失败并保留原已发布PDF。
 本机补充的中文 TeX 文件位于 `~/texmf`，XeLaTeX 链接位于 `~/.local/bin`；
 没有修改系统包、Python/GPU 依赖或使用 sudo。其他同类机器若缺中文支持，
 可手动运行 `bash scripts/setup_latex_user.sh`（需要基础 TeX 和 apt 下载能力）。
@@ -134,7 +138,7 @@ bash /home/yuanjian/Development/memory-eval/scripts/build_report.sh
 
 - `docs/m3_agent_comparison.md`：英文源码级流程梳理、差异矩阵、评测协议与复现前置检查。
 - `docs/m3_agent_review.json`：参考提交、标注一致性、权重目录检查；明确未运行参考评测。
-- `latex/m3_agent_comparison.tex`：已纳入中文技术报告的比较章节。
+- `latex/m3_agent_comparison.tex`：保留的历史详细比较；当前论文的Related Work包含精简分析。
 
 源码审计阶段发现两套原生默认评委、评分规则、时间边界与模型预算不同，
 不能直接拿这些原生分数比较；后续适配实验另行统一了模型与评测设置。

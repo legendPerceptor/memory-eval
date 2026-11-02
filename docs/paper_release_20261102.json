@@ -1,0 +1,30 @@
+{
+  "created_at": "2026-11-02T09:46:21.654818+08:00",
+  "scope": "Paper rewrite only; no experiments rerun; prior experiment release audits remain historical.",
+  "pages": 5,
+  "page_limit_including_references": 8,
+  "sections": [
+    "Introduction",
+    "Related Work",
+    "Method",
+    "Evaluation",
+    "Conclusion and Discussion"
+  ],
+  "validation": {
+    "xelatex_latexmk_build": "passed",
+    "bash_syntax": "passed",
+    "git_diff_check": "passed",
+    "overfull_underfull_missing_characters_undefined_references": false,
+    "visual_review": "Main result tables on page 4 checked",
+    "page_limit_guard": "Simulated pdfinfo Pages: 9 rejected; published PDF SHA256 unchanged; real build rerun successfully"
+  },
+  "known_warnings": [
+    "FandolSong/FandolFang Script CJK fontspec warnings; no missing characters"
+  ],
+  "sha256": {
+    "latex/report.tex": "c9a26acf717e49e57aae367d7bbeaec77f34bdaa06bcc6b6caab6abf70e2c4ad",
+    "latex/report.pdf": "ca8bd30ec372a1731205a72f7456c7d2c91df2a179fe7ae56223f088fa6ebcff",
+    "scripts/build_report.sh": "9a56712e3605ee93941cae94b7810e65db634d862dd6aa74c20c101bd546d2a8",
+    "experiments/m3_memory_design_20261102/comparison.json": "290eb594e9d46f9e27191e0456188c338e765563173e9ba31793dbd45dd3ab0a"
+  }
+}

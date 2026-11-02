@@ -1,248 +1,247 @@
 \documentclass[UTF8,a4paper,11pt,fontset=fandol]{ctexart}
 \usepackage[margin=2.3cm]{geometry}
-\usepackage{booktabs,longtable,tabularx,amsmath,graphicx}
-\usepackage{xcolor}
+\usepackage{booktabs,tabularx,amsmath}
 \usepackage{xurl}
-\usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
 \DeclareRobustCommand{\code}[1]{\nolinkurl{#1}}
-\title{oGMemory 多模态记忆与检索优化评估\\M3-Bench 五视频对照实验}
-\author{memory-eval 工作区实验记录}
+\title{面向长视频问答的可追溯多模态记忆\\来源事实检索与增量上下文评估}
+\author{oGMemory / memory-eval}
 \date{2026 年 11 月 2 日}
 \begin{document}
 \maketitle
-\IfFileExists{results.tex}{}{
-\begin{center}\color{red!60!black}\textbf{阶段报告：五视频实验尚未全部完成}\end{center}
-}
-
 \begin{abstract}
-本报告对 oGMemory dev 分支的多模态记忆与问答流程进行代码审计，
-并在 M3-Bench robot 子集固定抽取五个完整视频、共 65 题开展实际实验。
-评估同时关注媒体覆盖、记忆生成、检索与问答、自动评分及执行可靠性。
-原始默认配置、环境修复和后续恢复严格区分；不以历史答案代替本次运行，
-不以缺题后的成功子集均分代替端到端表现。当前结果属于小规模开发性诊断，
-不是完整数据集成绩，也不是独立人工验证的准确率。
-\IfFileExists{matched_comparison_results.tex}{
-本报告保留首轮失败、定向恢复和共同重评三个阶段；首轮同模型对照见第
-\ref{sec:matched-comparison} 节，不将不同阶段的较高分数择优拼接。
-}{}
-\IfFileExists{context_optimization_results.tex}{
-后续固定记忆的上下文预算、收尾控制、紧预算与分组表示消融见第
-\ref{sec:context-optimization} 节，运行中与最终共同评分明确区分。
-用量分析同时区分缓存和未缓存输入，不将总token缩减直接解释为费用缩减。
-}{}
-\IfFileExists{memory_design_results.tex}{
-11月2日进一步评估来源事实索引、人物词条件和增量交付，见第
-\ref{sec:memory-design} 节。主要可确认收益是QA输入效率，稳定提分与身份绑定
-仍需验证；共同评委用量漏采单列说明，QA用量记录完整。
-}{}
+长视频问答需要从视觉、语音和人物线索中保存可检索的记忆，同时控制重复证据带来的上下文开销。
+本文基于 oGMemory，研究来源事实索引、显式人物条件和增量证据交付，
+在 M3-Bench 的固定五视频、65题上，与使用相同 MiniMax-M3.1-Flash 模型的
+M3-Agent 参考适配进行比较。最终共同自动评分中，来源事实组合两次运行均分为
+0.5962；严格增量方案单次为0.5846，相比同期有界上下文基线减少38.2\%的
+QA输入和63.6\%的未缓存输入。M3-Agent 两次均分为0.4615，但其输入显著更少。
+结果支持在此前质量附近改善输入效率，尚不足以证明稳定全面提分。
+本轮复用既有记忆，属于开发集上的检索与问答评估，而非重新执行感知的端到端实验。
 \end{abstract}
 
-\section{目标与可追溯性}
-主要评估对象是当前目录的 \code{oGMemory/}，未开展新的 LoCoMo 实验。
-首轮基线源码分支为 dev，固定提交为
-\code{8c86c3ed}（完整哈希见实验目录 \code{provenance.json}）。
-首轮不修改记忆与检索算法，为 M3 配置工厂和 MiniMax 适配器补充可选推理参数透传，
-并加入默认关闭、最多 4 个独立片段并发的吞吐优化；
-固定提交加补丁构成实际运行版本。新增脚本、脱敏配置、逐题结果和报告均置于外层
-memory-eval 工作区。模型、数据库、配置与抽样清单分别记录，凭据和大型原始
-媒体不纳入外层 Git 仓库。后续可靠性与上下文改动在
-\code{m3_dev_1031} 分支提交；每组实际运行的源码提交与归档哈希以对应
-\code{manifest.json} 为准，不能用当前HEAD替代历史冻结版本。
+\section{Introduction}
+多模态记忆的目标并非保存尽可能多的原始媒体，而是在有限计算和上下文预算下，
+为后续问题保留可定位、可关联的证据。长视频中的回答可能依赖多个时刻的物品变化、
+人物偏好、对话内容与视觉状态。直接将全部视频描述和转写拼接给语言模型，
+会使无关信息和重复检索结果累积；过早压缩成短摘要，又可能丢失姓名、数量、
+动作对象等决定答案的细节。
 
-\section{当前方法}
-\subsection{输入与多模态证据}
-完整管线定义于 \code{config/m3/pipelines/video_episodic_full.yaml}，
-包括 18 个阶段。视频按 30 秒切片，建立 VIDEO RawNode；
-画面与音频作为带来源关系的子节点。音频为 16 kHz 单声道，Whisper
-large-v3-turbo 产生带时间标记的英语转写；pyannote 分离说话人，
-SpeechBrain ECAPA 产生声纹特征，HTTP CV 服务处理人脸。
+这一问题包含三个相互关联的挑战。首先，\textbf{粒度选择}影响召回：整片段记忆包含
+丰富背景，却不利于检索局部事实；孤立短句则容易失去时序与对象关系。
+其次，\textbf{跨模态身份}不能由姓名共现或局部说话人标签简单推出，
+错误关联会把正确观察归属给错误人物。最后，\textbf{证据交付}需要兼顾多轮搜索
+与输入预算，同一片段既不应每轮完整重复，也不应在首次检索后被永久禁止补充。
 
-画面按 1 fps 取至多 16 帧，缩放参数为 512，JPEG 质量参数为 80。
-\textbf{默认帧主要来自片段前约 0--15 秒，而非覆盖全片段的均匀采样。}
-因而“完整视频实验”只表示处理全部片段与完整音频，不能解释为视觉观察无遗漏。
+本文在 oGMemory 既有多模态情景记忆上做三项改进：建立保留来源位置的事实检索旁路；
+利用有来源的姓名和角色做软排序；按实际交付的来源位置增量添加证据并约束整体上下文。
+研究重点是这些机制的实际收益与边界，而非新增高层语义推断或宣称解决人物身份解析。
+我们统一模型和共同评分，对比 M3-Agent 的紧凑记忆与少量片段交付设计，
+同时报告质量、有效回答和QA输入，避免把单一分数提升解释为整体系统优势。
 
-\subsection{情景记忆与图组织}
-\code{m3/episodic_memory.py} 将画面、可用原始音频和 ASR 转写交给多模态
-情景记忆算子，生成 description、characters、events、entities，
-并存为片段对应的 ExtractedNode。后续创建具有支持来源的 MemoryNode；
-人脸与声音聚类产生身份关联，语义整合阶段生成视频级聚合 MemoryNode。
+\section{Related Work}
+\subsection{片段检索与结构化多模态记忆}
+从系统设计看，长视频记忆可以采用片段描述检索，也可以进一步组织为事件、人物、
+实体关系及语义结论。前者保留局部上下文、便于回源，代价是检索结果冗长；
+后者有利于紧凑交付和跨片段关联，但依赖抽取与身份绑定的可靠性。
+本文关注这两类设计之间的折中：事实窗口仍来自已有原文，不以额外生成的摘要替代来源；
+检索粒度细化后，仍回到源节点校验时间、权限与内容一致性。
 
-视频级整合是确定性的描述拼接与集合去重，描述上限为 50,000 UTF-8 字节，
-并同步 SUPPORTS / EVOLVES 关系；不是新的大模型抽象推理过程，
-也不自动保证事实冲突消解、事件去重计数或长期状态一致性。
-被截断的多模态输出明确记为失败，不能通过补齐 JSON 括号冒充有效记忆。
+\subsection{M3-Agent：身份锚点、分层事实与控制器}
+本地 M3-Agent 参考实现\cite{m3code}以人脸和声音作为持久锚点，
+将视觉与带说话人标记的转写共同用于生成短情景事实和高层语义结论。
+它显式表达脸--声等价关系，并归并为人物标识，支持姓名或人物标识解析后的实体条件检索。
+因此，身份线索参与记忆生成和检索，而不只是与文本并列保存的特征。
 
-\subsection{索引、检索与回答}
-结构化记忆和原始 ASR 转写展开为文本，使用 BGE-M3 1024 维嵌入，
-写入 SQL 图及向量索引。默认 Search 检索
-\code{episodic_memory_generator} 类型的 ExtractedNode：
-原始查询向量召回，必要时追加去人名查询，结合转写 BM25 重排及独立
-transcript 词法召回，经 RRF 融合后补充邻近片段和时间边界转写。
+其普通控制路径每次主要返回 top-2 片段，并记录已经交付的片段，只追加新的片段；
+人物标识查询另有按记忆条目检索的路径。该机制并非无限制的多跳图遍历。
+参考控制器采用 Action 文本协议，末轮允许合理猜测。
+本研究保留这一参考控制思路，但以共同模型适配替代专用记忆和控制权重，
+因此报告的是\textbf{同模型参考适配结果}，不是官方 checkpoint 或论文成绩复现。
 
-\textbf{生成身份图和语义汇总不等于默认问答直接检索了这些图结构。}
-本次不能据管线执行完整就宣称图关系或视频级语义汇总提高了答案质量；
-这需要独立消融与实际证据路径审计。
+\subsection{与本文设计的区别}
+M3-Agent 强调生成阶段的紧凑事实、语义结论和持久身份关联；
+oGMemory 按原始数据（Raw）、抽取结果（Extracted）与记忆（Memory）组织来源，
+并在默认QA路径检索情景节点。
+本文新增的来源事实索引不是完整的 M3-Agent 语义层：它不生成额外推断，
+而是将原文单位变成可召回的证据。人物条件也仅利用已有姓名/角色声明，
+未形成已验证的人脸--声音--姓名链接。
+在交付上，M3-Agent 主要按片段避免重复；本文按\emph{源位置}去重，
+允许后续查询继续补充同一片段中尚未看到的事实。两者的设计取舍是：
+更强的紧凑性与身份结构，对比更细粒度的回源能力和增量证据覆盖。
 
-ReAct 问答通过 Search / Answer 工具运行，最多 6 轮，循环预算 180 秒。
-默认主检索 top-k=8，向量候选 20，转写候选 20，邻居半径 1，
-邻居上下文最多 8 条。未启用可选 \code{m3.qa_context}：
-默认 top-k 不是模型不可突破的服务端上限，不同查询的重叠内容仍可能累积。
-单次请求 timeout=300 秒与 SDK 重试也意味着 180 秒不是端到端硬时限。
+\section{Method}
+\subsection{多模态情景记忆与时间范围}
+原始管线按30秒切片，处理视觉帧、音频转写、说话人和人物线索，
+生成包含 description、characters、events 和 entities 的片段级结构化记忆。
+视觉默认按1 fps取前至多16帧，并非在全片段内均匀采样；
+音频使用 Whisper 转写、pyannote 说话人分离及声纹特征。
+源媒体、抽取节点和记忆节点之间保留支持关系，便于从检索证据返回片段。
+视频级整合主要是确定性的拼接与去重，不能视为新的高层语义推理。
 
-\subsection{时间与权限边界}
-检索限制在当前账号和视频范围。问题 timestamp 优先于原始 before\_clip 编号，
-并根据实际片段来源区间定位。本次采用 \code{current_clip}，
-证据截止时间扩展到问题所在片段末尾，可能包含问题之后的少量内容。
-因此该协议\textbf{不是严格因果在线问答}；实际宽限由每题
-\code{temporal_scope} 记录。后续严格时间策略应单独对比。
+本轮固定既有340个片段的记忆，不重做感知。所有检索受账号、视频和可用时间限制。
+采用 \code{current_clip} 协议：问题可使用当前片段末尾之前的证据，
+可能包含问题时刻之后的少量内容，故不属于严格因果在线问答。
+事实可用时间保守地取其来源片段末尾；不以未来片段建立姓名映射。
 
-\input{m3_agent_comparison.tex}
+\subsection{来源事实索引与混合召回}
+我们将源记忆拆成三类窗口：description 的局部原文、相邻三条ASR转写，以及完整的
+事件、人物或实体项。每个窗口记录源节点、字段位置或字符范围、内容哈希及可用时间。
+相同文本在不同时间出现仍是不同观察；窗口数不能直接当作事件发生次数。
 
-\section{实验设置}
+在五视频上，7,965个窗口由 BGE-M3 编码为1024维向量。
+原有片段向量与转写召回保留；新增事实召回将同一源节点的命中按最大分数聚合，
+再与原候选排序等权融合：
+\[
+ \operatorname{RRF}(d)=\sum_{r\in\mathcal{R}}\frac{1}{k+\operatorname{rank}_{r}(d)}.
+\]
+其中 $\mathcal{R}$ 表示参与融合的排序，$k$ 为平滑常数。
+候选进入上下文前需再次验证范围与源内容哈希，避免旁路索引绕过权限或引用过期内容。
+该索引是面向小规模固定数据的密集检索原型，而非生产级ANN或动态语义图。
+
+\subsection{显式人物条件软排序}
+在已通过范围过滤的候选内，查询若完整匹配来源中的 name 或 role，
+则给予有限的排序奖励，并提高对应人物描述的准入优先级。
+我们不硬性排除无匹配候选，避免将“没有写姓名”误当成“不属于此人”。
+局部 \code{SPEAKER_00} 等标签不作为跨片段身份，角色相同也不自动合并人物。
+这是一种来源声明驱动的检索条件，而不是身份识别算法。
+
+\subsection{严格增量证据交付与回答收尾}
+每题维护已实际发送的来源位置集合 $D_t$。第 $t$ 轮检索的候选事实为 $C_t$，
+只从 $C_t\setminus D_t$ 中选入新证据；过去的工具消息保持不变。
+这种去重既减少整片段重传，也允许补充同源片段的不同事实。
+停搜依据实际新增可见事实，而非仅检查是否出现新节点。
+
+严格增量方案E将每轮新增额度设为3500，按照实际模型投影的token估计计数，
+不把未发送的审计字段计入额度基数。全部历史还受整体有效输入预算约束：
+\[
+ B_{\mathrm{input}}=32768-8192-2048=22528,
+\]
+分别为操作窗口、输出预留与安全余量。单次新增节点上限不等于整个历史的节点上限；
+必要时可重建上下文并重置交付集合，本轮E未触发重建。
+收尾时仅提供 Answer 工具并请求必选；普通文本仍由既有兼容路径接收，
+因此该设置不是严格的原生工具输出保证。
+
+\section{Evaluation}
+\subsection{数据、设置与指标}
+固定 M3-Bench robot 子集的五视频（原抽样seed=42），共65题，视频不按成绩替换。
+记忆生成、QA与自动评委均配置 MiniMax-M3.1-Flash，
+\code{thinking=adaptive}、\code{reasoning_effort=medium}；
+QA输出预算8192，评委2048，最多6轮及180秒软循环预算。
+软预算不等于单请求或端到端硬超时。此次比较固定各自已生成的记忆，
+M3-Agent 使用独立生成的340片段记忆，而非借用oGMemory记忆。
+
+最终共同评分覆盖11条完整轨迹的715条答案，按seed=1102交错安排，
+评委不接收方案名。每题评分 $s_i\in\{0,0.5,1\}$，主指标为
+$S=\frac{1}{65}\sum_{i=1}^{65}s_i$；无效答案计零，并单列有效率。
+所有评分完成，无评委错误。这是\textbf{自动评分均值，而非人工准确率}。
+重复运行不增加独立题目数；主表只用本批共同评分，不拼接历史较高分数。
+QA输入统计覆盖全部题目及多轮调用，含缓存输入，并另列未缓存部分；
+不包含感知、历史记忆生成或评委调用。
+
+\subsection{同模型主结果}
+B为已有有界上下文基线；S组合来源事实索引、人物条件与修正的增量交付；
+E进一步使用严格3500新增额度和收尾请求。表\ref{tab:main}同时保留B的历史固定轨迹
+与同期重复，避免仅选较弱基线。两次运行行的token数为每次运行的平均，非两次总和。
+
 \begin{table}[htbp]
 \centering\small
-\begin{tabularx}{\linewidth}{lX}
+\caption{五视频共同评分与QA输入。M表示百万token；括号为重复次数。}
+\label{tab:main}
+\begin{tabular}{lrrrr}
 \toprule
-项目 & 设置 \\
+方案 & 均分 & 有效回答 & 输入(M) & 未缓存(M)\\
 \midrule
-数据 & \code{/data/m3_data/annotations/robot.json} 与原始 robot 视频 \\
-抽样 & 100 个候选排序后 seed=42，无放回选取 5 个，不按成绩换样本 \\
-记忆 / QA / 评委 & 远端 \code{MiniMax-M3.1-Flash}，用户指定 API 端点 \\
-正式输出预算 & 记忆 8192，QA 8192，评委 2048 tokens \\
-推理参数 & thinking=adaptive，reasoning\_effort=medium；不发送 temperature \\
-运行方式 & 完整视频，SQL 图，强刷主要抽取环节，不导入历史记忆 \\
-隔离 & 专用数据库、账号与向量表；不覆盖历史实验 \\
-计算环境 & 本地 T4 服务；音频阶段使用物理 GPU 2；情景生成 4 workers \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\begin{table}[htbp]
-\centering
-\begin{tabular}{lrr}
-\toprule
-视频 & 时长（秒） & 题数 \\
-\midrule
-\code{study_05} & 2044.889 & 12 \\
-\code{gym_03} & 2033.514 & 11 \\
-\code{bedroom_04} & 1650.684 & 11 \\
-\code{study_18} & 2498.519 & 14 \\
-\code{kitchen_20} & 1887.527 & 17 \\
+M3-Agent 参考适配（2） & 0.4615 & 65/65 & 0.561 & 0.194\\
+B 历史固定轨迹（2） & 0.5962 & 65/65 & 4.756 & 4.138\\
+B 同期重复（1） & 0.5308 & 65/65 & 4.721 & 4.137\\
+S 来源事实组合（2） & 0.5962 & 65/65 & 3.433 & 2.081\\
+E 严格增量（1） & 0.5846 & 65/65 & 2.916 & 1.508\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-原始 wrapper 配置写 \code{omni-3b}，本地实际提供 \code{omni-7b}。
-首次试运行纠正名称并使用独立数据库，遇到缺失 vector 扩展后完成环境修复。
-随后用户要求改用 MiniMax-M3.1-Flash，故于 17:56 停止小模型进程树，
-保留已生成的部分记忆和失败日志，\textbf{不将中断试运行视为完整基线成绩}。
-正式 MiniMax 实验使用新数据库并重新生成记忆，三类 LLM 均使用指定模型。
-由于模型和输出预算均变化，不能据此计算“仅换模型”的质量增益。
-首次 MiniMax/max 正式尝试的首片段也出现 8192 tokens 全部用于推理、没有正文。
-同一输入改用 medium 后输出 1451 tokens（推理 431），获得完整记忆。
-因此另建本次 adaptive/medium 正式实验，重新生成全部记忆，保留 max 尝试作诊断。
-这只是单片段可运行性证据，不是 medium 优于 max 的全数据集质量结论。
-可选并发默认值仍为 1；本次设为 4，按清单顺序汇总结果，并保留逐片段失败。
-实际请求使用 \code{max_completion_tokens}，包括推理与最终输出；
-用户示例中的 500 tokens 只用于文本连通性测试。
-\code{study_05} 曾用于历史开发，所以本次不属于独立留出测试。
+S两次得分分别为0.5846与0.6077，均值恰好等于B两条历史答案的本批重评分均值。
+同期B仅0.5308，显示运行波动不可忽略。E相对同期B的总输入减少38.2\%，
+未缓存输入减少63.6\%；相对S两次平均进一步减少15.1\%和27.5\%。
+因此主要证据是\textbf{保持此前质量附近的输入效率改善}，不是已确认的无损压缩或稳定提分。
+E只有一次运行，独立重复因额度低于预设启动门槛未执行。
 
-\section{指标与失败处理}
-对于固定的 $N=65$ 个问题，自动评委输出 $s_i\in\{0,0.5,1\}$。
-题目加权均分与视频宏平均分别为：
-\[
-S_{\mathrm{micro}}=\frac{1}{N}\sum_{i=1}^{N}s_i,\qquad
-S_{\mathrm{macro}}=\frac{1}{5}\sum_{v=1}^{5}\frac{1}{N_v}
-\sum_{i\in v}s_i.
-\]
-缺失答案与执行失败在端到端效用分中计零，同时单列缺失数、
-记忆覆盖和有效答案率。评委服务故障与模型答错分开：
-存在未评分的有效答案时，不将故障伪装成质量零分。
-题型采用数据集原始标签组合分组，不对多标签重复计数。
+相对M3-Agent两次均值，S和E分别高0.1346和0.1231，
+但E的总输入仍为其5.20倍，未缓存输入为7.77倍。
+M3-Agent 的紧凑事实和少量片段交付仍有明显输入效率优势。
+这些token比例不能直接解释为费用或墙钟加速比。
 
-同一 MiniMax-M3.1-Flash 同时生成和评分，容易产生相关偏差；
-自动均分不是精确匹配准确率，也不是独立人工核验准确率。
-仅五个视频且题目在视频内相关，本报告不提供不恰当的独立题目置信区间，
-也不将单配置结果描述为相对于其他方法的因果提升。
-seed=42 只固定视频抽样；远端模型没有固定生成 seed，后端权重版本也不能由本地锁定。
-因此保存原始响应是可追溯性要求，不能保证再次运行逐字复现答案。
+\subsection{分视频表现与消融}
+表\ref{tab:videos}显示收益并非所有视频一致。E在study\_18和kitchen\_20上高于
+同期B及M3-Agent，但在gym\_03上低于B；study\_18绝对得分仍较低。
+M3-Agent与E在study\_05、gym\_03上相同，不能将总分差解释为全面能力优势。
 
-\section{首轮固定配置运行结果}
-以下保留首轮原始统计；定向恢复和共同评委重评另列，不用后续结果覆盖首轮失败。
-\IfFileExists{results.tex}{\input{results.tex}}{
-\textbf{实验运行中，尚无最终结果。}本节将在固定样本评测结束并完成覆盖审计后生成；
-不得将此中间版作为已完成的成绩报告。
-\IfFileExists{interim_results.tex}{\input{interim_results.tex}}{}
-\IfFileExists{findings.tex}{\input{findings.tex}}{}
-}
+\begin{table}[htbp]
+\centering\small
+\caption{分视频自动评分。S和M3为两次均值，B为同期运行。}
+\label{tab:videos}
+\begin{tabular}{lrrrrr}
+\toprule
+视频 & 题数 & B & S & E & M3\\
+\midrule
+\code{study_05} &12&0.4167&0.4583&0.4583&0.4583\\
+\code{gym_03} &11&0.6818&0.6591&0.6364&0.6364\\
+\code{bedroom_04} &11&0.7273&0.7955&0.7727&0.6364\\
+\code{study_18} &14&0.3214&0.4286&0.4643&0.2679\\
+\code{kitchen_20} &17&0.5588&0.6618&0.6176&0.3971\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\IfFileExists{recovery_results.tex}{\input{recovery_results.tex}}{}
-\IfFileExists{matched_comparison_results.tex}{\input{matched_comparison_results.tex}}{}
-\IfFileExists{context_optimization_results.tex}{\input{context_optimization_results.tex}}{}
-\IfFileExists{memory_design_results.tex}{\input{memory_design_results.tex}}{}
-\IfFileExists{memory_design_discussion.tex}{\input{memory_design_discussion.tex}}{}
+早期消融中，仅原文事实窗口F为0.5000，增加姓名/角色条件FI为0.4923，
+再加入初版增量交付FIP为0.5462（64/65有效，唯一协议失败计零）。
+这说明切短文本或显式人物条件本身不保证整体收益；S包含多个组合变化，
+不能把其全部增益单独归于事实向量索引。数据集题型为重叠多标签，
+多跳推理仅1题，不据此判断泛化能力。
 
-\section{改进方向与后续对照设计}
-\begin{enumerate}
-\item \textbf{运行可靠性：}启动前校验在线模型名、数据库扩展和多模态完整输入；
-统计记忆截断、QA 上下文超限与评委异常，分别处理而非笼统归为低准确率。
-\item \textbf{视觉覆盖：}固定 16 帧预算，对比前缀采样与整片段等距采样，
-再讨论动作自适应采样，避免同时改变帧数和采样位置而无法归因。
-\item \textbf{有界上下文：}固定记忆的预算、控制与增量交付已开展验证；
-下一步先完成严格增量方案的独立重复，再研究完整请求（含工具schema）的前缀稳定性，
-同时报告缓存、质量、请求大小、调用次数和失败率，而不只报告token缩减。
-\item \textbf{事实和时序：}为对象位置、材料、人物归属保存可定位证据；
-区分计划、建议与已完成事件；计数使用可去重事件时间轴而非检索条数。
-\item \textbf{图结构价值：}明确语义节点与身份边何时进入检索，
-设计情景记忆、加入身份关联、加入分层语义摘要的逐项消融。
-\item \textbf{评测可信度：}固定独立评委并人工抽查零分、半分和计数/空间问题，
-将本轮样本作为开发集，另设未调参的新视频集验证泛化。
-\end{enumerate}
-以上未在结果节明确记录为已完成的部分属于后续建议；
-不能表述为本次已实现或已验证的算法增益。
+E的370次QA调用中未发生上下文重建，305次相邻消息前缀检查全部保持；
+该检查不含工具schema，也不保证供应商缓存命中。
+57次Answer-only请求中41次返回原生工具，16次普通文本由兼容路径接受；
+45秒回答预留没有实际触发，不能把本轮效果归因于该预留。
+来源位置审计未发现时间越界或重复交付，但来源一致不代表事实或答案必然正确。
 
-\section{复现与产物}
-先在交互式 bash 中 source 用户的 \code{~/.bashrc} 并导出 \code{MINIMAX_API_KEY}，
-原完整视频基线可在 memory-eval 根目录执行 \code{bash scripts/run_m3_flash_medium.sh}；
-私有配置路径由脚本固定，提交版仅保留脱敏配置和配置哈希。
-实验完整媒体、原始模型输出与运行日志位于 \code{runs/}，默认不入 Git。
-轻量结果位于 \code{experiments/m3_flash_medium_20261031/}，
-包括抽样 manifest、输入清单、版本记录、逐题 CSV/JSONL、
-机器统计与测试日志。具体恢复步骤和结果状态以同目录报告为准。
+\subsection{公平性与复现边界}
+相同模型并不等于严格单因素对照。M3-Agent 参考适配采用Action文本协议和末轮猜测，
+oGMemory采用原生工具并强调证据不足时说明；参考方未加载专用训练权重。
+感知替换、BGE嵌入适配和身份裁剪也构成差异：两边基础帧/WAV相同，
+但M3额外使用至多8张身份人脸裁剪，study\_18的一个片段存在4处ASR/时序差异。
+故分数差不能纯粹归因于存储结构、身份图或检索算法。
 
-统计脚本 \code{scripts/summarize_m3.py} 校验标注哈希、固定题数、
-重复答案、样本外记录以及评分与预测的一致性。
-它不会悄悄从多轮尝试里选择最高分。
-首轮兼容修改后实际执行 M3、LLM provider 与管线集成测试：976 passed；
-外层统计脚本另有 9 项测试通过。
-后续QA-only消融使用 \code{scripts/run_context_experiment.py} 冻结源码和配置，
-从指定原数据库读取记忆，不应为改变QA控制器而重新运行全视频抽取。
-其恢复规则、实际提交和测试边界记录于
-\code{experiments/m3_context_study_20261101/PLAN.md} 与 \code{VALIDATION.md}。
-当前代码提供 \code{python -m m3.configure_qa_context}，
-将选定上下文方案写入新的0600私有配置副本，保留模型与连接设置，不调用服务。
-切换策略时必须使用新的QA结果文件/实验目录，不能对旧答案直接resume；
-配置工具也不能用于改写已冻结实验。具体参数见
-\code{oGMemory/docs/m3_bounded_context.md}。
-LaTeX 使用 \code{ctexart} 与 XeLaTeX，在工作区根目录执行
-\code{bash scripts/build_report.sh}，或进入本目录执行 \code{make}。
-脚本检查中文依赖，用 latexmk 自动完成交叉引用收敛，只在成功时发布
-\code{latex/report.pdf}；构建日志与输入哈希保存在 \code{latex/build/}。
+共同评委虽完成715条评分，但714个需模型评分任务的usage及逐响应模型标识未持久化
+（另1条无效答案自动计零）；配置与冻结代码可核查，历史响应trace无法恢复。
+全部QA用量记录完整，表中QA比较有效，\textbf{整轮总token和总费用不能完整报告}。
+详细逐题结果、配置与审计保留于实验记录\cite{artifacts}，未以估算补账或重评替代原结果。
+
+\section{Conclusion and Discussion}
+本文将oGMemory的片段记忆细化为可回源的事实检索，并以来源位置驱动增量证据交付。
+在固定五视频上，来源事实组合达到与历史有界基线接近的自动评分，
+严格增量方案进一步降低输入。相同模型下，其得分高于M3-Agent参考适配，
+但输入仍显著更多。当前更合理的结论是质量--输入开销的折中改善，
+而不是已解决多模态身份或实现稳定全面提分。
+
+限制包括五视频开发集、同模型自动评委、E尚无重复，以及本轮仅评估固定记忆的QA路径。
+视觉前缀采样、ASR错误和错误人物归属仍会限制检索；新增来源索引无法恢复未被感知的事实。
+此外，\code{current_clip}不满足严格因果协议，重复试验也不能代替独立留出测试。
+
+下一步应优先完成E独立重复与新视频验证，并用独立评委和人工抽查核验主要差异；
+在生成阶段引入可撤销、带时间来源的脸--声--姓名关联，单独测量身份错误；
+最后在统一感知和控制协议下重跑端到端实验，同时补齐用量采集。
+完整历史实验日志保留在仓库中，不作为本文主体展开。
 
 \begin{thebibliography}{9}
-\bibitem{code} oGMemory dev，固定提交 \code{8c86c3ed}。
-主要实现：\code{m3/pipeline/}、\code{m3/episodic_memory.py}、
-\code{m3/control_adapter.py}、\code{m3/index_episodic.py}、
-\code{m3/temporal.py}、\code{m3/eval.py}。
-\bibitem{protocol} 本地实验协议：
-\code{docs/m3_random_subset.md}、\code{docs/m3_bounded_context.md}、
-\code{docs/m3_semantic_consolidation.md}。
-历史文档的成绩未用作本次实测结果。
-\bibitem{data} 本地 M3-Bench 数据副本：
-\code{/data/m3_data/}，robot 标注版本哈希见 \code{sample_manifest.json}。
-\bibitem{m3agent} 本地 M3-Agent 参考仓库，提交 \code{0e3e419}；
-\code{m3_agent/control.py}、\code{mmagent/retrieve.py}、
-\code{mmagent/videograph.py} 与 \code{mmagent/memory_processing_qwen.py}。
-本节为参考代码分析；后续同模型适配评测不等同于官方权重复现或论文成绩。
+\bibitem{m3code} M3-Agent参考代码（本地快照）.
+\code{m3-agent/}, commit \code{0e3e41939bd8a0b66d756e7b7eb8d5fe9992da5c}.
+重点审阅 \code{m3_agent/control.py}、\code{mmagent/retrieve.py} 和
+\code{mmagent/videograph.py}；源码对照说明见 \code{docs/m3_agent_comparison.md}.
+\bibitem{artifacts} oGMemory / memory-eval实验记录.
+\code{experiments/m3_memory_design_20261102/}，2026-11-02.
+最终共同评分见 \code{comparison.json} 和 \code{joint_questions.csv}；
+方法说明见 \code{docs/m3_memory_design.md}.
 \end{thebibliography}
 \end{document}
