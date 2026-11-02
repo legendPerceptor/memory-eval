@@ -1,0 +1,187 @@
+{
+  "experiment": "m3_ten_fullinterval_20261102",
+  "generated_at": "2026-11-02T17:28:31.924756+08:00",
+  "status": "interim",
+  "selected_videos": [
+    "study_09"
+  ],
+  "planned_videos": 10,
+  "questions_per_method": 12,
+  "excluded": [
+    {
+      "video": "study_05",
+      "reason": "incomplete",
+      "missing_phases": [
+        "pipeline",
+        "index",
+        "og_qa",
+        "m3_memory",
+        "m3_qa"
+      ]
+    },
+    {
+      "video": "gym_03",
+      "reason": "incomplete",
+      "missing_phases": [
+        "pipeline",
+        "index",
+        "og_qa",
+        "m3_memory",
+        "m3_qa"
+      ]
+    },
+    {
+      "video": "bedroom_04",
+      "reason": "incomplete",
+      "missing_phases": [
+        "pipeline",
+        "index",
+        "og_qa",
+        "m3_memory",
+        "m3_qa"
+      ]
+    },
+    {
+      "video": "study_18",
+      "reason": "incomplete",
+      "missing_phases": [
+        "pipeline",
+        "index",
+        "og_qa",
+        "m3_memory",
+        "m3_qa"
+      ]
+    },
+    {
+      "video": "kitchen_20",
+      "reason": "incomplete",
+      "missing_phases": [
+        "pipeline",
+        "index",
+        "og_qa",
+        "m3_memory",
+        "m3_qa"
+      ]
+    },
+    {
+      "video": "kitchen_01",
+      "reason": "incomplete",
+      "missing_phases": [
+        "og_qa",
+        "m3_memory",
+        "m3_qa"
+      ]
+    },
+    {
+      "video": "bedroom_05",
+      "reason": "incomplete",
+      "missing_phases": [
+        "pipeline",
+        "index",
+        "og_qa",
+        "m3_memory",
+        "m3_qa"
+      ]
+    },
+    {
+      "video": "study_23",
+      "reason": "incomplete",
+      "missing_phases": [
+        "pipeline",
+        "index",
+        "og_qa",
+        "m3_memory",
+        "m3_qa"
+      ]
+    },
+    {
+      "video": "kitchen_23",
+      "reason": "incomplete",
+      "missing_phases": [
+        "pipeline",
+        "index",
+        "og_qa",
+        "m3_memory",
+        "m3_qa"
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "video": "study_09",
+      "questions": 12,
+      "stage_seconds": {
+        "runner_startup": 6.9411702156066895,
+        "trim": 3.9690001010894775,
+        "annotate": 0.0009999275207519531,
+        "preprocess": 11.128000020980835,
+        "load_clips": 5.047999858856201,
+        "extract_audio": 17.055000066757202,
+        "extract_frames": 53.23099994659424,
+        "detect_faces": 103.19200015068054,
+        "voice_asr": 51.7960000038147,
+        "speaker_diarization": 90.97499990463257,
+        "speaker_embedding": 6.443000078201294,
+        "episodic_memory": 3317.5729999542236,
+        "create_memory_nodes": 0.2760000228881836,
+        "build_index": 5.33299994468689,
+        "face_clustering": 77.49399995803833,
+        "voice_segmentation": 12.365000009536743,
+        "voice_clustering": 7.41100001335144,
+        "semantic_memory_consolidator": 3.14725661277771
+      },
+      "methods": {
+        "ogmemory": {
+          "shared_perception": 349.7791702747345,
+          "memory_and_index": 3439.2433812618256,
+          "qa": 733.8750174045563,
+          "allocated_total": 4522.897568941116
+        },
+        "m3_agent": {
+          "shared_perception": 349.7791702747345,
+          "memory_and_index": 2703.084228038788,
+          "qa": 316.12824869155884,
+          "allocated_total": 3368.991647005081
+        }
+      },
+      "actual_experiment_phase_seconds": 7542.110045671463
+    }
+  ],
+  "totals_seconds": {
+    "ogmemory": {
+      "shared_perception": 349.7791702747345,
+      "memory_and_index": 3439.2433812618256,
+      "qa": 733.8750174045563,
+      "allocated_total": 4522.897568941116
+    },
+    "m3_agent": {
+      "shared_perception": 349.7791702747345,
+      "memory_and_index": 2703.084228038788,
+      "qa": 316.12824869155884,
+      "allocated_total": 3368.991647005081
+    }
+  },
+  "shared_breakdown_seconds": {
+    "Setup / slicing / loading": 27.087170124053955,
+    "Audio extraction": 17.055000066757202,
+    "Frame extraction": 53.23099994659424,
+    "Face detection / features": 103.19200015068054,
+    "ASR": 51.7960000038147,
+    "Speaker diarization": 90.97499990463257,
+    "Speaker embeddings": 6.443000078201294
+  },
+  "actual_experiment_phase_seconds": 7542.110045671463,
+  "accounting": "Shared perception physically runs once; assign identical measured duration to each standalone-method total. Do not sum the two allocated totals as experiment wall time.",
+  "scope": "Stage wall-clock intervals, including local work, remote waits/retries and any within-stage quota waits. Excludes final common judge and between-phase driver gaps. Not API CPU/GPU compute time.",
+  "granularity": "M3 memory stage bundles input preparation, identities, generation and embedding; oGMemory memory/graph/index work is grouped to match that scope.",
+  "source_sha256": {
+    "experiments/m3_ten_fullinterval_20261102/manifest.json": "da926d926a80c8dc1e1b3a9c9fd0f0e404db1560ea5a0467743b51d34ab90ac9",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_09-pipeline.json": "b7977dcb6a17389439658a67a2c8c8cf91cbb7e21265a2491078d81dbacad35f",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_09-index.json": "649503afa13913434c5ea0fe22c3f2c164ff842ac4c88b01d17c95d2ec5cb221",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_09-og_qa.json": "97997b91a5a0df1b1c564bddb0d947b92a3ec5eb9c1765dc123c1a591c192b0e",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_09-m3_memory.json": "a4920bb62f79ec868ed8752ab5fea5da8e1bc9b4173136d8b23f4f983519f162",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_09-m3_qa.json": "8834b79beeeac438b40d3106ee5b5be60979ea6ffffad0a6bbb0dc4b245740a3",
+    "experiments/m3_ten_fullinterval_20261102/private/study_09-pipeline.log": "81af94449521a75c8ea5fcd12b193103516e10f22b6fdc07094f7e1e2405d016",
+    "runs/m3_ten_fullinterval_20261102/study_09/pipeline_summary.json": "b78fa0e6d42a40d5bced7dede3ce7895e7af0d060ee67ba7242a54178c9ffb35"
+  }
+}

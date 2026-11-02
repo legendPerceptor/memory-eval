@@ -1,0 +1,15 @@
+{
+  "script_sha256": "7bf559869cc3cd07b7b919c21df69da0afcbda9388c3ba855cd2e2b13c3f335e",
+  "data_sha256": "440388f1e354c2f5f07f0aaaeb1c2813c50232b27ef5262b6d9ad51bb1571b4a",
+  "artifacts": {
+    "latex/figures/m3_ten_fullinterval_20261102_stage_times.pdf": "fe1494b7765c5a6e9c6d813642eee754489b400dc14747116aafdd3fc7ab6475",
+    "latex/figures/m3_ten_fullinterval_20261102_stage_times.png": "b8c75e4c90a01eba0645b8472dccff3d8eed5776518f52a06002060267f5f133",
+    "latex/figures/m3_ten_fullinterval_20261102_stage_times_shared.pdf": "da5c2f00a8a340c2c45fa5fda7e53197fa86a9a18ea66107b793f158ef915cfa",
+    "latex/figures/m3_ten_fullinterval_20261102_stage_times_shared.png": "323af90ecc69138b7b224109ae6a90e6566a52024e2ebf81282c7e8619c59828",
+    "latex/video_stage_times.tex": "ee9e548502a84620926a71dce93c2d605ec5835ff0267ee1dfb61cc0c0816949"
+  },
+  "planned_videos": 10,
+  "paired_completed": 1,
+  "status": "interim",
+  "inference_calls": 0
+}
