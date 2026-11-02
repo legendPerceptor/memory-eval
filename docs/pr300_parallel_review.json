@@ -1,0 +1,107 @@
+{
+  "reviewed_at": "2026-11-02T17:07:48.965545+08:00",
+  "pr_number": 300,
+  "head": "b48b4400f8e34e6cd0e54ee77b3677c8d92f8766",
+  "target": "anttrail",
+  "base": "d139c5fba5cffda35704d9e3d90a184bdda489a8",
+  "current_experiment_source": "8d61b772f20a60c1ebf1bbe4243292ddc22ae753",
+  "applied_to_running_experiment": false,
+  "paid_model_calls_for_review": 0,
+  "targeted_tests_correct_cwd": {
+    "passed": 147,
+    "warnings": 1
+  },
+  "eval_serial_tests": {
+    "passed": 38
+  },
+  "parallel_mock_repeats": [
+    {
+      "repeat": 0,
+      "exit_code": 0
+    },
+    {
+      "repeat": 1,
+      "exit_code": 1
+    },
+    {
+      "repeat": 2,
+      "exit_code": 0
+    },
+    {
+      "repeat": 3,
+      "exit_code": 1
+    },
+    {
+      "repeat": 4,
+      "exit_code": 1
+    },
+    {
+      "repeat": 5,
+      "exit_code": 1
+    },
+    {
+      "repeat": 6,
+      "exit_code": 1
+    },
+    {
+      "repeat": 7,
+      "exit_code": 1
+    },
+    {
+      "repeat": 8,
+      "exit_code": 1
+    },
+    {
+      "repeat": 9,
+      "exit_code": 0
+    }
+  ],
+  "initial_test_invocation": {
+    "passed": 145,
+    "failed": 2,
+    "causes": [
+      "relative YAML path from incorrect CWD",
+      "order-dependent shared scripted mock under concurrency"
+    ]
+  },
+  "timing_projection": {
+    "observed_stage_seconds": {
+      "pipeline": 3773.3784267902374,
+      "og_qa": 733.8750174045563,
+      "m3_qa": 316.12824869155884,
+      "index": 15.644124746322632,
+      "m3_memory": 2703.084228038788
+    },
+    "observed_og_memory_seconds": 3317.563,
+    "observed_total_minutes": 125.70183409452439,
+    "optimistic_og_only_memory8_qa4_minutes": 88.8820380436341,
+    "optimistic_both_memory8_qa4_minutes": 62.40473303466638,
+    "assumptions": "No throughput/rate/VRAM limits; fixed per-request latency; M3 memory phase simplistically treated as parallel; not a measured speedup."
+  },
+  "sha256": {
+    "m3/_parallel.py": "f6d9dad58947ee7856169c60865a639c3c891385b3a76bb74720d31f11877055",
+    "m3/qa.py": "c0009ff771d8359ab68d82cc9807f9bfeb3e302b4040a027f4fa2953510d4c68",
+    "m3/eval.py": "10186d4406eeb149f697446f54d412bd00f9c6f4a95472a278ea25a3352b2065",
+    "m3/episodic_memory.py": "43b8b135069a5494fad8d21fb4ba1fb36c028aaed20d93cc4dbd64493713ec0e",
+    "m3/voice_asr.py": "56db4fd1932f965fd1f60f88b9f8fae4b385da244c3bcd7923132082f9d95b15",
+    "m3/face_clustering.py": "d151e534e2ebd1e307458324fa7e2c3a4fe39aa99dec77a277329e7d2a8f49e6",
+    "scripts/run_m3_bench_subset.py": "15d9baf2e86fde456aa597595a0fead674d58acc184a37fb3b35ddd72f20b5c0",
+    "providers/llm/openai_llm.py": "7a6fd042541542c991bea115e565aab60585eb9fb62e8af2f4f33d2e5447760d",
+    "deploy/ogmemory.m3.yaml": "1f7fc5fdb3e3dba812782de9c8d198bd6d168837e4371e8102c0574c092b3e84"
+  },
+  "test_logs_sha256": {
+    "eval_parallel_repeat_01.log": "955eb87091922b2f62994749f9fc0300c0771c889ad376b4bae886480c1d8f22",
+    "eval_parallel_repeat_06.log": "ddb0c4e1b1334708455fe08bc68217cda8c330c44587dc1cd59b72a3ee13e8ad",
+    "targeted_tests.log": "f475460c803ce98b1bf1c2be6aa8302dd4af16960a7ef58237416eeb8a2dcecc",
+    "eval_parallel_repeat_08.log": "91113c94bf6a281742af5f3ae53ee45c8e925c9485f68977d36843963c07ad56",
+    "eval_parallel_repeat_00.log": "99a24796443a1d07f66a424f8116a06a2079063af758e7d3c87801c191ad2ecd",
+    "eval_parallel_repeat_02.log": "99a24796443a1d07f66a424f8116a06a2079063af758e7d3c87801c191ad2ecd",
+    "eval_serial_tests.log": "1030fe5629e03150b1929ed6f29cefc0ea5dd68161483041e26f823edc136bd4",
+    "eval_parallel_repeat_05.log": "1b3eda195b3f6728294c051443b23149c3dcdd5d033e02918ab7ab0af5b6adb9",
+    "targeted_tests_correct_cwd.log": "2ef563e9e2f25a516eb694776bcd6680f6dd096a2f51f33eabe31d7e813aa26b",
+    "eval_parallel_repeat_07.log": "55a8c4e288dee0dee20af80175cab5010949b0dbba98e90e433a08c68d069b12",
+    "eval_parallel_repeat_09.log": "99a24796443a1d07f66a424f8116a06a2079063af758e7d3c87801c191ad2ecd",
+    "eval_parallel_repeat_03.log": "6cf208e205bd56a95cfbe9cf9a778b5d2d1531673bc22a6588c59a43d218df04",
+    "eval_parallel_repeat_04.log": "8b598e83a90a6b8021d63f322402c8654b8353598562e8e7eef6a595dcf67c38"
+  }
+}
