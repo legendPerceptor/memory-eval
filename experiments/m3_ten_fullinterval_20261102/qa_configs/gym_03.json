@@ -1,0 +1,28 @@
+{
+  "config_sha256": "414a31e176fa956e952f102498c844496ef66c72a450be813906cc0231a14410",
+  "fact_index_sha256": "06475baeb8b0b64e02637f0e536a7c1cd43b8a409a75073ee6faffc7afe91970",
+  "settings": {
+    "answer_reserve_seconds": 45,
+    "context_window": 32768,
+    "enabled": true,
+    "evidence_format": "grouped",
+    "fact_memory": true,
+    "force_answer_tool": true,
+    "identity_aware": true,
+    "incremental_delivery": true,
+    "incremental_tokens": 3500,
+    "max_candidates": 32,
+    "max_input_tokens": 24000,
+    "max_neighbor_clips": 64,
+    "max_passages_per_node": 12,
+    "max_result_nodes": 24,
+    "max_search_calls": 8,
+    "max_selected_nodes": 32,
+    "max_top_k": 16,
+    "safety_tokens": 2048,
+    "tokenizer_multiplier": 1.15,
+    "tokenizer_path": "/home/yuanjian/Development/memory-eval/runs/context_assets/qwen-omni-tokenizer.json",
+    "fact_index_path": "/home/yuanjian/Development/memory-eval/runs/m3_ten_fullinterval_20261102/gym_03/fact_index/manifest.json",
+    "fact_index_sha256": "06475baeb8b0b64e02637f0e536a7c1cd43b8a409a75073ee6faffc7afe91970"
+  }
+}

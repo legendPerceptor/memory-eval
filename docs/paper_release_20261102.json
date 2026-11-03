@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-11-02T10:04:01.925223+08:00",
-  "scope": "Related work expanded with seven research papers; experimental records removed from bibliography; no experiment data changed.",
+  "created_at": "2026-11-02T11:39:20.042830+08:00",
+  "scope": "Graph memory storage, operators and orchestration presented as a newly built multimodal architecture; future text-memory migration distinguished from evaluated capabilities. Existing user edits preserved.",
   "pages": 7,
   "page_limit_including_references": 8,
   "sections": [
@@ -15,7 +15,7 @@
     "bash_syntax": "passed",
     "git_diff_check": "passed",
     "overfull_underfull_missing_characters_undefined_references": false,
-    "visual_review": "Page 7 bibliography layout checked; final revision only changes M3 venue to verified arXiv identifier/year.",
+    "visual_review": "Graph-first architecture on page 3 checked; final revision shortens table label and caption.",
     "page_limit_guard": "Current real build passed at 7 pages; simulated 9-page rejection tested in prior revision (build script unchanged).",
     "bibliography": "All seven papers cited; titles and first authors checked against arXiv metadata; CVPR/ECCV/NeurIPS venues verified from paper comments."
   },
@@ -23,8 +23,8 @@
     "FandolSong/FandolFang Script CJK fontspec warnings; no missing characters"
   ],
   "sha256": {
-    "latex/report.tex": "4ecd4ec57d04533d988b2f6ea49b4f6c011f4f4379731bb57924fdb4ecd5c241",
-    "latex/report.pdf": "bc5b5b279b9337339022aa8dbd50f95d9268672d0582f516261d668eb276452a",
+    "latex/report.tex": "db9311c8d2735b19d163a203812345ad39230048525c523802f3069a4d23f3ba",
+    "latex/report.pdf": "6f8e69606f025685ce2205ab2119bcb7c2a0ef05b9a3e5a1c2856707cf620d30",
     "scripts/build_report.sh": "9a56712e3605ee93941cae94b7810e65db634d862dd6aa74c20c101bd546d2a8",
     "experiments/m3_memory_design_20261102/comparison.json": "290eb594e9d46f9e27191e0456188c338e765563173e9ba31793dbd45dd3ab0a"
   },

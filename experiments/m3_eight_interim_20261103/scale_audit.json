@@ -1,0 +1,107 @@
+{
+  "observed_at": "2026-11-03T09:21:10.181172+08:00",
+  "ordered_videos": [
+    {
+      "order": 1,
+      "video": "study_09",
+      "questions": 12,
+      "ogmemory_score": 0.5,
+      "m3_score": 0.5,
+      "face_clustering_minutes": 1.2915666659673055,
+      "account_faces": 1991
+    },
+    {
+      "order": 2,
+      "video": "kitchen_01",
+      "questions": 13,
+      "ogmemory_score": 0.34615384615384615,
+      "m3_score": 0.19230769230769232,
+      "face_clustering_minutes": 7.444299999872843,
+      "account_faces": 4776
+    },
+    {
+      "order": 3,
+      "video": "bedroom_05",
+      "questions": 12,
+      "ogmemory_score": 0.4166666666666667,
+      "m3_score": 0.4166666666666667,
+      "face_clustering_minutes": 13.64066666762034,
+      "account_faces": 6440
+    },
+    {
+      "order": 4,
+      "video": "study_23",
+      "questions": 14,
+      "ogmemory_score": 0.5714285714285714,
+      "m3_score": 0.2857142857142857,
+      "face_clustering_minutes": 22.111966665585836,
+      "account_faces": 8275
+    },
+    {
+      "order": 5,
+      "video": "kitchen_23",
+      "questions": 12,
+      "ogmemory_score": 0.5416666666666666,
+      "m3_score": 0.625,
+      "face_clustering_minutes": 32.46971666415532,
+      "account_faces": 10005
+    },
+    {
+      "order": 6,
+      "video": "study_05",
+      "questions": 12,
+      "ogmemory_score": 0.4583333333333333,
+      "m3_score": 0.375,
+      "face_clustering_minutes": 54.669833334287006,
+      "account_faces": 13002
+    },
+    {
+      "order": 7,
+      "video": "gym_03",
+      "questions": 11,
+      "ogmemory_score": 0.6818181818181818,
+      "m3_score": 0.7272727272727273,
+      "face_clustering_minutes": 76.2939333319664,
+      "account_faces": 15344
+    },
+    {
+      "order": 8,
+      "video": "bedroom_04",
+      "questions": 11,
+      "ogmemory_score": 0.8181818181818182,
+      "m3_score": 0.45454545454545453,
+      "face_clustering_minutes": 101.36745000282923,
+      "account_faces": 17690
+    }
+  ],
+  "descriptive_groups": {
+    "first_four": {
+      "questions": 51,
+      "ogmemory_score": 0.46078431372549017,
+      "m3_score": 0.3431372549019608
+    },
+    "last_four": {
+      "questions": 46,
+      "ogmemory_score": 0.6195652173913043,
+      "m3_score": 0.5434782608695652
+    },
+    "new_five": {
+      "questions": 63,
+      "ogmemory_score": 0.47619047619047616,
+      "m3_score": 0.3968253968253968
+    },
+    "original_three": {
+      "questions": 34,
+      "ogmemory_score": 0.6470588235294118,
+      "m3_score": 0.5147058823529411
+    }
+  },
+  "logged_source_scope_audit": {
+    "context_calls": 525,
+    "source_reference_occurrences": 11845,
+    "missing_video_fields": 0,
+    "cross_video_references": []
+  },
+  "interpretation": "No observed monotonic score degradation; pronounced cumulative face-clustering scaling. Different videos confound order/size with question difficulty and prior development exposure. Logged source IDs staying in scope does not prove retrieval rankings invariant to database growth.",
+  "required_control": "Keep target memories and questions fixed; vary unrelated stored videos (1/5/10), repeat QA and audit recall and time; no such paid rerun launched."
+}

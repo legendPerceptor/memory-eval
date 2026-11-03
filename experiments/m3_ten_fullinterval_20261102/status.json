@@ -1,0 +1,398 @@
+{
+  "status": "finished_with_failures",
+  "history": [
+    {
+      "video": "study_09",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793601176.9308298,
+      "seconds": 3773.3784267902374
+    },
+    {
+      "video": "study_09",
+      "phase": "index",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793604950.3099084,
+      "seconds": 15.644124746322632
+    },
+    {
+      "video": "study_09",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793604965.9546359,
+      "seconds": 733.8750174045563
+    },
+    {
+      "video": "study_09",
+      "phase": "m3_memory",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793605699.8302367,
+      "seconds": 2703.084228038788
+    },
+    {
+      "video": "study_09",
+      "phase": "m3_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793608402.9150522,
+      "seconds": 316.12824869155884
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793608719.0450234,
+      "seconds": 2700.963360786438
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "index",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793611420.0089772,
+      "seconds": 15.43051266670227
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "og_qa",
+      "exit_code": 2,
+      "status": "failed",
+      "started_at_unix": 1793611435.4400797,
+      "seconds": 963.9044036865234
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "m3_memory",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793612399.3450992,
+      "seconds": 2844.5487143993378
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "m3_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793615243.8943968,
+      "seconds": 419.0059247016907
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793615662.9009533,
+      "seconds": 3651.0559277534485
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "index",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793619313.9575,
+      "seconds": 14.344330787658691
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793619328.3025002,
+      "seconds": 414.6516056060791
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "m3_memory",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793619742.9547858,
+      "seconds": 2796.2012898921967
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "m3_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793622539.1567414,
+      "seconds": 189.2404124736786
+    },
+    {
+      "video": "study_23",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793622728.3979084,
+      "seconds": 5043.581394433975
+    },
+    {
+      "video": "study_23",
+      "phase": "index",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793627771.9799883,
+      "seconds": 14.923370122909546
+    },
+    {
+      "video": "study_23",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793627786.904072,
+      "seconds": 679.6889834403992
+    },
+    {
+      "video": "study_23",
+      "phase": "m3_memory",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793628466.593757,
+      "seconds": 4125.6429142951965
+    },
+    {
+      "video": "study_23",
+      "phase": "m3_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793632592.237395,
+      "seconds": 333.0518705844879
+    },
+    {
+      "video": "kitchen_23",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793632925.2902036,
+      "seconds": 5846.049294710159
+    },
+    {
+      "video": "kitchen_23",
+      "phase": "index",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793638771.340291,
+      "seconds": 21.897989511489868
+    },
+    {
+      "video": "kitchen_23",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793638793.2390945,
+      "seconds": 352.9306035041809
+    },
+    {
+      "video": "kitchen_23",
+      "phase": "m3_memory",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793639146.1705456,
+      "seconds": 1175.2353959083557
+    },
+    {
+      "video": "kitchen_23",
+      "phase": "m3_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793640321.4067473,
+      "seconds": 188.33078813552856
+    },
+    {
+      "video": "study_05",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793640509.7383249,
+      "seconds": 4362.657907247543
+    },
+    {
+      "video": "study_05",
+      "phase": "index",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793644872.3970134,
+      "seconds": 16.080978870391846
+    },
+    {
+      "video": "study_05",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793644888.4789405,
+      "seconds": 295.5545995235443
+    },
+    {
+      "video": "study_05",
+      "phase": "m3_memory",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793645184.0343177,
+      "seconds": 428.88676023483276
+    },
+    {
+      "video": "study_05",
+      "phase": "m3_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793645612.92188,
+      "seconds": 157.12392735481262
+    },
+    {
+      "video": "gym_03",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793645770.0466583,
+      "seconds": 5171.633250951767
+    },
+    {
+      "video": "gym_03",
+      "phase": "index",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793650941.6807084,
+      "seconds": 14.08416748046875
+    },
+    {
+      "video": "gym_03",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793650955.765682,
+      "seconds": 261.2190160751343
+    },
+    {
+      "video": "gym_03",
+      "phase": "m3_memory",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793651216.985514,
+      "seconds": 470.9622759819031
+    },
+    {
+      "video": "gym_03",
+      "phase": "m3_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793651687.9486322,
+      "seconds": 120.27237462997437
+    },
+    {
+      "video": "bedroom_04",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793651808.2218635,
+      "seconds": 6672.889538526535
+    },
+    {
+      "video": "bedroom_04",
+      "phase": "index",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793658481.1122744,
+      "seconds": 13.903808832168579
+    },
+    {
+      "video": "bedroom_04",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793658495.0168974,
+      "seconds": 252.98299932479858
+    },
+    {
+      "video": "bedroom_04",
+      "phase": "m3_memory",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793658748.0007625,
+      "seconds": 433.68908882141113
+    },
+    {
+      "video": "bedroom_04",
+      "phase": "m3_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793659181.6908565,
+      "seconds": 138.330322265625
+    },
+    {
+      "video": "study_18",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793659320.0220299,
+      "seconds": 10299.071044921875
+    },
+    {
+      "video": "study_18",
+      "phase": "index",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793669619.093987,
+      "seconds": 16.576204299926758
+    },
+    {
+      "video": "study_18",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793669635.6711097,
+      "seconds": 400.7029321193695
+    },
+    {
+      "video": "study_18",
+      "phase": "m3_memory",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793670036.3749518,
+      "seconds": 2532.9515838623047
+    },
+    {
+      "video": "study_18",
+      "phase": "m3_qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1793672569.3275244,
+      "seconds": 197.50912976264954
+    },
+    {
+      "video": "kitchen_20",
+      "phase": "pipeline",
+      "exit_code": 1,
+      "status": "failed",
+      "started_at_unix": 1793672766.8375316,
+      "seconds": 2129.787268638611
+    },
+    {
+      "video": "kitchen_20",
+      "phase": "index",
+      "status": "skipped_upstream_failure",
+      "exit_code": 2
+    },
+    {
+      "video": "kitchen_20",
+      "phase": "og_qa",
+      "status": "skipped_upstream_failure",
+      "exit_code": 2
+    },
+    {
+      "video": "kitchen_20",
+      "phase": "m3_memory",
+      "status": "skipped_upstream_failure",
+      "exit_code": 2
+    },
+    {
+      "video": "kitchen_20",
+      "phase": "m3_qa",
+      "status": "skipped_upstream_failure",
+      "exit_code": 2
+    }
+  ],
+  "report": "REPORT.md"
+}

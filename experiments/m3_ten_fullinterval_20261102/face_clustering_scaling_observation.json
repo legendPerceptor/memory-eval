@@ -1,0 +1,23 @@
+{
+  "observed_at": "2026-11-03T07:36:15.769860+08:00",
+  "kind": "account_wide_face_clustering_scaling",
+  "current_video": "study_18",
+  "current_stage": "face_clustering",
+  "current_stage_started": "2026-11-03T06:53:42.728+08:00",
+  "current_video_detected_faces": 4467,
+  "loaded_account_faces": 22157,
+  "loaded_counts_by_video": {
+    "bedroom_04": 17690,
+    "bedroom_05": 6440,
+    "gym_03": 15344,
+    "kitchen_01": 4776,
+    "kitchen_23": 10005,
+    "study_05": 13002,
+    "study_09": 1991,
+    "study_18": 22157,
+    "study_23": 8275
+  },
+  "code_evidence": "frozen m3/face_clustering.py:253 lists all account face_detection nodes; cluster_faces uses pairwise loop",
+  "impact": "Later video pipeline timing includes repeated aggregation of faces from earlier videos. Must disclose in stage-time comparison; not independent per-video construction cost.",
+  "action": "Observation only; frozen source/config/queue unchanged. Review optimization after this run."
+}
