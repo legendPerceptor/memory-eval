@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-11-03T08:53:16.820221+08:00",
+  "test_suite": {
+    "passed": 105
+  },
+  "calls": 14,
+  "qa_calls": 12,
+  "judge_calls": 2,
+  "unknown_usage_calls": 0,
+  "errors": 0,
+  "all_reported_models_match": true,
+  "all_reasoning_medium": true,
+  "all_thinking_adaptive": true,
+  "qa_prompt_tokens": 97795,
+  "qa_output_tokens": 2114,
+  "recovery_predictions_sha256": "d5aa607de592d5995ea52d5fbdd6bf95fd87fcefce254b0e1e2bfdb08a2f56d9"
+}

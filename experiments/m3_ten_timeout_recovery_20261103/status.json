@@ -1,0 +1,10 @@
+{
+  "status": "finished",
+  "questions": 2,
+  "valid_answers": 2,
+  "qa_exit_code": 0,
+  "judge_errors": 0,
+  "original_predictions_unchanged": true,
+  "source_memories_unchanged": true,
+  "diagnostic_score_mean": 0.0
+}
