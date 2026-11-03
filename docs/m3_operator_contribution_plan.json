@@ -1,0 +1,136 @@
+{
+  "created_at": "2026-11-03T09:30:21.641174+08:00",
+  "source_commit": "8d61b772",
+  "timing_source": "experiments/m3_eight_interim_20261103/timing.json",
+  "total_seconds": 41303.32561278343,
+  "operators": {
+    "face_clustering": {
+      "seconds": 18557.365999937057,
+      "minutes": 309.2894333322843,
+      "wall_time_share": 0.44929471718358505,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "episodic_memory": {
+      "seconds": 15473.498000144958,
+      "minutes": 257.8916333357493,
+      "wall_time_share": 0.3746308020135766,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "qa": {
+      "seconds": 3954.807228565216,
+      "minutes": 65.91345380942026,
+      "wall_time_share": 0.0957503341411617,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "detect_faces": {
+      "seconds": 803.7900002002716,
+      "minutes": 13.39650000333786,
+      "wall_time_share": 0.019460660570912905,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "speaker_diarization": {
+      "seconds": 667.3210000991821,
+      "minutes": 11.122016668319702,
+      "wall_time_share": 0.01615659248253476,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "extract_frames": {
+      "seconds": 631.2920000553131,
+      "minutes": 10.521533334255219,
+      "wall_time_share": 0.015284289840814353,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "voice_asr": {
+      "seconds": 399.2579998970032,
+      "minutes": 6.654299998283387,
+      "wall_time_share": 0.009666485542593507,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "source_fact_index": {
+      "seconds": 126.30928301811218,
+      "minutes": 2.1051547169685363,
+      "wall_time_share": 0.0030580899030323914,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "extract_audio": {
+      "seconds": 121.12999987602234,
+      "minutes": 2.018833331267039,
+      "wall_time_share": 0.0029326936288765195,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "preprocess": {
+      "seconds": 99.0699999332428,
+      "minutes": 1.6511666655540467,
+      "wall_time_share": 0.002398596201720389,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "voice_clustering": {
+      "seconds": 98.85000014305115,
+      "minutes": 1.6475000023841857,
+      "wall_time_share": 0.0023932697591899704,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "voice_segmentation": {
+      "seconds": 86.81200003623962,
+      "minutes": 1.4468666672706605,
+      "wall_time_share": 0.002101816227828667,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "runner_startup": {
+      "seconds": 72.17123508453369,
+      "minutes": 1.2028539180755615,
+      "wall_time_share": 0.001747346830159279,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "trim": {
+      "seconds": 56.20099973678589,
+      "minutes": 0.9366833289464315,
+      "wall_time_share": 0.0013606894578820938,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "speaker_embedding": {
+      "seconds": 53.26699995994568,
+      "minutes": 0.8877833326657613,
+      "wall_time_share": 0.0012896540210665137,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "build_index": {
+      "seconds": 39.03600025177002,
+      "minutes": 0.650600004196167,
+      "wall_time_share": 0.0009451055011339892,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "load_clips": {
+      "seconds": 37.407999992370605,
+      "minutes": 0.6234666665395101,
+      "wall_time_share": 0.0009056897825387886,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "semantic_memory_consolidator": {
+      "seconds": 23.761866331100464,
+      "minutes": 0.3960311055183411,
+      "wall_time_share": 0.0005753015278688876,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "create_memory_nodes": {
+      "seconds": 1.9739995002746582,
+      "minutes": 0.03289999167124431,
+      "wall_time_share": 4.77927496391163e-05,
+      "quality_contribution": "not_measured_by_ablation"
+    },
+    "annotate": {
+      "seconds": 0.003000020980834961,
+      "minutes": 5.000034968058268e-05,
+      "wall_time_share": 7.263388447119257e-08,
+      "quality_contribution": "not_measured_by_ablation"
+    }
+  },
+  "audit_scope": "Static source dataflow review, not empirical accuracy ablation. No changes to running pipeline.",
+  "source_sha256": {
+    "m3/face_clustering.py": "fe63b40608935b579ed7e52135a57ff191f7ba392b40ecd462966895ee114048",
+    "m3/control_adapter.py": "04d9256f386d712f0dc9401a3ed630d3fd9514baa549ded39354a11ae42a7416",
+    "m3/episodic_memory.py": "26d1ee4a935f6d6c086bda793a85a295cf59a12ad139a4963cc1e8928b794ef5",
+    "extraction/operators/builtin/episodic_memory_generator.py": "50f4b6155a37d481afb9f70bde6793870ef7b2b304c2b63c7c9cf568860c21a9",
+    "m3/semantic_memory_consolidator.py": "01d0c545a5026e2411438aded0d5e0e7cca53626ce21d89fbd13b8147ab4df4d"
+  }
+}
