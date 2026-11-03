@@ -1,0 +1,63 @@
+{
+  "created_at": "2026-11-03T11:28:43.514798+08:00",
+  "implementation_commit": "c237bfef22e4474cd3d16c85d9182b15f2f7d613",
+  "implementation_branch": "m3_dev_1031",
+  "validation": {
+    "targeted_unit_and_memory_and_sql_integration_passed": 1094,
+    "dedicated_sql_database": "ogmem_person_test_20261103",
+    "root_tool_tests_passed": 109,
+    "new_module_tests_passed": 28,
+    "new_files_ruff": "passed",
+    "external_chat_api_calls": 0
+  },
+  "read_only_real_data_smoke": {
+    "video": "study_18",
+    "legacy_provenance_reconstructed_in_memory": true,
+    "read_only_transaction": true,
+    "database_writes": 0,
+    "model_calls": 0,
+    "account_faces": 24083,
+    "selected_faces": 4467,
+    "valid_observations": 4422,
+    "all_proposal_ids": 2769,
+    "resolved_track_proposals": 630,
+    "ambiguous_observations": 2139,
+    "load_seconds": 2.3583112149499357,
+    "observation_validation_seconds": 2.6482311990112066,
+    "causal_matching_seconds": 11.128546067047864,
+    "prefix_observations_checked": 552,
+    "prefix_assignments_unchanged": true,
+    "crop_checks": [
+      {
+        "clip": 0,
+        "crops": 8,
+        "context_sha256": "cb0dc799bfdfec162d4e376064e2ddfb78657de0f758ddecd1e5996141296956"
+      },
+      {
+        "clip": 82,
+        "crops": 8,
+        "context_sha256": "a099781fa461a895fc1556804dc6d4fb60580808a772322203089857c4411813"
+      }
+    ],
+    "manifest_sha256": "7e1d056510a7b9bb086eeed71ef4aee2d417a5acc8e4d6e2cc093782ebebdb2f",
+    "warning": "New causal matching differs from old batch single-linkage; this is not a QA accuracy experiment."
+  },
+  "frozen_experiment_source_checks": {
+    "m3/face_clustering.py": true,
+    "m3/episodic_memory.py": true,
+    "m3/control_adapter.py": true,
+    "config/m3/pipelines/video_episodic_full.yaml": true
+  },
+  "frozen_experiment_config_unchanged": true,
+  "limitations": [
+    "New bounded-exemplar matching differs from batch single-linkage.",
+    "630 non-ambiguous track proposals and 2139 ambiguous observations are not a count of real people; identity quality not established.",
+    "New memory generation can add up to 8 face crops; no end-to-end new-model score claimed.",
+    "Historical experiment keeps its original frozen implementation."
+  ],
+  "test_log_sha256": {
+    "core": "58498930b03b6292ad3c87338edb54b7d39e129ceb38727fe24f49eb786c5c27",
+    "root": "0d51a4c8fc1061be3d8f2484774d5924553d5893f888efbdf1e2f19293162de2"
+  },
+  "smoke_script_sha256": "fb5cefda4230ac0d1483101ecf083c848412c6cfb730519770d42f47e319ad10"
+}
