@@ -23,14 +23,27 @@ bash scripts/build_report.sh
 
 ## 当前文档内容
 
-`report.tex` 包含当前方案、实验协议、限制和 M3-Agent 对照章节。
+`report.tex` 是不超过8页、包含 Introduction / Related Work / Method /
+Evaluation / Conclusion and Discussion 的论文式文档。
 
-- 有 `results.tex` 时，纳入实际完整运行生成的数值章节。
-- 没有该文件时，封面标记“阶段报告”，展示明确注明日期的临时成绩。
-- `m3_agent_comparison.tex` 是参考实现的源码级比较，不代表已跑过 M3-Agent。
-- `findings.tex` 的案例审计明确标注所覆盖的视频和临时评分。
+当前版本仅对比最新已完成实验中的 oGMemory 与同模型 M3-Agent：
 
-`scripts/finalize_m3.py` 已接入构建脚本：主驱动结束、汇总及审计成功后，
+- 主分析使用原十视频队列的前八视频、97题，保留两题原始超时计零。
+- 分数统一来自最终十视频共同评分，不混用早期临时评委或恢复答案。
+- `paired8_results.tex` 为自动生成的逐视频表、资源汇总表和两幅结果图。
+- 数据与图形由以下只读命令更新，不调用模型或修改预测：
+
+```bash
+oGMemory/.venv/bin/python scripts/build_m3_paper_comparison.py
+bash scripts/build_report.sh
+```
+
+派生数据和来源校验记录在 `experiments/m3_paper_paired8_20261103/`。
+正在恢复的新一轮并发实验不混入论文。旧的 `results.tex`、
+`context_optimization_results.tex`、`memory_design_results.tex` 等片段继续保留，
+但当前 `report.tex` 不再引用它们。
+
+历史驱动 `scripts/finalize_m3.py` 已接入构建脚本：主驱动结束、汇总及审计成功后，
 重新生成报告内容并编译 PDF。其状态文件中的 `reports_generated` 才代表
 该轮自动收尾已成功；`needs_attention` 表示需要检查日志。
 
@@ -58,9 +71,15 @@ bash scripts/setup_latex_user.sh
 用户级 format 可能覆盖新的系统格式，需要重新运行相应的 `fmtutil-user` 构建。
 不要直接删除整个 `~/texmf`，其中也可能有用户其他文档的依赖。
 
-## 实际验证
+## 当前论文验证
 
-本次已成功构建 8 页阶段报告，执行了：
+2026-11-03 的两方法配对结果版已构建为8页（含参考文献），包含逐视频表、
+质量/资源汇总和两幅结果图。评测数据采用最终共同评分，图表由原始 usage
+及阶段回执重建；详细发布记录见 `docs/paper_release_20261103.json`。
+
+## 初次构建验证（历史记录）
+
+初次工具链验证曾成功构建 8 页阶段报告，执行了：
 
 1. 从工作区外的 `/tmp` 调用构建脚本。
 2. 用模拟的 latexmk 失败验证非零退出码，确认原 PDF 哈希不变。

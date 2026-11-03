@@ -1,0 +1,387 @@
+{
+  "source_experiment": "m3_ten_fullinterval_20261102",
+  "source_commit": "8d61b772f20a60c1ebf1bbe4243292ddc22ae753",
+  "cohort": [
+    "study_09",
+    "kitchen_01",
+    "bedroom_05",
+    "study_23",
+    "kitchen_23",
+    "study_05",
+    "gym_03",
+    "bedroom_04"
+  ],
+  "questions_per_method": 97,
+  "score_source": "Final ten-video common judging, not the earlier eight-video judge.",
+  "model": "MiniMax-M3.1-Flash",
+  "reasoning_effort": "medium",
+  "selection": "Previously reported first eight videos in the registered execution order; retain all 97 questions.",
+  "methods": {
+    "ogmemory": {
+      "questions": 97,
+      "valid_answers": 95,
+      "mean_score": 0.5721649484536082,
+      "full_credit_fraction": 0.5154639175257731,
+      "by_video": {
+        "study_09": {
+          "questions": 12,
+          "valid_answers": 12,
+          "mean_score": 0.5833333333333334,
+          "full_credit_fraction": 0.5
+        },
+        "kitchen_01": {
+          "questions": 13,
+          "valid_answers": 11,
+          "mean_score": 0.38461538461538464,
+          "full_credit_fraction": 0.3076923076923077
+        },
+        "bedroom_05": {
+          "questions": 12,
+          "valid_answers": 12,
+          "mean_score": 0.4166666666666667,
+          "full_credit_fraction": 0.3333333333333333
+        },
+        "study_23": {
+          "questions": 14,
+          "valid_answers": 14,
+          "mean_score": 0.6785714285714286,
+          "full_credit_fraction": 0.6428571428571429
+        },
+        "kitchen_23": {
+          "questions": 12,
+          "valid_answers": 12,
+          "mean_score": 0.5416666666666666,
+          "full_credit_fraction": 0.5
+        },
+        "study_05": {
+          "questions": 12,
+          "valid_answers": 12,
+          "mean_score": 0.4583333333333333,
+          "full_credit_fraction": 0.3333333333333333
+        },
+        "gym_03": {
+          "questions": 11,
+          "valid_answers": 11,
+          "mean_score": 0.7272727272727273,
+          "full_credit_fraction": 0.7272727272727273
+        },
+        "bedroom_04": {
+          "questions": 11,
+          "valid_answers": 11,
+          "mean_score": 0.8181818181818182,
+          "full_credit_fraction": 0.8181818181818182
+        }
+      },
+      "usage": {
+        "qa": {
+          "calls": 525,
+          "api_errors": 0,
+          "unknown_usage_calls": 0,
+          "prompt_tokens": 4039490,
+          "completion_tokens": 111694,
+          "total_tokens": 4151184,
+          "cached_prompt_tokens": 1910955,
+          "uncached_prompt_tokens": 2128535,
+          "unknown_cache_usage_calls": 0,
+          "complete_usage": true,
+          "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+        },
+        "memory": {
+          "calls": 547,
+          "api_errors": 0,
+          "unknown_usage_calls": 0,
+          "prompt_tokens": 2510078,
+          "completion_tokens": 784774,
+          "total_tokens": 3294852,
+          "cached_prompt_tokens": 604627,
+          "uncached_prompt_tokens": 1905451,
+          "unknown_cache_usage_calls": 0,
+          "complete_usage": true,
+          "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+        },
+        "memory_plus_qa": {
+          "calls": 1072,
+          "api_errors": 0,
+          "unknown_usage_calls": 0,
+          "prompt_tokens": 6549568,
+          "completion_tokens": 896468,
+          "total_tokens": 7446036,
+          "cached_prompt_tokens": 2515582,
+          "uncached_prompt_tokens": 4033986,
+          "unknown_cache_usage_calls": 0,
+          "complete_usage": true,
+          "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+        }
+      },
+      "time_seconds": {
+        "shared_perception": 2940.911234855652,
+        "memory_and_index": 34407.607149362564,
+        "qa": 3954.807228565216,
+        "allocated_total": 41303.32561278343
+      },
+      "stage_share": {
+        "shared_perception": 0.07120277099298358,
+        "memory_and_index": 0.8330468948658547,
+        "qa": 0.0957503341411617
+      }
+    },
+    "m3_agent": {
+      "questions": 97,
+      "valid_answers": 97,
+      "mean_score": 0.4381443298969072,
+      "full_credit_fraction": 0.3711340206185567,
+      "by_video": {
+        "study_09": {
+          "questions": 12,
+          "valid_answers": 12,
+          "mean_score": 0.5,
+          "full_credit_fraction": 0.4166666666666667
+        },
+        "kitchen_01": {
+          "questions": 13,
+          "valid_answers": 13,
+          "mean_score": 0.19230769230769232,
+          "full_credit_fraction": 0.15384615384615385
+        },
+        "bedroom_05": {
+          "questions": 12,
+          "valid_answers": 12,
+          "mean_score": 0.375,
+          "full_credit_fraction": 0.25
+        },
+        "study_23": {
+          "questions": 14,
+          "valid_answers": 14,
+          "mean_score": 0.32142857142857145,
+          "full_credit_fraction": 0.2857142857142857
+        },
+        "kitchen_23": {
+          "questions": 12,
+          "valid_answers": 12,
+          "mean_score": 0.625,
+          "full_credit_fraction": 0.5833333333333334
+        },
+        "study_05": {
+          "questions": 12,
+          "valid_answers": 12,
+          "mean_score": 0.375,
+          "full_credit_fraction": 0.3333333333333333
+        },
+        "gym_03": {
+          "questions": 11,
+          "valid_answers": 11,
+          "mean_score": 0.7272727272727273,
+          "full_credit_fraction": 0.6363636363636364
+        },
+        "bedroom_04": {
+          "questions": 11,
+          "valid_answers": 11,
+          "mean_score": 0.45454545454545453,
+          "full_credit_fraction": 0.36363636363636365
+        }
+      },
+      "usage": {
+        "qa": {
+          "calls": 398,
+          "api_errors": 0,
+          "unknown_usage_calls": 0,
+          "prompt_tokens": 733810,
+          "completion_tokens": 45024,
+          "total_tokens": 778834,
+          "cached_prompt_tokens": 470888,
+          "uncached_prompt_tokens": 262922,
+          "unknown_cache_usage_calls": 0,
+          "complete_usage": true,
+          "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+        },
+        "memory": {
+          "calls": 548,
+          "api_errors": 1,
+          "unknown_usage_calls": 1,
+          "prompt_tokens": 2417948,
+          "completion_tokens": 1202439,
+          "total_tokens": 3620387,
+          "cached_prompt_tokens": 182067,
+          "uncached_prompt_tokens": null,
+          "unknown_cache_usage_calls": 0,
+          "complete_usage": false,
+          "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+        },
+        "memory_plus_qa": {
+          "calls": 946,
+          "api_errors": 1,
+          "unknown_usage_calls": 1,
+          "prompt_tokens": 3151758,
+          "completion_tokens": 1247463,
+          "total_tokens": 4399221,
+          "cached_prompt_tokens": 652955,
+          "uncached_prompt_tokens": null,
+          "unknown_cache_usage_calls": 0,
+          "complete_usage": false,
+          "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+        }
+      },
+      "time_seconds": {
+        "shared_perception": 2940.911234855652,
+        "memory_and_index": 14978.250667572021,
+        "qa": 1861.4838688373566,
+        "allocated_total": 19780.64577126503
+      },
+      "stage_share": {
+        "shared_perception": 0.1486761993952623,
+        "memory_and_index": 0.757217476151898,
+        "qa": 0.0941063244528396
+      }
+    }
+  },
+  "all_ten": {
+    "ogmemory": {
+      "questions": 128,
+      "valid_answers": 109,
+      "mean_score": 0.48046875,
+      "full_credit_fraction": 0.421875
+    },
+    "m3_agent": {
+      "questions": 128,
+      "valid_answers": 100,
+      "mean_score": 0.33203125,
+      "full_credit_fraction": 0.28125
+    }
+  },
+  "source_sha256": {
+    "experiments/m3_ten_fullinterval_20261102/joint_questions.jsonl": "94c910ff473daf728f2afa2b1e166f0fa4bcc674ecb2319f029c99d573c51a10",
+    "experiments/m3_ten_fullinterval_20261102/manifest.json": "da926d926a80c8dc1e1b3a9c9fd0f0e404db1560ea5a0467743b51d34ab90ac9",
+    "runs/m3_ten_fullinterval_20261102/og_qa/study_05/m3_qa_results.jsonl": "14765cc18ccb0cbc6712ace05c9c8657ca3af489ebd6badfca2cfbbadee9d212",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/study_05/m3_qa_results.jsonl": "dc1e86f8ec0593473d198414a5233316091935a9c5a8b888bce66561824a789b",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_05-pipeline.json": "853137a1bfc4e5b773aebf7b7e7b515d8e978d811341ae1ee6eac4686d95a1d3",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_05-index.json": "0d233a30e8930cbf7209df8972e27471f3ce0a7671588763a7ac077024cd76ee",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_05-og_qa.json": "ab6bedc68f939a9498cdc90601fbc6bf147ead81343f850a4ea9b97aec7a5744",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_05-m3_memory.json": "151d5defed4c381368864868eea999db765b52921848aac32a1e1fbff68baac3",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_05-m3_qa.json": "d1534fcaafe8f082bbbbb53f00819a4237f80155a5d63982c268ca466c75bff3",
+    "experiments/m3_ten_fullinterval_20261102/private/study_05-pipeline.log": "cc3971040be6d5f7e4775fd6b49c09260296187cb43a6dc90566cd468bff5fbd",
+    "runs/m3_ten_fullinterval_20261102/study_05/pipeline_summary.json": "0409eef8b0a54451db4a1aeacc25183fe1596b64c1c426e2945f8d6a86ad50a7",
+    "runs/m3_ten_fullinterval_20261102/og_qa/gym_03/m3_qa_results.jsonl": "7b52bb08e6fcd01167ffb09d40baad0c6514e9d6b4f7ea4bc4248c7da9991f7a",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/gym_03/m3_qa_results.jsonl": "52468868a51daceb58e65c21b61c9b78ce3c967f172a975a6f3d8d396eff20be",
+    "experiments/m3_ten_fullinterval_20261102/stages/gym_03-pipeline.json": "1a01a4d3d8329a2f43519dcb5a1ac6b528e1821d0e92f5157e641d6b14a34f00",
+    "experiments/m3_ten_fullinterval_20261102/stages/gym_03-index.json": "b02243c3f97ab233befc34d373eac43da13cb97e83e76fdf26f8a810cf75b9ee",
+    "experiments/m3_ten_fullinterval_20261102/stages/gym_03-og_qa.json": "d782e424046a597c312fef8751ef4c1a753c189e463baab6b740ad56e319be29",
+    "experiments/m3_ten_fullinterval_20261102/stages/gym_03-m3_memory.json": "3f7083da9859579f0dc8b3dc9e88d868c2492ef28d0f10e0963383ace28768fc",
+    "experiments/m3_ten_fullinterval_20261102/stages/gym_03-m3_qa.json": "d35d3dd5c5f86d527ec0edbc85cfa34e95a289afbe1a041c9ccc2b617bdafbce",
+    "experiments/m3_ten_fullinterval_20261102/private/gym_03-pipeline.log": "89a39df51cfa20b81fba15dcd08774ffe32a276ea28f5dd5ec9099467d389213",
+    "runs/m3_ten_fullinterval_20261102/gym_03/pipeline_summary.json": "23253113de79f075c0d46bb7fda7d54c3546b60f1ba2ae217938f0ca2147d0a2",
+    "runs/m3_ten_fullinterval_20261102/og_qa/bedroom_04/m3_qa_results.jsonl": "349eec864c5b888c414ca1ba249a64f368d5e4e7e3f4db3ce811ce64b4f0506d",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/bedroom_04/m3_qa_results.jsonl": "6b7565de30e0dc0ee33fdf483778124b4f1ea7dddf793333a7e45edcff917906",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_04-pipeline.json": "d3342e7e893db88b5553b63556b2e49c921fef2d623313ea5355f1438acb0111",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_04-index.json": "fd17656d9ea68d849cd27f87398ed794e387a4ba76003b7180be59d6c91390fb",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_04-og_qa.json": "8539877179eda33f32069481982ab91f810906655bf495fe0741b555dc68dc79",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_04-m3_memory.json": "16082c69bbcc85a9cf9ebf732db489a2ad4df3dfd5e2ae9c5aa843c46cfb8206",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_04-m3_qa.json": "4e570943dca8c509126949cd9c623309e40611fa429c12374a98700f3613d7dc",
+    "experiments/m3_ten_fullinterval_20261102/private/bedroom_04-pipeline.log": "d7d8c27fee45875dffbb6061dd38baebe266fa3f5bbac435892c79bbefa6fb3a",
+    "runs/m3_ten_fullinterval_20261102/bedroom_04/pipeline_summary.json": "8069080234b2023b4f20315ea2ac6c7a56b9cadf05b30c40a089e1cb6cd3169a",
+    "runs/m3_ten_fullinterval_20261102/og_qa/study_18/m3_qa_results.jsonl": "ccfa0122de4f1d7036c28c920b18521dd26476496becbb765c176ff4a49c901e",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/study_18/m3_qa_results.jsonl": "8865c1788df01ff2b06a7d1410e5628cb7f5d2fa29175c153d8f307d26067724",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_18-pipeline.json": "25d82f54b0eb1b92958334dcf8f426c0595841db8c787d0dc035989ebd5e5f4a",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_18-index.json": "39e24e7ff87e9856cf7d71b07ed2b0da42455f641fb8920f9d5c884db940e1ac",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_18-og_qa.json": "f9b29e3cbd64049e8f37551926ced858d7f9be8648d98f205f00b5eac5072ecd",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_18-m3_memory.json": "b8f49bf43ebb9e7d1045907243ed70f42c0ec44601a79a6f80e5522157c6e9e8",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_18-m3_qa.json": "d3455c4acc45f6f29330737bda605854afe935e9cbeafb05cf0b1c71ab6c6836",
+    "experiments/m3_ten_fullinterval_20261102/private/study_18-pipeline.log": "0a1ce430bd7f36128cfd479209cd60a96c89fca056ae74f38ad0e360cbbe8219",
+    "runs/m3_ten_fullinterval_20261102/study_18/pipeline_summary.json": "9022a5ff9697e72a41117d0777ca34dbbdb193ad7610b09fe23b286e6c3c9107",
+    "runs/m3_ten_fullinterval_20261102/og_qa/study_09/m3_qa_results.jsonl": "dea8aeb16b1940a70487542d67b433b93b0a2aa40db307c22bea0df24d89be8a",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/study_09/m3_qa_results.jsonl": "18c45cbb8e31b8d89ce2770acbf769b93de5df68599576868817615fa8b31031",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_09-pipeline.json": "b7977dcb6a17389439658a67a2c8c8cf91cbb7e21265a2491078d81dbacad35f",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_09-index.json": "649503afa13913434c5ea0fe22c3f2c164ff842ac4c88b01d17c95d2ec5cb221",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_09-og_qa.json": "97997b91a5a0df1b1c564bddb0d947b92a3ec5eb9c1765dc123c1a591c192b0e",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_09-m3_memory.json": "a4920bb62f79ec868ed8752ab5fea5da8e1bc9b4173136d8b23f4f983519f162",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_09-m3_qa.json": "8834b79beeeac438b40d3106ee5b5be60979ea6ffffad0a6bbb0dc4b245740a3",
+    "experiments/m3_ten_fullinterval_20261102/private/study_09-pipeline.log": "81af94449521a75c8ea5fcd12b193103516e10f22b6fdc07094f7e1e2405d016",
+    "runs/m3_ten_fullinterval_20261102/study_09/pipeline_summary.json": "b78fa0e6d42a40d5bced7dede3ce7895e7af0d060ee67ba7242a54178c9ffb35",
+    "runs/m3_ten_fullinterval_20261102/og_qa/kitchen_01/m3_qa_results.jsonl": "89c5841983a1b82a4110a0821c219eb0dd33643c64b11b61bf624db00af4c045",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/kitchen_01/m3_qa_results.jsonl": "4174c6041b0a51b869238d429f2e4f4b91fd756ad482873d6fe480ab5e8e847b",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_01-pipeline.json": "8bc1612efe708b1dd9c2a8eb2ed6afebfeb62fe35fb80d0154215397e439b99a",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_01-index.json": "637b9d9f3ce1ed08ee71a9f14e8decccf5a16b8f79021c6cff82d33358338467",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_01-og_qa.json": "c89dff10772066a438840368986ea9ab4135d9aefadba8b4e123df97dec8d2e3",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_01-m3_memory.json": "ddc24a3c18db277c30272e20134372cc2635fb69f7b4b60a40459b15168c7b90",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_01-m3_qa.json": "aa9621e24ba46aa0086d20b2d26f8ef62b8b4415026ab1f3ac548dabe6818216",
+    "experiments/m3_ten_fullinterval_20261102/private/kitchen_01-pipeline.log": "7f3418ccb2fe18018717935bc1377bfd9b36d9116d3572bfbd1a14db81654f9b",
+    "runs/m3_ten_fullinterval_20261102/kitchen_01/pipeline_summary.json": "c9eff20a0540dc68aa6418575b953d2108cdac2bd87f8c9cdb22885c2718692d",
+    "runs/m3_ten_fullinterval_20261102/og_qa/bedroom_05/m3_qa_results.jsonl": "52d5bda6c51b1ecba5941f8d2e11d787cf5f249a3854daf202800df5734ab78c",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/bedroom_05/m3_qa_results.jsonl": "a8db4f148180363f4d1b69289d797414d013580be28e5548a276ab90ffcfde86",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_05-pipeline.json": "d5249792c9eb226f7dd377f35b3ba48ac82608584ee4d59bd3b035c9b2419f96",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_05-index.json": "089a7ab7f886dfff43ad78242639ee089f9b42009914016305ff59ea8f51be40",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_05-og_qa.json": "f75d790085989c652708f3da2fac9717f5aa29655d092aac3284214877a3bb95",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_05-m3_memory.json": "0871676fc58db5bfa2a20dffe2d1d1c75d0bc6bc48797e355113d7d78a2cd21a",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_05-m3_qa.json": "5479879f385a66f3998eb834b00496fae1e019147b402b5e294e02ba56058815",
+    "experiments/m3_ten_fullinterval_20261102/private/bedroom_05-pipeline.log": "67dcfa40cd85099257092d183e7f0f44df2b12da0c449ade137c998e4e8ad023",
+    "runs/m3_ten_fullinterval_20261102/bedroom_05/pipeline_summary.json": "cbaceb62f6a6a4d968e68157b08f7be20da8413b3a84cfe52b00a4324bb00086",
+    "runs/m3_ten_fullinterval_20261102/og_qa/study_23/m3_qa_results.jsonl": "895b9b38d557b86a8b4f3b0adc8099b9bd29b8aa2f58a831f6ac7a7c5f59fb32",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/study_23/m3_qa_results.jsonl": "330f2621e8849f54afc1b2a677b31594b4ee6bc95a04cb0a7cbae81283245d8b",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_23-pipeline.json": "843322c4a540fa0cf110df271e4b7b868a693f9fd2f50790d94a7cc6596998b0",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_23-index.json": "9effac9788fc2b4ad6a30a1d4988800356d4f33eddc6f1aa3e848c4600489395",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_23-og_qa.json": "5dbc6ca9943f8880af01f6eeee75c43758fe042c3195fcb211afc3e63704cff8",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_23-m3_memory.json": "aefebbae842610bdd395e1eb8da1b14633df54bc7c11528808d5b038fe424831",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_23-m3_qa.json": "2602d5299dca76f6626242aca6a34c058dad824f0149dad5cc13171a79a683a8",
+    "experiments/m3_ten_fullinterval_20261102/private/study_23-pipeline.log": "e9284644e37f6d78ca433ce800d1ccba010946c983a17dce0038f3b7e6e3b8ed",
+    "runs/m3_ten_fullinterval_20261102/study_23/pipeline_summary.json": "a330d37195d31b41f2e683fc2386467bfe53d03814cd55d23882b343b444ccac",
+    "runs/m3_ten_fullinterval_20261102/og_qa/kitchen_23/m3_qa_results.jsonl": "965f41156b4c1b4515041014bd0e81fca0d42b68a0871f52fe9b71449576d7b3",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/kitchen_23/m3_qa_results.jsonl": "5c14fae69988a79415186dff1e35bac285bb25bc2fece3eb9389b97d7d2192e0",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_23-pipeline.json": "490edeb6f208657faa99bd67de8ed01e2d15781527756984196e3a2622b41df3",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_23-index.json": "ec40c31fdca94659cacedc047230a00d631b242c2454f9480ff976acacffcc7c",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_23-og_qa.json": "6061d80ca5aa9feca9c3aecfb00c3e3ca74de8c1dd097478003d847c79375585",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_23-m3_memory.json": "b1e1fb6a7ebb3bbd94dc38e3377a3032c211bf355da1246829f59b4fcad703fb",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_23-m3_qa.json": "1606ce12decfc195f6167813bc9cd3eb389c458346a2945a121d8ed26e89ef51",
+    "experiments/m3_ten_fullinterval_20261102/private/kitchen_23-pipeline.log": "5197337d24ba2a19b72dbcd46af7b520d5c43a06ff3498ecd95a88016f738f65",
+    "runs/m3_ten_fullinterval_20261102/kitchen_23/pipeline_summary.json": "5c03b1aab64ad5ba2af68e0cc42a12c07676a5b5fa7291a9299732a410f6daad",
+    "experiments/m3_ten_fullinterval_20261102/usage-og_qa-study_09.jsonl": "2fc9a52fb50c625649a32d4c1a7a58c758b034b6f9b50e42cebde7f9427a4a2c",
+    "experiments/m3_ten_fullinterval_20261102/usage-og_qa-kitchen_01.jsonl": "2d6cf694d33b09fe12c16c9218d8bd95daa321e34fe0dab7b0458b24ce5378bd",
+    "experiments/m3_ten_fullinterval_20261102/usage-og_qa-bedroom_05.jsonl": "b38a4f164d7bd40bc6cb10caf15d1fc559f8b42654beb387fe0ff91236c7b73f",
+    "experiments/m3_ten_fullinterval_20261102/usage-og_qa-study_23.jsonl": "d81a36fd2eb8ffedcdce3db9b6807c2d10951cac4cb754f679e1127e90efa626",
+    "experiments/m3_ten_fullinterval_20261102/usage-og_qa-kitchen_23.jsonl": "ad554340a5056646dc53ab4c64ebec7f194de887e96049f857893410b4cf7087",
+    "experiments/m3_ten_fullinterval_20261102/usage-og_qa-study_05.jsonl": "e5a1f8b1b92d460030c184a4c47fbe753518fd525d5f810c0711969779cf9b50",
+    "experiments/m3_ten_fullinterval_20261102/usage-og_qa-gym_03.jsonl": "661edbdf35c529ddc5b7db383e7c26ef633012eef280f908a6cdf36c7864014c",
+    "experiments/m3_ten_fullinterval_20261102/usage-og_qa-bedroom_04.jsonl": "917a3e2fa073cd1d77b8951b57782e005979114378cba64f29507e1e4ff95234",
+    "experiments/m3_ten_fullinterval_20261102/usage-pipeline-study_09.jsonl": "f7dd3331d7a8cffdfc3e52ffd189bc27b61e8db22a2d1d2517deb8150e8e3d16",
+    "experiments/m3_ten_fullinterval_20261102/usage-pipeline-kitchen_01.jsonl": "a8ed30e591bf4cd828b70d946e5c6aeb5fd0cf9ca40747e5fa8a869957789548",
+    "experiments/m3_ten_fullinterval_20261102/usage-pipeline-bedroom_05.jsonl": "c93c40bfcac4ec3b0d42da7c12b66f176079444406495f289f161af170796a3a",
+    "experiments/m3_ten_fullinterval_20261102/usage-pipeline-study_23.jsonl": "3a3c3663b1ae743d1521d422d82edbf76895822d0bb1cf2aefb6bebb76d4498c",
+    "experiments/m3_ten_fullinterval_20261102/usage-pipeline-kitchen_23.jsonl": "2d3345b9b40ddbd550d2eea1a1feb8d4d162056d4c56a1d9fa0b09631d2ee2c4",
+    "experiments/m3_ten_fullinterval_20261102/usage-pipeline-study_05.jsonl": "f1e0e0ea9614f343cbdc1b515ca1c1c7a51341e93a17223119fb7b6be7e6da53",
+    "experiments/m3_ten_fullinterval_20261102/usage-pipeline-gym_03.jsonl": "dc8ed170a5b89d984c668b192b2b8f794e4e7d3b210868f1044c1ac41c0ccf57",
+    "experiments/m3_ten_fullinterval_20261102/usage-pipeline-bedroom_04.jsonl": "5af92c9b2e725195cd2ab1799e62dd7a9f2abd2e6394c4ec332793385fc59c78",
+    "experiments/m3_ten_fullinterval_20261102/usage-m3_qa-study_09.jsonl": "cfd7088ad84d58cd78bbb9baba4f7b253e057923b5a490a6b15c96a8e5b7553f",
+    "experiments/m3_ten_fullinterval_20261102/usage-m3_qa-kitchen_01.jsonl": "6a8d3cf7d10cb4db4b5318a99a967d37131461874034ee6fa1d78522b92d49f1",
+    "experiments/m3_ten_fullinterval_20261102/usage-m3_qa-bedroom_05.jsonl": "0a8ff3efe1dac4e125d9836175dce67588133b6f62c0c1e61c57109f6448413c",
+    "experiments/m3_ten_fullinterval_20261102/usage-m3_qa-study_23.jsonl": "71afa803acbad0cbee03ea7467ae0049c1d2c532ebd90a81e23e48f2df46e0b6",
+    "experiments/m3_ten_fullinterval_20261102/usage-m3_qa-kitchen_23.jsonl": "f53553827688db295b8702c8b3d5c2fa1431341d9d1285e1f4cf6de74c0a2567",
+    "experiments/m3_ten_fullinterval_20261102/usage-m3_qa-study_05.jsonl": "80e57b666b0091d9ac9d44e75aecc2e352ce82c96eaed02e39f3efe58d986b2b",
+    "experiments/m3_ten_fullinterval_20261102/usage-m3_qa-gym_03.jsonl": "c49eb832161515b8de8e1fc4128bdf971d802d01e6754fe10d70fde2253e036e",
+    "experiments/m3_ten_fullinterval_20261102/usage-m3_qa-bedroom_04.jsonl": "e8dcb135cbffca1ccbc99846a9a9a3d1f209b3e7fb03c9c164626b2c7a0a1170",
+    "experiments/m3_ten_fullinterval_20261102/usage-m3_memory-study_09.jsonl": "15b03efdc271a0b4c5647f83850f337b6023fab6fdde80c7bcad36ec73ccd5a0",
+    "experiments/m3_ten_fullinterval_20261102/usage-m3_memory-kitchen_01.jsonl": "87e74e32f6b2ad9461b76def83dfafa17aaf1f6bb12897dd81936378a4228183",
+    "experiments/m3_ten_fullinterval_20261102/usage-m3_memory-bedroom_05.jsonl": "746d264f59ca865e4cc8763f524a9dad60c826614f332d4e4a7b470b2c612ea6",
+    "experiments/m3_ten_fullinterval_20261102/usage-m3_memory-study_23.jsonl": "639e0b01f8b1d133be9d34d4aa4a9ed04ca9ba99beee4e0e488a0a77c96753a6",
+    "experiments/m3_ten_fullinterval_20261102/usage-m3_memory-kitchen_23.jsonl": "9d81a8361de2b0ca4e900a2547a525bce19bffa7b8194f05dac4a99a2312dc8a",
+    "experiments/m3_ten_fullinterval_20261102/usage-m3_memory-study_05.jsonl": "bfeb625a538c3f372a62ec405d55f3e65d6ff3d1f98d3a037876ca7a890e2b50",
+    "experiments/m3_ten_fullinterval_20261102/usage-m3_memory-gym_03.jsonl": "231221b6c381aa54285ce76e7c6efb5dd442a11616e5f336fe37a58d5cd347a9",
+    "experiments/m3_ten_fullinterval_20261102/usage-m3_memory-bedroom_04.jsonl": "fd2d014f5d2ed92e80f78009a2fbc368d3e64e4d7b5e61fff9fc45a300167e33"
+  },
+  "excluded_from_main": {
+    "study_18": "M3 has 11 connection failures; only 3/14 valid answers.",
+    "kitchen_20": "Embedding/pipeline failure; neither method completed predictions."
+  },
+  "inference_calls": 0,
+  "ogmemory_face_clustering_seconds": 18557.365999937057,
+  "differences": {
+    "score_percentage_points": 13.4020618556701,
+    "qa_prompt_ratio": 5.5048173232853195,
+    "time_ratio": 2.088067603575612
+  },
+  "limitations": [
+    "Auto scores, not human accuracy; one run per method, small development/extension cohort.",
+    "Two original oGMemory timeouts retained as zero; no replacement from recovery experiments.",
+    "Recorded memory tokens omit one M3 request with unknown usage; not a complete bill.",
+    "Shared perception executed once, allocated equally to each standalone-method time.",
+    "Timings include initialization, retries and within-stage waits; exclude judge and between-phase gaps.",
+    "Source predates new person grounding and PR300 parallel integration; do not attribute those benefits."
+  ]
+}
