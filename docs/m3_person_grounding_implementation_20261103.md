@@ -1,7 +1,8 @@
 # 单视频人物关联实现记录
 
 实现提交：`c237bfef22e4474cd3d16c85d9182b15f2f7d613`，分支`m3_dev_1031`，未push。
-详细接口与限制见 `oGMemory/docs/m3_person_grounding.md`。
+详细设计与限制存档见 `docs/m3/ogmemory_archive/m3_person_grounding.md`；
+当前操作入口见 `oGMemory/docs/multimodal_memory.md`。
 
 ## 已实现
 

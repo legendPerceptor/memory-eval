@@ -1,0 +1,85 @@
+{
+  "created_at": "2026-11-03T17:04:38.142819+08:00",
+  "source_branch": "m3_dev_1031",
+  "source_commit": "1cd9378795c39b23959e6b2ad86eae9a783ac890",
+  "mode": "verbatim copy verified before source deletion",
+  "files": [
+    {
+      "source": "oGMemory/docs/m3_bounded_context.md",
+      "destination": "docs/m3/ogmemory_archive/m3_bounded_context.md",
+      "sha256": "062eaa406e2e0983a6ba0b0fbd5547dea46a7d1ee8e626ef647fe9340f867b50",
+      "lines": 301
+    },
+    {
+      "source": "oGMemory/docs/m3_local_gpu_validation.md",
+      "destination": "docs/m3/ogmemory_archive/m3_local_gpu_validation.md",
+      "sha256": "326caa91bd5f8a8be4aa04d62531b501ce603b1923718923f297f583f6f20dd8",
+      "lines": 268
+    },
+    {
+      "source": "oGMemory/docs/m3_minimax_comparison_20261023.md",
+      "destination": "docs/m3/ogmemory_archive/m3_minimax_comparison_20261023.md",
+      "sha256": "1dc0e7bc88778f470a7c1b4fb37dd3e52c08d2474b7feac0863e8adac7cc2fb8",
+      "lines": 161
+    },
+    {
+      "source": "oGMemory/docs/m3_partial_memory.md",
+      "destination": "docs/m3/ogmemory_archive/m3_partial_memory.md",
+      "sha256": "d52fb9db36ec89bdfdc14fb0993c95a938ea4afc13d493b3b4c2d870adbf8a55",
+      "lines": 83
+    },
+    {
+      "source": "oGMemory/docs/m3_person_grounding.md",
+      "destination": "docs/m3/ogmemory_archive/m3_person_grounding.md",
+      "sha256": "fc41a26c220a5ff4bf6d8bc13e87f09ba0a162d1c45952134991b50799dfe20f",
+      "lines": 108
+    },
+    {
+      "source": "oGMemory/docs/m3_random_subset.md",
+      "destination": "docs/m3/ogmemory_archive/m3_random_subset.md",
+      "sha256": "410129615df85ffcf817cf3da27b75b377f7aa7671ae179ab8e48bac46346db8",
+      "lines": 226
+    },
+    {
+      "source": "oGMemory/docs/m3_resume.md",
+      "destination": "docs/m3/ogmemory_archive/m3_resume.md",
+      "sha256": "418c6c2677dfdb54fc0ce537ccd9d33cdd3b714c9c9da970b8f8fe68753daa22",
+      "lines": 37
+    },
+    {
+      "source": "oGMemory/docs/m3_sample1_omni7b_20261022.md",
+      "destination": "docs/m3/ogmemory_archive/m3_sample1_omni7b_20261022.md",
+      "sha256": "5eb5ede1a02edbfef3e67bdfbcaf68908627207d19b6b4bccdc0ddb08af69124",
+      "lines": 198
+    },
+    {
+      "source": "oGMemory/docs/m3_semantic_consolidation.md",
+      "destination": "docs/m3/ogmemory_archive/m3_semantic_consolidation.md",
+      "sha256": "3ef324ad5311e8b58398bb248cecca7bbb85d230eb722cdc78bd2f6085643fc1",
+      "lines": 61
+    },
+    {
+      "source": "oGMemory/docs/m3_source_fact_index.md",
+      "destination": "docs/m3/ogmemory_archive/m3_source_fact_index.md",
+      "sha256": "4d4199e8b5fb61fb6035029c0a35673b1b9ee0c23d05ce83eba974a291015274",
+      "lines": 93
+    },
+    {
+      "source": "oGMemory/docs/MultiModelMemory-architecture.md",
+      "destination": "docs/m3/ogmemory_archive/MultiModelMemory-architecture.md",
+      "sha256": "12931d9bf54c23319fabbfc75d0202b6c3c4929479141112719e0f8602066d74",
+      "lines": 515
+    }
+  ],
+  "observed_core_cleanup_commit": "8731930ec75153865df07689ee0c4bd98d182746",
+  "validation": {
+    "verbatim_archived_files": 11,
+    "sole_multimodal_guide": "oGMemory/docs/multimodal_memory.md",
+    "guide_lines": 164,
+    "stale_core_references": 0,
+    "shell_examples_syntax": "passed",
+    "cli_help_and_pipeline_overrides": "passed",
+    "m3_unit_tests": "917 passed",
+    "model_calls": 0
+  }
+}
