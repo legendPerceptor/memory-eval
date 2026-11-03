@@ -86,6 +86,22 @@ def method_times(durations, receipts):
     return methods, actual
 
 
+def phase_finished(receipt, phase, answers=None, expected_count=None, video=None):
+    """QA exit 2 with a full ledger is finished work, not an unfinished video.
+
+    Include failed questions and their elapsed time rather than selecting only
+    successful QA runs. Other failed phases do not establish comparable input.
+    """
+    if phase not in ('og_qa', 'm3_qa'):
+        return receipt.get('exit_code') == 0 and receipt.get('status') == 'completed'
+    if receipt.get('exit_code') not in (0, 2):
+        return False
+    if not answers or len(answers) != expected_count:
+        return False
+    keys = {(r['video_id'], r['question_id']) for r in answers}
+    return len(keys) == expected_count and all(r['video_id'] == video for r in answers)
+
+
 def collect(root, name):
     exp, run = root / 'experiments' / name, root / 'runs' / name
     manifest_path = exp / 'manifest.json'
@@ -101,7 +117,14 @@ def collect(root, name):
             excluded.append({'video': video, 'reason': 'incomplete', 'missing_phases': missing})
             continue
         receipts = {p: read(path) for p, path in paths.items()}
-        bad = [p for p, r in receipts.items() if r.get('exit_code') != 0 or r.get('status') != 'completed']
+        qa_rows = {}
+        for phase in ('og_qa', 'm3_qa'):
+            path = run / phase / video / 'm3_qa_results.jsonl'
+            qa_rows[phase] = [json.loads(s) for s in path.read_text().splitlines() if s.strip()] if path.exists() else []
+            if path.exists():
+                source_hashes[str(path.relative_to(root))] = digest(path)
+        bad = [p for p, r in receipts.items() if not phase_finished(
+            r, p, qa_rows.get(p), manifest['question_counts'][video], video)]
         if bad:
             excluded.append({'video': video, 'reason': 'unsuccessful_phase', 'phases': bad})
             continue
@@ -114,6 +137,8 @@ def collect(root, name):
         methods, actual = method_times(durations, receipts)
         videos.append({'video': video, 'questions': manifest['question_counts'][video],
                        'stage_seconds': durations, 'methods': methods,
+                       'qa_failed_answers': {p: sum(bool(r.get('error')) or not r.get('predicted_answer')
+                                                   for r in rs) for p, rs in qa_rows.items()},
                        'actual_experiment_phase_seconds': actual})
         for path in [*paths.values(), log, summary]:
             source_hashes[str(path.relative_to(root))] = digest(path)
@@ -227,7 +252,7 @@ def main(argv=None):
               '主图为可比的单方法核算：将同一次共享感知的实测时间分别计入两条方法路径，不表示又运行了一遍感知。',
               'M3的记忆阶段包含输入准备、身份组织、生成与embedding，当前无法可靠拆开；oGMemory按同口径合并。',
               '时间来自阶段日志边界和进程回执，含该阶段内等待/重试/初始化，不是纯计算时间；不含阶段间调度间隙。',
-              '没有用并发请求耗时相加代替墙钟时间；占比按累计时间计算，而非直接平均每视频占比。',
+              'QA若完整执行但包含失败题，其耗时仍纳入，不能只选全成功视频。没有用并发请求耗时相加代替墙钟时间；占比按累计时间计算。',
               '只有一个样本时不能据此宣称稳定加速比；样本、远端服务负载和模型控制策略均影响结果。', '',
               '## 共享感知细分', '', '| 子阶段 | 秒 | 感知时间内占比 |', '|---|---:|---:|']
     for label, value in data['shared_breakdown_seconds'].items():

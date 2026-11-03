@@ -1,0 +1,11 @@
+{
+  "artifacts": {
+    "latex/figures/m3_eight_interim_20261103_stage_times.pdf": "1fab7e67b255465b61488028652868e1f79b00562a615f50620c5a1cb88d24fe",
+    "latex/figures/m3_eight_interim_20261103_stage_times.png": "10cee6610d20c0c8b818ab469d2e09fdc96e5206bca9d239f58700d4895e1e00",
+    "latex/figures/m3_eight_interim_20261103_stage_times_shared.pdf": "f9cbf624f0ab17f7727e86f263e782e0117b9a71c41f8528f4b7ba36adad3c38",
+    "latex/figures/m3_eight_interim_20261103_stage_times_shared.png": "cc0cd67bbad67ea7699e48aba1491d443fddbc77b847b380374b100a889bf243",
+    "latex/figures/m3_eight_interim_20261103_comparison.pdf": "d92bbd08d6bde3784ec832c2a07b656d64a0594d3369ac6f43b5efad4c8e2ea5",
+    "latex/figures/m3_eight_interim_20261103_comparison.png": "f19d87619313d02f1496476aa593da12ecf8b68254fda1b6a68ad4d25c64a348"
+  },
+  "comparison_sha256": "fb199fa93f31dc444734d2fb3ffc1d8936c480121a1c0fe6ebd6d985f98df994"
+}

@@ -1,0 +1,11 @@
+{
+  "judge_records": 194,
+  "actual_judge_calls": 192,
+  "judge_errors": 0,
+  "judge_unknown_usage": 0,
+  "source_predictions_unchanged": true,
+  "all_judge_model_settings_match": true,
+  "root_tests_passed": 109,
+  "full_grade_ledger_sha256": "8cec932e02268d516a3b71a072e97f5e930373643be5d30c2206db230426e0d2",
+  "compact_grade_sha256": "cf292e0d58caae5f4d4a434470d7b9ff2d55a0ec494ab8857afec526ac20636b"
+}

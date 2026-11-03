@@ -1,0 +1,329 @@
+{
+  "scope": "Eight-video interim common judging; not final ten-video result.",
+  "cohort": [
+    "study_09",
+    "kitchen_01",
+    "bedroom_05",
+    "study_23",
+    "kitchen_23",
+    "study_05",
+    "gym_03",
+    "bedroom_04"
+  ],
+  "questions_per_method": 97,
+  "methods": {
+    "ogmemory": {
+      "questions": 97,
+      "valid_answers": 95,
+      "judge_errors": 0,
+      "mean_score": 0.5360824742268041,
+      "full_credit_fraction": 0.4845360824742268,
+      "score_counts": {
+        "0.0": 40,
+        "1.0": 47,
+        "0.5": 10
+      },
+      "by_video": {
+        "study_09": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.5,
+          "full_credit_fraction": 0.5,
+          "score_counts": {
+            "0.0": 6,
+            "1.0": 6
+          }
+        },
+        "kitchen_01": {
+          "questions": 13,
+          "valid_answers": 11,
+          "judge_errors": 0,
+          "mean_score": 0.34615384615384615,
+          "full_credit_fraction": 0.3076923076923077,
+          "score_counts": {
+            "1.0": 4,
+            "0.0": 8,
+            "0.5": 1
+          }
+        },
+        "bedroom_05": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.4166666666666667,
+          "full_credit_fraction": 0.3333333333333333,
+          "score_counts": {
+            "1.0": 4,
+            "0.0": 6,
+            "0.5": 2
+          }
+        },
+        "study_23": {
+          "questions": 14,
+          "valid_answers": 14,
+          "judge_errors": 0,
+          "mean_score": 0.5714285714285714,
+          "full_credit_fraction": 0.5,
+          "score_counts": {
+            "1.0": 7,
+            "0.5": 2,
+            "0.0": 5
+          }
+        },
+        "kitchen_23": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.5416666666666666,
+          "full_credit_fraction": 0.5,
+          "score_counts": {
+            "0.0": 5,
+            "1.0": 6,
+            "0.5": 1
+          }
+        },
+        "study_05": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.4583333333333333,
+          "full_credit_fraction": 0.3333333333333333,
+          "score_counts": {
+            "0.5": 3,
+            "1.0": 4,
+            "0.0": 5
+          }
+        },
+        "gym_03": {
+          "questions": 11,
+          "valid_answers": 11,
+          "judge_errors": 0,
+          "mean_score": 0.6818181818181818,
+          "full_credit_fraction": 0.6363636363636364,
+          "score_counts": {
+            "0.0": 3,
+            "1.0": 7,
+            "0.5": 1
+          }
+        },
+        "bedroom_04": {
+          "questions": 11,
+          "valid_answers": 11,
+          "judge_errors": 0,
+          "mean_score": 0.8181818181818182,
+          "full_credit_fraction": 0.8181818181818182,
+          "score_counts": {
+            "1.0": 9,
+            "0.0": 2
+          }
+        }
+      },
+      "usage": {
+        "qa": {
+          "calls": 525,
+          "api_errors": 0,
+          "unknown_usage_calls": 0,
+          "prompt_tokens": 4039490,
+          "completion_tokens": 111694,
+          "total_tokens": 4151184,
+          "cached_prompt_tokens": 1910955,
+          "uncached_prompt_tokens": 2128535,
+          "unknown_cache_usage_calls": 0,
+          "complete_usage": true,
+          "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+        },
+        "memory": {
+          "calls": 547,
+          "api_errors": 0,
+          "unknown_usage_calls": 0,
+          "prompt_tokens": 2510078,
+          "completion_tokens": 784774,
+          "total_tokens": 3294852,
+          "cached_prompt_tokens": 604627,
+          "uncached_prompt_tokens": 1905451,
+          "unknown_cache_usage_calls": 0,
+          "complete_usage": true,
+          "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+        },
+        "memory_plus_qa": {
+          "calls": 1072,
+          "api_errors": 0,
+          "unknown_usage_calls": 0,
+          "prompt_tokens": 6549568,
+          "completion_tokens": 896468,
+          "total_tokens": 7446036,
+          "cached_prompt_tokens": 2515582,
+          "uncached_prompt_tokens": 4033986,
+          "unknown_cache_usage_calls": 0,
+          "complete_usage": true,
+          "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+        }
+      },
+      "time_seconds": {
+        "shared_perception": 2940.911234855652,
+        "memory_and_index": 34407.607149362564,
+        "qa": 3954.807228565216,
+        "allocated_total": 41303.32561278343
+      }
+    },
+    "m3_agent": {
+      "questions": 97,
+      "valid_answers": 97,
+      "judge_errors": 0,
+      "mean_score": 0.4381443298969072,
+      "full_credit_fraction": 0.3711340206185567,
+      "score_counts": {
+        "1.0": 36,
+        "0.5": 13,
+        "0.0": 48
+      },
+      "by_video": {
+        "study_09": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.5,
+          "full_credit_fraction": 0.4166666666666667,
+          "score_counts": {
+            "1.0": 5,
+            "0.5": 2,
+            "0.0": 5
+          }
+        },
+        "kitchen_01": {
+          "questions": 13,
+          "valid_answers": 13,
+          "judge_errors": 0,
+          "mean_score": 0.19230769230769232,
+          "full_credit_fraction": 0.15384615384615385,
+          "score_counts": {
+            "0.5": 1,
+            "0.0": 10,
+            "1.0": 2
+          }
+        },
+        "bedroom_05": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.4166666666666667,
+          "full_credit_fraction": 0.25,
+          "score_counts": {
+            "0.0": 5,
+            "1.0": 3,
+            "0.5": 4
+          }
+        },
+        "study_23": {
+          "questions": 14,
+          "valid_answers": 14,
+          "judge_errors": 0,
+          "mean_score": 0.2857142857142857,
+          "full_credit_fraction": 0.2857142857142857,
+          "score_counts": {
+            "1.0": 4,
+            "0.0": 10
+          }
+        },
+        "kitchen_23": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.625,
+          "full_credit_fraction": 0.5833333333333334,
+          "score_counts": {
+            "1.0": 7,
+            "0.0": 4,
+            "0.5": 1
+          }
+        },
+        "study_05": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.375,
+          "full_credit_fraction": 0.3333333333333333,
+          "score_counts": {
+            "0.0": 7,
+            "0.5": 1,
+            "1.0": 4
+          }
+        },
+        "gym_03": {
+          "questions": 11,
+          "valid_answers": 11,
+          "judge_errors": 0,
+          "mean_score": 0.7272727272727273,
+          "full_credit_fraction": 0.6363636363636364,
+          "score_counts": {
+            "1.0": 7,
+            "0.5": 2,
+            "0.0": 2
+          }
+        },
+        "bedroom_04": {
+          "questions": 11,
+          "valid_answers": 11,
+          "judge_errors": 0,
+          "mean_score": 0.45454545454545453,
+          "full_credit_fraction": 0.36363636363636365,
+          "score_counts": {
+            "1.0": 4,
+            "0.5": 2,
+            "0.0": 5
+          }
+        }
+      },
+      "usage": {
+        "qa": {
+          "calls": 398,
+          "api_errors": 0,
+          "unknown_usage_calls": 0,
+          "prompt_tokens": 733810,
+          "completion_tokens": 45024,
+          "total_tokens": 778834,
+          "cached_prompt_tokens": 470888,
+          "uncached_prompt_tokens": 262922,
+          "unknown_cache_usage_calls": 0,
+          "complete_usage": true,
+          "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+        },
+        "memory": {
+          "calls": 548,
+          "api_errors": 1,
+          "unknown_usage_calls": 1,
+          "prompt_tokens": 2417948,
+          "completion_tokens": 1202439,
+          "total_tokens": 3620387,
+          "cached_prompt_tokens": 182067,
+          "uncached_prompt_tokens": null,
+          "unknown_cache_usage_calls": 0,
+          "complete_usage": false,
+          "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+        },
+        "memory_plus_qa": {
+          "calls": 946,
+          "api_errors": 1,
+          "unknown_usage_calls": 1,
+          "prompt_tokens": 3151758,
+          "completion_tokens": 1247463,
+          "total_tokens": 4399221,
+          "cached_prompt_tokens": 652955,
+          "uncached_prompt_tokens": null,
+          "unknown_cache_usage_calls": 0,
+          "complete_usage": false,
+          "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+        }
+      },
+      "time_seconds": {
+        "shared_perception": 2940.911234855652,
+        "memory_and_index": 14978.250667572021,
+        "qa": 1861.4838688373566,
+        "allocated_total": 19780.64577126503
+      }
+    }
+  },
+  "ogmemory_face_clustering_seconds": 18557.365999937057,
+  "actual_experiment_phase_seconds": 58143.06014919281
+}

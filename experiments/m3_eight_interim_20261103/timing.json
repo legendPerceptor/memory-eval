@@ -1,0 +1,489 @@
+{
+  "experiment": "m3_ten_fullinterval_20261102",
+  "generated_at": "2026-11-03T08:58:19.900292+08:00",
+  "status": "interim",
+  "selected_videos": [
+    "study_09",
+    "kitchen_01",
+    "bedroom_05",
+    "study_23",
+    "kitchen_23",
+    "study_05",
+    "gym_03",
+    "bedroom_04"
+  ],
+  "planned_videos": 10,
+  "questions_per_method": 97,
+  "excluded": [
+    {
+      "video": "study_18",
+      "reason": "incomplete",
+      "missing_phases": [
+        "pipeline",
+        "index",
+        "og_qa",
+        "m3_memory",
+        "m3_qa"
+      ]
+    },
+    {
+      "video": "kitchen_20",
+      "reason": "incomplete",
+      "missing_phases": [
+        "pipeline",
+        "index",
+        "og_qa",
+        "m3_memory",
+        "m3_qa"
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "video": "study_05",
+      "questions": 12,
+      "stage_seconds": {
+        "runner_startup": 13.55667519569397,
+        "trim": 11.911999940872192,
+        "annotate": 0.0,
+        "preprocess": 16.792999982833862,
+        "load_clips": 9.456000089645386,
+        "extract_audio": 17.14299988746643,
+        "extract_frames": 118.08100008964539,
+        "detect_faces": 119.78699994087219,
+        "voice_asr": 51.175999879837036,
+        "speaker_diarization": 89.6650002002716,
+        "speaker_embedding": 7.200999975204468,
+        "episodic_memory": 597.3639998435974,
+        "create_memory_nodes": 0.25500011444091797,
+        "build_index": 5.309000015258789,
+        "face_clustering": 3280.1900000572205,
+        "voice_segmentation": 6.554999828338623,
+        "voice_clustering": 15.236999988555908,
+        "semantic_memory_consolidator": 2.9772322177886963
+      },
+      "methods": {
+        "ogmemory": {
+          "shared_perception": 454.77067518234253,
+          "memory_and_index": 3923.9682109355927,
+          "qa": 295.5545995235443,
+          "allocated_total": 4674.2934856414795
+        },
+        "m3_agent": {
+          "shared_perception": 454.77067518234253,
+          "memory_and_index": 428.88676023483276,
+          "qa": 157.12392735481262,
+          "allocated_total": 1040.781362771988
+        }
+      },
+      "qa_failed_answers": {
+        "og_qa": 0,
+        "m3_qa": 0
+      },
+      "actual_experiment_phase_seconds": 5260.304173231125
+    },
+    {
+      "video": "gym_03",
+      "questions": 11,
+      "stage_seconds": {
+        "runner_startup": 4.992341756820679,
+        "trim": 2.622999906539917,
+        "annotate": 0.0010001659393310547,
+        "preprocess": 8.375,
+        "load_clips": 4.252999782562256,
+        "extract_audio": 12.910000085830688,
+        "extract_frames": 43.46000003814697,
+        "detect_faces": 104.29800009727478,
+        "voice_asr": 48.98099994659424,
+        "speaker_diarization": 85.29699993133545,
+        "speaker_embedding": 7.697999954223633,
+        "episodic_memory": 234.1230001449585,
+        "create_memory_nodes": 0.24199986457824707,
+        "build_index": 4.864000082015991,
+        "face_clustering": 4577.635999917984,
+        "voice_segmentation": 12.8989999294281,
+        "voice_clustering": 15.96500015258789,
+        "semantic_memory_consolidator": 3.015909194946289
+      },
+      "methods": {
+        "ogmemory": {
+          "shared_perception": 322.88834166526794,
+          "memory_and_index": 4862.829076766968,
+          "qa": 261.2190160751343,
+          "allocated_total": 5446.93643450737
+        },
+        "m3_agent": {
+          "shared_perception": 322.88834166526794,
+          "memory_and_index": 470.9622759819031,
+          "qa": 120.27237462997437,
+          "allocated_total": 914.1229922771454
+        }
+      },
+      "qa_failed_answers": {
+        "og_qa": 0,
+        "m3_qa": 0
+      },
+      "actual_experiment_phase_seconds": 6038.171085119247
+    },
+    {
+      "video": "bedroom_04",
+      "questions": 11,
+      "stage_seconds": {
+        "runner_startup": 11.861136436462402,
+        "trim": 9.535000085830688,
+        "annotate": 0.0009999275207519531,
+        "preprocess": 13.3989999294281,
+        "load_clips": 2.884000062942505,
+        "extract_audio": 9.151000022888184,
+        "extract_frames": 96.07200002670288,
+        "detect_faces": 94.88899993896484,
+        "voice_asr": 50.9210000038147,
+        "speaker_diarization": 71.2480001449585,
+        "speaker_embedding": 6.890999794006348,
+        "episodic_memory": 189.9190001487732,
+        "create_memory_nodes": 0.20599985122680664,
+        "build_index": 4.25600004196167,
+        "face_clustering": 6082.047000169754,
+        "voice_segmentation": 9.000999927520752,
+        "voice_clustering": 17.76799988746643,
+        "semantic_memory_consolidator": 2.840402126312256
+      },
+      "methods": {
+        "ogmemory": {
+          "shared_perception": 366.8521363735199,
+          "memory_and_index": 6319.941210985184,
+          "qa": 252.98299932479858,
+          "allocated_total": 6939.776346683502
+        },
+        "m3_agent": {
+          "shared_perception": 366.8521363735199,
+          "memory_and_index": 433.68908882141113,
+          "qa": 138.330322265625,
+          "allocated_total": 938.871547460556
+        }
+      },
+      "qa_failed_answers": {
+        "og_qa": 0,
+        "m3_qa": 0
+      },
+      "actual_experiment_phase_seconds": 7511.795757770538
+    },
+    {
+      "video": "study_09",
+      "questions": 12,
+      "stage_seconds": {
+        "runner_startup": 6.9411702156066895,
+        "trim": 3.9690001010894775,
+        "annotate": 0.0009999275207519531,
+        "preprocess": 11.128000020980835,
+        "load_clips": 5.047999858856201,
+        "extract_audio": 17.055000066757202,
+        "extract_frames": 53.23099994659424,
+        "detect_faces": 103.19200015068054,
+        "voice_asr": 51.7960000038147,
+        "speaker_diarization": 90.97499990463257,
+        "speaker_embedding": 6.443000078201294,
+        "episodic_memory": 3317.5729999542236,
+        "create_memory_nodes": 0.2760000228881836,
+        "build_index": 5.33299994468689,
+        "face_clustering": 77.49399995803833,
+        "voice_segmentation": 12.365000009536743,
+        "voice_clustering": 7.41100001335144,
+        "semantic_memory_consolidator": 3.14725661277771
+      },
+      "methods": {
+        "ogmemory": {
+          "shared_perception": 349.7791702747345,
+          "memory_and_index": 3439.2433812618256,
+          "qa": 733.8750174045563,
+          "allocated_total": 4522.897568941116
+        },
+        "m3_agent": {
+          "shared_perception": 349.7791702747345,
+          "memory_and_index": 2703.084228038788,
+          "qa": 316.12824869155884,
+          "allocated_total": 3368.991647005081
+        }
+      },
+      "qa_failed_answers": {
+        "og_qa": 0,
+        "m3_qa": 0
+      },
+      "actual_experiment_phase_seconds": 7542.110045671463
+    },
+    {
+      "video": "kitchen_01",
+      "questions": 13,
+      "stage_seconds": {
+        "runner_startup": 4.700976610183716,
+        "trim": 2.872999906539917,
+        "annotate": 0.0,
+        "preprocess": 9.651999950408936,
+        "load_clips": 4.731000185012817,
+        "extract_audio": 14.585999965667725,
+        "extract_frames": 50.49499988555908,
+        "detect_faces": 121.20799994468689,
+        "voice_asr": 51.229000091552734,
+        "speaker_diarization": 93.38100004196167,
+        "speaker_embedding": 6.328999996185303,
+        "episodic_memory": 1864.6679999828339,
+        "create_memory_nodes": 0.26999998092651367,
+        "build_index": 5.069000005722046,
+        "face_clustering": 446.6579999923706,
+        "voice_segmentation": 13.91700005531311,
+        "voice_clustering": 8.108000040054321,
+        "semantic_memory_consolidator": 3.0883841514587402
+      },
+      "methods": {
+        "ogmemory": {
+          "shared_perception": 359.1849765777588,
+          "memory_and_index": 2357.2088968753815,
+          "qa": 963.9044036865234,
+          "allocated_total": 3680.2982771396637
+        },
+        "m3_agent": {
+          "shared_perception": 359.1849765777588,
+          "memory_and_index": 2844.5487143993378,
+          "qa": 419.0059247016907,
+          "allocated_total": 3622.7396156787872
+        }
+      },
+      "qa_failed_answers": {
+        "og_qa": 2,
+        "m3_qa": 0
+      },
+      "actual_experiment_phase_seconds": 6943.852916240692
+    },
+    {
+      "video": "bedroom_05",
+      "questions": 12,
+      "stage_seconds": {
+        "runner_startup": 10.858046770095825,
+        "trim": 10.398000001907349,
+        "annotate": 0.0,
+        "preprocess": 14.508999824523926,
+        "load_clips": 3.1560001373291016,
+        "extract_audio": 14.91599988937378,
+        "extract_frames": 116.64800000190735,
+        "detect_faces": 81.17300009727478,
+        "voice_asr": 49.27900004386902,
+        "speaker_diarization": 81.44899988174438,
+        "speaker_embedding": 7.565000057220459,
+        "episodic_memory": 2415.792000055313,
+        "create_memory_nodes": 0.24499988555908203,
+        "build_index": 4.937999963760376,
+        "face_clustering": 818.4400000572205,
+        "voice_segmentation": 9.949000120162964,
+        "voice_clustering": 8.950999975204468,
+        "semantic_memory_consolidator": 2.7898809909820557
+      },
+      "methods": {
+        "ogmemory": {
+          "shared_perception": 389.951046705246,
+          "memory_and_index": 3275.449211835861,
+          "qa": 414.6516056060791,
+          "allocated_total": 4080.0518641471863
+        },
+        "m3_agent": {
+          "shared_perception": 389.951046705246,
+          "memory_and_index": 2796.2012898921967,
+          "qa": 189.2404124736786,
+          "allocated_total": 3375.392749071121
+        }
+      },
+      "qa_failed_answers": {
+        "og_qa": 0,
+        "m3_qa": 0
+      },
+      "actual_experiment_phase_seconds": 7065.4935665130615
+    },
+    {
+      "video": "study_23",
+      "questions": 14,
+      "stage_seconds": {
+        "runner_startup": 6.733091592788696,
+        "trim": 2.937999963760376,
+        "annotate": 0.0,
+        "preprocess": 9.04200005531311,
+        "load_clips": 4.496999979019165,
+        "extract_audio": 13.450000047683716,
+        "extract_frames": 46.75699996948242,
+        "detect_faces": 91.80900001525879,
+        "voice_asr": 49.257999897003174,
+        "speaker_diarization": 82.90300011634827,
+        "speaker_embedding": 5.559000015258789,
+        "episodic_memory": 3371.2269999980927,
+        "create_memory_nodes": 0.247999906539917,
+        "build_index": 4.559000015258789,
+        "face_clustering": 1326.7179999351501,
+        "voice_segmentation": 13.40499997138977,
+        "voice_clustering": 11.547000169754028,
+        "semantic_memory_consolidator": 2.931302785873413
+      },
+      "methods": {
+        "ogmemory": {
+          "shared_perception": 312.9460916519165,
+          "memory_and_index": 4745.558672904968,
+          "qa": 679.6889834403992,
+          "allocated_total": 5738.193747997284
+        },
+        "m3_agent": {
+          "shared_perception": 312.9460916519165,
+          "memory_and_index": 4125.6429142951965,
+          "qa": 333.0518705844879,
+          "allocated_total": 4771.640876531601
+        }
+      },
+      "qa_failed_answers": {
+        "og_qa": 0,
+        "m3_qa": 0
+      },
+      "actual_experiment_phase_seconds": 10196.888532876968
+    },
+    {
+      "video": "kitchen_23",
+      "questions": 12,
+      "stage_seconds": {
+        "runner_startup": 12.527796506881714,
+        "trim": 11.952999830245972,
+        "annotate": 0.0,
+        "preprocess": 16.17200016975403,
+        "load_clips": 3.382999897003174,
+        "extract_audio": 21.918999910354614,
+        "extract_frames": 106.54800009727478,
+        "detect_faces": 87.43400001525879,
+        "voice_asr": 46.61800003051758,
+        "speaker_diarization": 72.40299987792969,
+        "speaker_embedding": 5.581000089645386,
+        "episodic_memory": 3482.832000017166,
+        "create_memory_nodes": 0.23199987411499023,
+        "build_index": 4.708000183105469,
+        "face_clustering": 1948.1829998493195,
+        "voice_segmentation": 8.72100019454956,
+        "voice_clustering": 13.86299991607666,
+        "semantic_memory_consolidator": 2.9714982509613037
+      },
+      "methods": {
+        "ogmemory": {
+          "shared_perception": 384.5387964248657,
+          "memory_and_index": 5483.408487796783,
+          "qa": 352.9306035041809,
+          "allocated_total": 6220.87788772583
+        },
+        "m3_agent": {
+          "shared_perception": 384.5387964248657,
+          "memory_and_index": 1175.2353959083557,
+          "qa": 188.33078813552856,
+          "allocated_total": 1748.10498046875
+        }
+      },
+      "qa_failed_answers": {
+        "og_qa": 0,
+        "m3_qa": 0
+      },
+      "actual_experiment_phase_seconds": 7584.444071769714
+    }
+  ],
+  "totals_seconds": {
+    "ogmemory": {
+      "shared_perception": 2940.911234855652,
+      "memory_and_index": 34407.607149362564,
+      "qa": 3954.807228565216,
+      "allocated_total": 41303.32561278343
+    },
+    "m3_agent": {
+      "shared_perception": 2940.911234855652,
+      "memory_and_index": 14978.250667572021,
+      "qa": 1861.4838688373566,
+      "allocated_total": 19780.64577126503
+    }
+  },
+  "shared_breakdown_seconds": {
+    "Setup / slicing / loading": 264.8532347679138,
+    "Audio extraction": 121.12999987602234,
+    "Frame extraction": 631.2920000553131,
+    "Face detection / features": 803.7900002002716,
+    "ASR": 399.2579998970032,
+    "Speaker diarization": 667.3210000991821,
+    "Speaker embeddings": 53.26699995994568
+  },
+  "actual_experiment_phase_seconds": 58143.06014919281,
+  "accounting": "Shared perception physically runs once; assign identical measured duration to each standalone-method total. Do not sum the two allocated totals as experiment wall time.",
+  "scope": "Stage wall-clock intervals, including local work, remote waits/retries and any within-stage quota waits. Excludes final common judge and between-phase driver gaps. Not API CPU/GPU compute time.",
+  "granularity": "M3 memory stage bundles input preparation, identities, generation and embedding; oGMemory memory/graph/index work is grouped to match that scope.",
+  "source_sha256": {
+    "experiments/m3_ten_fullinterval_20261102/manifest.json": "da926d926a80c8dc1e1b3a9c9fd0f0e404db1560ea5a0467743b51d34ab90ac9",
+    "runs/m3_ten_fullinterval_20261102/og_qa/study_05/m3_qa_results.jsonl": "14765cc18ccb0cbc6712ace05c9c8657ca3af489ebd6badfca2cfbbadee9d212",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/study_05/m3_qa_results.jsonl": "dc1e86f8ec0593473d198414a5233316091935a9c5a8b888bce66561824a789b",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_05-pipeline.json": "853137a1bfc4e5b773aebf7b7e7b515d8e978d811341ae1ee6eac4686d95a1d3",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_05-index.json": "0d233a30e8930cbf7209df8972e27471f3ce0a7671588763a7ac077024cd76ee",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_05-og_qa.json": "ab6bedc68f939a9498cdc90601fbc6bf147ead81343f850a4ea9b97aec7a5744",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_05-m3_memory.json": "151d5defed4c381368864868eea999db765b52921848aac32a1e1fbff68baac3",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_05-m3_qa.json": "d1534fcaafe8f082bbbbb53f00819a4237f80155a5d63982c268ca466c75bff3",
+    "experiments/m3_ten_fullinterval_20261102/private/study_05-pipeline.log": "cc3971040be6d5f7e4775fd6b49c09260296187cb43a6dc90566cd468bff5fbd",
+    "runs/m3_ten_fullinterval_20261102/study_05/pipeline_summary.json": "0409eef8b0a54451db4a1aeacc25183fe1596b64c1c426e2945f8d6a86ad50a7",
+    "runs/m3_ten_fullinterval_20261102/og_qa/gym_03/m3_qa_results.jsonl": "7b52bb08e6fcd01167ffb09d40baad0c6514e9d6b4f7ea4bc4248c7da9991f7a",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/gym_03/m3_qa_results.jsonl": "52468868a51daceb58e65c21b61c9b78ce3c967f172a975a6f3d8d396eff20be",
+    "experiments/m3_ten_fullinterval_20261102/stages/gym_03-pipeline.json": "1a01a4d3d8329a2f43519dcb5a1ac6b528e1821d0e92f5157e641d6b14a34f00",
+    "experiments/m3_ten_fullinterval_20261102/stages/gym_03-index.json": "b02243c3f97ab233befc34d373eac43da13cb97e83e76fdf26f8a810cf75b9ee",
+    "experiments/m3_ten_fullinterval_20261102/stages/gym_03-og_qa.json": "d782e424046a597c312fef8751ef4c1a753c189e463baab6b740ad56e319be29",
+    "experiments/m3_ten_fullinterval_20261102/stages/gym_03-m3_memory.json": "3f7083da9859579f0dc8b3dc9e88d868c2492ef28d0f10e0963383ace28768fc",
+    "experiments/m3_ten_fullinterval_20261102/stages/gym_03-m3_qa.json": "d35d3dd5c5f86d527ec0edbc85cfa34e95a289afbe1a041c9ccc2b617bdafbce",
+    "experiments/m3_ten_fullinterval_20261102/private/gym_03-pipeline.log": "89a39df51cfa20b81fba15dcd08774ffe32a276ea28f5dd5ec9099467d389213",
+    "runs/m3_ten_fullinterval_20261102/gym_03/pipeline_summary.json": "23253113de79f075c0d46bb7fda7d54c3546b60f1ba2ae217938f0ca2147d0a2",
+    "runs/m3_ten_fullinterval_20261102/og_qa/bedroom_04/m3_qa_results.jsonl": "349eec864c5b888c414ca1ba249a64f368d5e4e7e3f4db3ce811ce64b4f0506d",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/bedroom_04/m3_qa_results.jsonl": "6b7565de30e0dc0ee33fdf483778124b4f1ea7dddf793333a7e45edcff917906",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_04-pipeline.json": "d3342e7e893db88b5553b63556b2e49c921fef2d623313ea5355f1438acb0111",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_04-index.json": "fd17656d9ea68d849cd27f87398ed794e387a4ba76003b7180be59d6c91390fb",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_04-og_qa.json": "8539877179eda33f32069481982ab91f810906655bf495fe0741b555dc68dc79",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_04-m3_memory.json": "16082c69bbcc85a9cf9ebf732db489a2ad4df3dfd5e2ae9c5aa843c46cfb8206",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_04-m3_qa.json": "4e570943dca8c509126949cd9c623309e40611fa429c12374a98700f3613d7dc",
+    "experiments/m3_ten_fullinterval_20261102/private/bedroom_04-pipeline.log": "d7d8c27fee45875dffbb6061dd38baebe266fa3f5bbac435892c79bbefa6fb3a",
+    "runs/m3_ten_fullinterval_20261102/bedroom_04/pipeline_summary.json": "8069080234b2023b4f20315ea2ac6c7a56b9cadf05b30c40a089e1cb6cd3169a",
+    "runs/m3_ten_fullinterval_20261102/og_qa/study_09/m3_qa_results.jsonl": "dea8aeb16b1940a70487542d67b433b93b0a2aa40db307c22bea0df24d89be8a",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/study_09/m3_qa_results.jsonl": "18c45cbb8e31b8d89ce2770acbf769b93de5df68599576868817615fa8b31031",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_09-pipeline.json": "b7977dcb6a17389439658a67a2c8c8cf91cbb7e21265a2491078d81dbacad35f",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_09-index.json": "649503afa13913434c5ea0fe22c3f2c164ff842ac4c88b01d17c95d2ec5cb221",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_09-og_qa.json": "97997b91a5a0df1b1c564bddb0d947b92a3ec5eb9c1765dc123c1a591c192b0e",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_09-m3_memory.json": "a4920bb62f79ec868ed8752ab5fea5da8e1bc9b4173136d8b23f4f983519f162",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_09-m3_qa.json": "8834b79beeeac438b40d3106ee5b5be60979ea6ffffad0a6bbb0dc4b245740a3",
+    "experiments/m3_ten_fullinterval_20261102/private/study_09-pipeline.log": "81af94449521a75c8ea5fcd12b193103516e10f22b6fdc07094f7e1e2405d016",
+    "runs/m3_ten_fullinterval_20261102/study_09/pipeline_summary.json": "b78fa0e6d42a40d5bced7dede3ce7895e7af0d060ee67ba7242a54178c9ffb35",
+    "runs/m3_ten_fullinterval_20261102/og_qa/kitchen_01/m3_qa_results.jsonl": "89c5841983a1b82a4110a0821c219eb0dd33643c64b11b61bf624db00af4c045",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/kitchen_01/m3_qa_results.jsonl": "4174c6041b0a51b869238d429f2e4f4b91fd756ad482873d6fe480ab5e8e847b",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_01-pipeline.json": "8bc1612efe708b1dd9c2a8eb2ed6afebfeb62fe35fb80d0154215397e439b99a",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_01-index.json": "637b9d9f3ce1ed08ee71a9f14e8decccf5a16b8f79021c6cff82d33358338467",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_01-og_qa.json": "c89dff10772066a438840368986ea9ab4135d9aefadba8b4e123df97dec8d2e3",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_01-m3_memory.json": "ddc24a3c18db277c30272e20134372cc2635fb69f7b4b60a40459b15168c7b90",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_01-m3_qa.json": "aa9621e24ba46aa0086d20b2d26f8ef62b8b4415026ab1f3ac548dabe6818216",
+    "experiments/m3_ten_fullinterval_20261102/private/kitchen_01-pipeline.log": "7f3418ccb2fe18018717935bc1377bfd9b36d9116d3572bfbd1a14db81654f9b",
+    "runs/m3_ten_fullinterval_20261102/kitchen_01/pipeline_summary.json": "c9eff20a0540dc68aa6418575b953d2108cdac2bd87f8c9cdb22885c2718692d",
+    "runs/m3_ten_fullinterval_20261102/og_qa/bedroom_05/m3_qa_results.jsonl": "52d5bda6c51b1ecba5941f8d2e11d787cf5f249a3854daf202800df5734ab78c",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/bedroom_05/m3_qa_results.jsonl": "a8db4f148180363f4d1b69289d797414d013580be28e5548a276ab90ffcfde86",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_05-pipeline.json": "d5249792c9eb226f7dd377f35b3ba48ac82608584ee4d59bd3b035c9b2419f96",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_05-index.json": "089a7ab7f886dfff43ad78242639ee089f9b42009914016305ff59ea8f51be40",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_05-og_qa.json": "f75d790085989c652708f3da2fac9717f5aa29655d092aac3284214877a3bb95",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_05-m3_memory.json": "0871676fc58db5bfa2a20dffe2d1d1c75d0bc6bc48797e355113d7d78a2cd21a",
+    "experiments/m3_ten_fullinterval_20261102/stages/bedroom_05-m3_qa.json": "5479879f385a66f3998eb834b00496fae1e019147b402b5e294e02ba56058815",
+    "experiments/m3_ten_fullinterval_20261102/private/bedroom_05-pipeline.log": "67dcfa40cd85099257092d183e7f0f44df2b12da0c449ade137c998e4e8ad023",
+    "runs/m3_ten_fullinterval_20261102/bedroom_05/pipeline_summary.json": "cbaceb62f6a6a4d968e68157b08f7be20da8413b3a84cfe52b00a4324bb00086",
+    "runs/m3_ten_fullinterval_20261102/og_qa/study_23/m3_qa_results.jsonl": "895b9b38d557b86a8b4f3b0adc8099b9bd29b8aa2f58a831f6ac7a7c5f59fb32",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/study_23/m3_qa_results.jsonl": "330f2621e8849f54afc1b2a677b31594b4ee6bc95a04cb0a7cbae81283245d8b",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_23-pipeline.json": "843322c4a540fa0cf110df271e4b7b868a693f9fd2f50790d94a7cc6596998b0",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_23-index.json": "9effac9788fc2b4ad6a30a1d4988800356d4f33eddc6f1aa3e848c4600489395",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_23-og_qa.json": "5dbc6ca9943f8880af01f6eeee75c43758fe042c3195fcb211afc3e63704cff8",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_23-m3_memory.json": "aefebbae842610bdd395e1eb8da1b14633df54bc7c11528808d5b038fe424831",
+    "experiments/m3_ten_fullinterval_20261102/stages/study_23-m3_qa.json": "2602d5299dca76f6626242aca6a34c058dad824f0149dad5cc13171a79a683a8",
+    "experiments/m3_ten_fullinterval_20261102/private/study_23-pipeline.log": "e9284644e37f6d78ca433ce800d1ccba010946c983a17dce0038f3b7e6e3b8ed",
+    "runs/m3_ten_fullinterval_20261102/study_23/pipeline_summary.json": "a330d37195d31b41f2e683fc2386467bfe53d03814cd55d23882b343b444ccac",
+    "runs/m3_ten_fullinterval_20261102/og_qa/kitchen_23/m3_qa_results.jsonl": "965f41156b4c1b4515041014bd0e81fca0d42b68a0871f52fe9b71449576d7b3",
+    "runs/m3_ten_fullinterval_20261102/m3_qa/kitchen_23/m3_qa_results.jsonl": "5c14fae69988a79415186dff1e35bac285bb25bc2fece3eb9389b97d7d2192e0",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_23-pipeline.json": "490edeb6f208657faa99bd67de8ed01e2d15781527756984196e3a2622b41df3",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_23-index.json": "ec40c31fdca94659cacedc047230a00d631b242c2454f9480ff976acacffcc7c",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_23-og_qa.json": "6061d80ca5aa9feca9c3aecfb00c3e3ca74de8c1dd097478003d847c79375585",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_23-m3_memory.json": "b1e1fb6a7ebb3bbd94dc38e3377a3032c211bf355da1246829f59b4fcad703fb",
+    "experiments/m3_ten_fullinterval_20261102/stages/kitchen_23-m3_qa.json": "1606ce12decfc195f6167813bc9cd3eb389c458346a2945a121d8ed26e89ef51",
+    "experiments/m3_ten_fullinterval_20261102/private/kitchen_23-pipeline.log": "5197337d24ba2a19b72dbcd46af7b520d5c43a06ff3498ecd95a88016f738f65",
+    "runs/m3_ten_fullinterval_20261102/kitchen_23/pipeline_summary.json": "5c03b1aab64ad5ba2af68e0cc42a12c07676a5b5fa7291a9299732a410f6daad"
+  }
+}

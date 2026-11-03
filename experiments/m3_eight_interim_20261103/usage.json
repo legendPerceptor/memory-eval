@@ -1,0 +1,84 @@
+{
+  "ogmemory": {
+    "qa": {
+      "calls": 525,
+      "api_errors": 0,
+      "unknown_usage_calls": 0,
+      "prompt_tokens": 4039490,
+      "completion_tokens": 111694,
+      "total_tokens": 4151184,
+      "cached_prompt_tokens": 1910955,
+      "uncached_prompt_tokens": 2128535,
+      "unknown_cache_usage_calls": 0,
+      "complete_usage": true,
+      "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+    },
+    "memory": {
+      "calls": 547,
+      "api_errors": 0,
+      "unknown_usage_calls": 0,
+      "prompt_tokens": 2510078,
+      "completion_tokens": 784774,
+      "total_tokens": 3294852,
+      "cached_prompt_tokens": 604627,
+      "uncached_prompt_tokens": 1905451,
+      "unknown_cache_usage_calls": 0,
+      "complete_usage": true,
+      "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+    },
+    "memory_plus_qa": {
+      "calls": 1072,
+      "api_errors": 0,
+      "unknown_usage_calls": 0,
+      "prompt_tokens": 6549568,
+      "completion_tokens": 896468,
+      "total_tokens": 7446036,
+      "cached_prompt_tokens": 2515582,
+      "uncached_prompt_tokens": 4033986,
+      "unknown_cache_usage_calls": 0,
+      "complete_usage": true,
+      "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+    }
+  },
+  "m3_agent": {
+    "qa": {
+      "calls": 398,
+      "api_errors": 0,
+      "unknown_usage_calls": 0,
+      "prompt_tokens": 733810,
+      "completion_tokens": 45024,
+      "total_tokens": 778834,
+      "cached_prompt_tokens": 470888,
+      "uncached_prompt_tokens": 262922,
+      "unknown_cache_usage_calls": 0,
+      "complete_usage": true,
+      "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+    },
+    "memory": {
+      "calls": 548,
+      "api_errors": 1,
+      "unknown_usage_calls": 1,
+      "prompt_tokens": 2417948,
+      "completion_tokens": 1202439,
+      "total_tokens": 3620387,
+      "cached_prompt_tokens": 182067,
+      "uncached_prompt_tokens": null,
+      "unknown_cache_usage_calls": 0,
+      "complete_usage": false,
+      "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+    },
+    "memory_plus_qa": {
+      "calls": 946,
+      "api_errors": 1,
+      "unknown_usage_calls": 1,
+      "prompt_tokens": 3151758,
+      "completion_tokens": 1247463,
+      "total_tokens": 4399221,
+      "cached_prompt_tokens": 652955,
+      "uncached_prompt_tokens": null,
+      "unknown_cache_usage_calls": 0,
+      "complete_usage": false,
+      "scope": "Received response usage; missing usage not treated as zero; completion includes reasoning."
+    }
+  }
+}

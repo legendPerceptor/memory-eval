@@ -4,7 +4,7 @@ import math
 import pytest
 
 from plot_m3_stage_times import (EXPECTED_STAGES, SHARED_GROUPS, finite_seconds,
-                                method_times, stage_durations, collect)
+                                method_times, stage_durations, collect, phase_finished)
 
 
 def fixture():
@@ -61,3 +61,12 @@ def test_no_completed_pair_does_not_generate_zero_filled_results(tmp_path):
                                                   'selected_video_ids': ['v'], 'question_counts': {'v': 1}}))
     with pytest.raises(ValueError, match='No paired completed'):
         collect(tmp_path, 'demo')
+
+
+def test_complete_qa_failures_are_not_excluded_from_timing():
+    answers = [{'video_id': 'v', 'question_id': 'q1', 'error': 'timeout'},
+               {'video_id': 'v', 'question_id': 'q2', 'error': ''}]
+    r = {'exit_code': 2, 'status': 'failed'}
+    assert phase_finished(r, 'og_qa', answers, 2, 'v')
+    assert not phase_finished(r, 'og_qa', answers[:1], 2, 'v')
+    assert not phase_finished(r, 'pipeline')
