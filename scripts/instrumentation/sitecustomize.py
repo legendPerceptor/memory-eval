@@ -15,6 +15,14 @@ if path:
     if not getattr(original, "_m3_usage_audit", False):
         def audited(self, **kwargs):
             started = time.time()
+            # New parallel workers carry labels in ContextVar, never in
+            # process-global environment variables. Old frozen sources keep
+            # their serial environment fallback.
+            try:
+                from m3._parallel import current_call_scope
+                scope = current_call_scope()
+            except ImportError:
+                scope = {}
             messages = kwargs.get("messages") or []
             parts = [p for message in messages if isinstance(message.get("content"), list)
                      for p in message["content"]]
@@ -25,10 +33,10 @@ if path:
                 "started_at_unix": started,
                 "process": os.path.basename(sys.argv[0]),
                 "pid": os.getpid(),
-                "qa_video_id": os.environ.get("M3_AUDIT_VIDEO"),
-                "qa_question_index": os.environ.get("M3_AUDIT_QUESTION_INDEX"),
-                "input_video_id": video[1] if video else None,
-                "input_clip_id": clip[1] if clip else None,
+                "qa_video_id": scope.get("qa_video_id", os.environ.get("M3_AUDIT_VIDEO")),
+                "qa_question_index": str(scope["qa_question_index"]) if "qa_question_index" in scope else os.environ.get("M3_AUDIT_QUESTION_INDEX"),
+                "input_video_id": scope.get("input_video_id", video[1] if video else None),
+                "input_clip_id": scope.get("input_clip_id", clip[1] if clip else None),
                 "messages_sha256": hashlib.sha256(json.dumps(messages, sort_keys=True, ensure_ascii=False).encode()).hexdigest(),
                 "requested_model": kwargs.get("model"),
                 "endpoint_host": urlsplit(self._base_url).hostname,
