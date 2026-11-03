@@ -96,7 +96,7 @@ def test_concurrent_usage_attribution(tmp_path):
 
     env = {
         **os.environ,
-        "PYTHONPATH": str(root / "oGMemory"),
+        "PYTHONPATH": os.environ.get("M3_TEST_SOURCE", str(root / "oGMemory")),
         "AUDIT_FILE": str(root / "scripts/instrumentation/sitecustomize.py"),
         "M3_USAGE_LOG": str(tmp_path / "usage.jsonl"),
     }

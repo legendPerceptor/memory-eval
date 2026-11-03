@@ -1,0 +1,8 @@
+{
+  "video": "study_09",
+  "phase": "pipeline",
+  "exit_code": 2,
+  "started_at_unix": 1793686264.8609803,
+  "seconds": 5526.972238302231,
+  "status": "failed"
+}

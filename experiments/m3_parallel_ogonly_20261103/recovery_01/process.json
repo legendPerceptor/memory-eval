@@ -1,0 +1,8 @@
+{
+  "pid": 395695,
+  "started_at_unix": 1793692875.622988,
+  "memory_workers": 2,
+  "qa_workers": 4,
+  "source_commit": "eceb96ff2958e72b373a7c3ea280d46827981351",
+  "m3_inference_rerun": false
+}

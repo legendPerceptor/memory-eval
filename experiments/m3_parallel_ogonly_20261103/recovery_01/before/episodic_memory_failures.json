@@ -1,0 +1,42 @@
+[
+  {
+    "video_id": "study_09",
+    "clip_id": 25,
+    "error": "episodic_memory_generator failed for 590db37d-eff0-f852-3910-eaacb595b82f: OpenAI provider temporarily unavailable: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': '\u5f53\u524d\u670d\u52a1\u96c6\u7fa4\u8d1f\u8f7d\u8f83\u9ad8\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5\uff0c\u611f\u8c22\u60a8\u7684\u8010\u5fc3\u7b49\u5f85\u3002 (2064)', 'http_code': '529'}, 'request_id': '0738b8c4a282a4849446f42d0cf7baac'}"
+  },
+  {
+    "video_id": "study_09",
+    "clip_id": 27,
+    "error": "episodic_memory_generator failed for 298e1ae4-4d3f-b71b-f641-0a96590faad2: OpenAI provider temporarily unavailable: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': '\u5f53\u524d\u670d\u52a1\u96c6\u7fa4\u8d1f\u8f7d\u8f83\u9ad8\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5\uff0c\u611f\u8c22\u60a8\u7684\u8010\u5fc3\u7b49\u5f85\u3002 (2064)', 'http_code': '529'}, 'request_id': '0738b84c734de11abe37ef5b8bffcfbb'}"
+  },
+  {
+    "video_id": "study_09",
+    "clip_id": 28,
+    "error": "episodic_memory_generator failed for 38659ad9-18e8-b438-24c9-f0707dde1876: OpenAI provider temporarily unavailable: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': '\u5f53\u524d\u670d\u52a1\u96c6\u7fa4\u8d1f\u8f7d\u8f83\u9ad8\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5\uff0c\u611f\u8c22\u60a8\u7684\u8010\u5fc3\u7b49\u5f85\u3002 (2064)', 'http_code': '529'}, 'request_id': '0738ba0cb2ee7a755447b722f72a975e'}"
+  },
+  {
+    "video_id": "study_09",
+    "clip_id": 29,
+    "error": "episodic_memory_generator failed for 37f9d3e4-c262-dfb1-728d-f50b0bd7d132: OpenAI provider temporarily unavailable: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': '\u5f53\u524d\u670d\u52a1\u96c6\u7fa4\u8d1f\u8f7d\u8f83\u9ad8\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5\uff0c\u611f\u8c22\u60a8\u7684\u8010\u5fc3\u7b49\u5f85\u3002 (2064)', 'http_code': '529'}, 'request_id': '0738b9bc9b27e1b3fe4542c1b62a0fa5'}"
+  },
+  {
+    "video_id": "study_09",
+    "clip_id": 3,
+    "error": "episodic_memory_generator failed for 8317cee9-1665-c7a8-565e-3dd87594aa6a: OpenAI provider temporarily unavailable: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': '\u5f53\u524d\u670d\u52a1\u96c6\u7fa4\u8d1f\u8f7d\u8f83\u9ad8\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5\uff0c\u611f\u8c22\u60a8\u7684\u8010\u5fc3\u7b49\u5f85\u3002 (2064)', 'http_code': '529'}, 'request_id': '0738b96ebcba06887c8d1a1c56157572'}"
+  },
+  {
+    "video_id": "study_09",
+    "clip_id": 30,
+    "error": "episodic_memory_generator failed for 34c34312-82f9-efd9-5225-49a6658720df: OpenAI provider temporarily unavailable: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': '\u5f53\u524d\u670d\u52a1\u96c6\u7fa4\u8d1f\u8f7d\u8f83\u9ad8\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5\uff0c\u611f\u8c22\u60a8\u7684\u8010\u5fc3\u7b49\u5f85\u3002 (2064)', 'http_code': '529'}, 'request_id': '0738b915a8b148d6539ddb8f10a799e5'}"
+  },
+  {
+    "video_id": "study_09",
+    "clip_id": 31,
+    "error": "episodic_memory_generator failed for 70a97b1f-36b8-f210-ac2c-ec291ed423a0: OpenAI provider temporarily unavailable: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': '\u5f53\u524d\u670d\u52a1\u96c6\u7fa4\u8d1f\u8f7d\u8f83\u9ad8\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5\uff0c\u611f\u8c22\u60a8\u7684\u8010\u5fc3\u7b49\u5f85\u3002 (2064)', 'http_code': '529'}, 'request_id': '0738b9ff66685bd3bc8ba68a3c190208'}"
+  },
+  {
+    "video_id": "study_09",
+    "clip_id": 32,
+    "error": "episodic_memory_generator failed for 7a1a39f9-224d-51c6-895d-8e8ba8aa5dbe: OpenAI provider temporarily unavailable: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': '\u5f53\u524d\u670d\u52a1\u96c6\u7fa4\u8d1f\u8f7d\u8f83\u9ad8\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5\uff0c\u611f\u8c22\u60a8\u7684\u8010\u5fc3\u7b49\u5f85\u3002 (2064)', 'http_code': '529'}, 'request_id': '0738baf42c664ec73888e2af13d313af'}"
+  }
+]

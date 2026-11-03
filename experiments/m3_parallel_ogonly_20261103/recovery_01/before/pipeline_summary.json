@@ -1,0 +1,375 @@
+{
+  "pipeline": {
+    "name": "video_episodic_full",
+    "version": 1,
+    "description": "End-to-end M3 pipeline: video + audio + face + voice + semantic consolidation + QA on the indexed graph."
+  },
+  "video_id": "study_09",
+  "selected_video": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/videos/robot/study_09.mp4",
+  "annotations": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/annotations/one_video.json",
+  "data_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/data.jsonl",
+  "frames_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/frames.jsonl",
+  "faces": {
+    "stage_id": "detect_faces",
+    "stage_type": "m3.detect_faces",
+    "ok": true,
+    "status": "success",
+    "outputs": {
+      "faces_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/faces.jsonl"
+    },
+    "counts": {
+      "records": 2346,
+      "faces": 1991
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "episodic_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/episodic_memory.jsonl",
+  "memory": null,
+  "index": null,
+  "artifacts": {
+    "selected_video": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/videos/robot/study_09.mp4",
+    "annotations": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/annotations/one_video.json",
+    "clips_root": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/clips",
+    "frames_root": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/frames",
+    "audio_root": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/audio",
+    "data_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/data.jsonl",
+    "frames_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/frames.jsonl",
+    "audio_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/audio.jsonl",
+    "faces_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/faces.jsonl",
+    "face_clusters": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/face_clusters.jsonl",
+    "person_identities": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/person_identities.json",
+    "voice_segments": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/voice_segments.jsonl",
+    "voice_clusters": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/voice_clusters.jsonl",
+    "voice_asr": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/voice_asr.jsonl",
+    "semantic_memories": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/semantic_memories.jsonl",
+    "episodic_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/episodic_memory.jsonl",
+    "index_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/episodic_index.jsonl",
+    "qa_results": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/m3_qa_results.jsonl",
+    "summary_json": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/pipeline_summary.json"
+  },
+  "stages": {
+    "trim": {
+      "stage_id": "trim",
+      "stage_type": "video.trim",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "selected_video": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/videos/robot/study_09.mp4"
+      },
+      "counts": {
+        "seconds": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "annotate": {
+      "stage_id": "annotate",
+      "stage_type": "m3.write_single_annotation",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "annotations": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/annotations/one_video.json"
+      },
+      "counts": {
+        "videos": 1
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "preprocess": {
+      "stage_id": "preprocess",
+      "stage_type": "m3.preprocess",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "clips_root": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/clips"
+      },
+      "counts": {},
+      "errors": [],
+      "warnings": []
+    },
+    "load_clips": {
+      "stage_id": "load_clips",
+      "stage_type": "m3.load_clips",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "data_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/data.jsonl"
+      },
+      "counts": {
+        "videos": 1,
+        "clips": 79
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "extract_audio": {
+      "stage_id": "extract_audio",
+      "stage_type": "m3.extract_audio",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "audio_root": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/audio",
+        "audio_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/audio.jsonl"
+      },
+      "counts": {
+        "records": 79,
+        "new_records": 79
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "extract_frames": {
+      "stage_id": "extract_frames",
+      "stage_type": "m3.extract_frames",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "frames_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/frames.jsonl"
+      },
+      "counts": {
+        "records": 79,
+        "frames": 2346
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "detect_faces": {
+      "stage_id": "detect_faces",
+      "stage_type": "m3.detect_faces",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "faces_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/faces.jsonl"
+      },
+      "counts": {
+        "records": 2346,
+        "faces": 1991
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "face_clustering": {
+      "stage_id": "face_clustering",
+      "stage_type": "m3.face_clustering",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "face_clusters": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/face_clusters.jsonl"
+      },
+      "counts": {
+        "faces": 1972,
+        "clusters": 1097
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "voice_asr": {
+      "stage_id": "voice_asr",
+      "stage_type": "m3.voice_asr",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "voice_asr": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/voice_asr.jsonl",
+        "audio_diagnostics": {
+          "status": "completed",
+          "account_id": "m3-parallel-ogonly-20261103",
+          "video_filter": "study_09",
+          "attempted_audio": 79,
+          "cached_audio": 0,
+          "executed_audio": 79,
+          "failed_audio": 0,
+          "completed_audio": 79,
+          "cache_version": 1
+        }
+      },
+      "counts": {
+        "segments": 216,
+        "attempted_audio": 79,
+        "cached_audio": 0,
+        "executed_audio": 79,
+        "completed_audio": 79,
+        "failed_audio": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "speaker_diarization": {
+      "stage_id": "speaker_diarization",
+      "stage_type": "m3.speaker_diarization",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "speaker_turns": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/speaker_turns.jsonl",
+        "audio_diagnostics": {
+          "status": "success",
+          "audio_nodes": 79,
+          "failed_audio_nodes": 0,
+          "account_id": "m3-parallel-ogonly-20261103",
+          "video_filter": "study_09",
+          "attempted_audio": 79,
+          "cached_audio": 0,
+          "executed_audio": 79,
+          "completed_audio": 79,
+          "failed_audio": 0,
+          "cache_version": 1,
+          "turns": 608,
+          "resumed_turns": 0,
+          "preflight_error": null
+        },
+        "diarization_diagnostics": {
+          "status": "success",
+          "audio_nodes": 79,
+          "failed_audio_nodes": 0,
+          "account_id": "m3-parallel-ogonly-20261103",
+          "video_filter": "study_09",
+          "attempted_audio": 79,
+          "cached_audio": 0,
+          "executed_audio": 79,
+          "completed_audio": 79,
+          "failed_audio": 0,
+          "cache_version": 1,
+          "turns": 608,
+          "resumed_turns": 0,
+          "preflight_error": null
+        }
+      },
+      "counts": {
+        "attempted_audio": 79,
+        "cached_audio": 0,
+        "executed_audio": 79,
+        "completed_audio": 79,
+        "failed_audio": 0,
+        "turns": 608,
+        "failed_audio_nodes": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "speaker_embedding": {
+      "stage_id": "speaker_embedding",
+      "stage_type": "m3.speaker_embedding",
+      "ok": true,
+      "status": "success",
+      "outputs": {
+        "speaker_embeddings": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/speaker_embeddings.jsonl",
+        "audio_diagnostics": {
+          "status": "completed",
+          "account_id": "m3-parallel-ogonly-20261103",
+          "video_filter": "study_09",
+          "attempted_audio": 79,
+          "cached_audio": 0,
+          "executed_audio": 71,
+          "failed_audio": 0,
+          "completed_audio": 79,
+          "cache_version": 1,
+          "skipped_speaker_count": 5,
+          "skipped_speakers": [
+            {
+              "audio_node_id": "bfb1a5dc-c794-325b-40e8-db724a6c453e",
+              "speaker_id": "SPEAKER_01",
+              "reason": "audio_too_short",
+              "duration_sec": 0.034
+            },
+            {
+              "audio_node_id": "bb8ccc5f-666c-5e1d-1eae-e946d7ade23d",
+              "speaker_id": "SPEAKER_02",
+              "reason": "audio_too_short",
+              "duration_sec": 0.05
+            },
+            {
+              "audio_node_id": "9ddbfa1a-a659-895d-b403-ffc48c73ea13",
+              "speaker_id": "SPEAKER_01",
+              "reason": "audio_too_short",
+              "duration_sec": 0.05
+            },
+            {
+              "audio_node_id": "7214e4ad-af4c-8936-e67d-19b8d27786c6",
+              "speaker_id": "SPEAKER_00",
+              "reason": "audio_too_short",
+              "duration_sec": 0.034
+            },
+            {
+              "audio_node_id": "8e9fbd1f-ad76-2f3b-6144-02fc2be76a6f",
+              "speaker_id": "SPEAKER_02",
+              "reason": "audio_too_short",
+              "duration_sec": 0.017
+            }
+          ]
+        }
+      },
+      "counts": {
+        "attempted_audio": 79,
+        "cached_audio": 0,
+        "executed_audio": 71,
+        "completed_audio": 79,
+        "failed_audio": 0,
+        "speakers": 137
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "episodic_memory": {
+      "stage_id": "episodic_memory",
+      "stage_type": "m3.episodic_memory",
+      "ok": false,
+      "status": "failed",
+      "outputs": {
+        "episodic_jsonl": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/episodic_memory.jsonl",
+        "summary_json": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/episodic_memory.summary.json",
+        "failures_json": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_ogonly_20261103/study_09/episodic_memory_failures.json"
+      },
+      "counts": {
+        "expected_clips": 79,
+        "completed_clips": 71,
+        "generated_clips": 71,
+        "resumed_clips": 0,
+        "failed_clips": 8
+      },
+      "errors": [
+        {
+          "video_id": "study_09",
+          "clip_id": 25,
+          "error": "episodic_memory_generator failed for 590db37d-eff0-f852-3910-eaacb595b82f: OpenAI provider temporarily unavailable: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': '当前服务集群负载较高，请稍后重试，感谢您的耐心等待。 (2064)', 'http_code': '529'}, 'request_id': '0738b8c4a282a4849446f42d0cf7baac'}"
+        },
+        {
+          "video_id": "study_09",
+          "clip_id": 27,
+          "error": "episodic_memory_generator failed for 298e1ae4-4d3f-b71b-f641-0a96590faad2: OpenAI provider temporarily unavailable: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': '当前服务集群负载较高，请稍后重试，感谢您的耐心等待。 (2064)', 'http_code': '529'}, 'request_id': '0738b84c734de11abe37ef5b8bffcfbb'}"
+        },
+        {
+          "video_id": "study_09",
+          "clip_id": 28,
+          "error": "episodic_memory_generator failed for 38659ad9-18e8-b438-24c9-f0707dde1876: OpenAI provider temporarily unavailable: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': '当前服务集群负载较高，请稍后重试，感谢您的耐心等待。 (2064)', 'http_code': '529'}, 'request_id': '0738ba0cb2ee7a755447b722f72a975e'}"
+        },
+        {
+          "video_id": "study_09",
+          "clip_id": 29,
+          "error": "episodic_memory_generator failed for 37f9d3e4-c262-dfb1-728d-f50b0bd7d132: OpenAI provider temporarily unavailable: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': '当前服务集群负载较高，请稍后重试，感谢您的耐心等待。 (2064)', 'http_code': '529'}, 'request_id': '0738b9bc9b27e1b3fe4542c1b62a0fa5'}"
+        },
+        {
+          "video_id": "study_09",
+          "clip_id": 3,
+          "error": "episodic_memory_generator failed for 8317cee9-1665-c7a8-565e-3dd87594aa6a: OpenAI provider temporarily unavailable: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': '当前服务集群负载较高，请稍后重试，感谢您的耐心等待。 (2064)', 'http_code': '529'}, 'request_id': '0738b96ebcba06887c8d1a1c56157572'}"
+        },
+        {
+          "video_id": "study_09",
+          "clip_id": 30,
+          "error": "episodic_memory_generator failed for 34c34312-82f9-efd9-5225-49a6658720df: OpenAI provider temporarily unavailable: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': '当前服务集群负载较高，请稍后重试，感谢您的耐心等待。 (2064)', 'http_code': '529'}, 'request_id': '0738b915a8b148d6539ddb8f10a799e5'}"
+        },
+        {
+          "video_id": "study_09",
+          "clip_id": 31,
+          "error": "episodic_memory_generator failed for 70a97b1f-36b8-f210-ac2c-ec291ed423a0: OpenAI provider temporarily unavailable: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': '当前服务集群负载较高，请稍后重试，感谢您的耐心等待。 (2064)', 'http_code': '529'}, 'request_id': '0738b9ff66685bd3bc8ba68a3c190208'}"
+        },
+        {
+          "video_id": "study_09",
+          "clip_id": 32,
+          "error": "episodic_memory_generator failed for 7a1a39f9-224d-51c6-895d-8e8ba8aa5dbe: OpenAI provider temporarily unavailable: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': '当前服务集群负载较高，请稍后重试，感谢您的耐心等待。 (2064)', 'http_code': '529'}, 'request_id': '0738baf42c664ec73888e2af13d313af'}"
+        }
+      ],
+      "warnings": []
+    }
+  }
+}
