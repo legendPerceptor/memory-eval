@@ -1,0 +1,28 @@
+{
+  "config_sha256": "1f6dc860f2b8165b9fb1b16941dc72c89658ff3674dce425c045a0ffbdfcbc6b",
+  "fact_index_sha256": "b8ce31243c3d67f618eaa14abd009d0fe2b8b1d7d8637505f5fc691f2875eec4",
+  "settings": {
+    "answer_reserve_seconds": 45,
+    "context_window": 32768,
+    "enabled": true,
+    "evidence_format": "grouped",
+    "fact_memory": true,
+    "force_answer_tool": true,
+    "identity_aware": true,
+    "incremental_delivery": true,
+    "incremental_tokens": 3500,
+    "max_candidates": 32,
+    "max_input_tokens": 24000,
+    "max_neighbor_clips": 64,
+    "max_passages_per_node": 12,
+    "max_result_nodes": 24,
+    "max_search_calls": 8,
+    "max_selected_nodes": 32,
+    "max_top_k": 16,
+    "safety_tokens": 2048,
+    "tokenizer_multiplier": 1.15,
+    "tokenizer_path": "/home/yuanjian/Development/memory-eval/runs/context_assets/qwen-omni-tokenizer.json",
+    "fact_index_path": "/home/yuanjian/Development/memory-eval/runs/m3_parallel_8_restart_20261103/study_23/fact_index/manifest.json",
+    "fact_index_sha256": "b8ce31243c3d67f618eaa14abd009d0fe2b8b1d7d8637505f5fc691f2875eec4"
+  }
+}

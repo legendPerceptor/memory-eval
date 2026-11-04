@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-11-03T16:32:04.173795+08:00",
+  "created_at": "2026-11-03T16:49:41.553986+08:00",
   "scope": "Two-method comparison only; first eight registered videos / 97 questions; final ten-video common judging. No active recovery results mixed in.",
   "pages": 8,
   "page_limit_including_references": 8,
@@ -16,25 +16,26 @@
   },
   "validation": {
     "build": "passed",
-    "data_and_tool_tests": "120 passed",
+    "data_and_tool_tests": "121 passed",
     "source_hashes": "passed",
     "ruff_new_scripts": "passed",
     "overfull_underfull_missing_characters_undefined_references": false,
     "visual_review": "Results table and figures on pages 6/7 inspected; conclusion moved intact to page 8.",
-    "inference_calls": 0
+    "inference_calls": 0,
+    "table2_percentage_format": "Scores use one decimal percent; differences use one decimal percentage points, calculated before rounding."
   },
   "known_warnings": [
     "Existing Fandol CJK script fontspec warning"
   ],
   "sha256": {
     "latex/report.tex": "c373b15e86ba516b66540f0b2eeefcc67feb74898cd4efe6a72e91ffade920fd",
-    "latex/report.pdf": "f30e6ff56463bd83c8a62351e091aa767d9787199829ff61b11d1f41004e6652",
-    "latex/paired8_results.tex": "074ec67595c70e482fc27d1373946239730c4f48e5d1488bfcf7cb8e6ea70006",
+    "latex/report.pdf": "deffbca135a5ed9be86442f774f2bfdfc0ea2a0be74b82224f4efa649340ed63",
+    "latex/paired8_results.tex": "16fb26e8bfe5636d6bc60e409b8cb0d7bc9486b63f826fca6cff8b47055ef22f",
     "latex/figures/paired8_final_scores.pdf": "6eaafbc69a09c9086a378523c7b619c8a732c74de949b0826da14c6345ccfc23",
     "latex/figures/paired8_final_resources.pdf": "7d507a5f59ca9de5df49fafb90d260c18c9891d67ccb12ce018ddb1f171e3dda",
-    "scripts/build_m3_paper_comparison.py": "9ab71d05fafe7cbae78e1a29d4394a5628f2529883fca4faa6185fcbf5c17d1b",
-    "scripts/test_m3_paper_comparison.py": "d1a5a8d29ab34b986e6ecbc6f678ae4bf778e6bec557fc8990b8ace8a56f5743",
+    "scripts/build_m3_paper_comparison.py": "d767561c068921b030c1dd3698fe3d4565bdd3558b8bde41764d0fc3054b2e3b",
+    "scripts/test_m3_paper_comparison.py": "785306d938d620a0c1aae75a74512191163e9e23f1da3dddf0d3685a925435b7",
     "experiments/m3_paper_paired8_20261103/comparison.json": "9c1525035f1a8104a8ee7afd620f7584d8f840eab27b764702e50149b682f5ef",
-    "latex/build/paired8-data-tests.log": "4fc3d9ba0a9a0d1ff406616fd5e2f8300420c2f6c4e395463fffb9f052d02344"
+    "latex/build/paired8-data-tests.log": "55cc134caaba4def09083711a84c050322929c9a786cdfcf591c3e103825c356"
   }
 }

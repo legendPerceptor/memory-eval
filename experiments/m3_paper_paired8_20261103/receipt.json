@@ -1,12 +1,12 @@
 {
-  "script_sha256": "9ab71d05fafe7cbae78e1a29d4394a5628f2529883fca4faa6185fcbf5c17d1b",
+  "script_sha256": "d767561c068921b030c1dd3698fe3d4565bdd3558b8bde41764d0fc3054b2e3b",
   "inference_calls": 0,
   "artifacts": {
     "latex/figures/paired8_final_scores.pdf": "6eaafbc69a09c9086a378523c7b619c8a732c74de949b0826da14c6345ccfc23",
     "latex/figures/paired8_final_scores.png": "6128772dbc500bcb6ee528c749f53e63953d4254dcc0a4d567a9291595ee6927",
     "latex/figures/paired8_final_resources.pdf": "7d507a5f59ca9de5df49fafb90d260c18c9891d67ccb12ce018ddb1f171e3dda",
     "latex/figures/paired8_final_resources.png": "74bf567e5935032888cfa0a2dfb9385f372d5fc27b08bc0e9220d48e479e63c2",
-    "latex/paired8_results.tex": "074ec67595c70e482fc27d1373946239730c4f48e5d1488bfcf7cb8e6ea70006",
+    "latex/paired8_results.tex": "16fb26e8bfe5636d6bc60e409b8cb0d7bc9486b63f826fca6cff8b47055ef22f",
     "experiments/m3_paper_paired8_20261103/comparison.json": "9c1525035f1a8104a8ee7afd620f7584d8f840eab27b764702e50149b682f5ef"
   }
 }

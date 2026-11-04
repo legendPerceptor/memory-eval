@@ -1,7 +1,271 @@
 {
   "status": "running",
-  "pid": 204927,
-  "video": "study_09",
+  "pid": 395695,
+  "video": "kitchen_23",
   "phase": "pipeline",
-  "history": []
+  "recovery": "recovery_01",
+  "memory_workers": 2,
+  "qa_workers": 4,
+  "history": [
+    {
+      "video": "study_09",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "seconds": 6293.732244729996,
+      "started_at_unix": 1793686264.8609803,
+      "recovery": "recovery_01",
+      "status": "completed",
+      "attempts": [
+        {
+          "video": "study_09",
+          "phase": "pipeline",
+          "exit_code": 2,
+          "started_at_unix": 1793686264.8609803,
+          "seconds": 5526.972238302231,
+          "status": "failed"
+        },
+        {
+          "video": "study_09",
+          "phase": "pipeline",
+          "exit_code": 0,
+          "seconds": 766.7600064277649,
+          "started_at_unix": 1793692875.7607381,
+          "recovery": "recovery_01",
+          "status": "completed"
+        }
+      ],
+      "failed_attempts": 1
+    },
+    {
+      "video": "study_09",
+      "phase": "index",
+      "exit_code": 0,
+      "seconds": 20.458007097244263,
+      "started_at_unix": 1793693642.5216212,
+      "recovery": "recovery_01",
+      "status": "completed",
+      "attempts": [
+        {
+          "video": "study_09",
+          "phase": "index",
+          "exit_code": 0,
+          "seconds": 20.458007097244263,
+          "started_at_unix": 1793693642.5216212,
+          "recovery": "recovery_01",
+          "status": "completed"
+        }
+      ],
+      "failed_attempts": 0
+    },
+    {
+      "video": "study_09",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "seconds": 199.64164543151855,
+      "started_at_unix": 1793693662.9816325,
+      "recovery": "recovery_01",
+      "status": "completed",
+      "attempts": [
+        {
+          "video": "study_09",
+          "phase": "og_qa",
+          "exit_code": 0,
+          "seconds": 199.64164543151855,
+          "started_at_unix": 1793693662.9816325,
+          "recovery": "recovery_01",
+          "status": "completed"
+        }
+      ],
+      "failed_attempts": 0
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "seconds": 6357.104223489761,
+      "started_at_unix": 1793693862.6243763,
+      "recovery": "recovery_01",
+      "status": "completed",
+      "attempts": [
+        {
+          "video": "kitchen_01",
+          "phase": "pipeline",
+          "exit_code": 0,
+          "seconds": 6357.104223489761,
+          "started_at_unix": 1793693862.6243763,
+          "recovery": "recovery_01",
+          "status": "completed"
+        }
+      ],
+      "failed_attempts": 0
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "index",
+      "exit_code": 0,
+      "seconds": 21.29782009124756,
+      "started_at_unix": 1793700219.7294624,
+      "recovery": "recovery_01",
+      "status": "completed",
+      "attempts": [
+        {
+          "video": "kitchen_01",
+          "phase": "index",
+          "exit_code": 0,
+          "seconds": 21.29782009124756,
+          "started_at_unix": 1793700219.7294624,
+          "recovery": "recovery_01",
+          "status": "completed"
+        }
+      ],
+      "failed_attempts": 0
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "seconds": 144.1465539932251,
+      "started_at_unix": 1793700241.02815,
+      "recovery": "recovery_01",
+      "status": "completed",
+      "attempts": [
+        {
+          "video": "kitchen_01",
+          "phase": "og_qa",
+          "exit_code": 0,
+          "seconds": 144.1465539932251,
+          "started_at_unix": 1793700241.02815,
+          "recovery": "recovery_01",
+          "status": "completed"
+        }
+      ],
+      "failed_attempts": 0
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "seconds": 5325.592445611954,
+      "started_at_unix": 1793700385.1755419,
+      "recovery": "recovery_01",
+      "status": "completed",
+      "attempts": [
+        {
+          "video": "bedroom_05",
+          "phase": "pipeline",
+          "exit_code": 0,
+          "seconds": 5325.592445611954,
+          "started_at_unix": 1793700385.1755419,
+          "recovery": "recovery_01",
+          "status": "completed"
+        }
+      ],
+      "failed_attempts": 0
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "index",
+      "exit_code": 0,
+      "seconds": 24.291170835494995,
+      "started_at_unix": 1793705710.7689016,
+      "recovery": "recovery_01",
+      "status": "completed",
+      "attempts": [
+        {
+          "video": "bedroom_05",
+          "phase": "index",
+          "exit_code": 0,
+          "seconds": 24.291170835494995,
+          "started_at_unix": 1793705710.7689016,
+          "recovery": "recovery_01",
+          "status": "completed"
+        }
+      ],
+      "failed_attempts": 0
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "seconds": 142.91881251335144,
+      "started_at_unix": 1793705735.0609717,
+      "recovery": "recovery_01",
+      "status": "completed",
+      "attempts": [
+        {
+          "video": "bedroom_05",
+          "phase": "og_qa",
+          "exit_code": 0,
+          "seconds": 142.91881251335144,
+          "started_at_unix": 1793705735.0609717,
+          "recovery": "recovery_01",
+          "status": "completed"
+        }
+      ],
+      "failed_attempts": 0
+    },
+    {
+      "video": "study_23",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "seconds": 7766.444543600082,
+      "started_at_unix": 1793705877.9806826,
+      "recovery": "recovery_01",
+      "status": "completed",
+      "attempts": [
+        {
+          "video": "study_23",
+          "phase": "pipeline",
+          "exit_code": 0,
+          "seconds": 7766.444543600082,
+          "started_at_unix": 1793705877.9806826,
+          "recovery": "recovery_01",
+          "status": "completed"
+        }
+      ],
+      "failed_attempts": 0
+    },
+    {
+      "video": "study_23",
+      "phase": "index",
+      "exit_code": 0,
+      "seconds": 37.463091135025024,
+      "started_at_unix": 1793713644.4261816,
+      "recovery": "recovery_01",
+      "status": "completed",
+      "attempts": [
+        {
+          "video": "study_23",
+          "phase": "index",
+          "exit_code": 0,
+          "seconds": 37.463091135025024,
+          "started_at_unix": 1793713644.4261816,
+          "recovery": "recovery_01",
+          "status": "completed"
+        }
+      ],
+      "failed_attempts": 0
+    },
+    {
+      "video": "study_23",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "seconds": 200.71112275123596,
+      "started_at_unix": 1793713681.8902605,
+      "recovery": "recovery_01",
+      "status": "completed",
+      "attempts": [
+        {
+          "video": "study_23",
+          "phase": "og_qa",
+          "exit_code": 0,
+          "seconds": 200.71112275123596,
+          "started_at_unix": 1793713681.8902605,
+          "recovery": "recovery_01",
+          "status": "completed"
+        }
+      ],
+      "failed_attempts": 0
+    }
+  ]
 }

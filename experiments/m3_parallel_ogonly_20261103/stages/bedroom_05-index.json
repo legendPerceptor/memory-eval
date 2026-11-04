@@ -1,0 +1,21 @@
+{
+  "video": "bedroom_05",
+  "phase": "index",
+  "exit_code": 0,
+  "seconds": 24.291170835494995,
+  "started_at_unix": 1793705710.7689016,
+  "recovery": "recovery_01",
+  "status": "completed",
+  "attempts": [
+    {
+      "video": "bedroom_05",
+      "phase": "index",
+      "exit_code": 0,
+      "seconds": 24.291170835494995,
+      "started_at_unix": 1793705710.7689016,
+      "recovery": "recovery_01",
+      "status": "completed"
+    }
+  ],
+  "failed_attempts": 0
+}

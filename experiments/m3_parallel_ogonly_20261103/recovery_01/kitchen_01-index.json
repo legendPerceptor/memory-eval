@@ -1,0 +1,9 @@
+{
+  "video": "kitchen_01",
+  "phase": "index",
+  "exit_code": 0,
+  "seconds": 21.29782009124756,
+  "started_at_unix": 1793700219.7294624,
+  "recovery": "recovery_01",
+  "status": "completed"
+}

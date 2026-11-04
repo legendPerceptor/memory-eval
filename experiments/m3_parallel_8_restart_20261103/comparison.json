@@ -1,0 +1,1021 @@
+{
+  "cohort": {
+    "experiment": "m3_parallel_8_restart_20261103",
+    "created_at": "2026-11-03T23:54:06.846665+08:00",
+    "original_video_ids": [
+      "study_05",
+      "gym_03",
+      "bedroom_04",
+      "study_18",
+      "kitchen_20"
+    ],
+    "new_video_ids": [
+      "study_09",
+      "kitchen_01",
+      "bedroom_05",
+      "study_23",
+      "kitchen_23"
+    ],
+    "selected_video_ids": [
+      "study_05",
+      "gym_03",
+      "bedroom_04",
+      "study_18",
+      "kitchen_20",
+      "study_09",
+      "kitchen_01",
+      "bedroom_05",
+      "study_23",
+      "kitchen_23"
+    ],
+    "execution_order": [
+      "study_09",
+      "kitchen_01",
+      "bedroom_05",
+      "study_23",
+      "kitchen_23",
+      "study_05",
+      "gym_03",
+      "bedroom_04",
+      "study_18",
+      "kitchen_20"
+    ],
+    "selection_seed": 42,
+    "selection": "sorted available annotation IDs minus original five; random.sample without replacement",
+    "candidate_ids": [
+      "bedroom_01",
+      "bedroom_02",
+      "bedroom_03",
+      "bedroom_04",
+      "bedroom_05",
+      "bedroom_06",
+      "bedroom_07",
+      "bedroom_08",
+      "bedroom_09",
+      "bedroom_10",
+      "bedroom_11",
+      "bedroom_12",
+      "gym_01",
+      "gym_02",
+      "gym_03",
+      "gym_04",
+      "kitchen_01",
+      "kitchen_02",
+      "kitchen_03",
+      "kitchen_04",
+      "kitchen_05",
+      "kitchen_06",
+      "kitchen_07",
+      "kitchen_08",
+      "kitchen_09",
+      "kitchen_10",
+      "kitchen_11",
+      "kitchen_12",
+      "kitchen_13",
+      "kitchen_14",
+      "kitchen_15",
+      "kitchen_16",
+      "kitchen_17",
+      "kitchen_18",
+      "kitchen_19",
+      "kitchen_20",
+      "kitchen_21",
+      "kitchen_22",
+      "kitchen_23",
+      "living_room_01",
+      "living_room_02",
+      "living_room_03",
+      "living_room_04",
+      "living_room_05",
+      "living_room_06",
+      "living_room_07",
+      "living_room_08",
+      "living_room_09",
+      "living_room_10",
+      "living_room_11",
+      "living_room_12",
+      "living_room_13",
+      "living_room_14",
+      "living_room_15",
+      "living_room_16",
+      "living_room_17",
+      "living_room_18",
+      "living_room_19",
+      "living_room_20",
+      "living_room_21",
+      "living_room_22",
+      "living_room_23",
+      "living_room_24",
+      "meeting_room_01",
+      "meeting_room_02",
+      "meeting_room_03",
+      "meeting_room_04",
+      "meeting_room_05",
+      "meeting_room_06",
+      "office_01",
+      "office_02",
+      "office_03",
+      "office_04",
+      "office_05",
+      "office_06",
+      "office_07",
+      "office_08",
+      "study_01",
+      "study_02",
+      "study_03",
+      "study_04",
+      "study_05",
+      "study_06",
+      "study_07",
+      "study_08",
+      "study_09",
+      "study_10",
+      "study_11",
+      "study_12",
+      "study_13",
+      "study_14",
+      "study_15",
+      "study_16",
+      "study_17",
+      "study_18",
+      "study_19",
+      "study_20",
+      "study_21",
+      "study_22",
+      "study_23"
+    ],
+    "question_counts": {
+      "study_05": 12,
+      "gym_03": 11,
+      "bedroom_04": 11,
+      "study_18": 14,
+      "kitchen_20": 17,
+      "study_09": 12,
+      "kitchen_01": 13,
+      "bedroom_05": 12,
+      "study_23": 14,
+      "kitchen_23": 12
+    },
+    "total_questions": 128,
+    "annotations_sha256": "f43031bf0216a2ef2e7909f20ecd534e0098da17b63cdf94325a07f1bea372c1",
+    "annotations_canonical_sha256": "bb02225f22a097bbd077c4913bdf85e4f0c6f5cbd37eaee49c1de41ece30dded",
+    "videos": {
+      "study_05": {
+        "bytes": 1879280120,
+        "duration_seconds": 2044.889,
+        "sha256": "e2c9040502548793a9ada43460c611e87fb1ada8ae60e043766096dc0249495a"
+      },
+      "gym_03": {
+        "bytes": 416322061,
+        "duration_seconds": 2033.514,
+        "sha256": "f24e99b11947eb80d90cead40157dff3b4eb697406158282fbae5557ce4ef899"
+      },
+      "bedroom_04": {
+        "bytes": 1508303162,
+        "duration_seconds": 1650.684,
+        "sha256": "7330d238c2bc5d3a69b1ccbdf33ed722da9d0c85a3c398e7fe76a24edc0ff2bd"
+      },
+      "study_18": {
+        "bytes": 553826430,
+        "duration_seconds": 2498.519,
+        "sha256": "83f1745ed5bb5632bc5368b88f90028fa8bd63cb94e3c1e517b386305b0a9cdb"
+      },
+      "kitchen_20": {
+        "bytes": 1733271296,
+        "duration_seconds": 1887.527,
+        "sha256": "f9514a31b8458e661e35a0720653eb76f46a2e484ebd64fa49d4eb9b10045a89"
+      },
+      "study_09": {
+        "bytes": 616712066,
+        "duration_seconds": 2345.104,
+        "sha256": "fb2fb6645d9c52b06af478e97959f06edcff87c0e392a849b81ec96dbff53d37"
+      },
+      "kitchen_01": {
+        "bytes": 450910364,
+        "duration_seconds": 2354.648,
+        "sha256": "f7b3d556ff038d9d2e60e296f4db57dcd3221fd2258405947ddc3ba81af304b4"
+      },
+      "bedroom_05": {
+        "bytes": 1650949285,
+        "duration_seconds": 1800.151,
+        "sha256": "e51dd13f725403f15d2c69bf5a08f46452ed3868706524b7c01ee47bdb19f612"
+      },
+      "study_23": {
+        "bytes": 462579075,
+        "duration_seconds": 2041.968,
+        "sha256": "9cdb8db640d5c5f3b18fef9fd71a786c684ee8d563684ba2b67a3e6e43529f50"
+      },
+      "kitchen_23": {
+        "bytes": 1808125748,
+        "duration_seconds": 1968.751,
+        "sha256": "95fc5ab14339329f0664221a5bb4a2a3062880a0f20f1f98aacdd6158d007810"
+      }
+    },
+    "source": {
+      "commit": "eceb96ff2958e72b373a7c3ea280d46827981351",
+      "archive_sha256": "06cc8f2269872e22045a95fb34f3c962a0f71bd6f2dde3d32f4ba4a88f28e466"
+    },
+    "m3_reference": {
+      "commit": "0e3e41939bd8a0b66d756e7b7eb8d5fe9992da5c",
+      "archive_sha256": "f200f9e4f9384abc667584d932021fd0e96daa38bf0bbe6d021d5fa556672a49"
+    },
+    "account": "m3-parallel-8-restart-20261103",
+    "database": "ogmem_m3_parallel_8_restart_20261103",
+    "config_sha256": "0274b2f9e60bcbc2b1c1f393c618ed1e242021de93a50c311b9634d0dbde2fc0",
+    "qa_template_sha256": "b3153cd941c78ba2ad6701dff2391cb26cbcf8d71948c30f6ce0d85a827e117a",
+    "tokenizer_sha256": "8441917e39ae0244e06d704b95b3124795cec478e297f9afac39ba670d7e9d99",
+    "source_files": {
+      "_instrumentation/sitecustomize.py": "11196059b54cfdc9211275d838d13f6da349b134fb0bf680d29936241d82c53a"
+    },
+    "driver_sha256": "01cca1f7c5460839669bbb1f948af55cf80fd7f181d4b365312cb6541edd179b",
+    "quota_api_sha256": "229fc1a6f6de80f41374723a0931989a83e445c69292b5deec7d2dd6ade60389",
+    "frames": {
+      "clip_seconds": 30,
+      "fps": 1,
+      "extracted_cap": 30,
+      "model_cap": 16,
+      "model_indices": "floor(i * n / k); same selector in both methods",
+      "face_detection": "all collected frames; M3 additionally sends up to 8 face crops"
+    },
+    "methods": [
+      "ogmemory_strict_incremental",
+      "m3_reference_text"
+    ],
+    "model": "MiniMax-M3.1-Flash",
+    "thinking": "adaptive",
+    "reasoning_effort": "medium",
+    "qa_context": {
+      "answer_reserve_seconds": 45,
+      "context_window": 32768,
+      "enabled": true,
+      "evidence_format": "grouped",
+      "fact_memory": true,
+      "force_answer_tool": true,
+      "identity_aware": true,
+      "incremental_delivery": true,
+      "incremental_tokens": 3500,
+      "max_candidates": 32,
+      "max_input_tokens": 24000,
+      "max_neighbor_clips": 64,
+      "max_passages_per_node": 12,
+      "max_result_nodes": 24,
+      "max_search_calls": 8,
+      "max_selected_nodes": 32,
+      "max_top_k": 16,
+      "safety_tokens": 2048,
+      "tokenizer_multiplier": 1.15,
+      "tokenizer_path": "<local pinned tokenizer>"
+    },
+    "qa_output_tokens": 8192,
+    "judge_output_tokens": 2048,
+    "max_iterations": 6,
+    "timeout_seconds": 180,
+    "temporal_policy": "current_clip",
+    "judge_seed": 1102,
+    "historical_predictions_reused": true,
+    "perception": "fresh oGMemory-only; no new M3 perception/memory/QA",
+    "safety_stop_at_unix": 1793894046.847294,
+    "quota_policy": "12% interval gate; 5% weekly floor; new 48h safety window",
+    "driver_initial_sha256": "4c8023ee359c2f32c0ba1eed940decc30a40920fb84a6a9dd7591ff20095db16",
+    "driver_amendments": [
+      {
+        "time": "2026-11-02T14:35:45.857747+08:00",
+        "reason": "Bind isolated graph DSN explicitly in standalone QA before any QA has started; pipeline worker logic unchanged.",
+        "old_sha256": "4c8023ee359c2f32c0ba1eed940decc30a40920fb84a6a9dd7591ff20095db16",
+        "new_sha256": "f33edbb5c01cd830702a86f524e03eb94c4b55af2c0eec05849ec30b5cd8ee62",
+        "already_started_phases": [
+          "study_09/pipeline"
+        ],
+        "protocol_changed": false
+      }
+    ],
+    "baseline_source": {
+      "commit": "8d61b772f20a60c1ebf1bbe4243292ddc22ae753",
+      "archive_sha256": "17de9cca4035416cda47c136b706c4c3936bcc2a68273a3015543cb8311dbd68"
+    },
+    "helper_sha256": "f33edbb5c01cd830702a86f524e03eb94c4b55af2c0eec05849ec30b5cd8ee62",
+    "workers": {
+      "OGMEM_M3_MAX_WORKERS": "4",
+      "OGMEM_M3_FACE_WORKERS": "2",
+      "OGMEM_EMBED_MAX_CONCURRENCY": "4",
+      "OGMEM_GRAPH_POOL_SIZE": "16",
+      "OGMEM_VECTOR_POOL_SIZE": "8",
+      "memory": 8,
+      "qa": 4,
+      "video": 1,
+      "local_audio": 1
+    },
+    "m3_inference_rerun": false,
+    "m3_grades_reused": true,
+    "reference_prediction_hashes": {
+      "frozen_baseline/m3_qa/study_23/m3_qa_results.jsonl": "330f2621e8849f54afc1b2a677b31594b4ee6bc95a04cb0a7cbae81283245d8b",
+      "frozen_baseline/m3_qa/bedroom_05/m3_qa_results.jsonl": "a8db4f148180363f4d1b69289d797414d013580be28e5548a276ab90ffcfde86",
+      "frozen_baseline/m3_qa/study_09/m3_qa_results.jsonl": "18c45cbb8e31b8d89ce2770acbf769b93de5df68599576868817615fa8b31031",
+      "frozen_baseline/m3_qa/bedroom_04/m3_qa_results.jsonl": "6b7565de30e0dc0ee33fdf483778124b4f1ea7dddf793333a7e45edcff917906",
+      "frozen_baseline/m3_qa/kitchen_23/m3_qa_results.jsonl": "5c14fae69988a79415186dff1e35bac285bb25bc2fece3eb9389b97d7d2192e0",
+      "frozen_baseline/m3_qa/kitchen_01/m3_qa_results.jsonl": "4174c6041b0a51b869238d429f2e4f4b91fd756ad482873d6fe480ab5e8e847b",
+      "frozen_baseline/m3_qa/gym_03/m3_qa_results.jsonl": "52468868a51daceb58e65c21b61c9b78ce3c967f172a975a6f3d8d396eff20be",
+      "frozen_baseline/m3_qa/study_18/m3_qa_results.jsonl": "8865c1788df01ff2b06a7d1410e5628cb7f5d2fa29175c153d8f307d26067724",
+      "frozen_baseline/m3_qa/study_05/m3_qa_results.jsonl": "dc1e86f8ec0593473d198414a5233316091935a9c5a8b888bce66561824a789b"
+    },
+    "reference_files": {
+      "frozen_baseline/usage-m3_memory-bedroom_05.jsonl": "746d264f59ca865e4cc8763f524a9dad60c826614f332d4e4a7b470b2c612ea6",
+      "frozen_baseline/usage-pipeline-study_09.jsonl": "f7dd3331d7a8cffdfc3e52ffd189bc27b61e8db22a2d1d2517deb8150e8e3d16",
+      "frozen_baseline/usage-m3_qa-bedroom_04.jsonl": "e8dcb135cbffca1ccbc99846a9a9a3d1f209b3e7fb03c9c164626b2c7a0a1170",
+      "frozen_baseline/usage-m3_qa-kitchen_01.jsonl": "6a8d3cf7d10cb4db4b5318a99a967d37131461874034ee6fa1d78522b92d49f1",
+      "frozen_baseline/usage-pipeline-gym_03.jsonl": "dc8ed170a5b89d984c668b192b2b8f794e4e7d3b210868f1044c1ac41c0ccf57",
+      "frozen_baseline/usage-m3_memory-study_23.jsonl": "639e0b01f8b1d133be9d34d4aa4a9ed04ca9ba99beee4e0e488a0a77c96753a6",
+      "frozen_baseline/usage-m3_memory-study_18.jsonl": "292d9de73c5ca95fb33ad7c038294e5c7aacf047c892fe5a82b49a93cfedec33",
+      "frozen_baseline/usage-m3_qa-study_09.jsonl": "cfd7088ad84d58cd78bbb9baba4f7b253e057923b5a490a6b15c96a8e5b7553f",
+      "frozen_baseline/usage-m3_qa-study_05.jsonl": "80e57b666b0091d9ac9d44e75aecc2e352ce82c96eaed02e39f3efe58d986b2b",
+      "frozen_baseline/usage-og_qa-bedroom_04.jsonl": "917a3e2fa073cd1d77b8951b57782e005979114378cba64f29507e1e4ff95234",
+      "frozen_baseline/usage-m3_memory-study_09.jsonl": "15b03efdc271a0b4c5647f83850f337b6023fab6fdde80c7bcad36ec73ccd5a0",
+      "frozen_baseline/usage-m3_qa-gym_03.jsonl": "c49eb832161515b8de8e1fc4128bdf971d802d01e6754fe10d70fde2253e036e",
+      "frozen_baseline/comparison.json": "547704f966401d61d01b06e4656504d78ce4eeac476dd7fff6704fab4b24801b",
+      "frozen_baseline/usage-og_qa-study_09.jsonl": "2fc9a52fb50c625649a32d4c1a7a58c758b034b6f9b50e42cebde7f9427a4a2c",
+      "frozen_baseline/usage-m3_qa-study_23.jsonl": "71afa803acbad0cbee03ea7467ae0049c1d2c532ebd90a81e23e48f2df46e0b6",
+      "frozen_baseline/usage-pipeline-study_23.jsonl": "3a3c3663b1ae743d1521d422d82edbf76895822d0bb1cf2aefb6bebb76d4498c",
+      "frozen_baseline/usage-og_qa-study_23.jsonl": "d81a36fd2eb8ffedcdce3db9b6807c2d10951cac4cb754f679e1127e90efa626",
+      "frozen_baseline/usage-pipeline-study_18.jsonl": "69973d319e54f6bd2c0cb7fa815f69c75c8eef719dcb6d37f09ad6211c1e822d",
+      "frozen_baseline/usage-m3_qa-kitchen_23.jsonl": "f53553827688db295b8702c8b3d5c2fa1431341d9d1285e1f4cf6de74c0a2567",
+      "frozen_baseline/usage-pipeline-bedroom_04.jsonl": "5af92c9b2e725195cd2ab1799e62dd7a9f2abd2e6394c4ec332793385fc59c78",
+      "frozen_baseline/usage-og_qa-study_05.jsonl": "e5a1f8b1b92d460030c184a4c47fbe753518fd525d5f810c0711969779cf9b50",
+      "frozen_baseline/usage-m3_qa-bedroom_05.jsonl": "0a8ff3efe1dac4e125d9836175dce67588133b6f62c0c1e61c57109f6448413c",
+      "frozen_baseline/usage-m3_memory-gym_03.jsonl": "231221b6c381aa54285ce76e7c6efb5dd442a11616e5f336fe37a58d5cd347a9",
+      "frozen_baseline/usage-og_qa-gym_03.jsonl": "661edbdf35c529ddc5b7db383e7c26ef633012eef280f908a6cdf36c7864014c",
+      "frozen_baseline/usage-judge-all.jsonl": "d4061bc154a17b027ee89a28b24538b2c84e0b00741d07fdd63990b505bbbad5",
+      "frozen_baseline/usage-pipeline-kitchen_01.jsonl": "a8ed30e591bf4cd828b70d946e5c6aeb5fd0cf9ca40747e5fa8a869957789548",
+      "frozen_baseline/usage-og_qa-study_18.jsonl": "2a9763aa752395920b9d66831e57c504c209a362ad05d27b0dd7eb4d17b65ee8",
+      "frozen_baseline/usage-m3_memory-bedroom_04.jsonl": "fd2d014f5d2ed92e80f78009a2fbc368d3e64e4d7b5e61fff9fc45a300167e33",
+      "frozen_baseline/manifest.json": "da926d926a80c8dc1e1b3a9c9fd0f0e404db1560ea5a0467743b51d34ab90ac9",
+      "frozen_baseline/usage-m3_memory-kitchen_23.jsonl": "9d81a8361de2b0ca4e900a2547a525bce19bffa7b8194f05dac4a99a2312dc8a",
+      "frozen_baseline/usage-m3_memory-kitchen_01.jsonl": "87e74e32f6b2ad9461b76def83dfafa17aaf1f6bb12897dd81936378a4228183",
+      "frozen_baseline/usage-pipeline-bedroom_05.jsonl": "c93c40bfcac4ec3b0d42da7c12b66f176079444406495f289f161af170796a3a",
+      "frozen_baseline/usage-m3_memory-study_05.jsonl": "bfeb625a538c3f372a62ec405d55f3e65d6ff3d1f98d3a037876ca7a890e2b50",
+      "frozen_baseline/usage-og_qa-kitchen_23.jsonl": "ad554340a5056646dc53ab4c64ebec7f194de887e96049f857893410b4cf7087",
+      "frozen_baseline/usage-og_qa-bedroom_05.jsonl": "b38a4f164d7bd40bc6cb10caf15d1fc559f8b42654beb387fe0ff91236c7b73f",
+      "frozen_baseline/usage-pipeline-kitchen_20.jsonl": "fa0a7294225f3ad02e8b461525520b1d194148b542010d44a593852d062d1386",
+      "frozen_baseline/usage-og_qa-kitchen_01.jsonl": "2d6cf694d33b09fe12c16c9218d8bd95daa321e34fe0dab7b0458b24ce5378bd",
+      "frozen_baseline/status.json": "e624af75fddf3dfb1fbc9d2be07dd743aa94bbf9c3380ce3a733effb640fb1d9",
+      "frozen_baseline/usage-pipeline-study_05.jsonl": "f1e0e0ea9614f343cbdc1b515ca1c1c7a51341e93a17223119fb7b6be7e6da53",
+      "frozen_baseline/usage-pipeline-kitchen_23.jsonl": "2d3345b9b40ddbd550d2eea1a1feb8d4d162056d4c56a1d9fa0b09631d2ee2c4",
+      "frozen_baseline/usage-m3_qa-study_18.jsonl": "58ca9d6067b11519559394f0317b3621fde2f9d73647479da4fe8f7941bf3b0d",
+      "frozen_baseline/joint_questions.jsonl": "94c910ff473daf728f2afa2b1e166f0fa4bcc674ecb2319f029c99d573c51a10",
+      "frozen_baseline/stages/study_23-m3_qa.json": "2602d5299dca76f6626242aca6a34c058dad824f0149dad5cc13171a79a683a8",
+      "frozen_baseline/stages/bedroom_04-m3_memory.json": "16082c69bbcc85a9cf9ebf732db489a2ad4df3dfd5e2ae9c5aa843c46cfb8206",
+      "frozen_baseline/stages/bedroom_04-pipeline.json": "d3342e7e893db88b5553b63556b2e49c921fef2d623313ea5355f1438acb0111",
+      "frozen_baseline/stages/study_09-pipeline.json": "b7977dcb6a17389439658a67a2c8c8cf91cbb7e21265a2491078d81dbacad35f",
+      "frozen_baseline/stages/study_09-og_qa.json": "97997b91a5a0df1b1c564bddb0d947b92a3ec5eb9c1765dc123c1a591c192b0e",
+      "frozen_baseline/stages/kitchen_23-m3_qa.json": "1606ce12decfc195f6167813bc9cd3eb389c458346a2945a121d8ed26e89ef51",
+      "frozen_baseline/stages/kitchen_23-m3_memory.json": "b1e1fb6a7ebb3bbd94dc38e3377a3032c211bf355da1246829f59b4fcad703fb",
+      "frozen_baseline/stages/study_23-pipeline.json": "843322c4a540fa0cf110df271e4b7b868a693f9fd2f50790d94a7cc6596998b0",
+      "frozen_baseline/stages/kitchen_23-og_qa.json": "6061d80ca5aa9feca9c3aecfb00c3e3ca74de8c1dd097478003d847c79375585",
+      "frozen_baseline/stages/study_05-m3_qa.json": "d1534fcaafe8f082bbbbb53f00819a4237f80155a5d63982c268ca466c75bff3",
+      "frozen_baseline/stages/study_05-m3_memory.json": "151d5defed4c381368864868eea999db765b52921848aac32a1e1fbff68baac3",
+      "frozen_baseline/stages/bedroom_04-m3_qa.json": "4e570943dca8c509126949cd9c623309e40611fa429c12374a98700f3613d7dc",
+      "frozen_baseline/stages/kitchen_20-og_qa.json": "e81c9171192ac9b5475d4de5f8d7c444e2907386d160da3d38e3f714df5f74ab",
+      "frozen_baseline/stages/kitchen_20-m3_qa.json": "e5a54e891ea33828477bb813400f8b58fdda9badea04114404fdc1e82d3c82a8",
+      "frozen_baseline/stages/kitchen_01-m3_memory.json": "ddc24a3c18db277c30272e20134372cc2635fb69f7b4b60a40459b15168c7b90",
+      "frozen_baseline/stages/gym_03-m3_qa.json": "d35d3dd5c5f86d527ec0edbc85cfa34e95a289afbe1a041c9ccc2b617bdafbce",
+      "frozen_baseline/stages/kitchen_01-og_qa.json": "c89dff10772066a438840368986ea9ab4135d9aefadba8b4e123df97dec8d2e3",
+      "frozen_baseline/stages/gym_03-pipeline.json": "1a01a4d3d8329a2f43519dcb5a1ac6b528e1821d0e92f5157e641d6b14a34f00",
+      "frozen_baseline/stages/study_23-index.json": "9effac9788fc2b4ad6a30a1d4988800356d4f33eddc6f1aa3e848c4600489395",
+      "frozen_baseline/stages/study_18-m3_memory.json": "b8f49bf43ebb9e7d1045907243ed70f42c0ec44601a79a6f80e5522157c6e9e8",
+      "frozen_baseline/stages/study_09-m3_qa.json": "8834b79beeeac438b40d3106ee5b5be60979ea6ffffad0a6bbb0dc4b245740a3",
+      "frozen_baseline/stages/study_18-og_qa.json": "f9b29e3cbd64049e8f37551926ced858d7f9be8648d98f205f00b5eac5072ecd",
+      "frozen_baseline/stages/bedroom_05-m3_memory.json": "0871676fc58db5bfa2a20dffe2d1d1c75d0bc6bc48797e355113d7d78a2cd21a",
+      "frozen_baseline/stages/study_09-index.json": "649503afa13913434c5ea0fe22c3f2c164ff842ac4c88b01d17c95d2ec5cb221",
+      "frozen_baseline/stages/study_23-og_qa.json": "5dbc6ca9943f8880af01f6eeee75c43758fe042c3195fcb211afc3e63704cff8",
+      "frozen_baseline/stages/study_09-m3_memory.json": "a4920bb62f79ec868ed8752ab5fea5da8e1bc9b4173136d8b23f4f983519f162",
+      "frozen_baseline/stages/study_18-pipeline.json": "25d82f54b0eb1b92958334dcf8f426c0595841db8c787d0dc035989ebd5e5f4a",
+      "frozen_baseline/stages/kitchen_23-index.json": "ec40c31fdca94659cacedc047230a00d631b242c2454f9480ff976acacffcc7c",
+      "frozen_baseline/stages/bedroom_05-index.json": "089a7ab7f886dfff43ad78242639ee089f9b42009914016305ff59ea8f51be40",
+      "frozen_baseline/stages/study_05-index.json": "0d233a30e8930cbf7209df8972e27471f3ce0a7671588763a7ac077024cd76ee",
+      "frozen_baseline/stages/study_18-m3_qa.json": "d3455c4acc45f6f29330737bda605854afe935e9cbeafb05cf0b1c71ab6c6836",
+      "frozen_baseline/stages/gym_03-index.json": "b02243c3f97ab233befc34d373eac43da13cb97e83e76fdf26f8a810cf75b9ee",
+      "frozen_baseline/stages/bedroom_04-og_qa.json": "8539877179eda33f32069481982ab91f810906655bf495fe0741b555dc68dc79",
+      "frozen_baseline/stages/gym_03-m3_memory.json": "3f7083da9859579f0dc8b3dc9e88d868c2492ef28d0f10e0963383ace28768fc",
+      "frozen_baseline/stages/bedroom_05-pipeline.json": "d5249792c9eb226f7dd377f35b3ba48ac82608584ee4d59bd3b035c9b2419f96",
+      "frozen_baseline/stages/kitchen_23-pipeline.json": "490edeb6f208657faa99bd67de8ed01e2d15781527756984196e3a2622b41df3",
+      "frozen_baseline/stages/gym_03-og_qa.json": "d782e424046a597c312fef8751ef4c1a753c189e463baab6b740ad56e319be29",
+      "frozen_baseline/stages/bedroom_05-og_qa.json": "f75d790085989c652708f3da2fac9717f5aa29655d092aac3284214877a3bb95",
+      "frozen_baseline/stages/kitchen_01-index.json": "637b9d9f3ce1ed08ee71a9f14e8decccf5a16b8f79021c6cff82d33358338467",
+      "frozen_baseline/stages/kitchen_20-pipeline.json": "2d4c0ec02cf57f2639a8ebd303083b4c8ed07c1a882c750ebf1c54c5f3959a3a",
+      "frozen_baseline/stages/study_05-pipeline.json": "853137a1bfc4e5b773aebf7b7e7b515d8e978d811341ae1ee6eac4686d95a1d3",
+      "frozen_baseline/stages/study_18-index.json": "39e24e7ff87e9856cf7d71b07ed2b0da42455f641fb8920f9d5c884db940e1ac",
+      "frozen_baseline/stages/kitchen_20-index.json": "63166acc4667f6222b5d6ab6715e87edd283b4803e7004786afd76e8c391b9a6",
+      "frozen_baseline/stages/study_23-m3_memory.json": "aefebbae842610bdd395e1eb8da1b14633df54bc7c11528808d5b038fe424831",
+      "frozen_baseline/stages/bedroom_04-index.json": "fd17656d9ea68d849cd27f87398ed794e387a4ba76003b7180be59d6c91390fb",
+      "frozen_baseline/stages/kitchen_01-m3_qa.json": "aa9621e24ba46aa0086d20b2d26f8ef62b8b4415026ab1f3ac548dabe6818216",
+      "frozen_baseline/stages/study_05-og_qa.json": "ab6bedc68f939a9498cdc90601fbc6bf147ead81343f850a4ea9b97aec7a5744",
+      "frozen_baseline/stages/kitchen_01-pipeline.json": "8bc1612efe708b1dd9c2a8eb2ed6afebfeb62fe35fb80d0154215397e439b99a",
+      "frozen_baseline/stages/kitchen_20-m3_memory.json": "7f8052d97707d4d5187ca641a04888d1160a1ef141c2b515142533a426142632",
+      "frozen_baseline/stages/bedroom_05-m3_qa.json": "5479879f385a66f3998eb834b00496fae1e019147b402b5e294e02ba56058815",
+      "frozen_baseline/m3_qa/study_23/m3_qa_results.jsonl": "330f2621e8849f54afc1b2a677b31594b4ee6bc95a04cb0a7cbae81283245d8b",
+      "frozen_baseline/m3_qa/bedroom_05/m3_qa_results.jsonl": "a8db4f148180363f4d1b69289d797414d013580be28e5548a276ab90ffcfde86",
+      "frozen_baseline/m3_qa/study_09/m3_qa_results.jsonl": "18c45cbb8e31b8d89ce2770acbf769b93de5df68599576868817615fa8b31031",
+      "frozen_baseline/m3_qa/bedroom_04/m3_qa_results.jsonl": "6b7565de30e0dc0ee33fdf483778124b4f1ea7dddf793333a7e45edcff917906",
+      "frozen_baseline/m3_qa/kitchen_23/m3_qa_results.jsonl": "5c14fae69988a79415186dff1e35bac285bb25bc2fece3eb9389b97d7d2192e0",
+      "frozen_baseline/m3_qa/kitchen_01/m3_qa_results.jsonl": "4174c6041b0a51b869238d429f2e4f4b91fd756ad482873d6fe480ab5e8e847b",
+      "frozen_baseline/m3_qa/gym_03/m3_qa_results.jsonl": "52468868a51daceb58e65c21b61c9b78ce3c967f172a975a6f3d8d396eff20be",
+      "frozen_baseline/m3_qa/study_18/m3_qa_results.jsonl": "8865c1788df01ff2b06a7d1410e5628cb7f5d2fa29175c153d8f307d26067724",
+      "frozen_baseline/m3_qa/study_05/m3_qa_results.jsonl": "dc1e86f8ec0593473d198414a5233316091935a9c5a8b888bce66561824a789b"
+    },
+    "person_grounding": true,
+    "person_retrieval": true,
+    "comparison_caveat": "Old source lacks new person grounding; not a pure parallelism ablation.",
+    "complete_stage_subset": [
+      "study_09",
+      "kitchen_01",
+      "bedroom_05",
+      "study_23",
+      "kitchen_23",
+      "study_05",
+      "gym_03",
+      "bedroom_04"
+    ],
+    "complete_stage_subset_questions": 97
+  },
+  "methods": {
+    "ogmemory_strict_incremental": {
+      "questions": 128,
+      "valid_answers": 123,
+      "judge_errors": 0,
+      "mean_score": 0.5234375,
+      "by_video": {
+        "study_05": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.5416666666666666
+        },
+        "gym_03": {
+          "questions": 11,
+          "valid_answers": 11,
+          "judge_errors": 0,
+          "mean_score": 0.5909090909090909
+        },
+        "bedroom_04": {
+          "questions": 11,
+          "valid_answers": 11,
+          "judge_errors": 0,
+          "mean_score": 0.9090909090909091
+        },
+        "study_18": {
+          "questions": 14,
+          "valid_answers": 13,
+          "judge_errors": 0,
+          "mean_score": 0.25
+        },
+        "kitchen_20": {
+          "questions": 17,
+          "valid_answers": 17,
+          "judge_errors": 0,
+          "mean_score": 0.6764705882352942
+        },
+        "study_09": {
+          "questions": 12,
+          "valid_answers": 11,
+          "judge_errors": 0,
+          "mean_score": 0.5
+        },
+        "kitchen_01": {
+          "questions": 13,
+          "valid_answers": 13,
+          "judge_errors": 0,
+          "mean_score": 0.3076923076923077
+        },
+        "bedroom_05": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.4166666666666667
+        },
+        "study_23": {
+          "questions": 14,
+          "valid_answers": 14,
+          "judge_errors": 0,
+          "mean_score": 0.5714285714285714
+        },
+        "kitchen_23": {
+          "questions": 12,
+          "valid_answers": 9,
+          "judge_errors": 0,
+          "mean_score": 0.5
+        }
+      },
+      "original_five": {
+        "questions": 65,
+        "valid_answers": 64,
+        "judge_errors": 0,
+        "mean_score": 0.5846153846153846
+      },
+      "new_five": {
+        "questions": 63,
+        "valid_answers": 59,
+        "judge_errors": 0,
+        "mean_score": 0.4603174603174603
+      },
+      "qa_usage": {
+        "calls": 695,
+        "unknown_usage_calls": 3,
+        "prompt_tokens": 5315040,
+        "cached_prompt_tokens": 2508620,
+        "completion_tokens": 146394
+      }
+    },
+    "m3_reference_text": {
+      "questions": 128,
+      "valid_answers": 100,
+      "judge_errors": 0,
+      "mean_score": 0.33203125,
+      "by_video": {
+        "study_05": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.375
+        },
+        "gym_03": {
+          "questions": 11,
+          "valid_answers": 11,
+          "judge_errors": 0,
+          "mean_score": 0.7272727272727273
+        },
+        "bedroom_04": {
+          "questions": 11,
+          "valid_answers": 11,
+          "judge_errors": 0,
+          "mean_score": 0.45454545454545453
+        },
+        "study_18": {
+          "questions": 14,
+          "valid_answers": 3,
+          "judge_errors": 0,
+          "mean_score": 0.0
+        },
+        "kitchen_20": {
+          "questions": 17,
+          "valid_answers": 0,
+          "judge_errors": 0,
+          "mean_score": 0.0
+        },
+        "study_09": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.5
+        },
+        "kitchen_01": {
+          "questions": 13,
+          "valid_answers": 13,
+          "judge_errors": 0,
+          "mean_score": 0.19230769230769232
+        },
+        "bedroom_05": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.375
+        },
+        "study_23": {
+          "questions": 14,
+          "valid_answers": 14,
+          "judge_errors": 0,
+          "mean_score": 0.32142857142857145
+        },
+        "kitchen_23": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.625
+        }
+      },
+      "original_five": {
+        "questions": 65,
+        "valid_answers": 37,
+        "judge_errors": 0,
+        "mean_score": 0.2692307692307692
+      },
+      "new_five": {
+        "questions": 63,
+        "valid_answers": 63,
+        "judge_errors": 0,
+        "mean_score": 0.3968253968253968
+      },
+      "qa_usage": {
+        "calls": 427,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 772818,
+        "cached_prompt_tokens": 495372,
+        "completion_tokens": 47023
+      }
+    }
+  },
+  "resource_comparison": {
+    "all_128": {
+      "memory_and_index": {
+        "old_ogmemory": {
+          "calls": 694,
+          "unknown_usage_calls": 0,
+          "prompt_tokens": 3196070,
+          "completion_tokens": 989928,
+          "wall_seconds_including_quota_wait": 49793.95290207863,
+          "failed_stages": 2
+        },
+        "new_ogmemory": {
+          "calls": 694,
+          "unknown_usage_calls": 0,
+          "prompt_tokens": 3978504,
+          "completion_tokens": 1603812,
+          "wall_seconds_including_quota_wait": 18114.78821539879,
+          "failed_stages": 0
+        }
+      },
+      "qa": {
+        "old_ogmemory": {
+          "calls": 601,
+          "unknown_usage_calls": 0,
+          "prompt_tokens": 4634177,
+          "completion_tokens": 126469,
+          "wall_seconds_including_quota_wait": 4355.510160684586,
+          "failed_stages": 2
+        },
+        "new_ogmemory": {
+          "calls": 695,
+          "unknown_usage_calls": 3,
+          "prompt_tokens": 5315040,
+          "completion_tokens": 146394,
+          "wall_seconds_including_quota_wait": 1988.390916109085,
+          "failed_stages": 3
+        }
+      },
+      "by_video": {
+        "study_09": {
+          "old": {
+            "calls": 151,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 950340,
+            "completion_tokens": 124694,
+            "wall_seconds_including_quota_wait": 4522.897568941116,
+            "failed_stages": 0
+          },
+          "new": {
+            "calls": 151,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 1030357,
+            "completion_tokens": 189829,
+            "wall_seconds_including_quota_wait": 3006.123883962631,
+            "failed_stages": 1
+          }
+        },
+        "kitchen_01": {
+          "old": {
+            "calls": 137,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 775164,
+            "completion_tokens": 115685,
+            "wall_seconds_including_quota_wait": 3680.2982771396637,
+            "failed_stages": 1
+          },
+          "new": {
+            "calls": 149,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 987215,
+            "completion_tokens": 184529,
+            "wall_seconds_including_quota_wait": 1538.0573427677155,
+            "failed_stages": 0
+          }
+        },
+        "bedroom_05": {
+          "old": {
+            "calls": 122,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 700002,
+            "completion_tokens": 104381,
+            "wall_seconds_including_quota_wait": 4080.0518641471863,
+            "failed_stages": 0
+          },
+          "new": {
+            "calls": 128,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 840437,
+            "completion_tokens": 163912,
+            "wall_seconds_including_quota_wait": 1123.8091201782227,
+            "failed_stages": 0
+          }
+        },
+        "study_23": {
+          "old": {
+            "calls": 146,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 913683,
+            "completion_tokens": 111202,
+            "wall_seconds_including_quota_wait": 5738.193747997284,
+            "failed_stages": 0
+          },
+          "new": {
+            "calls": 141,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 937293,
+            "completion_tokens": 161735,
+            "wall_seconds_including_quota_wait": 888.0199680328369,
+            "failed_stages": 0
+          }
+        },
+        "kitchen_23": {
+          "old": {
+            "calls": 134,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 840238,
+            "completion_tokens": 116286,
+            "wall_seconds_including_quota_wait": 6220.87788772583,
+            "failed_stages": 0
+          },
+          "new": {
+            "calls": 122,
+            "unknown_usage_calls": 3,
+            "prompt_tokens": 777724,
+            "completion_tokens": 164568,
+            "wall_seconds_including_quota_wait": 682.6048362255096,
+            "failed_stages": 1
+          }
+        },
+        "study_05": {
+          "old": {
+            "calls": 138,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 871129,
+            "completion_tokens": 114613,
+            "wall_seconds_including_quota_wait": 4674.2934856414795,
+            "failed_stages": 0
+          },
+          "new": {
+            "calls": 136,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 919193,
+            "completion_tokens": 169200,
+            "wall_seconds_including_quota_wait": 803.892566204071,
+            "failed_stages": 0
+          }
+        },
+        "gym_03": {
+          "old": {
+            "calls": 124,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 729561,
+            "completion_tokens": 116297,
+            "wall_seconds_including_quota_wait": 5446.93643450737,
+            "failed_stages": 0
+          },
+          "new": {
+            "calls": 125,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 809798,
+            "completion_tokens": 170786,
+            "wall_seconds_including_quota_wait": 794.241925239563,
+            "failed_stages": 0
+          }
+        },
+        "bedroom_04": {
+          "old": {
+            "calls": 120,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 769451,
+            "completion_tokens": 93310,
+            "wall_seconds_including_quota_wait": 6939.776346683502,
+            "failed_stages": 0
+          },
+          "new": {
+            "calls": 119,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 822213,
+            "completion_tokens": 149187,
+            "wall_seconds_including_quota_wait": 9735.99722790718,
+            "failed_stages": 0
+          }
+        },
+        "study_18": {
+          "old": {
+            "calls": 160,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 986009,
+            "completion_tokens": 123552,
+            "wall_seconds_including_quota_wait": 10716.350181341171,
+            "failed_stages": 0
+          },
+          "new": {
+            "calls": 162,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 1097427,
+            "completion_tokens": 214009,
+            "wall_seconds_including_quota_wait": 819.1016137599945,
+            "failed_stages": 1
+          }
+        },
+        "kitchen_20": {
+          "old": {
+            "calls": 63,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 294670,
+            "completion_tokens": 96377,
+            "wall_seconds_including_quota_wait": 2129.787268638611,
+            "failed_stages": 3
+          },
+          "new": {
+            "calls": 156,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 1071887,
+            "completion_tokens": 182451,
+            "wall_seconds_including_quota_wait": 711.3306472301483,
+            "failed_stages": 0
+          }
+        }
+      }
+    },
+    "matched_first_eight_97": {
+      "memory_and_index": {
+        "old_ogmemory": {
+          "calls": 547,
+          "unknown_usage_calls": 0,
+          "prompt_tokens": 2510078,
+          "completion_tokens": 784774,
+          "wall_seconds_including_quota_wait": 37348.518384218216,
+          "failed_stages": 0
+        },
+        "new_ogmemory": {
+          "calls": 547,
+          "unknown_usage_calls": 0,
+          "prompt_tokens": 3126005,
+          "completion_tokens": 1242828,
+          "wall_seconds_including_quota_wait": 16847.391715765,
+          "failed_stages": 0
+        }
+      },
+      "qa": {
+        "old_ogmemory": {
+          "calls": 525,
+          "unknown_usage_calls": 0,
+          "prompt_tokens": 4039490,
+          "completion_tokens": 111694,
+          "wall_seconds_including_quota_wait": 3954.807228565216,
+          "failed_stages": 1
+        },
+        "new_ogmemory": {
+          "calls": 524,
+          "unknown_usage_calls": 3,
+          "prompt_tokens": 3998225,
+          "completion_tokens": 110918,
+          "wall_seconds_including_quota_wait": 1725.3551547527313,
+          "failed_stages": 2
+        }
+      },
+      "by_video": {
+        "study_09": {
+          "old": {
+            "calls": 151,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 950340,
+            "completion_tokens": 124694,
+            "wall_seconds_including_quota_wait": 4522.897568941116,
+            "failed_stages": 0
+          },
+          "new": {
+            "calls": 151,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 1030357,
+            "completion_tokens": 189829,
+            "wall_seconds_including_quota_wait": 3006.123883962631,
+            "failed_stages": 1
+          }
+        },
+        "kitchen_01": {
+          "old": {
+            "calls": 137,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 775164,
+            "completion_tokens": 115685,
+            "wall_seconds_including_quota_wait": 3680.2982771396637,
+            "failed_stages": 1
+          },
+          "new": {
+            "calls": 149,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 987215,
+            "completion_tokens": 184529,
+            "wall_seconds_including_quota_wait": 1538.0573427677155,
+            "failed_stages": 0
+          }
+        },
+        "bedroom_05": {
+          "old": {
+            "calls": 122,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 700002,
+            "completion_tokens": 104381,
+            "wall_seconds_including_quota_wait": 4080.0518641471863,
+            "failed_stages": 0
+          },
+          "new": {
+            "calls": 128,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 840437,
+            "completion_tokens": 163912,
+            "wall_seconds_including_quota_wait": 1123.8091201782227,
+            "failed_stages": 0
+          }
+        },
+        "study_23": {
+          "old": {
+            "calls": 146,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 913683,
+            "completion_tokens": 111202,
+            "wall_seconds_including_quota_wait": 5738.193747997284,
+            "failed_stages": 0
+          },
+          "new": {
+            "calls": 141,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 937293,
+            "completion_tokens": 161735,
+            "wall_seconds_including_quota_wait": 888.0199680328369,
+            "failed_stages": 0
+          }
+        },
+        "kitchen_23": {
+          "old": {
+            "calls": 134,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 840238,
+            "completion_tokens": 116286,
+            "wall_seconds_including_quota_wait": 6220.87788772583,
+            "failed_stages": 0
+          },
+          "new": {
+            "calls": 122,
+            "unknown_usage_calls": 3,
+            "prompt_tokens": 777724,
+            "completion_tokens": 164568,
+            "wall_seconds_including_quota_wait": 682.6048362255096,
+            "failed_stages": 1
+          }
+        },
+        "study_05": {
+          "old": {
+            "calls": 138,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 871129,
+            "completion_tokens": 114613,
+            "wall_seconds_including_quota_wait": 4674.2934856414795,
+            "failed_stages": 0
+          },
+          "new": {
+            "calls": 136,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 919193,
+            "completion_tokens": 169200,
+            "wall_seconds_including_quota_wait": 803.892566204071,
+            "failed_stages": 0
+          }
+        },
+        "gym_03": {
+          "old": {
+            "calls": 124,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 729561,
+            "completion_tokens": 116297,
+            "wall_seconds_including_quota_wait": 5446.93643450737,
+            "failed_stages": 0
+          },
+          "new": {
+            "calls": 125,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 809798,
+            "completion_tokens": 170786,
+            "wall_seconds_including_quota_wait": 794.241925239563,
+            "failed_stages": 0
+          }
+        },
+        "bedroom_04": {
+          "old": {
+            "calls": 120,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 769451,
+            "completion_tokens": 93310,
+            "wall_seconds_including_quota_wait": 6939.776346683502,
+            "failed_stages": 0
+          },
+          "new": {
+            "calls": 119,
+            "unknown_usage_calls": 0,
+            "prompt_tokens": 822213,
+            "completion_tokens": 149187,
+            "wall_seconds_including_quota_wait": 9735.99722790718,
+            "failed_stages": 0
+          }
+        }
+      }
+    }
+  }
+}

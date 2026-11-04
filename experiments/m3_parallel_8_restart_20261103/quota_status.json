@@ -1,0 +1,9 @@
+{
+  "status": "waiting_interval_reset",
+  "observed_at_unix": 1793739557.9056194,
+  "interval_remaining_percent": 11,
+  "weekly_remaining_percent": 67,
+  "window_end_unix": 1793739600.0,
+  "query_seconds": 1.460829257965088,
+  "read_only_query_attempts": 1
+}

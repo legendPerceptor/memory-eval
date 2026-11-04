@@ -1,4 +1,5 @@
 import importlib.util
+import json
 from pathlib import Path
 
 import pytest
@@ -58,3 +59,23 @@ def test_frozen_final_judge_and_resource_reconciliation():
     assert (
         a["time_seconds"]["shared_perception"] == b["time_seconds"]["shared_perception"]
     )
+
+
+def test_table_two_uses_one_decimal_percent_and_percentage_point_difference(
+    tmp_path, monkeypatch
+):
+    data = json.loads(
+        (
+            paper.ROOT / "experiments/m3_paper_paired8_20261103/comparison.json"
+        ).read_text()
+    )
+    monkeypatch.setattr(paper, "ROOT", tmp_path)
+    (tmp_path / "latex").mkdir()
+    paper.latex(data)
+    text = (tmp_path / "latex/paired8_results.tex").read_text()
+    table = text.split(r"\end{table}", 1)[0]
+    assert r"题目加权合计 & 97 & 57.2\% & 43.8\% & +13.4\\" in table
+    assert r"\code{study_23} & 14 & 67.9\% & 32.1\% & +35.7\\" in table
+    assert r"\code{kitchen_23} & 12 & 54.2\% & 62.5\% & -8.3\\" in table
+    assert "分差（百分点）" in table
+    assert "0.5722" not in table

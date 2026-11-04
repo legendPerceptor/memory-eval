@@ -1,0 +1,14 @@
+{
+  "input_hashes": {
+    "/home/yuanjian/Development/memory-eval/experiments/m3_parallel_8_restart_20261103/frozen_baseline/joint_questions.jsonl": "94c910ff473daf728f2afa2b1e166f0fa4bcc674ecb2319f029c99d573c51a10",
+    "/home/yuanjian/Development/memory-eval/experiments/m3_parallel_8_restart_20261103/joint_questions.jsonl": "4eaf560a97a1d04aac96e40e2ee8346d4b6a1feb8a537551dfb683d6e6e09524",
+    "/home/yuanjian/Development/memory-eval/experiments/m3_parallel_8_restart_20261103/private/config.yaml": "0274b2f9e60bcbc2b1c1f393c618ed1e242021de93a50c311b9634d0dbde2fc0"
+  },
+  "pairs": 104,
+  "tasks": 208,
+  "seed": 20261104,
+  "scope": "Only questions where both original answers and judgments were valid; excludes kitchen_20.",
+  "protocol": "Independently score each answer using a single judge, with randomized order and no arm label in prompts.",
+  "safety_stop_at_unix": 1793938692.5315092,
+  "retry_policy": "No automatic regrading of completed calls, including judge errors."
+}

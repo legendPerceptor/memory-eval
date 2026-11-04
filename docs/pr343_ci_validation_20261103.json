@@ -1,0 +1,45 @@
+{
+  "source_commit_before_fix": "c237bfef22e4474cd3d16c85d9182b15f2f7d613",
+  "fix_commit": "1cd9378795c39b23959e6b2ad86eae9a783ac890",
+  "target_commit": "b1156b26",
+  "python": "3.11.17 (main, Oct 14 2026, 01:05:33) [Clang 23.1.3 ]",
+  "packages": {
+    "Pillow": "13.0.0",
+    "pytest": "9.2.0",
+    "pytest-asyncio": "1.4.1.post1",
+    "coverage": "7.17.0",
+    "mcp": "2.3.0",
+    "numpy": "2.4.6",
+    "opencv-python-headless": "4.14.0.94"
+  },
+  "ci_builds": {
+    "parent": 1613,
+    "compile": 1611
+  },
+  "log_sha256": {
+    "parent-1613.log": "107f8b8ee50abe6c91192440813f4a74209d610786e4b3244344646097963c3c",
+    "compile-1611.log": "a938e5d5647f9c628314cb26ce653fab8576e6d994d55a96fcf242a8c2b6a18d",
+    "reproduce-before.log": "431bc00dbc2236adb41d1b131295b81fbf82a7e5bf754f864549e069d67d137e",
+    "ci-merged-unit.log": "13e0c575d909e5462c3083a6bdfb7ac7277cb690ddc44de190bafa418aba2282",
+    "person-after.log": "9069a8b5bcc73a007ceec5876df84d97e8e54d8582368a9f7a728e62db434fa6",
+    "lock-check.log": "edd28398ed101d1b79477150fd4af46df8e311c805fbba51c0c4083b029cbead",
+    "pillow.patch": "8cb5c0e837b14ae850a403449c3f50a80843e5c8ecf30824ecc7e6361b13cc98"
+  },
+  "status": "passed",
+  "remote_push": false,
+  "ci_equivalent_command": "coverage run -m pytest tests/unit",
+  "full_unit_suite": {
+    "passed": 8531,
+    "skipped": 52,
+    "warnings": 14,
+    "failed": 0,
+    "seconds": 501.93,
+    "exit_code": 0,
+    "network_namespace_isolation": true,
+    "test_exclusions_added": false
+  },
+  "person_unit_tests": {
+    "passed": 28
+  },
+  "lock_check": "passed"
+}

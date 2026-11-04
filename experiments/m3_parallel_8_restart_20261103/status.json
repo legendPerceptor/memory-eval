@@ -1,0 +1,245 @@
+{
+  "status": "finished_with_failures",
+  "history": [
+    {
+      "video": "study_09",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1793721273.1754103,
+      "seconds": 2237.983607530594,
+      "status": "completed"
+    },
+    {
+      "video": "study_09",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1793723511.1600604,
+      "seconds": 21.903293132781982,
+      "status": "completed"
+    },
+    {
+      "video": "study_09",
+      "phase": "og_qa",
+      "exit_code": 2,
+      "started_at_unix": 1793723533.0639668,
+      "seconds": 746.2369832992554,
+      "status": "completed_with_qa_failures"
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1793724279.301518,
+      "seconds": 1380.4083585739136,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1793725659.710863,
+      "seconds": 22.275216102600098,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1793725681.986733,
+      "seconds": 135.37376809120178,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1793725817.361088,
+      "seconds": 989.8396515846252,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1793726807.201349,
+      "seconds": 22.275830030441284,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1793726829.4778366,
+      "seconds": 111.69363856315613,
+      "status": "completed"
+    },
+    {
+      "video": "study_23",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1793726941.1722345,
+      "seconds": 649.3501794338226,
+      "status": "completed"
+    },
+    {
+      "video": "study_23",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1793727590.5231185,
+      "seconds": 19.340927839279175,
+      "status": "completed"
+    },
+    {
+      "video": "study_23",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1793727609.864721,
+      "seconds": 219.3288607597351,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_23",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1793727829.1941965,
+      "seconds": 586.3505601882935,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_23",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1793728415.545427,
+      "seconds": 19.855379581451416,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_23",
+      "phase": "og_qa",
+      "exit_code": 2,
+      "started_at_unix": 1793728435.40151,
+      "seconds": 76.39889645576477,
+      "status": "completed_with_qa_failures"
+    },
+    {
+      "video": "study_05",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1793728511.8010592,
+      "seconds": 666.5804052352905,
+      "status": "completed"
+    },
+    {
+      "video": "study_05",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1793729178.3821633,
+      "seconds": 26.644939661026,
+      "status": "completed"
+    },
+    {
+      "video": "study_05",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1793729205.0278172,
+      "seconds": 110.66722130775452,
+      "status": "completed"
+    },
+    {
+      "video": "gym_03",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1793729315.6963193,
+      "seconds": 550.2729468345642,
+      "status": "completed"
+    },
+    {
+      "video": "gym_03",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1793729865.9699624,
+      "seconds": 20.744563579559326,
+      "status": "completed"
+    },
+    {
+      "video": "gym_03",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1793729886.715274,
+      "seconds": 223.22441482543945,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_04",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1793730109.9403987,
+      "seconds": 9613.729006052017,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_04",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1793739723.6701338,
+      "seconds": 19.83685040473938,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_04",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1793739743.5077674,
+      "seconds": 102.4313714504242,
+      "status": "completed"
+    },
+    {
+      "video": "study_18",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1793739845.9398715,
+      "seconds": 672.3444550037384,
+      "status": "completed"
+    },
+    {
+      "video": "study_18",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1793740518.2856028,
+      "seconds": 26.39338183403015,
+      "status": "completed"
+    },
+    {
+      "video": "study_18",
+      "phase": "og_qa",
+      "exit_code": 2,
+      "started_at_unix": 1793740544.6800473,
+      "seconds": 120.36377692222595,
+      "status": "completed_with_qa_failures"
+    },
+    {
+      "video": "kitchen_20",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1793740665.04456,
+      "seconds": 546.229480266571,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_20",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1793741211.2748532,
+      "seconds": 22.429182529449463,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_20",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1793741233.7048335,
+      "seconds": 142.6719844341278,
+      "status": "completed"
+    }
+  ]
+}

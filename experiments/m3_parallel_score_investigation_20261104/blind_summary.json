@@ -1,0 +1,8 @@
+{
+  "pairs": 104,
+  "old_mean": 0.5769230769230769,
+  "new_mean": 0.5288461538461539,
+  "improved": 13,
+  "worsened": 16,
+  "unchanged": 75
+}

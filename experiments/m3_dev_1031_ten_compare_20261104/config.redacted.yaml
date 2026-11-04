@@ -1,0 +1,139 @@
+agfs:
+  base_url: http://127.0.0.1:1833
+  mount_prefix: /local/plugin
+auth:
+  role_control_enabled: false
+cache:
+  enabled: true
+  max_size: 1000
+cv_service:
+  base_url: http://127.0.0.1:18081
+  timeout_seconds: 30
+embedding:
+  api_key: <REDACTED>
+  base_url: http://127.0.0.1:8001/v1
+  batch_size: 8
+  model: BAAI/bge-m3
+  multimodal: false
+  provider: openai
+features:
+  code_resources_enabled: ''
+  code_retrieval_bm25_enabled: ''
+  code_retrieval_enabled: ''
+  code_retrieval_graph_enabled: ''
+  code_retrieval_semantic_enabled: ''
+  code_retrieval_symbolic_enabled: ''
+  code_workspace_allowed_roots: ''
+  tool_output_filter:
+    adaptive_enabled: ''
+    bash_enabled: ''
+    bash_min_chars: ''
+    bash_min_lines: ''
+    diff_max_lines: ''
+    enabled: ''
+    error_max_lines: ''
+    generic_max_lines: ''
+    output_max_chars: ''
+    read_enabled: ''
+    read_max_lines: ''
+    read_min_chars: ''
+    recovery_max_chars: ''
+    test_max_lines: ''
+identity:
+  account_id: m3-dev-1031-ten-compare-20261104
+  agent_id: main
+  user_id: u-alice
+index:
+  interval: 15
+  workers: 1
+llm:
+  api_key: <REDACTED>
+  base_url: https://api.minimax.cn/v1
+  extra_body:
+    thinking:
+      type: adaptive
+  is_reasoning_model: true
+  max_tokens: 8192
+  model: MiniMax-M3.1-Flash
+  provider: minimax
+  reasoning_effort: medium
+  request_timeout_seconds: 300
+  temperature: 0
+m3:
+  embedding:
+    api_key: <REDACTED>
+    base_url: http://127.0.0.1:8001/v1
+    dimension: 1024
+    model: BAAI/bge-m3
+    provider: openai
+  episodic_llm:
+    api_key: <REDACTED>
+    base_url: https://api.minimax.cn/v1
+    extra_body:
+      thinking:
+        type: adaptive
+    is_reasoning_model: true
+    max_tokens: 8192
+    model: MiniMax-M3.1-Flash
+    provider: minimax
+    reasoning_effort: medium
+    request_timeout_seconds: 300
+    temperature: 0
+  judge_llm:
+    api_key: <REDACTED>
+    base_url: https://api.minimax.cn/v1
+    extra_body:
+      thinking:
+        type: adaptive
+    is_reasoning_model: true
+    max_tokens: 2048
+    model: MiniMax-M3.1-Flash
+    provider: minimax
+    reasoning_effort: medium
+    request_timeout_seconds: 300
+    temperature: 0
+  qa_llm:
+    api_key: <REDACTED>
+    base_url: https://api.minimax.cn/v1
+    extra_body:
+      thinking:
+        type: adaptive
+    is_reasoning_model: true
+    max_tokens: 8192
+    model: MiniMax-M3.1-Flash
+    provider: minimax
+    reasoning_effort: medium
+    request_timeout_seconds: 300
+    temperature: 0
+  vector_index:
+    backend: opengauss
+    pool_size: 5
+    table_name: m3_episodic_vectors
+mcp:
+  allowed_hosts: ''
+  default_toolset: ''
+  enable_code_edit_tools: ''
+  enable_delete_tools: false
+  enable_write_tools: false
+  enabled: true
+  host: ''
+  max_sse_connections: ''
+  path: ''
+  port: '6068'
+memory: null
+service:
+  http_port: 4831
+  threads: 2
+  workers: 1
+sharing:
+  agent_shared_mode: 'off'
+storage:
+  backend: sql
+  connection_string: <REDACTED>
+  pool_size: 5
+vector_db:
+  connection_string: <REDACTED>
+  dimension: 1024
+  pool_size: 5
+  table_name: vector_index
+  type: opengauss

@@ -1,0 +1,9 @@
+{
+  "video": "study_09",
+  "phase": "pipeline",
+  "exit_code": 0,
+  "seconds": 766.7600064277649,
+  "started_at_unix": 1793692875.7607381,
+  "recovery": "recovery_01",
+  "status": "completed"
+}

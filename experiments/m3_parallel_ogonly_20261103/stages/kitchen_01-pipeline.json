@@ -1,0 +1,21 @@
+{
+  "video": "kitchen_01",
+  "phase": "pipeline",
+  "exit_code": 0,
+  "seconds": 6357.104223489761,
+  "started_at_unix": 1793693862.6243763,
+  "recovery": "recovery_01",
+  "status": "completed",
+  "attempts": [
+    {
+      "video": "kitchen_01",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "seconds": 6357.104223489761,
+      "started_at_unix": 1793693862.6243763,
+      "recovery": "recovery_01",
+      "status": "completed"
+    }
+  ],
+  "failed_attempts": 0
+}

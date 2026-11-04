@@ -1,0 +1,21 @@
+{
+  "video": "study_09",
+  "phase": "index",
+  "exit_code": 0,
+  "seconds": 20.458007097244263,
+  "started_at_unix": 1793693642.5216212,
+  "recovery": "recovery_01",
+  "status": "completed",
+  "attempts": [
+    {
+      "video": "study_09",
+      "phase": "index",
+      "exit_code": 0,
+      "seconds": 20.458007097244263,
+      "started_at_unix": 1793693642.5216212,
+      "recovery": "recovery_01",
+      "status": "completed"
+    }
+  ],
+  "failed_attempts": 0
+}
