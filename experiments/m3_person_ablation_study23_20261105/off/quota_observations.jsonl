@@ -1,0 +1,2 @@
+{"observed_at_unix": 1793845979.4119303, "interval_remaining_percent": 100, "weekly_remaining_percent": 59, "window_end_unix": 1793862000.0, "query_seconds": 1.3772692680358887, "read_only_query_attempts": 1}
+{"observed_at_unix": 1793858777.690323, "interval_remaining_percent": 100, "weekly_remaining_percent": 59, "window_end_unix": 1793862000.0, "query_seconds": 2.000242233276367, "read_only_query_attempts": 1}

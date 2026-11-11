@@ -1,0 +1,61 @@
+{
+  "status": "completed",
+  "completed": [
+    "qa/adaptive_incremental/bedroom_04",
+    "qa/adaptive_incremental/kitchen_01",
+    "qa/adaptive_incremental/bedroom_05",
+    "qa/adaptive_incremental/gym_03",
+    "qa/adaptive_incremental/study_23",
+    "judge/adaptive_incremental"
+  ],
+  "stages": {
+    "qa/adaptive_incremental/bedroom_04": {
+      "exit_code": 0,
+      "seconds": 542.5249472099822,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0,
+      "retries": 0
+    },
+    "qa/adaptive_incremental/kitchen_01": {
+      "exit_code": 0,
+      "seconds": 404.7232646199409,
+      "questions": 13,
+      "attempt_rows": 13,
+      "failures": 0,
+      "retries": 0
+    },
+    "qa/adaptive_incremental/bedroom_05": {
+      "exit_code": 0,
+      "seconds": 440.43663402600214,
+      "questions": 12,
+      "attempt_rows": 12,
+      "failures": 0,
+      "retries": 0
+    },
+    "qa/adaptive_incremental/gym_03": {
+      "exit_code": 0,
+      "seconds": 361.7443673389498,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0,
+      "retries": 0
+    },
+    "qa/adaptive_incremental/study_23": {
+      "exit_code": 0,
+      "seconds": 551.4287677600514,
+      "questions": 14,
+      "attempt_rows": 14,
+      "failures": 0,
+      "retries": 0
+    },
+    "judge/adaptive_incremental": {
+      "completed": 183,
+      "total": 183
+    },
+    "summary/adaptive_incremental": {
+      "eligible": false
+    }
+  },
+  "current": null
+}

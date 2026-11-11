@@ -1,0 +1,17 @@
+{
+  "baseline": {
+    "score": 0.4230769230769231,
+    "questions": 13,
+    "failures": 0
+  },
+  "m3_agent": {
+    "score": 0.19230769230769232,
+    "questions": 13,
+    "failures": 0
+  },
+  "baseline_repeat": {
+    "score": 0.23076923076923078,
+    "questions": 13,
+    "failures": 0
+  }
+}

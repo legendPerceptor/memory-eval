@@ -1,0 +1,20 @@
+{
+  "description": "Reconstructed full index texts before and after person-association compaction, using saved episodic memories and speech transcripts. No embedding calls. These are not necessarily the historical service inputs, which could be truncated on retry.",
+  "source_run": "m3_dev_1031_ten_retry_20261108",
+  "tokenizer": "runs/context_assets/qwen-omni-tokenizer.json",
+  "token_count_note": "Proxy tokenizer counts; not embedding-service usage or billed token counts.",
+  "columns": ["video", "clips", "original_characters", "compact_characters", "original_proxy_tokens", "compact_proxy_tokens"],
+  "videos": [
+    ["bedroom_04", 56, 393061, 196929, 155029, 46632],
+    ["bedroom_05", 61, 481053, 218476, 195329, 51793],
+    ["gym_03", 68, 497147, 233739, 195453, 52608],
+    ["kitchen_01", 79, 496174, 261725, 186860, 58176],
+    ["kitchen_20", 63, 510615, 228783, 205832, 51476],
+    ["kitchen_23", 66, 443531, 229491, 170145, 51695],
+    ["study_05", 69, 609784, 242290, 254957, 55068],
+    ["study_09", 79, 481392, 258656, 178720, 56604],
+    ["study_18", 84, 602819, 277792, 242004, 62636],
+    ["study_23", 69, 385815, 225693, 138600, 50405]
+  ],
+  "total": ["all", 694, 4901391, 2373574, 1922929, 537093]
+}

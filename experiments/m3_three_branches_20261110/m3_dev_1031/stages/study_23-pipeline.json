@@ -1,0 +1,10 @@
+{
+  "arm": "m3_dev_1031",
+  "video": "study_23",
+  "phase": "pipeline",
+  "exit_code": 0,
+  "started_at_unix": 1794361057.9920886,
+  "seconds": 1622.4551589488983,
+  "status": "completed",
+  "answer_rows": 0
+}

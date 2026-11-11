@@ -1,0 +1,197 @@
+{
+  "status": "finished_with_failures",
+  "history": [
+    {
+      "video": "study_09",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794238662.7275207,
+      "seconds": 3283.417052268982,
+      "status": "completed"
+    },
+    {
+      "video": "study_09",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794241946.145215,
+      "seconds": 21.153620958328247,
+      "status": "completed"
+    },
+    {
+      "video": "study_09",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1794241967.2994328,
+      "seconds": 387.7940390110016,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794242355.0940385,
+      "seconds": 1626.085416316986,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794243981.180356,
+      "seconds": 22.298214435577393,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "og_qa",
+      "exit_code": 2,
+      "started_at_unix": 1794244003.4791927,
+      "seconds": 329.5527489185333,
+      "status": "completed_with_qa_failures"
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794244333.0325375,
+      "seconds": 1083.1737122535706,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794245416.206895,
+      "seconds": 22.67145609855652,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1794245438.8790333,
+      "seconds": 268.6483631134033,
+      "status": "completed"
+    },
+    {
+      "video": "study_23",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794245707.5280228,
+      "seconds": 738.9216542243958,
+      "status": "completed"
+    },
+    {
+      "video": "study_23",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794246446.4503286,
+      "seconds": 18.99918842315674,
+      "status": "completed"
+    },
+    {
+      "video": "study_23",
+      "phase": "og_qa",
+      "exit_code": 2,
+      "started_at_unix": 1794246465.4501843,
+      "seconds": 317.24006748199463,
+      "status": "completed_with_qa_failures"
+    },
+    {
+      "video": "kitchen_23",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794246782.6909294,
+      "seconds": 755.3903269767761,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_23",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794247538.082113,
+      "seconds": 19.033700466156006,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_23",
+      "phase": "og_qa",
+      "exit_code": 2,
+      "started_at_unix": 1794247557.1171837,
+      "seconds": 297.02369713783264,
+      "status": "completed_with_qa_failures"
+    },
+    {
+      "video": "study_05",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794247854.1415486,
+      "seconds": 836.4473547935486,
+      "status": "completed"
+    },
+    {
+      "video": "study_05",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794248690.5896177,
+      "seconds": 26.02505326271057,
+      "status": "completed"
+    },
+    {
+      "video": "study_05",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1794248716.615371,
+      "seconds": 284.15530705451965,
+      "status": "completed"
+    },
+    {
+      "video": "gym_03",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794249000.7713525,
+      "seconds": 697.918924331665,
+      "status": "completed"
+    },
+    {
+      "video": "gym_03",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794249698.6909976,
+      "seconds": 21.14906406402588,
+      "status": "completed"
+    },
+    {
+      "video": "gym_03",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1794249719.8408003,
+      "seconds": 235.26360630989075,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_04",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794249955.1051235,
+      "seconds": 700.0374808311462,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_04",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794250655.1433592,
+      "seconds": 19.76302194595337,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_04",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1794250674.907189,
+      "seconds": 248.37683081626892,
+      "status": "completed"
+    }
+  ]
+}

@@ -1,0 +1,353 @@
+[
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q05",
+    "question": "At what time of day may this scene take place?",
+    "expected_answer": "At dusk",
+    "predicted_answer": "Evening/night — the dialogue says \"I think it's almost late. It's almost 9\" and \"It's getting late,\" and near the end they \"turn off the lights to make that a little more mysterious\" for the surprise, so the scene takes place around 9 PM.",
+    "error": "",
+    "arm": "baseline_repeat"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q09",
+    "question": "Where should the robot get the LED lignts？",
+    "expected_answer": "Material box",
+    "predicted_answer": "The LED lights are on the rolling cart in the kitchen (the narrow cart along the right wall, holding colorful decorations, a pink striped item, a clear plastic bin, and the bundled light set). When asked \"Annie, can you give us the LED lights?\", the robot goes to the kitchen, finds the bundled lights on top of that rolling cart, picks them up with its black-gloved hands and hands the bundle to the person in the green jacket.",
+    "error": "",
+    "arm": "baseline_repeat"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q10",
+    "question": "Where should the robot get the table cloth themed with birthday？",
+    "expected_answer": "Material box",
+    "predicted_answer": "The robot should get it from the storage bin on the rolling storage cart beside the kitchen counter (the cart holding the labeled plastic bin of party supplies). At ~1560s a request is made for a birthday-themed tablecloth, and the black-gloved camera wearer goes to the rolling cart next to the counter, pulls a folded white tablecloth with colorful circular prints out of the bin on that cart, and hands it over.",
+    "error": "",
+    "arm": "baseline_repeat"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q05",
+    "question": "At what time of day may this scene take place?",
+    "expected_answer": "At dusk",
+    "predicted_answer": "Likely in the evening or at night, as the apartment is illuminated primarily by artificial ceiling and kitchen lights.",
+    "error": "",
+    "arm": "m3_agent"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q13",
+    "question": "Where should the robot get the knife?",
+    "expected_answer": "In the cupboard under the stove.",
+    "predicted_answer": "Annie",
+    "error": "",
+    "arm": "m3_agent"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q08",
+    "question": "Where should the robot get the ribbon?",
+    "expected_answer": "Material box",
+    "predicted_answer": "The robot should fetch the ribbon from the rolling storage cart in the kitchen — the black multi-tier cart holding the colorful decorations. The spool of pink/yellow/red colored silk ribbon sits on the top of that cart among the other decorations, and that is where the camera wearer reached in and picked it up after being asked to \"give us the colored silk ribbon.\"",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q09",
+    "question": "Where should the robot get the LED lignts？",
+    "expected_answer": "Material box",
+    "predicted_answer": "The robot should get the LED lights from the rolling cart beside the kitchen counter.",
+    "error": "",
+    "arm": "m3_agent"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q05",
+    "question": "At what time of day may this scene take place?",
+    "expected_answer": "At dusk",
+    "predicted_answer": "Evening — around 9 p.m. The speakers repeatedly note it's \"getting late\" (early on: \"look at the clock... it's getting late\"), and later one says \"I think it's almost late. It's almost 9.\" The scene is lit mainly by ceiling fixtures (the kitchen lights are even switched off for a surprise), consistent with nighttime rather than daytime.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q03",
+    "question": "How many tools are taken from the tool box?",
+    "expected_answer": "3",
+    "predicted_answer": "**Two** — in the toolbox exchange the speaker identifies \"This is the toolbox\" and says \"Whatever you need, you can take some tools and paste tools from there\" (i.e., tools plus paste tools), and the only concretely documented tool removal is the retrieval of the blue-handled scissors from the rolling cart, which is then handed to the man in the tan jacket. No explicit numeric count is spoken, so the count of two comes from these two tool types/items being taken.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q03",
+    "question": "How many tools are taken from the tool box?",
+    "expected_answer": "3",
+    "predicted_answer": "The exact number cannot be determined from the retrieved evidence. The only clip mentioning the toolbox is the early planning clip, where a speaker says \"This is the toolbox\" and \"Whatever you need, you can take some tools and paste tools from there,\" and asks for \"an inflator.\" No clip shows or states a count of tools actually removed from the toolbox. The tool pickups visible in the video come from other sources (e.g., blue-handled scissors taken from beside a white plastic bin on the rolling cart and handed to the man in the tan jacket), so the number of tools taken specifically from the toolbox is not established.",
+    "error": "",
+    "arm": "baseline_repeat"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q02",
+    "question": "Who knows the birthday person better, Percy or Olinda?",
+    "expected_answer": "Percy",
+    "predicted_answer": "Percy — he shows personal familiarity with the birthday person (e.g., \"Me, Percy, will make a letter B\" for the cake, implying knowledge of her name/initial), whereas Olinda's involvement is logistical (reminded to order the drinks, asked to unpackage the candle kit). Note: no explicit on-screen statement directly comparing the two was found in the retrieved clips.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q12",
+    "question": "Where should the robot get the candles?",
+    "expected_answer": "In the top drawer of the cabinet under the material box.",
+    "predicted_answer": "The robot should get the birthday candles from the rolling utility cart in the kitchen.",
+    "error": "",
+    "arm": "m3_agent"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q04",
+    "question": "How many times are the packaging tape used?",
+    "expected_answer": "Three times",
+    "predicted_answer": "The packaging tape is used 3 times.",
+    "error": "",
+    "arm": "m3_agent"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q07",
+    "question": "Where should the robot get the scissors?",
+    "expected_answer": "Tool box",
+    "predicted_answer": "The robot should get the scissors from the white plastic bin in the wheeled supply area.",
+    "error": "",
+    "arm": "m3_agent"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q04",
+    "question": "How many times are the packaging tape used?",
+    "expected_answer": "Three times",
+    "predicted_answer": "Based on the retrieved evidence, the packaging/clear tape is used **three times**: once to combine ribbons into a letter edge (clip 33, \"Now I have to use the package tape to combine the ribbons into a letter edge\"), once pressed onto the yellow balloon loop (clip 41), and once to secure the yellow balloon decoration to the wall (clip 42). A fourth loose reference (clip 45) shows a small adhesive/decoration being handled for sticking to the wall, but that clip does not clearly identify it as packaging tape, so the supported count is three distinct uses.",
+    "error": "",
+    "arm": "baseline_repeat"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q13",
+    "question": "Where should the robot get the knife?",
+    "expected_answer": "In the cupboard under the stove.",
+    "predicted_answer": "The knife should come from the narrow rolling drawer cart beside the kitchen counter (the cart where the tools/supplies are stored) — and per the request at the table, Annie is the one asked to bring it: \"Annie, can you give us a knife?\" (Note: no explicit on-screen location of the knife is shown; the only grounded facts are the request to Annie and that tools are kept on the rolling cart by the kitchen counter.)",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q01",
+    "question": "Where should the robot get the cotton rope?",
+    "expected_answer": "Material box",
+    "predicted_answer": "The rolling storage cart.",
+    "error": "",
+    "arm": "m3_agent"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q07",
+    "question": "Where should the robot get the scissors?",
+    "expected_answer": "Tool box",
+    "predicted_answer": "The robot should get the scissors from the rolling utility cart in the kitchen — specifically from the spot beside the white plastic bin (an open bin on the cart holding decorations and kitchen items), where the blue-handled scissors were lying. The robot walked to the cart, picked up the blue-handled scissors next to the white plastic bin, and handed them to the man in the tan jacket, as requested (\"could you please help us to bring the scissors?\").",
+    "error": "",
+    "arm": "baseline_repeat"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q10",
+    "question": "Where should the robot get the table cloth themed with birthday？",
+    "expected_answer": "Material box",
+    "predicted_answer": "The robot should get the birthday-themed tablecloth from the rolling storage cart beside the stove.",
+    "error": "",
+    "arm": "m3_agent"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q10",
+    "question": "Where should the robot get the table cloth themed with birthday？",
+    "expected_answer": "Material box",
+    "predicted_answer": "The robot should get the birthday-themed tablecloth from the storage bin on the rolling cart beside the kitchen counter (the black rolling storage cart holding a bin and birthday supplies). The black-gloved hands reach into that bin and pull out the folded white tablecloth with large colorful circular prints, then carry it over to the two men.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q08",
+    "question": "Where should the robot get the ribbon?",
+    "expected_answer": "Material box",
+    "predicted_answer": "The robot should get the ribbon from the drawer or bin in the storage cart.",
+    "error": "",
+    "arm": "m3_agent"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q11",
+    "question": "Where's Olinda's cloth placed?",
+    "expected_answer": "On the back of the chair beside the table",
+    "predicted_answer": "**Answer:** The only cloth item with tracked placement is the colorful birthday tablecloth (white with big red/green/yellow/blue circles). It was pulled from the rolling‑cart bin, handed to the man in the white T‑shirt and glasses, and then raised/draped over the man in the beige jacket — i.e. it ended up on the beige‑jacketed man's head/shoulders, not on a surface. The only item explicitly reported as being placed on furniture is the black coat (\"Now the coat is on the chair\"). I could not find any evidence naming an \"Olinda,\" so I can't confirm that the cloth in question is hers specifically; if you mean a different cloth (e.g. one belonging to the person addressed as Olinda), the video evidence doesn't specify a placement for it.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q06",
+    "question": "Where should the robot get the packaging tape?",
+    "expected_answer": "Tool box",
+    "predicted_answer": "The video never explicitly mentions packaging tape, so its exact location isn't directly stated. The closest supported locations for packaging/craft supplies are: the toolbox and material box (where the speakers said tools and materials like balloons are kept) on the rolling supply cart beside the kitchen counter, the trays on that cart (where a white roll of trim was picked up), and the party-supply bin beside the counter holding colorful decorations and small items. If the tape is to be fetched, the counter/cart area (toolbox–material box / party-supply bin) is where the evidence points.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q11",
+    "question": "Where's Olinda's cloth placed?",
+    "expected_answer": "On the back of the chair beside the table",
+    "predicted_answer": "Based on the retrieved evidence, Olinda's cloth is the birthday tablecloth: it was taken from a bin on the rolling cart and carried over to the dining area, where it is meant to be laid on the dining table (\"I need the table clothes for birthday\"; \"Anit, could you pass a table close with a theme with birthday?\"). At the moment in question (≈1584s) the tablecloth had just been handed to the man in the white T‑shirt, who was raising it over the beige‑jacketed man's head, rather than it already being spread out on the table. (Separately, the black coat in that scene was put on the dining chair.)",
+    "error": "",
+    "arm": "baseline_repeat"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q01",
+    "question": "Where should the robot get the cotton rope?",
+    "expected_answer": "Material box",
+    "predicted_answer": "From the rolling supply/materials cart by the kitchen entrance (where the trays of materials and tools are kept) — the group is told \"We should use a cotton rope to make them together,\" and then someone calls \"Annie, come here and give us...\" to fetch it; likewise, in the following clip the camera wearer picks up a white roll of decorative trim/cord from a crowded tray on that same rolling cart and hands it to the man in the tan jacket. Note: no clip explicitly states \"the cotton rope is in/on the cart,\" so the cart is the best-supported location, with Annie being asked to bring it.",
+    "error": "",
+    "arm": "baseline_repeat"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q03",
+    "question": "How many tools are taken from the tool box?",
+    "expected_answer": "3",
+    "predicted_answer": "Two tools.",
+    "error": "",
+    "arm": "m3_agent"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q07",
+    "question": "Where should the robot get the scissors?",
+    "expected_answer": "Tool box",
+    "predicted_answer": "The robot should get the scissors from the rolling utility cart in the kitchen — the blue-handled scissors were picked up from beside the white plastic bin on that cart (next to colorful decorations), then carried back and handed to the man in the tan jacket.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q12",
+    "question": "Where should the robot get the candles?",
+    "expected_answer": "In the top drawer of the cabinet under the material box.",
+    "predicted_answer": "From the rolling storage cart beside the kitchen counter — the birthday candles are sitting on the large white plate on top of that cart (along with ribbons and other party supplies), above its storage drawers. That is where the camera-wearing robot goes (and opens the cart's drawer / focuses on the plate) when asked for the candles.",
+    "error": "",
+    "arm": "baseline_repeat"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q02",
+    "question": "Who knows the birthday person better, Percy or Olinda?",
+    "expected_answer": "Percy",
+    "predicted_answer": "Percy",
+    "error": "",
+    "arm": "m3_agent"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q08",
+    "question": "Where should the robot get the ribbon?",
+    "expected_answer": "Material box",
+    "predicted_answer": "The robot should get the ribbon from the rolling storage cart (the top of the cart, among the other colorful decorations), where a round spool wound with pink, yellow, and red silk ribbon is kept — the camera wearer searched the cart and removed that spool to bring it to the person in the white T-shirt.",
+    "error": "",
+    "arm": "baseline_repeat"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q01",
+    "question": "Where should the robot get the cotton rope?",
+    "expected_answer": "Material box",
+    "predicted_answer": "From the supply cart at the kitchen entrance — specifically the crowded tray/material box on the rolling cart (where the other craft supplies, tools, balloons and the white roll of trim are kept). The materials are all located there, and shortly after the cotton rope is requested (\"We should use a cotton rope to make them together…\", \"So, Annie, come here and give us…\"), the camera-wearing robot/operator goes to that rolling cart and lifts the white roll of cotton rope/trim from a tray on it and hands it to the man in the tan jacket.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q13",
+    "question": "Where should the robot get the knife?",
+    "expected_answer": "In the cupboard under the stove.",
+    "predicted_answer": "From the kitchen supplies cart/drawer unit beside the counter, not from the dining table. Evidence: the robot (the gloved camera wearer, addressed as \"Annie\") has been asked \"Annie, can you give us a knife?\" (because there's a pizza that needs cutting), and earlier in the video the robot retrieved items (scissors, tablecloth, lights) from the rolling cart/bin next to the kitchen counter, including taking \"Mr. Savage's own knife and box\" from that cart area. So the knife should be fetched in the kitchen — from the rolling cart/drawers beside the counter (Mr. Savage's knife/box), rather than from the table where the group is eating. Note: no clip shows the actual handover of the pizza knife, so the exact drawer/location within the kitchen cart is not directly confirmed.",
+    "error": "",
+    "arm": "baseline_repeat"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q11",
+    "question": "Where's Olinda's cloth placed?",
+    "expected_answer": "On the back of the chair beside the table",
+    "predicted_answer": "On the dining table.",
+    "error": "",
+    "arm": "m3_agent"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q02",
+    "question": "Who knows the birthday person better, Percy or Olinda?",
+    "expected_answer": "Percy",
+    "predicted_answer": "Olinda. The speaker who supplies the personal detail about the birthday person (\"Our birthday person likes [Italian cuisine] best,\" leading to spaghetti, pizza and salad, plus ordering the drinks) is the one addressed/attributed as Olinda/Alinda, while Percy is self-identified doing the decoration work (\"Me, Percy, will make a letter B\"). No one states this comparison outright; the conclusion is inferred from who knows the birthday person's tastes and is trusted with the gifts/drinks versus Percy's decoration task.",
+    "error": "",
+    "arm": "baseline_repeat"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q09",
+    "question": "Where should the robot get the LED lignts？",
+    "expected_answer": "Material box",
+    "predicted_answer": "From the rolling cart in the kitchen — the bundled LED light set sits on top of the cart (among colorful decorations, next to a clear plastic bin), and it was picked up there and handed over when Annie was asked for it.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q06",
+    "question": "Where should the robot get the packaging tape?",
+    "expected_answer": "Tool box",
+    "predicted_answer": "The robot should get the packaging tape from the kitchen area's rolling storage cart/counter (the tray of supplies next to the sink), where the roll of white tape was kept.",
+    "error": "",
+    "arm": "m3_agent"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q06",
+    "question": "Where should the robot get the packaging tape?",
+    "expected_answer": "Tool box",
+    "predicted_answer": "The video doesn't name packaging tape explicitly, but the materials and tools for the decorating task are kept on the narrow rolling supply cart in the kitchen — the man in the beige jacket points out the material box and the toolbox there (\"Whatever you need, you can take some tools... And this is the material box\"), and later items (a white roll, ornaments, plates, small packaged items) are picked from the cart's trays. So the robot should get the packaging tape from the material/supply box on the rolling cart (right side of the kitchen), though no retrieved clip confirms a specific tape roll's exact position.",
+    "error": "",
+    "arm": "baseline_repeat"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q04",
+    "question": "How many times are the packaging tape used?",
+    "expected_answer": "Three times",
+    "predicted_answer": "Based on the retrieved evidence, the packaging/clear tape is applied three times: twice in the clip where a person in a light green sweatshirt presses clear tape to hold a pink balloon letter shape and then a yellow balloon loop against the wall, and once more in the clip where tape is pressed onto the yellow twisted balloon decoration to fix it to the wall (with blue-handled scissors alongside). Separately, one participant mentions using package tape to combine ribbons into a letter edge while both men work over ribbon pieces and tape on the table. Note: the retrieved evidence is excerpted/budgeted, so a fuller clip-by-clip tally could reveal additional tape applications.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "kitchen_01",
+    "question_id": "kitchen_01_Q12",
+    "question": "Where should the robot get the candles?",
+    "expected_answer": "In the top drawer of the cabinet under the material box.",
+    "predicted_answer": "From the rolling cart in the kitchen — the colorful birthday candles are gathered on a large white plate on top of the rolling cart (beside the kitchen counter), which the camera approaches and opens a drawer of after being asked, \"Honey, can you give us the birthday candles?\"",
+    "error": "",
+    "arm": "baseline"
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "totals": {
+    "baseline": {
+      "score": 0.5491803278688525,
+      "questions": 61,
+      "tokens": 2288538,
+      "failures": 0,
+      "unknown_usage_calls": 0
+    },
+    "m3_agent": {
+      "score": 0.4016393442622951,
+      "questions": 61,
+      "tokens": 454617,
+      "failures": 0,
+      "unknown_usage_calls": 0
+    },
+    "meaning_guard": {
+      "score": 0.5327868852459017,
+      "questions": 61,
+      "tokens": 2110939,
+      "failures": 0,
+      "unknown_usage_calls": 25
+    }
+  },
+  "scores_by_video": {
+    "baseline": {
+      "bedroom_04": 0.8181818181818182,
+      "kitchen_01": 0.38461538461538464,
+      "bedroom_05": 0.375,
+      "gym_03": 0.6363636363636364,
+      "study_23": 0.5714285714285714
+    },
+    "m3_agent": {
+      "bedroom_04": 0.45454545454545453,
+      "kitchen_01": 0.23076923076923078,
+      "bedroom_05": 0.375,
+      "gym_03": 0.6818181818181818,
+      "study_23": 0.32142857142857145
+    },
+    "meaning_guard": {
+      "bedroom_04": 0.8181818181818182,
+      "kitchen_01": 0.2692307692307692,
+      "bedroom_05": 0.375,
+      "gym_03": 0.7272727272727273,
+      "study_23": 0.5357142857142857
+    }
+  },
+  "eligible": false
+}

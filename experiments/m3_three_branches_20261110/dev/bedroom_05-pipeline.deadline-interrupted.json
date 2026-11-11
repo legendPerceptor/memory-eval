@@ -1,0 +1,10 @@
+{
+  "arm": "dev",
+  "video": "bedroom_05",
+  "phase": "pipeline",
+  "exit_code": 74,
+  "started_at_unix": 1794320374.7389154,
+  "seconds": 972.9918081760406,
+  "status": "failed",
+  "answer_rows": 0
+}

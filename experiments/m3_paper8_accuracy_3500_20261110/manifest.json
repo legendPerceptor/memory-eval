@@ -1,0 +1,25 @@
+{
+  "videos": [
+    "study_23",
+    "kitchen_01",
+    "bedroom_05"
+  ],
+  "baseline_sha256": {
+    "study_23": "dd590523b089a58734eca9d9dba420301cdaaf32a42ddc7762aea69611d8900c",
+    "kitchen_01": "60b9be42d8ebc28baa88205a27efdecba1c610e58addffb2f0617495abcf8c38",
+    "bedroom_05": "4dcff0b3bb26c356dd065a3f54458ff4a291abbfdcfc47b20f9e6d8e8c1363e0"
+  },
+  "safety_stop_at_unix": 1794362390.1427808,
+  "source_control_sha256": "6f1b5f188cdc809cf6638caee4401afc50916348cb9daa68aa1a741c03a371f7",
+  "configuration_sha256": {
+    "study_23": "3018551f925f1805544ac008903afa25f1c4bc52cbc5995a911da8c52fe4bc16",
+    "kitchen_01": "c052349a37188c4c85fb33d89bd2603ee0fcfd9a3c94ace2f29acd003ee776ff",
+    "bedroom_05": "8fea659c1feff9d5e44c5421660c3d1e4b09326d66290ada62856de9b0b936dc"
+  },
+  "change": {
+    "ambiguity_guard": false,
+    "later_incremental_tokens": 3500
+  },
+  "design": "All questions per video; frozen memory and first baseline answers; randomized blinded rejudging; failures counted as zero.",
+  "limitations": "Three selected videos, one stochastic run, no causal conclusion for memory construction or person grounding."
+}

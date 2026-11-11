@@ -1,0 +1,264 @@
+diff --git a/m3/context_budget.py b/m3/context_budget.py
+index f71706ab..4d5a6d2f 100644
+--- a/m3/context_budget.py
++++ b/m3/context_budget.py
+@@ -67,8 +67,8 @@ class ContextBudget:
+                 raise ValueError(f"qa_context.{field.name} must be a positive integer")
+         if (type(self.answer_reserve_seconds) is not int or self.answer_reserve_seconds < 0):
+             raise ValueError("qa_context.answer_reserve_seconds must be a non-negative integer")
+-        if self.evidence_format not in ("passages", "grouped"):
+-            raise ValueError("qa_context.evidence_format must be passages or grouped")
++        if self.evidence_format not in ("passages", "grouped", "columnar"):
++            raise ValueError("qa_context.evidence_format must be passages, grouped, or columnar")
+         for name in ("fact_memory", "identity_aware", "incremental_delivery",
+                      "force_answer_tool", "fact_scene_anchors"):
+             if type(getattr(self, name)) is not bool:
+@@ -222,6 +222,22 @@ def model_document(document, evidence_format):
+         value = ([passage["start_char"], passage["end_char"], passage["text"]]
+                  if field == "description" else [passage["index"], passage["value"]])
+         grouped.setdefault(field, []).append(value)
++    if evidence_format == "columnar":
++        for field in _CONTENT_FIELDS[1:]:
++            entries = grouped.get(field)
++            if not isinstance(entries, list) or len(entries) < 2:
++                continue
++            values = [entry[1] for entry in entries]
++            if not all(isinstance(value, dict) for value in values):
++                continue
++            keys = sorted(values[0])
++            if not all(sorted(value) == keys for value in values):
++                continue
++            table = {"columns": ["source_index", *keys],
++                     "rows": [[entry[0], *(entry[1][key] for key in keys)]
++                              for entry in entries]}
++            if len(dumps(table).encode("utf-8")) < len(dumps(entries).encode("utf-8")):
++                grouped[field] = table
+     return grouped
+ 
+ 
+@@ -280,13 +296,19 @@ def pack_context(messages, tools, question, budget: ContextBudget, *,
+     notice = ("Budgeted original excerpts, not complete memory. Omitted evidence is not "
+               "evidence of absence or a complete count. Evidence IDs refer only to this "
+               "request. Search a specific missing fact to select different excerpts.")
+-    if budget.evidence_format == "grouped":
++    if budget.evidence_format in ("grouped", "columnar"):
+         notice += (
+             " Grouped format: description entries are [start_char,end_char,original_text]; "
+             "other content fields contain [original_list_index,original_value]. "
+             "Indices are local source-list positions, not persistent entity IDs or event counts. "
+             "Character offsets locate original text excerpts."
+         )
++    if budget.evidence_format == "columnar":
++        notice += (
++            " A field with columns and rows is an equivalent table: each row value "
++            "corresponds to its column, and source_index is its original list index. "
++            "Other fields retain grouped format."
++        )
+     selected = {}
+ 
+     def render():
+diff --git a/m3/control_adapter.py b/m3/control_adapter.py
+index 08620177..66c1941d 100644
+--- a/m3/control_adapter.py
++++ b/m3/control_adapter.py
+@@ -24,6 +24,7 @@ from __future__ import annotations
+ 
+ import json
+ import logging
++import os
+ import re
+ import time
+ from copy import deepcopy
+@@ -52,6 +53,20 @@ from service.graph_service import GraphService
+ logger = logging.getLogger(__name__)
+ 
+ 
++def _incremental_budget_for_call(budget: ContextBudget, prior_visible: bool) -> ContextBudget:
++    configured = os.environ.get("OGMEM_M3_LATER_INCREMENTAL_TOKENS")
++    if not configured or not budget.incremental_delivery or not prior_visible:
++        return budget
++    try:
++        later_tokens = int(configured)
++    except ValueError as exc:
++        raise ValueError("OGMEM_M3_LATER_INCREMENTAL_TOKENS must be a positive integer") from exc
++    if later_tokens <= 0 or later_tokens > budget.incremental_tokens:
++        raise ValueError("OGMEM_M3_LATER_INCREMENTAL_TOKENS must be positive and no greater "
++                         "than the initial incremental budget")
++    return replace(budget, incremental_tokens=later_tokens)
++
++
+ def _compact_cached_search_messages(messages: list[dict], start_index: int) -> None:
+     """Reference duplicate evidence only when its full payload is still in history.
+ 
+@@ -362,6 +377,7 @@ class SearchConfig:
+     context_k: int = 0
+     context_budget: ContextBudget | None = None
+     person_retrieval: bool = False
++    question: str = ""
+ 
+ 
+ @operational_tool(name="Search", runtime_only=("search_config",))
+@@ -595,6 +611,15 @@ def Search(
+ 
+     def serialize(h):
+         from core.temporal import temporal_metadata
++        from m3.compact_person import compact_person_evidence, enabled, on_demand_person_evidence
++        characters = h.node.extracted_content.get("characters", [])
++        events = h.node.extracted_content.get("events", [])
++        if (os.environ.get("OGMEM_M3_PERSON_ON_DEMAND") == "1"
++                and isinstance(characters, list) and isinstance(events, list)):
++            characters, events = on_demand_person_evidence(
++                characters, events, search_config.question, query)
++        elif enabled() and isinstance(characters, list) and isinstance(events, list):
++            characters, events = compact_person_evidence(characters, events)
+         value = {
+             "node_id": h.node.node_id,
+             "retrieval_sources": list(branch_scores.get(h.node.node_id, {"vector": h.score})),
+@@ -604,8 +629,8 @@ def Search(
+             "clip_id": h.clip_id,
+             **temporal_metadata(h.node.extracted_content),
+             "description": h.node.extracted_content.get("description", ""),
+-            "characters": h.node.extracted_content.get("characters", []),
+-            "events": h.node.extracted_content.get("events", []),
++            "characters": characters,
++            "events": events,
+             "entities": h.node.extracted_content.get("entities", []),
+             # Surface the per-clip ASR transcript so dialogue-driven
+             # questions (M3-Bench "what do they plan", "what did they
+@@ -830,6 +855,7 @@ class OGMemoryControlAdapter(ReactLoop):
+             context_k=self._context_k,
+             context_budget=self._context_budget,
+             person_retrieval=self._person_retrieval,
++            question=task_ctx.question,
+         )
+ 
+         system = (
+@@ -888,6 +914,21 @@ class OGMemoryControlAdapter(ReactLoop):
+             "query with synonyms, the location, or the speaker's action "
+             "before giving up."
+         )
++        if os.environ.get("OGMEM_M3_EARLY_ANSWER") == "1":
++            system += (
++                "\nOnce the retrieved evidence directly answers the question, call Answer "
++                "immediately. Search again only for a specific missing fact or a genuine "
++                "conflict; do not search merely to collect additional context. If evidence "
++                "remains insufficient, say so rather than inventing an answer."
++            )
++        if os.environ.get("OGMEM_M3_AMBIGUITY_GUARD") == "1":
++            system += (
++                "\nBefore answering, check whether an important word in the question has "
++                "multiple plausible meanings in this video's context. If evidence does not "
++                "resolve the ambiguity, search for the competing interpretation rather than "
++                "assuming the first match. Match the kind of answer requested: a who question "
++                "generally asks for a person or agent, not merely an inanimate object."
++            )
+         if self._person_retrieval:
+             system += (
+                 "\nStructured person_binding fields link current-video face observations to facts. "
+@@ -897,6 +938,12 @@ class OGMemoryControlAdapter(ReactLoop):
+                 "Do not infer a name for an anonymous ID without the corresponding source evidence."
+                 " You may search an observed person_id verbatim to retrieve that person's other scoped facts."
+             )
++            from m3.compact_person import enabled
++            if enabled() and os.environ.get("OGMEM_M3_PERSON_ON_DEMAND") != "1":
++                system += (
++                    " A local_alias in an event refers to the character with the same local_alias "
++                    "in that search hit only; aliases do not establish identity across clips."
++                )
+         if scope:
+             system += (
+                 f" Restrict your evidence to video {scope!r}."
+@@ -912,7 +959,7 @@ class OGMemoryControlAdapter(ReactLoop):
+                 "retrieved events are not a complete count. Search a specific missing fact to "
+                 "select different excerpts; do not infer unseen facts. "
+             )
+-            if self._context_budget.evidence_format == "grouped":
++            if self._context_budget.evidence_format in ("grouped", "columnar"):
+                 system += (
+                     "Each evidence[id] groups original excerpts by field. Description entries "
+                     "are [start_char,end_char,original_text]; speech_transcript, events, "
+@@ -922,6 +969,12 @@ class OGMemoryControlAdapter(ReactLoop):
+                     "adjoining speech from the same clip together. All original value fields "
+                     "and speaker/timing metadata in an admitted entry are preserved."
+                 )
++                if self._context_budget.evidence_format == "columnar":
++                    system += (
++                        " A field with columns and rows is a table of original entries: "
++                        "each row position matches the corresponding column; source_index "
++                        "is the position in the original field list, not an entity ID."
++                    )
+             else:
+                 system += (
+                     "In this format, description and speech_transcript are identified by the field "
+@@ -1160,9 +1213,12 @@ class OGMemoryControlAdapter(ReactLoop):
+         started = time.monotonic()
+         packer = (self._incremental_context.pack if self._context_budget.incremental_delivery
+                   else pack_context)
++        call_budget = _incremental_budget_for_call(
++            self._context_budget, bool(self._seen_visible_passages))
+         view, stats = packer(
+-            messages, tools, self._current_task_ctx.question, self._context_budget,
++            messages, tools, self._current_task_ctx.question, call_budget,
+         )
++        stats["incremental_tokens_for_call"] = call_budget.incremental_tokens
+         stats["packing_seconds"] = time.monotonic() - started
+         stats["loop_remaining_seconds_before_pack"] = remaining
+         stats["answer_only"] = self._answer_only
+diff --git a/m3/index_episodic.py b/m3/index_episodic.py
+index 91bf8f6c..0a5eaa07 100644
+--- a/m3/index_episodic.py
++++ b/m3/index_episodic.py
+@@ -159,7 +159,8 @@ def build_retrieval_text(
+     characters = _stringify_named_items(record.get("characters"))
+     if characters:
+         sections.append("Characters: " + "; ".join(characters))
+-    if record.get("person_grounding"):
++    from m3.compact_person import enabled
++    if record.get("person_grounding") and not enabled():
+         # Preserve the typed identity keys in vector text as well as raw
+         # structured evidence. These are source-backed model claims, not names
+         # certified by a face recognizer.
+diff --git a/tests/unit/m3/test_grouped_context.py b/tests/unit/m3/test_grouped_context.py
+index d80181a2..45a305a3 100644
+--- a/tests/unit/m3/test_grouped_context.py
++++ b/tests/unit/m3/test_grouped_context.py
+@@ -99,6 +99,39 @@ def test_model_document_keeps_plain_mode_identical():
+     assert model_document(document, "passages") is document
+ 
+ 
++def test_columnar_format_round_trips_all_original_values():
++    raw = messages()
++    before = deepcopy(raw)
++    options = dict(context_window=200000, max_input_tokens=180000)
++    grouped, grouped_stats = pack_context(
++        raw, [], "scissors", ContextBudget(**options, evidence_format="grouped"))
++    columnar, columnar_stats = pack_context(
++        raw, [], "scissors", ContextBudget(**options, evidence_format="columnar"))
++    assert raw == before
++    assert grouped_stats["selected_sources"] == columnar_stats["selected_sources"]
++    grouped_document = next(iter(docs(grouped)[1].values()))
++    columnar_document = next(iter(docs(columnar)[1].values()))
++    for field in ("speech_transcript", "events", "characters", "entities"):
++        value = columnar_document[field]
++        if isinstance(value, dict) and "columns" in value:
++            columns = value["columns"]
++            decoded = [[row[0], dict(zip(columns[1:], row[1:]))] for row in value["rows"]]
++        else:
++            decoded = value
++        assert decoded == grouped_document[field]
++    assert columnar_document["description"] == grouped_document["description"]
++    assert request_units(columnar, []) < request_units(grouped, [])
++
++
++def test_columnar_keeps_heterogeneous_entries_in_grouped_format():
++    document = {"node_id": "n", "passages": [
++        {"field": "speech_transcript", "index": 0, "value": {"text": "a", "speaker": "X"}},
++        {"field": "speech_transcript", "index": 1, "value": {"text": "b"}},
++    ]}
++    assert model_document(document, "columnar")["speech_transcript"] == [
++        [0, {"text": "a", "speaker": "X"}], [1, {"text": "b"}]]
++
++
+ def test_grouped_prompt_does_not_promote_local_indices_to_entity_identities():
+     from unittest.mock import Mock
+     from core.models import RequestContext

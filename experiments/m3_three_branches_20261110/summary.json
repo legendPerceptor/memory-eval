@@ -1,0 +1,32 @@
+{
+  "dev": {
+    "questions": 39,
+    "mean_score": 0.5897435897435898,
+    "failures": 1,
+    "by_video": {
+      "kitchen_01": 0.6538461538461539,
+      "bedroom_05": 0.5,
+      "study_23": 0.6071428571428571
+    }
+  },
+  "m3_dev_1031": {
+    "questions": 39,
+    "mean_score": 0.3717948717948718,
+    "failures": 1,
+    "by_video": {
+      "kitchen_01": 0.07692307692307693,
+      "bedroom_05": 0.4583333333333333,
+      "study_23": 0.5714285714285714
+    }
+  },
+  "simplify_person_info_1110": {
+    "questions": 39,
+    "mean_score": 0.3974358974358974,
+    "failures": 0,
+    "by_video": {
+      "kitchen_01": 0.15384615384615385,
+      "bedroom_05": 0.3333333333333333,
+      "study_23": 0.6785714285714286
+    }
+  }
+}

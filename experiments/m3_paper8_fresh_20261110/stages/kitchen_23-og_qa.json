@@ -1,0 +1,8 @@
+{
+  "video": "kitchen_23",
+  "phase": "og_qa",
+  "exit_code": 2,
+  "started_at_unix": 1794247557.1171837,
+  "seconds": 297.02369713783264,
+  "status": "completed_with_qa_failures"
+}

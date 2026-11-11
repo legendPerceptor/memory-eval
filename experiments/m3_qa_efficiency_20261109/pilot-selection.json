@@ -1,0 +1,13 @@
+{
+  "means": {
+    "baseline": 0.5833333333333334,
+    "moderate": 0.3958333333333333,
+    "tight": 0.4375
+  },
+  "total_tokens": {
+    "moderate": 340202,
+    "tight": 206248
+  },
+  "eligible": [],
+  "selected": "tight"
+}

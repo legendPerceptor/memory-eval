@@ -1,0 +1,42 @@
+{
+  "base_experiment": "experiments/m3_compact_replay_20261109",
+  "pilot": [
+    "bedroom_04",
+    "kitchen_01"
+  ],
+  "expansion": [
+    "bedroom_05",
+    "gym_03",
+    "study_23"
+  ],
+  "policies": {
+    "moderate": {
+      "incremental_tokens": 1600,
+      "max_input_tokens": 10000,
+      "max_search_calls": 4,
+      "max_iterations": 5
+    },
+    "tight": {
+      "incremental_tokens": 1000,
+      "max_input_tokens": 8000,
+      "max_search_calls": 3,
+      "max_iterations": 4
+    }
+  },
+  "selection": "Among pilot policies within 0.05 mean score of baseline, choose lowest total API tokens; otherwise choose best mean score.",
+  "code_sha256": {
+    "runs/m3_qa_efficiency_20261109/_source/m3/control_adapter.py": "134fc2b99c31aa8d119d60e846f13a19eebfc7119757f753902ba1c9be4dcc84",
+    "runs/m3_qa_efficiency_20261109/_source/m3/compact_person.py": "3d1b16e5cb01d1ee39c759b1aa502ed28c2daba571d8a194b933e6b2a7e6cafa",
+    "runs/m3_qa_efficiency_20261109/_source/m3/context_budget.py": "f0594a1c45793ca52ca881c77c06444a9f854cd1958b7c861b6c4c70934230ae",
+    "runs/m3_qa_efficiency_20261109/_source/m3/incremental_context.py": "b5291b602f7a74e6727eb1c109a215d640d8c2f2cb9173cf988105572e23a5d6",
+    "runs/m3_qa_efficiency_20261109/_source/m3/index_episodic.py": "0f845e7c85c8cee08c9222c795d311147f34cd3438b0ef52fa06a14c98468611"
+  },
+  "baseline_sha256": {
+    "bedroom_04": "4320356f8012648feb1c2d8b02d070572fa1651725b4b784dda9b1fd3c7a1964",
+    "kitchen_01": "2e3748ee094b79f410c668aedd93f3762611c610c71601a1060f07c298ee3383",
+    "bedroom_05": "15ac71d58feab0d6ba120fbf3cc2277dad7ee86ddb9f0359fa2751ea733e274d",
+    "gym_03": "b6b62fb8a2cb1ebf25a10dadadd5d50af6ff07e2a465b3576579ef860768b5d2",
+    "study_23": "f31cb0af9abcfd5d50a7c51ec74cbe6764006adf017d83a94fc0b1e74f8653bd"
+  },
+  "design": "Frozen compact vector index, graph, memories, and fact indexes; no memory regeneration."
+}

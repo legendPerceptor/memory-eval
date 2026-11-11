@@ -1,0 +1,13 @@
+{"observed_at_unix": 1794276142.9923878, "interval_remaining_percent": 99, "weekly_remaining_percent": 74, "window_end_unix": 1794294000.0, "query_seconds": 1.3923139572143555, "read_only_query_attempts": 1}
+{"observed_at_unix": 1794276176.661182, "interval_remaining_percent": 98, "weekly_remaining_percent": 74, "window_end_unix": 1794294000.0, "query_seconds": 2.668879508972168, "read_only_query_attempts": 1}
+{"observed_at_unix": 1794276217.749211, "interval_remaining_percent": 98, "weekly_remaining_percent": 74, "window_end_unix": 1794294000.0, "query_seconds": 1.3470008373260498, "read_only_query_attempts": 1}
+{"observed_at_unix": 1794276241.0464182, "interval_remaining_percent": 98, "weekly_remaining_percent": 74, "window_end_unix": 1794294000.0, "query_seconds": 2.477241039276123, "read_only_query_attempts": 1}
+{"observed_at_unix": 1794276264.1529698, "interval_remaining_percent": 97, "weekly_remaining_percent": 74, "window_end_unix": 1794294000.0, "query_seconds": 1.3755180835723877, "read_only_query_attempts": 1}
+{"observed_at_unix": 1794276286.7301037, "interval_remaining_percent": 97, "weekly_remaining_percent": 74, "window_end_unix": 1794294000.0, "query_seconds": 1.3297924995422363, "read_only_query_attempts": 1}
+{"observed_at_unix": 1794276308.532411, "interval_remaining_percent": 97, "weekly_remaining_percent": 74, "window_end_unix": 1794294000.0, "query_seconds": 1.384856939315796, "read_only_query_attempts": 1}
+{"observed_at_unix": 1794276334.8885672, "interval_remaining_percent": 97, "weekly_remaining_percent": 74, "window_end_unix": 1794294000.0, "query_seconds": 1.7983148097991943, "read_only_query_attempts": 1}
+{"observed_at_unix": 1794276357.1646454, "interval_remaining_percent": 97, "weekly_remaining_percent": 74, "window_end_unix": 1794294000.0, "query_seconds": 1.3762426376342773, "read_only_query_attempts": 1}
+{"observed_at_unix": 1794276379.9008038, "interval_remaining_percent": 96, "weekly_remaining_percent": 74, "window_end_unix": 1794294000.0, "query_seconds": 1.3624753952026367, "read_only_query_attempts": 1}
+{"observed_at_unix": 1794276404.0767395, "interval_remaining_percent": 96, "weekly_remaining_percent": 74, "window_end_unix": 1794294000.0, "query_seconds": 1.3592767715454102, "read_only_query_attempts": 1}
+{"observed_at_unix": 1794276426.090447, "interval_remaining_percent": 96, "weekly_remaining_percent": 74, "window_end_unix": 1794294000.0, "query_seconds": 1.4501292705535889, "read_only_query_attempts": 1}
+{"observed_at_unix": 1794276449.3432248, "interval_remaining_percent": 96, "weekly_remaining_percent": 74, "window_end_unix": 1794294000.0, "query_seconds": 1.3296844959259033, "read_only_query_attempts": 1}

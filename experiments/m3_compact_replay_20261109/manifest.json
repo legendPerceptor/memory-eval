@@ -1,0 +1,36 @@
+{
+  "source_run": "runs/m3_dev_1031_ten_retry_20261108",
+  "videos": [
+    "bedroom_04",
+    "bedroom_05",
+    "gym_03",
+    "kitchen_01",
+    "kitchen_20",
+    "kitchen_23",
+    "study_05",
+    "study_09",
+    "study_18",
+    "study_23"
+  ],
+  "memory_sha256": {
+    "bedroom_04": "eacbad7f38216973ff8cd57eb3c0a8074a627d9f001bb018797d3f6c0c4ac7aa",
+    "bedroom_05": "d31ad08de1ae9fb83e45db3de31227b8b6889f5152410c67290bc88d658b59ee",
+    "gym_03": "fa2ce5894308b073f424800e2297ded74541ce3e834162d8cd2185ecc7b9ea20",
+    "kitchen_01": "b269156b6da64fb8ab03c54dc854f8652159be7fcc0b613e58a7670d23e2ffc5",
+    "kitchen_20": "e05ccf47bbd4ebfa23f5a286354374dac41371251226538ae1288168a645dd2a",
+    "kitchen_23": "e4f798b5cbfafc96721a6c6a048f09664317c1b93023752172eeec5cc784b8c5",
+    "study_05": "e940c2b3ed1bc387e68e21cf77af1fbdc40475273df5dd9f4df00b9816a52643",
+    "study_09": "3277262eb2176d25fb852d221326acc81206021de43447820c6fb9657540ae12",
+    "study_18": "5ad0e1671b459c40c52967c6cee9c71de2f4a517e2ba98dc33f944d7f116f635",
+    "study_23": "e1bc7bf740cdf2649929246716d46a834cbabe2b4c18c9f54b1e12ae42899737"
+  },
+  "vector_table": "m3_compact_replay_20261109",
+  "graph_account": "m3-dev-1031-ten-retry-20261108",
+  "person_compaction": true,
+  "code_sha256": {
+    "compact_person.py": "36e5adbb0f9c919a762b0b2b27930db4c49434e777ee269fa1be8fb9f4340b1d",
+    "control_adapter.py": "1b4349e3e5777af60f842fb177804344303c70ab4cb5b151b8a48cc931c0187c",
+    "index_episodic.py": "0f845e7c85c8cee08c9222c795d311147f34cd3438b0ef52fa06a14c98468611"
+  },
+  "design": "Reuse source graph and fact indexes; isolate compact vector table and QA outputs."
+}

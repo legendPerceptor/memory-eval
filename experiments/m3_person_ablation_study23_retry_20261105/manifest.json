@@ -1,0 +1,18 @@
+{
+  "video": "study_23",
+  "arms": [
+    "off",
+    "on"
+  ],
+  "source_commit": "8731930ec75153865df07689ee0c4bd98d182746",
+  "source_archive_sha256": "c7ed341f83691a0918ee6ba9a81ff8ac46d30cb765fd98e4cb51b7365c52196c",
+  "annotations_sha256": "f43031bf0216a2ef2e7909f20ecd534e0098da17b63cdf94325a07f1bea372c1",
+  "memory_and_qa_max_tokens": 16384,
+  "judge_max_tokens": 2048,
+  "memory_workers": 4,
+  "qa_workers": 1,
+  "memory_max_frames": 16,
+  "person_crops_on_max": 8,
+  "design": "Independent full pipeline per arm; on enables person grounding and retrieval; off disables both. Not crop-only.",
+  "limitation": "Perception is independently recomputed, not bit-identical shared inputs; one run per arm."
+}

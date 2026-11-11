@@ -1,0 +1,38 @@
+{
+  "inputs_sha256": {
+    "baseline/bedroom_04": "4320356f8012648feb1c2d8b02d070572fa1651725b4b784dda9b1fd3c7a1964",
+    "baseline_repeat/bedroom_04": "b9c934cdd138fc6c7fb62ae429ef5d293aa7e03663789486d49e7d88ae5242ab",
+    "m3_agent/bedroom_04": "6b7565de30e0dc0ee33fdf483778124b4f1ea7dddf793333a7e45edcff917906",
+    "adaptive_incremental/bedroom_04": "f3bd8c07ea38937f4fcd7f1d0477b7f6b2310bd64fb089b52b4a2e8b9a219fb6",
+    "baseline/kitchen_01": "2e3748ee094b79f410c668aedd93f3762611c610c71601a1060f07c298ee3383",
+    "baseline_repeat/kitchen_01": "4ee268ed0ff21aa789473cec727422917a42fed761f52de03236791cfb522f0d",
+    "m3_agent/kitchen_01": "4174c6041b0a51b869238d429f2e4f4b91fd756ad482873d6fe480ab5e8e847b",
+    "adaptive_incremental/kitchen_01": "9fe10b32d6ab577f85cb8c55c8554d1257e327aac58782c8b5cbfdf15483a2a9",
+    "baseline/bedroom_05": "15ac71d58feab0d6ba120fbf3cc2277dad7ee86ddb9f0359fa2751ea733e274d",
+    "baseline_repeat/bedroom_05": "f73e6a84e290b6aab0ba60ff803a28534abb4ef629be821000ea18cdd82aec9c",
+    "m3_agent/bedroom_05": "a8db4f148180363f4d1b69289d797414d013580be28e5548a276ab90ffcfde86",
+    "adaptive_incremental/bedroom_05": "f935d02441602f087d7f39d10e8386ffcef75792a8a7673701dea63604beb254",
+    "baseline/gym_03": "b6b62fb8a2cb1ebf25a10dadadd5d50af6ff07e2a465b3576579ef860768b5d2",
+    "baseline_repeat/gym_03": "089f8310cbf4b15029e0efeded8ca55b427853f1dc7f49268d4bd2ec7f6030ff",
+    "m3_agent/gym_03": "52468868a51daceb58e65c21b61c9b78ce3c967f172a975a6f3d8d396eff20be",
+    "adaptive_incremental/gym_03": "c6b925c949fa165e933d1022fee6e57506058727748a44c1a80f4033d6b24036",
+    "baseline/study_23": "f31cb0af9abcfd5d50a7c51ec74cbe6764006adf017d83a94fc0b1e74f8653bd",
+    "baseline_repeat/study_23": "1e86508eeb874985ce237171df39b9b4b2b8679108990d35a33c2999193c5931",
+    "m3_agent/study_23": "330f2621e8849f54afc1b2a677b31594b4ee6bc95a04cb0a7cbae81283245d8b",
+    "adaptive_incremental/study_23": "f4655c085ba8cdb69f1adacd99677593bc01a21224157d3aada6ac9bf89fc782"
+  },
+  "videos": [
+    "bedroom_04",
+    "kitchen_01",
+    "bedroom_05",
+    "gym_03",
+    "study_23"
+  ],
+  "arms": [
+    "baseline",
+    "baseline_repeat",
+    "m3_agent",
+    "adaptive_incremental"
+  ],
+  "deadline": "2026-11-09 23:00 CST"
+}

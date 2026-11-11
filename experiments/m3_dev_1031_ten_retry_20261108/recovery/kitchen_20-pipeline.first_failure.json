@@ -1,0 +1,8 @@
+{
+  "video": "kitchen_20",
+  "phase": "pipeline",
+  "exit_code": 1,
+  "started_at_unix": 1794173351.1545959,
+  "seconds": 744.5587949752808,
+  "status": "failed"
+}

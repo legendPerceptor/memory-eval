@@ -1,0 +1,56 @@
+{
+  "status": "completed",
+  "completed": [
+    "qa/columnar/bedroom_04",
+    "qa/columnar/kitchen_01",
+    "qa/columnar/bedroom_05",
+    "qa/columnar/gym_03",
+    "qa/columnar/study_23",
+    "judge/columnar"
+  ],
+  "stages": {
+    "qa/columnar/bedroom_04": {
+      "exit_code": 0,
+      "seconds": 459.43124113511294,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0
+    },
+    "qa/columnar/kitchen_01": {
+      "exit_code": 0,
+      "seconds": 373.58635603496805,
+      "questions": 13,
+      "attempt_rows": 13,
+      "failures": 0
+    },
+    "qa/columnar/bedroom_05": {
+      "exit_code": 0,
+      "seconds": 415.9966821940616,
+      "questions": 12,
+      "attempt_rows": 12,
+      "failures": 0
+    },
+    "qa/columnar/gym_03": {
+      "exit_code": 0,
+      "seconds": 417.3418686869554,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0
+    },
+    "qa/columnar/study_23": {
+      "exit_code": 0,
+      "seconds": 397.2866967301816,
+      "questions": 14,
+      "attempt_rows": 14,
+      "failures": 0
+    },
+    "judge/columnar": {
+      "completed": 183,
+      "total": 183
+    },
+    "summary/columnar": {
+      "eligible": false
+    }
+  },
+  "current": null
+}

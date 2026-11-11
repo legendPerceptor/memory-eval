@@ -1,0 +1,226 @@
+[
+  {
+    "arm": "off",
+    "question_id": "study_23_Q07",
+    "question": "Why does Sophia stop focusing on The Fast and the Furious?",
+    "expected": "She is too sad about Paul's accident.",
+    "predicted": "Her attention shifts from the movie to Paul. Discussing the car model and the fact that another Fast and Furious installment is coming out, Sophie says that every time she remembers the movie she also remembers Paul's action in it, and the conversation then turns to what happened to Paul during filming (along with the work that was divided into seven parts) — so she stops dwelling on The Fast and the Furious and focuses on Paul/the filming incident instead. (The clips do not spell out more detail than this exchange.)",
+    "answer_error": ""
+  },
+  {
+    "arm": "off",
+    "question_id": "study_23_Q08",
+    "question": "Where can the robot get the orange juice?",
+    "expected": "The cabinet beside the lamp",
+    "predicted": "The orange juice can be obtained from the small light-wood cabinet beside the dining table — it sits in the cabinet's open lower compartment. When \"Rose, please give me the orange juice\" is requested, black-gloved hands reach into that lower compartment of the wooden cabinet, grasp the orange plastic juice bottle, and hand it across the table to the seated woman. (Earlier in the scene, juice was also retrieved from the low shelving unit on the left with the bottles and small containers.)",
+    "answer_error": ""
+  },
+  {
+    "arm": "off",
+    "question_id": "study_23_Q02",
+    "question": "What car brands does Mary like?",
+    "expected": "Aston Martin and Enzo.",
+    "predicted": "Based on the conversation about cars, the brands expressed as her favorites are **Aston Martin** (she notes Bond's car was an Aston Martin, \"no wonder you like that car\") and **Ferrari** (\"as for me I like Ferrari because Ferrari has a flamboyant appearance at the same time it is powerful enough,\" later adding \"actually, I like Enzo best\" — i.e., Enzo Ferrari). Note: the clips label the car-loving speaker only as SPEAKER_00 and elsewhere the car-collecting woman is called Sophie, so the attribution of these statements specifically to \"Mary\" is not fully confirmed.",
+    "answer_error": ""
+  },
+  {
+    "arm": "on",
+    "question_id": "study_23_Q05",
+    "question": "Does Sophia care about tidiness?",
+    "expected": "Yes",
+    "predicted": "Yes — the woman addressed as Sophie/Sophia (the long dark-haired woman with glasses seated nearest the camera) shows a clear concern for tidiness. She repeatedly notices dirt and mess and takes action: \"Oh no, it is... it is also dirty\" followed by \"Rose, please give me the cleaning brush\" (as she brushes a small blue item), \"Oh, I'm so sorry, don't worry. I'll clean that,\" and \"Oh no, the floor is so dirty. Let me clean it.\" Other cleaning utterances in the same scene include \"Oh my god, what a mess. Let me just clean them up,\" \"The table is dirty\" / \"Yeah, I see it,\" and sorting/rearranging small items on the tabletop. Note: the video spells the name \"Sophie\" and the exact identity mapping between the speaking cleaner and the named Sophie is a model claim, not verified.",
+    "answer_error": ""
+  },
+  {
+    "arm": "on",
+    "question_id": "study_23_Q09",
+    "question": "Where can the robot get the car model?",
+    "expected": "On the cabinet next to the desk.",
+    "predicted": "The car model is on the black dining table — it was placed there by the woman in blue specifically so it could be seen (\"Well, I saw the car model on your table just now\" / \"Oh, that's right. I put it there so you can see it\"). Rose later picked it up off the tabletop and raised it near her face, so when asked to hand over the car model, the robot can take it from the dining table.",
+    "answer_error": ""
+  },
+  {
+    "arm": "on",
+    "question_id": "study_23_Q02",
+    "question": "What car brands does Mary like?",
+    "expected": "Aston Martin and Enzo.",
+    "predicted": "Based on the car conversation in the video, the brands mentioned in connection with her are Aston Martin and Ferrari (she calls Enzo her favorite — Enzo being Ferrari's model — saying Ferrari has a flamboyant appearance while being powerful enough; she also discusses James Bond's car being an Aston Martin and an upcoming auto show about it).\n\nCaveat on attribution: the video labels the car-loving speaker variously as \"Mary,\" \"Sophie,\" and unnamed SPEAKER_01/00, and the frames never clearly establish which visible woman is Mary. So the safest grounded statement is: the woman discussing cars names Aston Martin and Ferrari (Enzo) as the brands she likes.",
+    "answer_error": ""
+  },
+  {
+    "arm": "off",
+    "question_id": "study_23_Q11",
+    "question": "How many people are going to the film finally?",
+    "expected": "3",
+    "predicted": "Three people — Rose says Annie asked her to invite one of her friends, and \"the three of us will go to the cinema to watch a movie about cars\" (though only two movie tickets were mentioned).",
+    "answer_error": ""
+  },
+  {
+    "arm": "off",
+    "question_id": "study_23_Q09",
+    "question": "Where can the robot get the car model?",
+    "expected": "On the cabinet next to the desk.",
+    "predicted": "The car model is in the room on the black dining table — the camera wearer noticed \"the car model on your table\" (Sophie had put it there so it could be seen). So the robot can get it from the dining table, by asking Rose/Sophie to hand it over (\"Rose, please give me the car model,\" answered \"Okay\"). The video does not show any other source (shop, store) for the model.",
+    "answer_error": ""
+  },
+  {
+    "arm": "on",
+    "question_id": "study_23_Q11",
+    "question": "How many people are going to the film finally?",
+    "expected": "3",
+    "predicted": "Three people. A speaker explains that Annie asked them to invite a friend so that the three of them can go to the cinema and watch a movie about cars (clip 44); this follows from SPEAKER_01 mentioning that a friend gave her two movie tickets (clip 43).",
+    "answer_error": ""
+  },
+  {
+    "arm": "off",
+    "question_id": "study_23_Q01",
+    "question": "Where can the robot get the cleaning brush?",
+    "expected": "The white box",
+    "predicted": "The cleaning brush is available from the translucent blue lidded container on the low shelf (next to the framed floral artwork) — the robot opens that box and lifts out a blue cleaning tool and the yellow‑bristled brush. Alternatively, it can simply ask Rose, the woman in the white top seated at the table, who hands over the brush (\"Rose, please give me the cleaning brush.\" → \"Okay.\" → \"Thank you.\").",
+    "answer_error": ""
+  },
+  {
+    "arm": "off",
+    "question_id": "study_23_Q12",
+    "question": "Who is Sophia's model?",
+    "expected": "Paul",
+    "predicted": "Paul — the conversation names Paul as \"a model for me\" (\"It is. He is a model for me,\" followed by \"Paul was your guide\"), and Paul is described as an idol/\"spiritual parent\" whose memories the speakers recall. (The transcript doesn't explicitly tie the name \"Sophie/Sophia\" to that line, so the attribution is inferred from context.)",
+    "answer_error": ""
+  },
+  {
+    "arm": "off",
+    "question_id": "study_23_Q03",
+    "question": "How many times is the mop used?",
+    "expected": "Twice",
+    "predicted": "Based on the retrieved evidence, the mop is used **once** — a single cleaning session. The speaker asks \"Rose, please give me the mop\" (clip 34), the long silver pole/mop is carried to the desk area and handed over (clip 35), and after noticing \"the floor is so dirty. Let me clean it\" (clip 38), the chair is moved aside and the floor is cleaned. I found no evidence of a second, separate mopping episode, though I could not confirm the exact number of mop strokes.",
+    "answer_error": ""
+  },
+  {
+    "arm": "on",
+    "question_id": "study_23_Q03",
+    "question": "How many times is the mop used?",
+    "expected": "Twice",
+    "predicted": "Based on the retrieved evidence, the mop is used on two occasions: first, around 120–150 s, when the woman in the white top works a long-handled cleaning tool along the floor near the desk and patterned chair, and again around 1200–1230 s, when the woman in the pale blue-gray dress pushes the turquoise mop back and forth across the wooden floor beside the balcony doors (continuing to mop along the right side of the room). Between these, the mop is requested (\"Rose, please give me the mop\") at ~1020–1050 s and stands upright near the glass doors at ~1140–1170 s, but is not in active use then. So the mop is actively used twice.",
+    "answer_error": ""
+  },
+  {
+    "arm": "off",
+    "question_id": "study_23_Q13",
+    "question": "How many movies about car are mentioned?",
+    "expected": "3",
+    "predicted": "Three car-related movies are mentioned in the conversation: (1) \"The Fast and Furious\" (spoken of as having another release coming), (2) \"movie 007 / James Bond\" (noted for Bond's Aston Martin and driving theme), and (3) the movie they plan to watch at the cinema with Annie, named \"Decision to Live,\" which is explicitly described as \"a movie about cars.\" Evidence supports these three titles; no additional car movies appear in the retrieved clips.",
+    "answer_error": ""
+  },
+  {
+    "arm": "on",
+    "question_id": "study_23_Q04",
+    "question": "Do Mary and Sophia have the same taste?",
+    "expected": "No",
+    "predicted": "**Only partly determinable.** The video never contains a line where Mary or Sophia explicitly says \"we have the same taste,\" so no direct confirmation exists. What the evidence does show is that the two women (the conversation is between a speaker who addresses \"Sophie\" and one who addresses \"Mary\") overlap in several preferences:\n\n- Cars: Sophie is noted to like the car model on the table (\"Wow, Sophie, you like the car so much?\" – \"Yeah\"), and the car talk leads to \"then we have another common hobby\"; Sophie is asked her favorite brand and Ferrari is praised.\n- Food: the shared meal conversation covers shrimp as a favorite, rice noodles (\"I prefer rice noodles\"), beef/steak (\"I like steak very much\"), spicy food over plain food (\"Spicy food\"), cucumber over cabbage, and Coca-Cola.\n- The smelly item exchange shows one woman rejecting it (\"I think it's so smelly. I can't accept it\") while the other says \"it is smelly, it tastes very good\" — so they differ at least on that item's smell.\n\nBecause the food-related statements are not reliably attributable to Mary vs. Sophia by name in the retrieved clips, I can't state definitively whether their tastes match; the closest supported reading is that they largely share tastes (cars, spicy food, noodles, seafood), with the smelly-item reaction being the one clear point of difference.",
+    "answer_error": ""
+  },
+  {
+    "arm": "on",
+    "question_id": "study_23_Q01",
+    "question": "Where can the robot get the cleaning brush?",
+    "expected": "The white box",
+    "predicted": "The cleaning brush (a small yellow brush) is kept in the blue-lidded storage container on the side shelf/cabinet along the left wall of the room. After asking \"Rose, please give me the cleaning brush,\" the camera wearer moves to the blue-lidded container on the side shelf, opens it and takes the yellow brush out, then hands it to the dark-haired woman at the table.",
+    "answer_error": ""
+  },
+  {
+    "arm": "on",
+    "question_id": "study_23_Q07",
+    "question": "Why does Sophia stop focusing on The Fast and the Furious?",
+    "expected": "She is too sad about Paul's accident.",
+    "predicted": "Based on the retrieved evidence, Sophia (Sophie)'s attention to The Fast and the Furious shifts to cars rather than the movie itself. She admits she likes the car so much (\"Wow, Sophie, you like the car so much?\" / \"Yeah\"), and she has placed a model car on the table \"so you can see it.\" When the topic of a new Fast and Furious release comes up, she replies \"Wow, but I haven't noticed that,\" and the conversation turns to their shared hobby of cars (\"Well, it seems that you also like cars\" / \"Of course, then we have another common hobby\"). Her friend then points out, \"If you like the car so much, you need to focus this kind of movie,\" and Sophia answers that she remembers Paul's action in the movie every time. So the immediate reason she stops focusing on the film is that she is distracted by her fascination with cars — the model car on the table and the car talk/new-release news — and pays attention to the movie's car action instead of the film generally. No further explicit statement of her reason exists in the retrieved clips.",
+    "answer_error": ""
+  },
+  {
+    "arm": "off",
+    "question_id": "study_23_Q10",
+    "question": "What kind of spirit inspires Sophia to achieve success?",
+    "expected": "The spirit of self-improvement and persistence",
+    "predicted": "Sophia (Sophie) says that it is the spirit of her idol Paul — the racer she admires from the Fast & Furious movies — that inspires her to achieve success in the car racing field: \"It is his spirit that has been inspiring me to achieve success on the car racing field.\" She describes that spirit as his ability to keep making progress and stand out (e.g., refusing to give up after a failure and demanding another match, with Dom as his \"spiritual parent\").",
+    "answer_error": ""
+  },
+  {
+    "arm": "on",
+    "question_id": "study_23_Q13",
+    "question": "How many movies about car are mentioned?",
+    "expected": "3",
+    "predicted": "**Two** named car movies are mentioned in the conversation:\n\n1. **James Bond (007)** – \"Bond's car was Aston Martin, and the driving theme was so exciting.\"\n2. **The Fast and Furious** – \"The Fast and Furious is going to release its sea grow again\" (also the movie recalled for \"Paul's action,\" with characters Brian and Dom).\n\nA third reference is generic rather than a title: the plan to \"go to the cinema to watch **a movie about cars**\" (with Sophie, at Annie's invitation), which is likely the same Fast and Furious release.",
+    "answer_error": ""
+  },
+  {
+    "arm": "off",
+    "question_id": "study_23_Q06",
+    "question": "Is Sophia willing to forgive others' mistake?",
+    "expected": "Yes",
+    "predicted": "Yes — the conversation shows a forgiving attitude. When someone apologizes (\"Oh, I'm so sorry I overreacted,\" ~1260s; \"Oh, oh no, Sophie, sorry, I'm so sorry,\" ~1039s; \"Oh, I'm so sorry, don't worry. I'll clean that,\" ~1085s), the response is reassurance and absolution rather than blame — \"Don't worry about it\" (after the overreaction apology) and \"Don't worry\" (in the exchange involving Sophie). Sophia is also the one addressed with the soothing \"Don't be upset, Sophie\" earlier. Note: the recording does not clearly map each line to a specific speaker, so who exactly utters \"Don't worry\" versus who apologizes is not fully verifiable, but the overall tone is one of forgiveness of others' mistakes.",
+    "answer_error": ""
+  },
+  {
+    "arm": "on",
+    "question_id": "study_23_Q10",
+    "question": "What kind of spirit inspires Sophia to achieve success?",
+    "expected": "The spirit of self-improvement and persistence",
+    "predicted": "Sophia's success in car racing is inspired by \"his spirit\" — i.e., the spirit of Paul (the man/figure she and the others discuss as a model and guide), described in the conversation as the spirit of someone who keeps making progress and stands on his own feet (never giving up). As one speaker puts it, \"It is his spirit that has been inspiring me to achieve success on the car racing field,\" referring back to the described spirit of continuing to make progress and stand on his own.",
+    "answer_error": ""
+  },
+  {
+    "arm": "off",
+    "question_id": "study_23_Q14",
+    "question": "How many positions are the car model placed?",
+    "expected": "2",
+    "predicted": "Only one placement position is directly supported by the evidence: the model car was placed on the dining table (a speaker says \"I saw the car model on your table just now\" / \"I put it there so you can see it\"). It was later picked up and handed over (\"Rose, please give me the car model\" … \"Here you are. They are the prototypes.\"), but no other distinct surface where the model was set down is documented, so the total number of placement positions cannot be determined beyond the single table placement.",
+    "answer_error": ""
+  },
+  {
+    "arm": "off",
+    "question_id": "study_23_Q04",
+    "question": "Do Mary and Sophia have the same taste?",
+    "expected": "No",
+    "predicted": "Yes — they share common tastes. In their chat, one friend remarks \"it seems that you also like cars\" and the other replies \"Of course, then we have another common hobby,\" and another speaker describes herself as \"the car friend and the movie friend at the same time,\" with her companion answering \"Wow, I can understand that. That's great.\" Their food preferences are also similar (both talk about rice noodles for dinner, spicy food, and cucumber rather than cabbage). Note that the video names the two women as Mary and Sophie/Sophie, but the frames do not clearly assign each speaker label to a specific named person, so the identification of who holds which preference rests on the dialogue itself.",
+    "answer_error": ""
+  },
+  {
+    "arm": "on",
+    "question_id": "study_23_Q06",
+    "question": "Is Sophia willing to forgive others' mistake?",
+    "expected": "Yes",
+    "predicted": "Yes — Sophia is willing to forgive others' mistakes. In the apology exchange she participates in (around 1020s, alongside Rose), she treats the other party's error leniently rather than holding a grudge, and there is no indication of bitterness or unwillingness to let it go.",
+    "answer_error": ""
+  },
+  {
+    "arm": "on",
+    "question_id": "study_23_Q14",
+    "question": "How many positions are the car model placed?",
+    "expected": "2",
+    "predicted": "Three positions. The model car is shown (1) sitting on the dining table, (2) lifted and held up near the face of the woman in the light-blue top, and (3) then picked up and raised by the woman in the beige top (later requested from Rose and handed over/returned to the table).",
+    "answer_error": ""
+  },
+  {
+    "arm": "on",
+    "question_id": "study_23_Q08",
+    "question": "Where can the robot get the orange juice?",
+    "expected": "The cabinet beside the lamp",
+    "predicted": "From the small light-wood shelf unit beside the dining table — the orange juice bottle sits in its open lower compartment. After asking \"Rose, please give me the orange juice,\" the robot's black-gloved hand reaches into that wooden shelf, pulls the orange juice bottle out, carries it to the table and hands it over.",
+    "answer_error": ""
+  },
+  {
+    "arm": "on",
+    "question_id": "study_23_Q12",
+    "question": "Who is Sophia's model?",
+    "expected": "Paul",
+    "predicted": "Paul. In the conversation about the memories left behind, one woman says \"It is. He is a model for me,\" and the other responds, \"Wow, I have to say that Paul was your guide\" — so the person Sophia holds up as a model/role model is Paul, whose favorite song (\"See You Again\") and actions in films they repeatedly recall. (Separately, the small model car on the table is Sophie's mini car — the Aston Martin/Bond-style model she loves.)",
+    "answer_error": ""
+  },
+  {
+    "arm": "off",
+    "question_id": "study_23_Q05",
+    "question": "Does Sophia care about tidiness?",
+    "expected": "Yes",
+    "predicted": "Yes, the video suggests Sophia (referred to as \"Sophie\") is concerned about tidiness: she calls out that the table is dirty, wipes down the tabletop with a cloth, sweeps the wooden floor with a long-handled brush, gathers and files loose papers and a blue folder back into drawers, adjusts plants and small items, and repeatedly puts things back (\"footprint… I better put it back later\"; \"Rose, please put it back\"), even apologizing and cleaning up a spill (\"Oh, I'm so sorry… I'll clean that\"). She also shows care about presentation, saying she put the model car on the table so it could be seen. Caveat: the transcript rarely labels speakers by name, so attribution of each cleaning remark to Sophia specifically rests on inference from the scene rather than explicit name tags.",
+    "answer_error": ""
+  }
+]

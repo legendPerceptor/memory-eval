@@ -1,0 +1,138 @@
+{
+  "status": "completed",
+  "completed": [
+    "index/bedroom_04",
+    "index/bedroom_05",
+    "index/gym_03",
+    "index/kitchen_01",
+    "index/kitchen_20",
+    "index/kitchen_23",
+    "index/study_05",
+    "index/study_09",
+    "index/study_18",
+    "index/study_23",
+    "qa/bedroom_04",
+    "qa/bedroom_05",
+    "qa/gym_03",
+    "qa/kitchen_01",
+    "qa/kitchen_20",
+    "qa/kitchen_23",
+    "qa/study_05",
+    "qa/study_09",
+    "qa/study_18",
+    "qa/study_23"
+  ],
+  "current": null,
+  "stages": {
+    "index/bedroom_04": {
+      "exit_code": 0,
+      "seconds": 6.379299163818359
+    },
+    "index/bedroom_05": {
+      "exit_code": 0,
+      "seconds": 6.763573408126831
+    },
+    "index/gym_03": {
+      "exit_code": 0,
+      "seconds": 6.383933782577515
+    },
+    "index/kitchen_01": {
+      "exit_code": 0,
+      "seconds": 7.108242511749268
+    },
+    "index/kitchen_20": {
+      "exit_code": 0,
+      "seconds": 6.520746469497681
+    },
+    "index/kitchen_23": {
+      "exit_code": 0,
+      "seconds": 6.473818063735962
+    },
+    "index/study_05": {
+      "exit_code": 0,
+      "seconds": 6.891263008117676
+    },
+    "index/study_09": {
+      "exit_code": 0,
+      "seconds": 6.8816633224487305
+    },
+    "index/study_18": {
+      "exit_code": 0,
+      "seconds": 7.564044952392578
+    },
+    "index/study_23": {
+      "exit_code": 0,
+      "seconds": 6.3586626052856445
+    },
+    "qa/bedroom_04": {
+      "exit_code": 0,
+      "seconds": 1.3035743236541748,
+      "attempt_rows": 12,
+      "retry_rows": 1,
+      "question_failures": 0
+    },
+    "qa/bedroom_05": {
+      "exit_code": 0,
+      "seconds": 402.66209173202515,
+      "attempt_rows": 12,
+      "retry_rows": 0,
+      "question_failures": 0
+    },
+    "qa/gym_03": {
+      "exit_code": 0,
+      "seconds": 298.84462308883667,
+      "attempt_rows": 11,
+      "retry_rows": 0,
+      "question_failures": 0
+    },
+    "qa/kitchen_01": {
+      "exit_code": 0,
+      "seconds": 318.7565002441406,
+      "attempt_rows": 13,
+      "retry_rows": 0,
+      "question_failures": 0
+    },
+    "qa/kitchen_20": {
+      "exit_code": 2,
+      "seconds": 451.441374540329,
+      "attempt_rows": 17,
+      "retry_rows": 0,
+      "question_failures": 1
+    },
+    "qa/kitchen_23": {
+      "exit_code": 0,
+      "seconds": 393.5548493862152,
+      "attempt_rows": 12,
+      "retry_rows": 0,
+      "question_failures": 0
+    },
+    "qa/study_05": {
+      "exit_code": 0,
+      "seconds": 327.8836464881897,
+      "attempt_rows": 12,
+      "retry_rows": 0,
+      "question_failures": 0
+    },
+    "qa/study_09": {
+      "exit_code": 0,
+      "seconds": 434.2328498363495,
+      "attempt_rows": 12,
+      "retry_rows": 0,
+      "question_failures": 0
+    },
+    "qa/study_18": {
+      "exit_code": 0,
+      "seconds": 371.0823402404785,
+      "attempt_rows": 14,
+      "retry_rows": 0,
+      "question_failures": 0
+    },
+    "qa/study_23": {
+      "exit_code": 0,
+      "seconds": 407.17227959632874,
+      "attempt_rows": 14,
+      "retry_rows": 0,
+      "question_failures": 0
+    }
+  }
+}

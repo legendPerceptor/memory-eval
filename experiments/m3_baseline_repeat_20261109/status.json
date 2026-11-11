@@ -1,0 +1,56 @@
+{
+  "status": "completed",
+  "completed": [
+    "qa/baseline_repeat/kitchen_01",
+    "qa/baseline_repeat/bedroom_04",
+    "qa/baseline_repeat/bedroom_05",
+    "qa/baseline_repeat/gym_03",
+    "qa/baseline_repeat/study_23",
+    "judge/baseline_repeat"
+  ],
+  "stages": {
+    "qa/baseline_repeat/kitchen_01": {
+      "exit_code": 0,
+      "seconds": 373.46098600304686,
+      "questions": 13,
+      "attempt_rows": 13,
+      "failures": 0
+    },
+    "qa/baseline_repeat/bedroom_04": {
+      "exit_code": 0,
+      "seconds": 371.261956787901,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0
+    },
+    "qa/baseline_repeat/bedroom_05": {
+      "exit_code": 0,
+      "seconds": 394.27542990795337,
+      "questions": 12,
+      "attempt_rows": 12,
+      "failures": 0
+    },
+    "qa/baseline_repeat/gym_03": {
+      "exit_code": 0,
+      "seconds": 394.56046072300524,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0
+    },
+    "qa/baseline_repeat/study_23": {
+      "exit_code": 0,
+      "seconds": 535.5731414658949,
+      "questions": 14,
+      "attempt_rows": 14,
+      "failures": 0
+    },
+    "judge/baseline_repeat": {
+      "completed": 183,
+      "total": 183
+    },
+    "summary/baseline_repeat": {
+      "eligible": false
+    }
+  },
+  "current": null
+}

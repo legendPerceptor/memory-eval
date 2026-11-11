@@ -1,0 +1,214 @@
+{
+  "methods": {
+    "branch": {
+      "questions": 128,
+      "valid_answers": 127,
+      "judge_errors": 0,
+      "mean_score": 0.51953125,
+      "by_video": {
+        "bedroom_04": {
+          "questions": 11,
+          "valid_answers": 11,
+          "judge_errors": 0,
+          "mean_score": 0.7727272727272727
+        },
+        "bedroom_05": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.4166666666666667
+        },
+        "gym_03": {
+          "questions": 11,
+          "valid_answers": 11,
+          "judge_errors": 0,
+          "mean_score": 0.7272727272727273
+        },
+        "kitchen_01": {
+          "questions": 13,
+          "valid_answers": 13,
+          "judge_errors": 0,
+          "mean_score": 0.23076923076923078
+        },
+        "kitchen_20": {
+          "questions": 17,
+          "valid_answers": 17,
+          "judge_errors": 0,
+          "mean_score": 0.6176470588235294
+        },
+        "kitchen_23": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.375
+        },
+        "study_05": {
+          "questions": 12,
+          "valid_answers": 11,
+          "judge_errors": 0,
+          "mean_score": 0.4583333333333333
+        },
+        "study_09": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.5416666666666666
+        },
+        "study_18": {
+          "questions": 14,
+          "valid_answers": 14,
+          "judge_errors": 0,
+          "mean_score": 0.39285714285714285
+        },
+        "study_23": {
+          "questions": 14,
+          "valid_answers": 14,
+          "judge_errors": 0,
+          "mean_score": 0.6785714285714286
+        }
+      }
+    },
+    "parallel": {
+      "questions": 128,
+      "valid_answers": 123,
+      "judge_errors": 0,
+      "mean_score": 0.50390625,
+      "by_video": {
+        "bedroom_04": {
+          "questions": 11,
+          "valid_answers": 11,
+          "judge_errors": 0,
+          "mean_score": 0.8181818181818182
+        },
+        "bedroom_05": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.4166666666666667
+        },
+        "gym_03": {
+          "questions": 11,
+          "valid_answers": 11,
+          "judge_errors": 0,
+          "mean_score": 0.5909090909090909
+        },
+        "kitchen_01": {
+          "questions": 13,
+          "valid_answers": 13,
+          "judge_errors": 0,
+          "mean_score": 0.2692307692307692
+        },
+        "kitchen_20": {
+          "questions": 17,
+          "valid_answers": 17,
+          "judge_errors": 0,
+          "mean_score": 0.6764705882352942
+        },
+        "kitchen_23": {
+          "questions": 12,
+          "valid_answers": 9,
+          "judge_errors": 0,
+          "mean_score": 0.4583333333333333
+        },
+        "study_05": {
+          "questions": 12,
+          "valid_answers": 12,
+          "judge_errors": 0,
+          "mean_score": 0.5
+        },
+        "study_09": {
+          "questions": 12,
+          "valid_answers": 11,
+          "judge_errors": 0,
+          "mean_score": 0.5
+        },
+        "study_18": {
+          "questions": 14,
+          "valid_answers": 13,
+          "judge_errors": 0,
+          "mean_score": 0.25
+        },
+        "study_23": {
+          "questions": 14,
+          "valid_answers": 14,
+          "judge_errors": 0,
+          "mean_score": 0.5714285714285714
+        }
+      }
+    }
+  },
+  "paired_valid_questions": 122,
+  "paired_mean_scores": {
+    "branch": 0.5245901639344263,
+    "parallel": 0.5286885245901639
+  },
+  "resources": {
+    "branch": {
+      "pipeline": {
+        "calls": 694,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 3980234,
+        "completion_tokens": 1616284,
+        "cached_tokens": 835258,
+        "reasoning_tokens": 770949
+      },
+      "og_qa": {
+        "calls": 707,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 4711221,
+        "completion_tokens": 129377,
+        "cached_tokens": 2565006,
+        "reasoning_tokens": 79141
+      },
+      "judge": {
+        "calls": 250,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 159918,
+        "completion_tokens": 25256,
+        "cached_tokens": 50599,
+        "reasoning_tokens": 13067
+      },
+      "stage_seconds": {
+        "pipeline": 11012.442619800568,
+        "index": 226.93363070487976,
+        "og_qa": 9375.372240304947
+      }
+    },
+    "parallel": {
+      "pipeline": {
+        "calls": 694,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 3978504,
+        "completion_tokens": 1603812,
+        "cached_tokens": 843857,
+        "reasoning_tokens": 772093
+      },
+      "og_qa": {
+        "calls": 695,
+        "unknown_usage_calls": 3,
+        "prompt_tokens": 5315040,
+        "completion_tokens": 146394,
+        "cached_tokens": 2508620,
+        "reasoning_tokens": 95803
+      },
+      "judge": {
+        "calls": 123,
+        "unknown_usage_calls": 0,
+        "prompt_tokens": 78804,
+        "completion_tokens": 12208,
+        "cached_tokens": 23830,
+        "reasoning_tokens": 6134
+      },
+      "stage_seconds": {
+        "pipeline": 17893.08865070343,
+        "index": 221.69956469535828,
+        "og_qa": 1988.390916109085
+      }
+    }
+  },
+  "limitations": [
+    "Automatic 0/0.5/1 scoring, not human accuracy.",
+    "Models and prompts use matching configs, but code, concurrency and execution time differ.",
+    "Unknown usage is not zero cost; embedding calls are not LLM tokens."
+  ]
+}

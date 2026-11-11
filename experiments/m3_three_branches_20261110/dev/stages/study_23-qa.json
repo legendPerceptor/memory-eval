@@ -1,0 +1,10 @@
+{
+  "arm": "dev",
+  "video": "study_23",
+  "phase": "qa",
+  "exit_code": 2,
+  "started_at_unix": 1794360454.9610918,
+  "seconds": 603.0305020809174,
+  "status": "completed",
+  "answer_rows": 14
+}

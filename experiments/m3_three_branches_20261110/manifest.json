@@ -1,0 +1,22 @@
+{
+  "status": "prepared",
+  "videos": [
+    "kitchen_01",
+    "bedroom_05",
+    "study_23"
+  ],
+  "branches": {
+    "dev": "8c86c3ed5a180f6e3a43a501350c259ae8b6d50e",
+    "m3_dev_1031": "8731930ec75153865df07689ee0c4bd98d182746",
+    "simplify_person_info_1110": "42829a29093a5e7d07446d2f20d75a01fe9ce0c7"
+  },
+  "deadline": null,
+  "annotations_sha256": "f43031bf0216a2ef2e7909f20ecd534e0098da17b63cdf94325a07f1bea372c1",
+  "question_counts": {
+    "kitchen_01": 13,
+    "bedroom_05": 12,
+    "study_23": 14
+  },
+  "driver_sha256": "0231451826a4531b29a5bd32ac676e7716e6b68a88711c2fd11daf1f7a2d4555",
+  "design": "Three fresh independent databases; serial video and QA; same models, output limit and common retrieval settings. dev lacks newer fact index, person grounding, incremental context and parallel memory; native implementations differ. Simplify enables compact person and later 2000 evidence budget."
+}

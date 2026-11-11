@@ -1,0 +1,10 @@
+{
+  "arm": "dev",
+  "video": "kitchen_01",
+  "phase": "pipeline",
+  "exit_code": 0,
+  "started_at_unix": 1794297397.8941708,
+  "seconds": 12370.857731342316,
+  "status": "completed",
+  "answer_rows": 0
+}

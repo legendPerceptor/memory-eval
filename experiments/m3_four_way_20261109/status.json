@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "completed": [
+    "judge/four_way"
+  ],
+  "stages": {
+    "judge/four_way": {
+      "completed": 244,
+      "total": 244
+    }
+  },
+  "current": null
+}

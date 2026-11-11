@@ -1,0 +1,14 @@
+{
+  "arm": "simplify_person_info_1110",
+  "revision": "42829a29093a5e7d07446d2f20d75a01fe9ce0c7",
+  "database": "ogmem_cmp3_simple_20261110",
+  "account": "cmp3-simplify-person-info-1110",
+  "source_archive_sha256": "a89d7f0f16698053464ae5d7a8a112766f5b4a912e7c82bc3629f150ecf710c3",
+  "config_sha256": "066d59d96114fe3049fecaae3ac84e35a80d6a7a7d57fc5dab512bd4ae5a0e71",
+  "safety_stop_at_unix": null,
+  "videos": [
+    "kitchen_01",
+    "bedroom_05",
+    "study_23"
+  ]
+}

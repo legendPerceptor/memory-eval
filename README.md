@@ -4,6 +4,30 @@
 主要代码仓为 `oGMemory/`；部署仓为 `deploy-llm-on-gpu/`；
 `locomo-test/` 保留用于后续文本记忆评测，本轮没有新增 LoCoMo 实验。
 
+## 获取依赖仓库
+
+这四个目录是独立 Git 仓库，不是 submodule，也不包含在本仓库中。
+在本仓库根目录运行（需要 Git 和相应仓库的访问权限）：
+
+```bash
+bash scripts/clone_repositories.sh
+```
+
+脚本克隆 `deploy-llm-on-gpu`、`oGMemory`、`locomo-test` 和 `m3-agent`；
+已有 Git 仓库会跳过，不执行拉取、切换分支或覆盖本地修改；同名非仓库路径会报错。
+前两个 GitHub 个人仓库使用 SSH 地址，需要配置 GitHub SSH 权限。
+可通过环境变量覆盖仓库地址，例如：
+
+```bash
+OGMEMORY_REPO_URL=https://gitcode.com/hython/oG-Memory.git \
+  bash scripts/clone_repositories.sh
+```
+
+其他地址变量为 `DEPLOY_LLM_REPO_URL`、`LOCOMO_REPO_URL` 和 `M3_AGENT_REPO_URL`。
+克隆使用各远端的默认分支，**不固定实验版本**，也不安装依赖、模型或数据。
+复现实验前应根据对应实验的 `provenance.json` 等记录核对提交及补丁；
+例如本地 `oGMemory` 的 `m3_dev_1031` 是实验分支，并不保证存在于默认上游。
+
 ## 最新实验：来源事实、人物条件与增量交付（2026-11-02）
 
 **715条交错共同评分已完成，11条完整65题轨迹，零评委错误。**

@@ -1,0 +1,64 @@
+{
+  "status": "completed",
+  "completed": [
+    "qa/early_answer/bedroom_04",
+    "qa/early_answer/kitchen_01",
+    "qa/early_answer/bedroom_05",
+    "qa/early_answer/gym_03",
+    "qa/early_answer/study_23",
+    "judge/early_answer"
+  ],
+  "stages": {
+    "qa/early_answer/bedroom_04": {
+      "exit_code": 0,
+      "seconds": 351.27833612193353,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0
+    },
+    "qa/early_answer/kitchen_01": {
+      "exit_code": 0,
+      "seconds": 321.1954857551027,
+      "questions": 13,
+      "attempt_rows": 13,
+      "failures": 0
+    },
+    "qa/early_answer/bedroom_05": {
+      "exit_code": 0,
+      "seconds": 33.912810103967786,
+      "questions": 12,
+      "attempt_rows": 13,
+      "failures": 0
+    },
+    "qa/early_answer/gym_03": {
+      "exit_code": 0,
+      "seconds": 130.5619895060081,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0
+    },
+    "qa/early_answer/study_23": {
+      "exit_code": 0,
+      "seconds": 280.58172957296483,
+      "questions": 14,
+      "attempt_rows": 22,
+      "failures": 0,
+      "retries": 0
+    },
+    "judge/early_answer": {
+      "completed": 183,
+      "total": 183
+    },
+    "summary/early_answer": {
+      "eligible": false
+    }
+  },
+  "current": null,
+  "recovery": {
+    "reason": "API 429 rate and plan usage limits",
+    "requeued": [
+      "qa/early_answer/study_23"
+    ],
+    "archived_judgments": "experiments/m3_early_answer_20261109/interrupted_judgments/20261109-183523"
+  }
+}

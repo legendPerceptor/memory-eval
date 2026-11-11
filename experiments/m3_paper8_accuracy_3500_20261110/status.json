@@ -1,0 +1,26 @@
+{
+  "status": "completed",
+  "completed": [
+    "study_23",
+    "kitchen_01",
+    "bedroom_05"
+  ],
+  "current": null,
+  "stages": {
+    "study_23": {
+      "seconds": 518.3353427459951,
+      "questions": 14,
+      "failures": 0
+    },
+    "kitchen_01": {
+      "seconds": 381.0288992791902,
+      "questions": 13,
+      "failures": 0
+    },
+    "bedroom_05": {
+      "seconds": 368.5102515190374,
+      "questions": 12,
+      "failures": 0
+    }
+  }
+}

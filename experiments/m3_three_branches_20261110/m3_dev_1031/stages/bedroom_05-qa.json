@@ -1,0 +1,10 @@
+{
+  "arm": "m3_dev_1031",
+  "video": "bedroom_05",
+  "phase": "qa",
+  "exit_code": 0,
+  "started_at_unix": 1794334204.465709,
+  "seconds": 348.1730556488037,
+  "status": "completed",
+  "answer_rows": 12
+}

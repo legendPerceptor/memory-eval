@@ -1,0 +1,75 @@
+{
+  "status": "completed",
+  "completed": [
+    "qa/moderate/bedroom_04",
+    "qa/moderate/kitchen_01",
+    "qa/tight/bedroom_04",
+    "qa/tight/kitchen_01",
+    "judge/pilot",
+    "qa/tight/bedroom_05",
+    "qa/tight/gym_03",
+    "qa/tight/study_23",
+    "judge/expansion"
+  ],
+  "stages": {
+    "qa/moderate/bedroom_04": {
+      "exit_code": 0,
+      "seconds": 260.8310480969958,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0
+    },
+    "qa/moderate/kitchen_01": {
+      "exit_code": 0,
+      "seconds": 230.92514858418144,
+      "questions": 13,
+      "attempt_rows": 13,
+      "failures": 0
+    },
+    "qa/tight/bedroom_04": {
+      "exit_code": 0,
+      "seconds": 158.07873230800033,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0
+    },
+    "qa/tight/kitchen_01": {
+      "exit_code": 2,
+      "seconds": 178.12333330186084,
+      "questions": 13,
+      "attempt_rows": 13,
+      "failures": 1
+    },
+    "judge/pilot": {
+      "completed": 72,
+      "total": 72
+    },
+    "qa/tight/bedroom_05": {
+      "exit_code": 0,
+      "seconds": 173.20634383312427,
+      "questions": 12,
+      "attempt_rows": 12,
+      "failures": 0
+    },
+    "qa/tight/gym_03": {
+      "exit_code": 0,
+      "seconds": 157.37902173795737,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0
+    },
+    "qa/tight/study_23": {
+      "exit_code": 0,
+      "seconds": 197.22130347508937,
+      "questions": 14,
+      "attempt_rows": 14,
+      "failures": 0
+    },
+    "judge/expansion": {
+      "completed": 74,
+      "total": 74
+    }
+  },
+  "current": null,
+  "selected": "tight"
+}

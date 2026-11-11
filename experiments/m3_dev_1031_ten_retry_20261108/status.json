@@ -1,0 +1,245 @@
+{
+  "status": "finished_with_failures",
+  "history": [
+    {
+      "video": "study_09",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794153500.9223197,
+      "seconds": 3471.5527942180634,
+      "status": "completed"
+    },
+    {
+      "video": "study_09",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794156972.4757414,
+      "seconds": 22.62559962272644,
+      "status": "completed"
+    },
+    {
+      "video": "study_09",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1794156995.1019213,
+      "seconds": 546.4090013504028,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794157541.5114775,
+      "seconds": 1688.0297827720642,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794159229.5418305,
+      "seconds": 23.260640144348145,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1794159252.8030484,
+      "seconds": 338.7327697277069,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794159591.536342,
+      "seconds": 894.0264329910278,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794160485.563999,
+      "seconds": 22.57839059829712,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1794160508.1430554,
+      "seconds": 424.2926256656647,
+      "status": "completed"
+    },
+    {
+      "video": "study_23",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794160932.436284,
+      "seconds": 738.0812759399414,
+      "status": "completed"
+    },
+    {
+      "video": "study_23",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794161670.5181875,
+      "seconds": 18.876430988311768,
+      "status": "completed"
+    },
+    {
+      "video": "study_23",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1794161689.395274,
+      "seconds": 441.688600063324,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_23",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794162131.084499,
+      "seconds": 781.7534263134003,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_23",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794162912.8385897,
+      "seconds": 20.77279543876648,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_23",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1794162933.612065,
+      "seconds": 327.9329071044922,
+      "status": "completed"
+    },
+    {
+      "video": "study_05",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794163261.5456085,
+      "seconds": 887.8164174556732,
+      "status": "completed"
+    },
+    {
+      "video": "study_05",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794164149.362734,
+      "seconds": 26.276732921600342,
+      "status": "completed"
+    },
+    {
+      "video": "study_05",
+      "phase": "og_qa",
+      "exit_code": 2,
+      "started_at_unix": 1794164175.64035,
+      "seconds": 416.2691750526428,
+      "status": "completed_with_qa_failures"
+    },
+    {
+      "video": "gym_03",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794164591.910183,
+      "seconds": 752.0885653495789,
+      "status": "completed"
+    },
+    {
+      "video": "gym_03",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794165343.9994934,
+      "seconds": 21.103429317474365,
+      "status": "completed"
+    },
+    {
+      "video": "gym_03",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1794165365.1036556,
+      "seconds": 341.50022625923157,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_04",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794165706.604531,
+      "seconds": 715.667505979538,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_04",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794166422.272753,
+      "seconds": 19.374488830566406,
+      "status": "completed"
+    },
+    {
+      "video": "bedroom_04",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1794166441.6479812,
+      "seconds": 5514.5177001953125,
+      "status": "completed"
+    },
+    {
+      "video": "study_18",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794171956.1666293,
+      "seconds": 942.6384136676788,
+      "status": "completed"
+    },
+    {
+      "video": "study_18",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794172898.8058069,
+      "seconds": 26.749664783477783,
+      "status": "completed"
+    },
+    {
+      "video": "study_18",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1794172925.5562437,
+      "seconds": 425.5976252555847,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_20",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "started_at_unix": 1794191735.0888875,
+      "seconds": 140.78800511360168,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_20",
+      "phase": "index",
+      "exit_code": 0,
+      "started_at_unix": 1794191875.8777492,
+      "seconds": 25.315458059310913,
+      "status": "completed"
+    },
+    {
+      "video": "kitchen_20",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "started_at_unix": 1794191901.194523,
+      "seconds": 598.4316096305847,
+      "status": "completed"
+    }
+  ]
+}

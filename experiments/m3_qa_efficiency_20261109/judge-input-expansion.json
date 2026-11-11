@@ -1,0 +1,668 @@
+[
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q12",
+    "question": "Who is Sophia's model?",
+    "expected_answer": "Paul",
+    "predicted_answer": "Based on the available evidence, Sophia's \"model\" (role model) is an unnamed man — the speaker says \"It is. He is a model for me,\" referring to someone not named in the retrieved footage, and adds that \"Paul was your guide\" (Paul being the one who left deep memories). So the model is an unidentified man, while Paul was her guide; no specific name for the model is given in the retrieved clips.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q10",
+    "question": "What ways can be done to prevent injuries?",
+    "expected_answer": "Warm-up and Protective Gear ; warm up with dumbbells",
+    "predicted_answer": "Based on the video, the speakers recommend several ways to prevent injuries:\n\n- **Warm up before training** — \"Before training, you should warm up first,\" which \"can effectively avoid getting injured and help us to reach a better state.\" Specifically, \"you should warm up before using the dumbbell to prevent injuries.\"\n- **Correct your posture** — \"correct posture is crucial to prevent injuries\"; correcting your postures helps you \"avoid getting injured.\"\n- **Use protective gear** — \"you can wear wrist guard and back support.\"\n- **Avoid incorrect exertion/movement** — if you exert force the wrong way or don't do the movement properly, \"it is very easy to get hurt.\"\n\nWarm-up options mentioned include stretching (extra sets of stretches), using an elastic band, and using a wooden stick for warm-up exercises.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q09",
+    "question": "On which shelf of the cabinet at the corner can the robot find the back support?",
+    "expected_answer": "The first level from the top of the cabinet next to the Props Area",
+    "predicted_answer": "The retrieved evidence identifies the storage furniture (open white shelving units/cubbies standing in the back-right corner of the studio, near the mirrored wall) and confirms that a \"wrist guard and back support\" are among the protective gear discussed, but no retrieved clip states which shelf level (top/middle/bottom) of that corner cabinet holds the back support. So the specific shelf cannot be determined from the available evidence.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q01",
+    "question": "where does the robot place the removed pillowcases?",
+    "expected_answer": "In the white basket",
+    "predicted_answer": "Into the open white laundry hamper (white fabric basket) standing beside the bed. In the final segment, the removed red pillowcase with white hearts is carried off the bed and set inside that white laundry hamper next to the bed, where it remains.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q08",
+    "question": "Where can the robot get the orange juice?",
+    "expected_answer": "The cabinet beside the lamp",
+    "predicted_answer": "The robot gets the orange juice from the open wooden shelf (low shelving unit) beside the desk — it reached into that shelf, took out the orange-colored bottle of orange juice, and handed it to the seated woman.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q05",
+    "question": "What is Zoe's teaching style like?",
+    "expected_answer": "Demonstrate the movement first, then supervise and correct the trainee's movements ; Demonstration and encouragement",
+    "predicted_answer": "Zoe (the woman in the white graphic T-shirt) acts as the friendly, hands-on instructor. Her style is demonstration-based and encouraging: she shows each movement herself (stretching the elastic band, spreading her arms like wings \"like a bird,\" lifting the green dumbbells), hands the equipment directly to the learner (passing her the hand weights), and physically guides her — extending her own hands to adjust the exerciser's arm position — while walking around to watch her form and even standing by her feet to check the movement.\n\nVerbally she is clear, simple and step-by-step: she explains what to do (\"fix the position of your arms and swing them like wings like this\"), explains the why (\"Before training, you should warm up first. This can effectively avoid getting injured and help us to reach a better state\"), identifies the equipment (\"What is this? This is the elastic band\"), structures the workout (\"This instance class requires us to do 6 sets\"), and answers questions about exercise form.\n\nShe is also reassuring and motivating toward the beginner, who admits to being a total beginner and worries about not doing it steadily: Zoe reassures her with \"Don't worry,\" \"Sorry, I will watch over you,\" and \"Keep going. You will see the result,\" and praises effort (\"you've been working so hard and you've done a very good job\"). Overall her style is upbeat, supportive, practical, and coaching-oriented — leading by example while correcting form and encouraging the learner.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q11",
+    "question": "what is Zoe's occupation?",
+    "expected_answer": "Fitness Instructor",
+    "predicted_answer": "Zoe works as a fitness trainer/exercise instructor at the gym — she greets a client (Alice), hands her the hand weights, demonstrates and corrects exercises, and recommends exercises (e.g., dumbbell push-ups), while telling the exerciser she will \"watch over\" her.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q07",
+    "question": "Where does the robot take the scissors from?",
+    "expected_answer": "In the bedside table",
+    "predicted_answer": "The scissors are taken from the windowsill — the robot's black-gloved hand picks up the black scissors there, beside a small clear glass container, after being asked to \"please fetch me the scissors.\" (The clip shows the robot using the scissors at the windowsill rather than a visible handoff.)",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q06",
+    "question": "What props did Zoe and Alice use to warm up?",
+    "expected_answer": "Stretch bands and sticks",
+    "predicted_answer": "They used two props for warm-up: a long wooden stick and an elastic (resistance) band with handles. The stick was swung in wide arcs, and the band was pulled and raised overhead — \"both wooden stick and the elastic band can help with warming up and help you provide flexibility of your body.\"",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q04",
+    "question": "Do Mary and Sophia have the same taste?",
+    "expected_answer": "No",
+    "predicted_answer": "Yes — based on what they tell each other, Mary and Sophia largely share the same tastes: both are car enthusiasts (they discuss favorite brands like Ferrari and Enzo, and a car-themed movie/auto show) and movie fans, with one noting they have \"another common hobby.\" Their food preferences overlap too (one prefers spicy food, and cucumber is liked over cabbage), though they differ in details such as one being allergic to fish. The video never states explicitly that they have \"the same taste,\" so this is inferred from their mutual statements.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q10",
+    "question": "where should the robot put the clothes that be taken out?",
+    "expected_answer": "In the white basket",
+    "predicted_answer": "The taken-off clothes should go into the white laundry basket/hamper (the white teal-trimmed laundry container) beside the bed. In the closing scene (around 1544s) a speaker asks \"please take away the clothes taken off,\" and the robot's black-gloved hands are shown arranging the cream/white garments inside that white container next to the bed, which a woman then carries toward the doorway. So: gather the removed clothes into the laundry basket/hamper beside the bed and take that container out of the room.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q04",
+    "question": "what bedding was taken from the closet?",
+    "expected_answer": "Duvet cover, bed sheet, pillowcase",
+    "predicted_answer": "A brown blanket — it was removed from a black bundle (near the open wardrobe/closet with stored bedding) and spread out across the bed. The wardrobe itself is shown with shelves and stored bedding, and the white duvet and pillows were handled on the bed, but the item actually taken from the closet area and put on the bed was the brown blanket.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q10",
+    "question": "What ways can be done to prevent injuries?",
+    "expected_answer": "Warm-up and Protective Gear ; warm up with dumbbells",
+    "predicted_answer": "According to the gym session in gym_03, injuries can be prevented in several ways:\n\n1. **Warm up before training** — \"Before training, you should warm up first. This can effectively avoid getting injured and help us to reach a better state.\" The instructor demonstrated warm-ups using elastic bands and a wooden stick (extra stretch sets), and reiterated that you \"should warm up before using the dumbbell to prevent injuries.\"\n2. **Maintain correct posture** — \"Remember, correct posture is crucial to prevent injuries,\" and \"correct your postures and then avoid getting injured.\"\n3. **Use proper technique/exert force** — Wrong force or wrong movement \"is very easy to get hurt,\" so movements should be done correctly.\n4. **Wear protective equipment** — \"you can wear wrist guard and back support\" (including a waist/back support garment) to reduce injury risk.\n5. **Have a partner spot/back you** — \"So Leah, can you provide the back spot for me?\" one person watches over the other (\"Sorry, I will watch over you\").\n6. **Rest and recover properly** — Rest when muscles are tired/sore, massage sore areas, drink water, and eat healthy food (e.g., chicken breast) to keep the body in good shape, reducing strain and injury risk.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q01",
+    "question": "Where can the robot get the cleaning brush?",
+    "expected_answer": "The white box",
+    "predicted_answer": "From the blue-lidded plastic container on the shelf/storage cabinet along the left wall (next to the framed floral print and small wooden box) — the gloved camera wearer opened that container and took out the yellow-handled brush with dark bristles. (Alternatively, it can ask Rose, the woman in the beige top, who hands the brush over at the table.)",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q04",
+    "question": "what bedding was taken from the closet?",
+    "expected_answer": "Duvet cover, bed sheet, pillowcase",
+    "predicted_answer": "Based on the retrieved evidence, the bedding taken from the closet was a **folded white quilt** — the robot retrieved it from a dim adjacent closet/cabinet area and carried it into the bedroom, then spread it over the gray bed. I found no evidence of other bedding (e.g., pillows or blankets) being taken from a closet.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q01",
+    "question": "What was Zoe's training method?",
+    "expected_answer": "Triple fractionated workout for chest, back and legs",
+    "predicted_answer": "**Zoe's training method:** she does a three-part (3‑split) training focused on **chest, back and legs**, with **arms, abdominal muscles and shoulders incorporated as supplementary exercises** rather than training 5 or 6 body parts. She said she keeps it at three parts because \"the progress in 3SX is relatively obvious\" and \"the main reason is that I am personally accustomed to this training method.\"",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q09",
+    "question": "Where can the robot get the car model?",
+    "expected_answer": "On the cabinet next to the desk.",
+    "predicted_answer": "The car model is on the table — specifically the black table, where Rose (the woman with glasses) said she had placed it so the other woman could see it. So the robot can pick it up from that table.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q10",
+    "question": "where should the robot put the clothes that be taken out?",
+    "expected_answer": "In the white basket",
+    "predicted_answer": "The clothes that are taken out should go into the laundry hamper/basket — the white mesh laundry hamper that stands beside the bed (the robot's gripper is shown placing the floral fabric into that hamper). Later, the brown-coated woman gathers the clothes from the bed and carries the white, teal-trimmed laundry container out toward the doorway, confirming the hamper is where removed clothes are collected and taken out of the room.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q08",
+    "question": "Where did the robot take the quilt insert?",
+    "expected_answer": "On the shelf next to the nightstand",
+    "predicted_answer": "According to the clip right before the question timestamp, the robot (first-person view with black-gloved hands) retrieved a folded white quilt from a dim adjoining room/closet area (it was lying in a dark bed/cabinet space there), carried it back through the doorway into the bedroom, and spread/placed it on top of the gray bed covering near the center-left of the mattress. So the quilt insert was taken from the adjacent room/closet and placed on the gray bed in the bedroom.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q11",
+    "question": "what is Zoe's occupation?",
+    "expected_answer": "Fitness Instructor",
+    "predicted_answer": "**Zoe works in fitness — she is a fitness instructor/trainer.** In the studio she demonstrates and coaches exercises (hand weights, wing-like arm swings, posture corrections) and Alice tells her, \"fitness is literally your job.\" No other occupation for her is stated in the retrieved dialogue.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q03",
+    "question": "How many times is the mop used?",
+    "expected_answer": "Twice",
+    "predicted_answer": "Based on the retrieved evidence, the mop is used in two separate mopping episodes: (1) early on (~2:00–2:30), when a woman in a white T-shirt and long gray skirt works a long-handled floor-cleaning tool with a green head over the rug near the patterned chair and glass-paneled screen; and (2) later (~19:00–21:00), when a woman in a light blue dress picks up the long-handled cleaning tool/mop (after asking \"Rose, please give me the mop\" and saying \"Oh no, the floor is so dirty. Let me clean it.\") and repeatedly mops the wood floor beside the balcony curtains and black glass doors with a turquoise flat mop head. So the mop is put to use on two occasions; the exact number of individual mop strokes cannot be determined from the available clips.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q06",
+    "question": "Is Sophia willing to forgive others' mistake?",
+    "expected_answer": "Yes",
+    "predicted_answer": "Based on the retrieved clips, Sophia appears willing to forgive others' mistakes: in the clip where she is addressed (\"Oh, oh no, Sophie, sorry, I'm so sorry\"), the exchange resolves with reassurance and no blame (\"Don't worry about it\"), and the later exchange (\"Oh, I'm so sorry I overreacted\" / \"Don't worry about it\" / \"Your reaction just confirms my assumption\") shows the same pattern of an apology being met with easy forgiveness. However, I could not verify from the transcript alone that Sophia herself is the one granting the forgiveness in each instance — the speaker labels are generic, so the forgiveness behavior is grounded, but her personal attributive role is a model-level inference rather than confirmed identity.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q03",
+    "question": "How many times did Isha use the needle, thread and scissors?",
+    "expected_answer": "2 times",
+    "predicted_answer": "Once. The only documented instance of Isha (called \"Aisha\"/\"Asia\") using the needle, thread and scissors together is a single handoff: at ~1050 s a speaker asks the robot, \"Hi robot, please touch the needle, thread and scissors and hand them to Asia,\" the robot collects the needle, red thread spool and scissors from the window sill and delivers them (\"Thank you robot\"). Other mentions are single-tool only (request to fetch the scissors ~510 s, \"you want scissors?\" ~570 s, \"I'll just tidy the needle\" ~1170 s), with no evidence of a repeat combined use.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q09",
+    "question": "On which shelf of the cabinet at the corner can the robot find the back support?",
+    "expected_answer": "The first level from the top of the cabinet next to the Props Area",
+    "predicted_answer": "The middle shelf. In the clip where the request for a \"back spot\"/back support is made and the assistant provides it, the black garment (the back support) is lifted from the middle shelf of the white shelf/cabinet unit by the mirror (a folded black garment initially rests on the middle shelf, which is where the purple bottle also stands).",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q04",
+    "question": "Is Alice physically fit?",
+    "expected_answer": "No.",
+    "predicted_answer": "No — the evidence suggests Alice is not physically fit (at least not in a trained sense). At the gym she tells Zoe, \"Summer is coming soon. I think it's time to put in the work to get in shape,\" and adds, \"I bet I'm a total beginner. I don't know where to start.\" Later she needs water/juice brought to her before training, and Zoe (the instructor-like woman in a white T-shirt) helps her fetch the hand weights and prepare to exercise, with someone saying \"I believe you can\" get \"into shape.\" So she presents herself as a beginner working toward getting fit, not as already physically fit.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q13",
+    "question": "How many movies about car are mentioned?",
+    "expected_answer": "3",
+    "predicted_answer": "Based on the retrieved evidence, **two** car movies are mentioned: the film franchise **\"The Fast and Furious\"** (discussed in the context of news about another release) and a generic **\"movie about cars\"** (the film Annie invites a friend to see at the cinema). Additionally, the speaker remarks that \"many of the cars you mentioned come from the movies,\" calling the model cars on the table \"the prototypes,\" though no additional specific car film titles were named in the retrieved clips.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q10",
+    "question": "What kind of spirit inspires Sophia to achieve success?",
+    "expected_answer": "The spirit of self-improvement and persistence",
+    "predicted_answer": "The evidence shows Sophia (called \"Sophie\") saying, \"It is his spirit that has been inspiring me to achieve success on the car racing field\" — referring to the spirit of someone who \"keeps making progress and stands on his own feet\" despite danger. So the inspiration is a persistent, persevering/indomitable spirit — never giving up, continuing to push forward despite the risks. The clip at ~750–780s does not name the person explicitly.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q05",
+    "question": "Does Joy have OCD?",
+    "expected_answer": "Yes",
+    "predicted_answer": "There is no evidence in the video that Joy has OCD. The only references to her are in a cleaning-scene clip where a speaker says \"Every day it gets messy and you have to tidy up every day\" (with a follow-up \"Don't you tell?\"), another says \"Oh, joy,\" and a third mentions \"Joy, without her other things to do.\" No one in the video mentions OCD, obsessive-compulsive disorder, or any diagnosis; the tidying remarks describe a habit of making the room messy and cleaning it each day, but nothing supports an OCD diagnosis for Joy.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q03",
+    "question": "How many times did Isha use the needle, thread and scissors?",
+    "expected_answer": "2 times",
+    "predicted_answer": "Based on the retrieved evidence, only one instance is supported: the robot was asked (\"Hi robot, please touch the needle, thread and scissors and hand them to Asia\") and picked up the black scissors and the red spool of thread once, near the windowsill in the small floral-wallpapered bedroom (clip ~1050–1080 s). The only other needle-related moments are a passing mention of \"a needle and a stripe\" and someone saying \"I'll just tidy the needle,\" with no clear use of the tools by the person named Isha/Asia. The evidence does not establish a definite count of how many times Isha herself used the needle, thread and scissors — the single supported occurrence is the robot handing them over once.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q08",
+    "question": "On which shelf of the cabinet can the robot get the juice?",
+    "expected_answer": "The middle level of the cabinet next to the Props Area",
+    "predicted_answer": "The middle shelf. In the final clip, the orange-capped bottle of juice/drink was on the middle level of the white shelving unit (alongside a purple water bottle), and the robot's gloved hands grasped and lifted it from that middle shelf.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q01",
+    "question": "What was Zoe's training method?",
+    "expected_answer": "Triple fractionated workout for chest, back and legs",
+    "predicted_answer": "Zoe's training method was three-part training (\"3SX\"): she split the work into chest, back and legs, incorporating arms, abdominal muscles and shoulders as supplementary exercises. She chose it because \"the progress in 3SX is relatively obvious\" and because she is personally accustomed to this method.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q07",
+    "question": "where does the robot throw the paper towel?",
+    "expected_answer": "Bins",
+    "predicted_answer": "I can't determine this from the retrieved evidence. No clip or event shows the robot (the black-gloved camera wearer) throwing or discarding a paper towel, and none of the retrieved excerpts document a trash/waste basket or where a towel was tossed. The closest supported facts are: the woman in the white T-shirt unfolds a white tissue and holds it to her face (clip at 840–870 s, the window containing the 863 s question time), a small green packet is left on the wooden floor, and the camera wearer handles a silver pole and carries wooden sticks across the studio. Where the paper towel was thrown is therefore not determinable from the available evidence.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q11",
+    "question": "Where is the rag after isha finished cleaning?",
+    "expected_answer": "Back to the storage cabinet.",
+    "predicted_answer": "After the cleaning, the rag (the white tissue/cloth) was left lying on the light wood floor of the bedroom, beside the floral wallpaper, where it was still on the floor at the last view. (Evidence: clip 57 — the black-gloved hand wipes the floor with the white cloth and \"it remains on the floor at the last close view.\") The retrieved clips do not show anyone named \"Isha\" or a later move of the rag into the storage room, so I can't confirm it was put away elsewhere.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q10",
+    "question": "What kind of spirit inspires Sophia to achieve success?",
+    "expected_answer": "The spirit of self-improvement and persistence",
+    "predicted_answer": "Sophia (the woman in the conversation, addressed as \"Sophie\") is inspired by the spirit of Paul — the racing driver/idol figure they discuss — specifically his spirit of perseverance and never giving up, i.e., \"the spirit that he can keep making progress and stand on his outfit\" even after failures. As one speaker puts it, \"It is his spirit that has been inspiring me to achieve success on the car racing field.\" That same dedication is why Sophia chose her current job — she wants to be a person like him, and regards him as her \"spiritual parent\"/guide. (The transcript attributes the statement to an unidentified speaker, so the link to Sophia is implied by the surrounding conversation rather than explicitly named.)",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q07",
+    "question": "Why does Sophia stop focusing on The Fast and the Furious?",
+    "expected_answer": "She is too sad about Paul's accident.",
+    "predicted_answer": "**Answer:** Sophia stops following/paying attention to *The Fast and the Furious* because of Paul Walker's accident during filming. Discussing the franchise's upcoming release, one woman explains that \"The seven parts was because something happened to Paul during the filming,\" and Sophia replies, \"Yes, I haven't paid attention to its renewal because Paul had an accident\" — adding, \"Yeah, I'm sorry to hear that.\" So the accident (which split the film into parts) is why she no longer kept up with the franchise, even though she still loves it (she recalls Paul's actions in the movie, and has a car model displayed on the table).",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q09",
+    "question": "Which level of closet should the robot put the pillowcase back?",
+    "expected_answer": "In the upper level of closet",
+    "predicted_answer": "Based on the retrieved evidence, the request at that moment was only \"please put this pillowcase into the wardrobe and find me the right one,\" and the robot responded \"Okay.\" No shelf, tier, or level of the closet/wardrobe is ever specified in the retrieved clips — the robot simply moved a red MINISO bag aside and rummaged through a pile of clothing and pillowcases inside the wardrobe, then found the dark gray plaid pillowcase. The only other shelf reference (clip 7, \"Maybe you can let me put this on the shelf firstly\") is a general, unspecified shelf, not tied to the pillowcase and not naming a level.\n\nSo the specific level of the closet where the pillowcase should be put back cannot be determined from the available evidence; the only supported answer is \"into the wardrobe.\"",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q06",
+    "question": "What props did Zoe and Alice use to warm up?",
+    "expected_answer": "Stretch bands and sticks",
+    "predicted_answer": "They warmed up using an **elastic/resistance band** and a **long wooden stick** — one retrieved a pink elastic band from the equipment pile for shoulder/arm stretching, and the other was swung overhead and around the body; both are stated to help warm up and improve body flexibility.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q02",
+    "question": "How many times did the position of the elastic band change?",
+    "expected_answer": "2 times",
+    "predicted_answer": "**Two times** — the band was repositioned twice: it was first raised/moved to the overhead position and then lowered back down (seen in the warm‑up demonstration where the demonstrator lifts the band overhead and lowers it toward her chest/floor, and later where she moves it from behind her shoulders to overhead and down again). Beyond these two repositionings, the retrieved clips only show the band being held in place or repeated arm repetitions (chest↔overhead), not further position changes.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q05",
+    "question": "Does Sophia care about tidiness?",
+    "expected_answer": "Yes",
+    "predicted_answer": "The evidence does not establish that Sophia (spoken to as \"Sophie\") cares about tidiness. In the retrieved clips, the remarks about mess — \"The table is dirty,\" \"Oh no, it is... it is also dirty,\" \"Rose, please give me the cleaning brush,\" \"Rose, please give me the mop\" — all come from an unidentified speaker (apparently the black-gloved person at the table), and that same speaker is the one who apologizes (\"Oh, oh no, Sophie, sorry, I'm so sorry\"), so Sophia is the person being addressed, not the one voicing concern about cleanliness. Sophie/Sophia otherwise appears only as the addressee in conversations about car brands (\"Sophie, what's your favorite brand… I like Ferrari…\"), a car movie with Annie, and being asked for movie tickets; the visible tidying (wiping the table, gathering papers, mopping the floor) is done by the women whose visual identity cannot be reliably matched to the name Sophie. So no direct statement or action links Sophia to caring about tidiness — this cannot be determined from the video evidence.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q05",
+    "question": "Does Joy have OCD?",
+    "expected_answer": "Yes",
+    "predicted_answer": "There is no evidence in the video that Joy has OCD. The only related content is a speaker noting \"Every day it gets messy and you have to tidy up every day\" and later commenting that tidying the bed is \"a big project\" and that the room looks more comfortable afterward — ordinary cleaning-habit talk. No mention of obsessive-compulsive disorder or any diagnosis appears.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q12",
+    "question": "what cleaning tools are taken in total?",
+    "expected_answer": "broom,mop,rag.",
+    "predicted_answer": "Two cleaning tools are taken: a broom (requested via \"Robots, please gather broom to clean up\") and a gray mop from the bathroom floor (which is then cleaned up into the storage room). A mug is also fetched, but it is not a cleaning tool.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q04",
+    "question": "Do Mary and Sophia have the same taste?",
+    "expected_answer": "No",
+    "predicted_answer": "**Likely yes — they appear to share the same taste.** In the shared meal conversation, the question \"Do you prefer spicy food or plain food?\" is answered with \"Spicy food,\" and the discussion continues with the plan for mom to cook spicy noodles with eggs, alongside a shared liking for cucumber. Note that the clip does not clearly label which speaker (Mary or Sophia) voiced each line, so I can't firmly attribute the \"spicy food\" answer to one of them individually — the evidence only shows the two of them discussing and agreeing on spicy food together.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q06",
+    "question": "what theme did the robot choose for the coverlet?",
+    "expected_answer": " black one",
+    "predicted_answer": "I could not find any evidence in bedroom_05 that a robot chose a theme for a coverlet. The only robot-related coverlet/fabric events recorded are: the robot's black gripper picking up a floral-patterned fabric (called \"this shade\") and placing it into the white mesh laundry hamper, and its brief replies (\"Okay\") to requests to store a pillowcase and remove the shade. No speech or description mentions the robot selecting a theme, color, or pattern for a new coverlet, so the theme cannot be determined; the closest supported detail is that the coverlet-like fabric handled was floral-patterned.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q03",
+    "question": "How many training moves did Zoe have Alice practice?",
+    "expected_answer": "three moves in total.",
+    "predicted_answer": "Four distinct practice moves: (1) wooden-stick swings, (2) elastic-band stretching/overhead band work, (3) the \"wing\" arm-swing exercise, and (4) the dumbbell exercise (shoulder/overhead presses with hand weights). No clip states the count in words — Zoe's spoken plan only refers to a three-part training split (\"chest, back and legs,\" with arms/abs/shoulders as supplementary) and six sets per class move — so the number four is derived from the four drills she actually had Alice perform, not from an explicit numeral.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q05",
+    "question": "What is Zoe's teaching style like?",
+    "expected_answer": "Demonstrate the movement first, then supervise and correct the trainee's movements ; Demonstration and encouragement",
+    "predicted_answer": "Zoe teaches in a friendly, hands-on, demonstration-first way. She greets learners warmly (e.g., \"Hey, Alice, good time to see\"), responds readily to requests like \"Zoe, can you show me how to do this?\" with \"Sure,\" and breaks movements down with vivid imagery — describing an arm movement as \"opening your arms\" and \"swing them like wings like this.\" She shows the motion herself (spreading her arms to imitate the wing-like motion), physically adjusts/guides the exerciser's arm position (extending both hands toward the exerciser's raised arms to demonstrate or correct it), and watches her form closely, stepping down near the exerciser's feet to observe. Overall her style is encouraging, patient with a beginner (\"Oh, thank you. I bet I'm a total beginner. I don't know where to start.\"), and practical — pairing verbal cues with visual demonstration and hands-on correction.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q11",
+    "question": "How many people are going to the film finally?",
+    "expected_answer": "3",
+    "predicted_answer": "Three people: the speaker, Annie, and a friend. The friend gave the speaker two movie tickets, and the plan is to go to the cinema with Annie and that friend to watch the movie about cars.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q05",
+    "question": "Does Sophia care about tidiness?",
+    "expected_answer": "Yes",
+    "predicted_answer": "Yes — the evidence supports that Sophia cares about tidiness. She reacts to disorder by cleaning it up: \"Oh my god, what a mess… Let me just clean them up\" (clip at 0:00) and \"Oh no, the floor is so dirty. Let me clean it,\" after which the woman in the light blue-gray top stands, takes up the long-handled cleaning tool, and cleans near the divider (clip at 1140–1170s). She also asks Rose for cleaning implements to do the job — \"Rose, please give me the cleaning brush\" (240–270s) and \"Rose, please give me the mop\" (1020–1050s). One caveat: the speaker labels are anonymous (SPEAKER_00/01) and Rose is the one being addressed, so the identity mapping to \"Sophia\" is inferred from context rather than verified by a face/voice match.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q02",
+    "question": "How many times did the position of the elastic band change?",
+    "expected_answer": "2 times",
+    "predicted_answer": "**Answer: about four times.**\n\nThe clearest evidence comes from the resistance-band demonstration segment (clip 4), where the band was repositioned roughly four times: (1) moved from behind the demonstrator's shoulders up overhead, (2) lowered from overhead down toward the floor in front of the body (gathered into both hands and brought down toward the legs), (3) held hanging vertically with its lower end pressed against the floor while bending forward, and (4) handed to the participant in white, who then pulled it diagonally across her body and held it extended horizontally.\n\nLater segments show the pink band being retrieved from the storage corner and demonstrated (raised overhead, then lowered to chest/waist), which adds further repositionings, so a total across the whole video is somewhat higher. But within the main elastic-band demonstration, the position changed about four times.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q04",
+    "question": "Is Alice physically fit?",
+    "expected_answer": "No.",
+    "predicted_answer": "No — Alice does not appear physically fit. At the gym she tells Zoe that \"summer is coming soon\" and \"it's time to put in the work to get in shape,\" admitting \"I bet I'm a total beginner. I don't know where to start.\" During the workout she quickly tires (\"I'm so tired,\" \"I kind of agree that I have no energy,\" \"My arms and chest muscles are so sore,\" \"I think I can't do it anymore\"), and a partner attributes this to her \"lack of experience of exercising\" and tendency to \"feel tired easily.\" Other participants encourage her, saying if she keeps it up \"you will get a good shape in no time\" — i.e., she is a beginner working toward being fit, not already fit.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q13",
+    "question": "How many movies about car are mentioned?",
+    "expected_answer": "3",
+    "predicted_answer": "Three movies/franchises about cars are mentioned: (1) \"The Fast and Furious\" (the car-movie franchise whose new installment is announced, also referenced by the \"Paul\" song/action discussion), (2) \"007 / James Bond\" (the film with the Aston Martin and driving theme), and (3) an unnamed \"movie about cars\" the speaker plans to watch at the cinema with Annie and a friend.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q11",
+    "question": "How many people are going to the film finally?",
+    "expected_answer": "3",
+    "predicted_answer": "Three people — the speaker says \"Annie asked me to invite one of my friends, then the three of us will go to the cinema to watch a movie about cars.\"",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q06",
+    "question": "Is Sophia willing to forgive others' mistake?",
+    "expected_answer": "Yes",
+    "predicted_answer": "**Yes.** When the other woman apologizes (\"Oh, oh no, Sophie, sorry, I'm so sorry\"), Sophia/Sophie responds with reassurance — \"Don't worry.\" — rather than blaming her, and the conversation continues with a request for the mop to clean up (\"Rose, please give me the mop\" / \"Okay\"). A similar pattern appears when the other woman says \"Oh, I'm so sorry I overreacted,\" answered by \"Don't worry about it,\" with the exchange ending in mutual agreement (\"Yeah, that's it\").\n\nNote on attribution: the clips do not unambiguously bind the visible faces to the name \"Sophia\" (the spoken name appears as \"Sophie\"), so while the speech shows a forgiving, non-accusatory response to others' apologies, the exact speaker-to-name mapping is a source claim rather than a verified identity.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q08",
+    "question": "Where did the robot take the quilt insert?",
+    "expected_answer": "On the shelf next to the nightstand",
+    "predicted_answer": "The robot retrieved the folded white quilt insert from a dim adjacent room/closet and brought it into the bedroom, where it placed/spread it on top of the gray bed covering (near the center-left of the mattress). (Separately, a floral quilt cover was put into the white mesh laundry hamper.)",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q12",
+    "question": "Who is Sophia's model?",
+    "expected_answer": "Paul",
+    "predicted_answer": "Based on the retrieved dialogue, the \"model\" (role model) referenced for Sophia is **Paul** — i.e., Paul from *The Fast and the Furious* (Paul Walker): a speaker says \"It is. He is a model for me,\" and another replies, \"Wow, I have to say that Paul was your guide,\" while the conversation describes Paul's spirit as inspiring the speaker \"to achieve success on the car racing field\" and says he \"is my spiritual parent.\"\n\nCaveat: the video refers to the person being addressed as \"Sophie/Sophia,\" but the frames never visually confirm which visible woman she is, and the speaker who declares Paul his model is a diarized, unnamed speaker (SPEAKER_02) whose identity relative to Sophie is not explicitly resolved. Separately, \"Sophie\" also discusses a small car model on the table and a favorite car brand (Ferrari) — but as a role model, the name given is Paul.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q07",
+    "question": "where does the robot throw the paper towel?",
+    "expected_answer": "Bins",
+    "predicted_answer": "The retrieved evidence does not show the robot throwing a paper towel, so I can't determine the destination. The closest supported evidence concerns a white cleaning cloth used by a person (and a child) to wipe the blue exercise mat during tidying/cleaning (clips around 300–360 s and 690–720 s), with no toss or disposal into a trash bin, and nothing about a robot handling a paper towel.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q09",
+    "question": "Which level of closet should the robot put the pillowcase back?",
+    "expected_answer": "In the upper level of closet",
+    "predicted_answer": "The retrieved evidence doesn't specify a shelf level. In the clip at the question time (~930–960 s) the speaker hands the robot a dark gray plaid pillowcase and says \"please put this pillowcase into the wardrobe and find me the right one,\" and the robot replies \"Okay\" and searches the wardrobe among the stored items — but no \"top/middle/bottom level\" is mentioned. The only shelf-related speech in the video is the earlier request \"Maybe you can let me put this on the shelf firstly,\" and an earlier red heart-patterned pillowcase was placed in the white laundry hamper beside the bed, not on a closet level. So the specific closet level to put the pillowcase back on cannot be determined from the available evidence; it is only specified as \"in the wardrobe.\"",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q11",
+    "question": "Where is the rag after isha finished cleaning?",
+    "expected_answer": "Back to the storage cabinet.",
+    "predicted_answer": "The cleaning rag/cloth was left on the bedroom floor beside the bed (the white tissue/cloth used to wipe the floor remains on the floor in the last close view). Separately, the other cleaning tool — the gray mop — was seen lying on the bathroom floor next to the toilet, with the narration referring to putting cleaning tools away in the storage room; I could not confirm the rag itself being placed in the storage room.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q08",
+    "question": "Where can the robot get the orange juice?",
+    "expected_answer": "The cabinet beside the lamp",
+    "predicted_answer": "The robot can get the orange juice from the open wooden shelf beside the black desk — the orange-colored bottle of orange juice is stored there, and the black-gloved (robot) hands reach into that open shelf and pick up the bottle (clip at ~546 s), then hand it to the seated woman.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q07",
+    "question": "Why does Sophia stop focusing on The Fast and the Furious?",
+    "expected_answer": "She is too sad about Paul's accident.",
+    "predicted_answer": "Based on the retrieved evidence, Sophia's attention shifts away from the film franchise because the conversation turns to the car model she keeps on her table — she is excited about the car (\"Wow, Sophie, you like the car so much?\" / \"Yeah\"), and when she is told about the new Fast and Furious release she replies, \"Wow, but I haven't noticed that.\" So she stops focusing on the franchise because she is now focused on the car model on her desk and hadn't even noticed the new season/news about the series.\n\nI should note that the evidence does not explicitly contain a stated \"reason\" for dropping the franchise beyond these lines, so I cannot cite a more explicit explanation.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q02",
+    "question": "What car brands does Mary like?",
+    "expected_answer": "Aston Martin and Enzo.",
+    "predicted_answer": "Mary says she likes **Ferrari** — asked \"Sophie, what's your favorite brand? As for me, I like Ferrari because Ferrari has a flamboyant appearance at the same time it is powerful enough.\" She also discusses liking **Aston Martin**, the car James Bond drove in the 007 movie (\"Bond's car was Aston Martin, and the driving theme was so exciting\"). The Ferrari statement is the explicit favorite-brand claim; Aston Martin is mentioned in the context of the Bond film she enjoys. No other brands are supported by the retrieved evidence.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q08",
+    "question": "On which shelf of the cabinet can the robot get the juice?",
+    "expected_answer": "The middle level of the cabinet next to the Props Area",
+    "predicted_answer": "The juice (the orange-capped yellow-orange drink bottle) is on the middle shelf of the white shelving unit/cabinet — the robot's black-gloved hands grasp it from the shelf's middle level (next to a purple water bottle), lift it out, and carry it across the room.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q02",
+    "question": "what is the purpose of the white basket?",
+    "expected_answer": "Storage for dirty objects",
+    "predicted_answer": "The white basket is a laundry hamper — it stands on the floor beside the bed and serves as the container for collecting clothes/garments removed from the bed (e.g., a woman carries it toward the doorway with collected clothing, and it is referred to as the destination for a garment). It is not used for anything else in the observed clips.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q01",
+    "question": "Where can the robot get the cleaning brush?",
+    "expected_answer": "The white box",
+    "predicted_answer": "The robot can get the cleaning brush from the blue container — a yellow-handled brush with dark bristles is taken out of the blue container (the blue storage bin on the low shelving unit) and brought to the seated woman. (At ~247s the speaker even asks, \"Rose, please give me the cleaning brush.\")",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q01",
+    "question": "where does the robot place the removed pillowcases?",
+    "expected_answer": "In the white basket",
+    "predicted_answer": "The robot places the removed pillowcase into the white laundry hamper (an upright white basket/bin) standing beside the bed on the right side of the room. In the retrieved clip, the red, white-heart-patterned pillowcase is carried from the bed and placed inside the open white hamper beside the bed, where it remains. (An earlier clip also refers to the same upright white basket beside the bed as the destination for the garment.)",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q14",
+    "question": "How many positions are the car model placed?",
+    "expected_answer": "2",
+    "predicted_answer": "Based on the retrieved evidence, the car model is placed in **one** position — on the black dining table (where the women sit), placed there deliberately so the other woman can see it (\"I put it there so you can see it\"). The evidence shows the model remaining on that table and not being visibly moved or relocated to any additional position.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q02",
+    "question": "what is the purpose of the white basket?",
+    "expected_answer": "Storage for dirty objects",
+    "predicted_answer": "The white basket (an open white laundry hamper/mesh basket standing beside the bed) serves as a laundry hamper: it's the container for dirty clothes and soiled bedding/linens taken off the bed so they can be washed. During tidying, the red pillowcase is put into it, a woman's light-colored garment is moved toward it (\"Oh no, we should put it in the... in the basket\"), and the robot places a floral cover into the white mesh hamper.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q14",
+    "question": "How many positions are the car model placed?",
+    "expected_answer": "2",
+    "predicted_answer": "Based on the retrieved evidence, the car model was placed in **one position — on the (black) table**, where it was observed and remained in place without being visibly moved (\"I saw the car model on your table just now\" / \"I put it there so you can see it\"). The evidence does not support a count of multiple placement locations; only the single tabletop placement is documented.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q02",
+    "question": "What car brands does Mary like?",
+    "expected_answer": "Aston Martin and Enzo.",
+    "predicted_answer": "The car brands Mary is said to like are **Ferrari** and **Enzo** (Enzo Ferrari): in the conversation one speaker says, \"as for me I like Ferrari because Ferrari has a flamboyant appearance at the same time it is powerful enough,\" and later, \"Well, actually, I like Enzo best.\" (Aston Martin is also discussed, but as James Bond's car in the 007 movie, not stated as a favorite.) Note: the video's speakers are also named Sophie/Rose, and the frames don't unambiguously confirm which visible woman is Mary, so the Ferrari/Enzo preference may belong to the car-loving speaker rather than Mary herself.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q09",
+    "question": "Where can the robot get the car model?",
+    "expected_answer": "On the cabinet next to the desk.",
+    "predicted_answer": "The car model is on the black table in the living room (placed there by Rose so it could be seen), and when asked at ~714 s, \"Rose, please give me the car model\" — so the robot can obtain it from Rose, who picks it up from that table.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q06",
+    "question": "what theme did the robot choose for the coverlet?",
+    "expected_answer": " black one",
+    "predicted_answer": "**Evidence is limited.** I could not find any moment where the robot explicitly names or announces a chosen theme for a coverlet. What the retrieved clips show is a cream fabric coverlet with red, orange, blue, and gray floral patterns being moved from the window area onto the bed and then into the white mesh laundry hamper (\"Hi, robot. Please, remove this shade.\" / \"Okay.\"), plus a bed with a floral-patterned cover in a room with black floral wallpaper, and another bed with a striped cover. So the only theme grounded in the footage is a floral theme (floral-patterned cover/bedding in a floral-wallpapered bedroom), but no explicit \"the robot chose the theme\" statement was captured.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "gym_03",
+    "question_id": "gym_03_Q03",
+    "question": "How many training moves did Zoe have Alice practice?",
+    "expected_answer": "three moves in total.",
+    "predicted_answer": "The retrieved evidence does not state a count of training moves. The clips show Zoe (white graphic T-shirt) with Alice (black hoodie, gray sweatpants) discussing training (mentions of training the \"chest, back and legs\" plus \"arms and abdominal muscles and shoulders\"), and later a demonstration where Alice asks \"Zoe, can you show me how to do this?\" and Zoe hands her hand weights and instructs her to \"fix the position of your arms and swing them.\" None of this specifies how many distinct moves Zoe had Alice practice, so the number cannot be determined from the available evidence.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "study_23",
+    "question_id": "study_23_Q03",
+    "question": "How many times is the mop used?",
+    "expected_answer": "Twice",
+    "predicted_answer": "The evidence supports the mop being used on two separate occasions: (1) an early scene where a woman in a white T-shirt and long gray skirt works the floor/chair area with a long-handled tool with a green head, and (2) a later scene where a woman in a light blue dress repeatedly runs a turquoise flat mop along the wood floor beside the black arched glass doors and curtains. Between them, the mop is also handed over on request (\"Rose, please give me the mop\" — \"Okay,\" around 1050s) and picked up/prepared around 1140s. The retrieved clips do not give an exhaustive count, so the number of distinct mop uses supported by the evidence is 2.",
+    "error": "",
+    "arm": "tight"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q07",
+    "question": "Where does the robot take the scissors from?",
+    "expected_answer": "In the bedside table",
+    "predicted_answer": "The robot picks the scissors up from the windowsill — the black scissors were on the window sill next to a small clear glass container (a thin strand beside it), where the robot's black-gloved hand/gripper grabbed them to bring them to the women working on the bed.",
+    "error": "",
+    "arm": "baseline"
+  },
+  {
+    "video_id": "bedroom_05",
+    "question_id": "bedroom_05_Q12",
+    "question": "what cleaning tools are taken in total?",
+    "expected_answer": "broom,mop,rag.",
+    "predicted_answer": "**A gray mop** — the only cleaning tool I can confirm. In the final clip (1770–1800s) the narration refers to \"cleaning up tools into the storage room,\" and a gray mop is described as located on the bathroom floor beside the toilet.\n\nI can't give a total count beyond this: the retrieved evidence doesn't list any other cleaning items (no broom, bucket, or similar) being taken, so the number of tools taken overall isn't fully supported — one mop is the only confirmed tool.",
+    "error": "",
+    "arm": "tight"
+  }
+]

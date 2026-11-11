@@ -1,0 +1,170 @@
+{
+  "status": "completed",
+  "completed": [
+    "qa/person_only/bedroom_04",
+    "qa/person_only/kitchen_01",
+    "qa/incremental_2500/bedroom_04",
+    "qa/incremental_2500/kitchen_01",
+    "qa/search_6/bedroom_04",
+    "qa/search_6/kitchen_01",
+    "qa/person_only/bedroom_05",
+    "qa/person_only/gym_03",
+    "qa/person_only/study_23",
+    "judge/person_only",
+    "qa/incremental_2500/bedroom_05",
+    "qa/incremental_2500/gym_03",
+    "qa/incremental_2500/study_23",
+    "judge/incremental_2500",
+    "qa/search_6/bedroom_05",
+    "qa/search_6/gym_03",
+    "qa/search_6/study_23",
+    "judge/search_6"
+  ],
+  "stages": {
+    "qa/person_only/bedroom_04": {
+      "exit_code": 0,
+      "seconds": 463.85400344780646,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0
+    },
+    "qa/person_only/kitchen_01": {
+      "exit_code": 0,
+      "seconds": 447.83059595688246,
+      "questions": 13,
+      "attempt_rows": 13,
+      "failures": 0
+    },
+    "screen/person_only": {
+      "decision": "deprioritized",
+      "reason": "kitchen_01 pilot score declined by over 0.1",
+      "pilot": "experiments/m3_accuracy_first_20261109/pilot-person_only-kitchen_01/summary.json",
+      "caveat": "One-video single-judge screening, not a causal conclusion."
+    },
+    "qa/incremental_2500/bedroom_04": {
+      "exit_code": 0,
+      "seconds": 473.04876650404185,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0
+    },
+    "qa/incremental_2500/kitchen_01": {
+      "exit_code": 0,
+      "seconds": 367.4015383908991,
+      "questions": 13,
+      "attempt_rows": 13,
+      "failures": 0
+    },
+    "screen/incremental_2500": {
+      "decision": "deprioritized",
+      "reason": "kitchen_01 pilot score declined by over 0.1",
+      "pilot": "experiments/m3_accuracy_first_20261109/pilot-incremental_2500-kitchen_01/summary.json",
+      "caveat": "One-video single-judge screening, not a causal conclusion."
+    },
+    "qa/search_6/bedroom_04": {
+      "exit_code": 0,
+      "seconds": 434.5539362109266,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0
+    },
+    "qa/search_6/kitchen_01": {
+      "exit_code": 0,
+      "seconds": 424.1008338420652,
+      "questions": 13,
+      "attempt_rows": 13,
+      "failures": 0
+    },
+    "screen/search_6": {
+      "decision": "deprioritized",
+      "reason": "kitchen_01 pilot score declined by over 0.1",
+      "pilot": "experiments/m3_accuracy_first_20261109/pilot-search_6-kitchen_01/summary.json",
+      "caveat": "One-video single-judge screening, not a causal conclusion."
+    },
+    "qa/person_only/bedroom_05": {
+      "exit_code": 0,
+      "seconds": 253.47890158905648,
+      "questions": 12,
+      "attempt_rows": 12,
+      "failures": 0
+    },
+    "qa/person_only/gym_03": {
+      "exit_code": 0,
+      "seconds": 398.21000613598153,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0
+    },
+    "qa/person_only/study_23": {
+      "exit_code": 0,
+      "seconds": 404.01230685412884,
+      "questions": 14,
+      "attempt_rows": 14,
+      "failures": 0
+    },
+    "judge/person_only": {
+      "completed": 183,
+      "total": 183
+    },
+    "summary/person_only": {
+      "eligible": false
+    },
+    "qa/incremental_2500/bedroom_05": {
+      "exit_code": 0,
+      "seconds": 192.99526641890407,
+      "questions": 12,
+      "attempt_rows": 12,
+      "failures": 0
+    },
+    "qa/incremental_2500/gym_03": {
+      "exit_code": 0,
+      "seconds": 322.690523636993,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0
+    },
+    "qa/incremental_2500/study_23": {
+      "exit_code": 0,
+      "seconds": 362.9331145430915,
+      "questions": 14,
+      "attempt_rows": 14,
+      "failures": 0
+    },
+    "judge/incremental_2500": {
+      "completed": 183,
+      "total": 183
+    },
+    "summary/incremental_2500": {
+      "eligible": false
+    },
+    "qa/search_6/bedroom_05": {
+      "exit_code": 0,
+      "seconds": 114.23571289796382,
+      "questions": 12,
+      "attempt_rows": 12,
+      "failures": 0
+    },
+    "qa/search_6/gym_03": {
+      "exit_code": 0,
+      "seconds": 345.68465938116424,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 0
+    },
+    "qa/search_6/study_23": {
+      "exit_code": 0,
+      "seconds": 429.75925595802255,
+      "questions": 14,
+      "attempt_rows": 14,
+      "failures": 0
+    },
+    "judge/search_6": {
+      "completed": 183,
+      "total": 183
+    },
+    "summary/search_6": {
+      "eligible": false
+    }
+  },
+  "current": null
+}

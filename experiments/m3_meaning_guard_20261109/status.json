@@ -1,0 +1,74 @@
+{
+  "status": "completed",
+  "completed": [
+    "qa/meaning_guard/bedroom_04",
+    "qa/meaning_guard/kitchen_01",
+    "qa/meaning_guard/bedroom_05",
+    "qa/meaning_guard/gym_03",
+    "qa/meaning_guard/study_23",
+    "judge/meaning_guard"
+  ],
+  "stages": {
+    "qa/meaning_guard/bedroom_04": {
+      "exit_code": 2,
+      "seconds": 316.9179930780083,
+      "questions": 11,
+      "attempt_rows": 12,
+      "failures": 0,
+      "repaired_out_of_band": true
+    },
+    "qa/meaning_guard/kitchen_01": {
+      "exit_code": 0,
+      "seconds": 273.155429454986,
+      "questions": 13,
+      "attempt_rows": 13,
+      "failures": 0
+    },
+    "qa/meaning_guard/bedroom_05": {
+      "exit_code": 0,
+      "seconds": 266.20574642694555,
+      "questions": 12,
+      "attempt_rows": 12,
+      "failures": 0
+    },
+    "qa/meaning_guard/gym_03": {
+      "exit_code": 0,
+      "seconds": 385.81642791000195,
+      "questions": 11,
+      "attempt_rows": 22,
+      "failures": 0,
+      "retries": 0
+    },
+    "qa/meaning_guard/study_23": {
+      "exit_code": 0,
+      "seconds": 491.8974745620508,
+      "questions": 14,
+      "attempt_rows": 28,
+      "failures": 0,
+      "retries": 0
+    },
+    "judge/meaning_guard": {
+      "completed": 183,
+      "total": 183
+    },
+    "summary/meaning_guard": {
+      "eligible": false
+    }
+  },
+  "current": null,
+  "recovery": {
+    "reason": "API 429 rate and plan usage limits",
+    "requeued": [
+      "qa/meaning_guard/gym_03",
+      "qa/meaning_guard/study_23"
+    ],
+    "archived_judgments": "experiments/m3_meaning_guard_20261109/interrupted_judgments/20261109-183524",
+    "bedroom_04_initial_stage": {
+      "exit_code": 2,
+      "seconds": 316.9179930780083,
+      "questions": 11,
+      "attempt_rows": 11,
+      "failures": 1
+    }
+  }
+}

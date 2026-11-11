@@ -1,0 +1,28 @@
+{
+  "config_sha256": "991b76374d54ea18c3fa2e57a4e11fd67da69c2de6243b2bc742f6c9505a1687",
+  "fact_index_sha256": "a907c70e189a609315b65390b3269a9777c2c02db46b5867344fcb4015265e5f",
+  "settings": {
+    "answer_reserve_seconds": 45,
+    "context_window": 32768,
+    "enabled": true,
+    "evidence_format": "grouped",
+    "fact_memory": true,
+    "force_answer_tool": true,
+    "identity_aware": true,
+    "incremental_delivery": true,
+    "incremental_tokens": 3500,
+    "max_candidates": 32,
+    "max_input_tokens": 24000,
+    "max_neighbor_clips": 64,
+    "max_passages_per_node": 12,
+    "max_result_nodes": 24,
+    "max_search_calls": 8,
+    "max_selected_nodes": 32,
+    "max_top_k": 16,
+    "safety_tokens": 2048,
+    "tokenizer_multiplier": 1.15,
+    "tokenizer_path": "/home/yuanjian/Development/memory-eval/runs/context_assets/qwen-omni-tokenizer.json",
+    "fact_index_path": "/home/yuanjian/Development/memory-eval/runs/m3_person_ablation_study23_retry_20261105/on/study_23/fact_index/manifest.json",
+    "fact_index_sha256": "a907c70e189a609315b65390b3269a9777c2c02db46b5867344fcb4015265e5f"
+  }
+}

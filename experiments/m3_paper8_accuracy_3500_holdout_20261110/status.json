@@ -1,0 +1,38 @@
+{
+  "status": "completed",
+  "completed": [
+    "study_09",
+    "kitchen_23",
+    "study_05",
+    "gym_03",
+    "bedroom_04"
+  ],
+  "current": null,
+  "stages": {
+    "study_09": {
+      "seconds": 476.81421267194673,
+      "questions": 12,
+      "failures": 1
+    },
+    "kitchen_23": {
+      "seconds": 481.9521060651168,
+      "questions": 12,
+      "failures": 0
+    },
+    "study_05": {
+      "seconds": 437.4409925919026,
+      "questions": 12,
+      "failures": 0
+    },
+    "gym_03": {
+      "seconds": 452.20456953393295,
+      "questions": 11,
+      "failures": 0
+    },
+    "bedroom_04": {
+      "seconds": 399.8946142359637,
+      "questions": 11,
+      "failures": 0
+    }
+  }
+}

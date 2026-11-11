@@ -1,0 +1,39 @@
+{
+  "videos": [
+    "bedroom_04",
+    "kitchen_01",
+    "bedroom_05",
+    "gym_03",
+    "study_23"
+  ],
+  "policies": {
+    "adaptive_incremental": {
+      "later_incremental_tokens": 2000
+    }
+  },
+  "deadline_local": "2026-11-09 23:00:00",
+  "baseline": "runs/m3_compact_replay_20261109",
+  "baseline_sha256": {
+    "bedroom_04": "4320356f8012648feb1c2d8b02d070572fa1651725b4b784dda9b1fd3c7a1964",
+    "kitchen_01": "2e3748ee094b79f410c668aedd93f3762611c610c71601a1060f07c298ee3383",
+    "bedroom_05": "15ac71d58feab0d6ba120fbf3cc2277dad7ee86ddb9f0359fa2751ea733e274d",
+    "gym_03": "b6b62fb8a2cb1ebf25a10dadadd5d50af6ff07e2a465b3576579ef860768b5d2",
+    "study_23": "f31cb0af9abcfd5d50a7c51ec74cbe6764006adf017d83a94fc0b1e74f8653bd"
+  },
+  "m3_agent_sha256": {
+    "bedroom_04": "6b7565de30e0dc0ee33fdf483778124b4f1ea7dddf793333a7e45edcff917906",
+    "kitchen_01": "4174c6041b0a51b869238d429f2e4f4b91fd756ad482873d6fe480ab5e8e847b",
+    "bedroom_05": "a8db4f148180363f4d1b69289d797414d013580be28e5548a276ab90ffcfde86",
+    "gym_03": "52468868a51daceb58e65c21b61c9b78ce3c967f172a975a6f3d8d396eff20be",
+    "study_23": "330f2621e8849f54afc1b2a677b31594b4ee6bc95a04cb0a7cbae81283245d8b"
+  },
+  "code_sha256": {
+    "control_adapter.py": "6f1b5f188cdc809cf6638caee4401afc50916348cb9daa68aa1a741c03a371f7",
+    "compact_person.py": "3d1b16e5cb01d1ee39c759b1aa502ed28c2daba571d8a194b933e6b2a7e6cafa",
+    "context_budget.py": "f0594a1c45793ca52ca881c77c06444a9f854cd1958b7c861b6c4c70934230ae",
+    "incremental_context.py": "b5291b602f7a74e6727eb1c109a215d640d8c2f2cb9173cf988105572e23a5d6",
+    "index_episodic.py": "0f845e7c85c8cee08c9222c795d311147f34cd3438b0ef52fa06a14c98468611"
+  },
+  "selection": "No lower overall blind score than the original compact policy, higher score than M3 Agent, no video decline over 0.1, no additional failures, and at least 10% fewer QA tokens.",
+  "caveat": "Small sample, baseline bedroom_04 includes a retry; results are not guarantees."
+}

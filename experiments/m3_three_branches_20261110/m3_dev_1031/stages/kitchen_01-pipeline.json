@@ -1,0 +1,10 @@
+{
+  "arm": "m3_dev_1031",
+  "video": "kitchen_01",
+  "phase": "pipeline",
+  "exit_code": 0,
+  "started_at_unix": 1794310526.7637098,
+  "seconds": 4292.442268848419,
+  "status": "completed",
+  "answer_rows": 0
+}

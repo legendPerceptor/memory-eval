@@ -1,0 +1,10 @@
+{
+  "arm": "dev",
+  "video": "study_23",
+  "phase": "pipeline",
+  "exit_code": 2,
+  "started_at_unix": 1794335641.3960521,
+  "seconds": 3468.9258546829224,
+  "status": "failed",
+  "answer_rows": 0
+}

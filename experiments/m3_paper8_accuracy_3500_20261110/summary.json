@@ -1,0 +1,22 @@
+{
+  "baseline": {
+    "questions": 39,
+    "score": 0.3974358974358974,
+    "failures": 2,
+    "by_video": {
+      "study_23": 0.5714285714285714,
+      "kitchen_01": 0.3076923076923077,
+      "bedroom_05": 0.2916666666666667
+    }
+  },
+  "candidate": {
+    "questions": 39,
+    "score": 0.48717948717948717,
+    "failures": 0,
+    "by_video": {
+      "study_23": 0.75,
+      "kitchen_01": 0.34615384615384615,
+      "bedroom_05": 0.3333333333333333
+    }
+  }
+}

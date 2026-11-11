@@ -1,0 +1,10 @@
+{
+  "arm": "simplify_person_info_1110",
+  "video": "kitchen_01",
+  "phase": "pipeline",
+  "exit_code": 0,
+  "started_at_unix": 1794315384.8213778,
+  "seconds": 4370.982835769653,
+  "status": "completed",
+  "answer_rows": 0
+}

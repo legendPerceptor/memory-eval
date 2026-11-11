@@ -1,0 +1,17 @@
+{
+  "baseline": {
+    "score": 0.8181818181818182,
+    "questions": 11,
+    "failures": 0
+  },
+  "m3_agent": {
+    "score": 0.45454545454545453,
+    "questions": 11,
+    "failures": 0
+  },
+  "search_6": {
+    "score": 0.7272727272727273,
+    "questions": 11,
+    "failures": 0
+  }
+}

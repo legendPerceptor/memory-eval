@@ -1,0 +1,177 @@
+{
+  "methods": {
+    "paper_og": {
+      "questions": 97,
+      "mean_score": 0.5515463917525774,
+      "failures": 2,
+      "judge_errors": 0,
+      "by_video": {
+        "study_09": {
+          "questions": 12,
+          "mean_score": 0.5
+        },
+        "kitchen_01": {
+          "questions": 13,
+          "mean_score": 0.38461538461538464
+        },
+        "bedroom_05": {
+          "questions": 12,
+          "mean_score": 0.4166666666666667
+        },
+        "study_23": {
+          "questions": 14,
+          "mean_score": 0.6071428571428571
+        },
+        "kitchen_23": {
+          "questions": 12,
+          "mean_score": 0.5416666666666666
+        },
+        "study_05": {
+          "questions": 12,
+          "mean_score": 0.4583333333333333
+        },
+        "gym_03": {
+          "questions": 11,
+          "mean_score": 0.7272727272727273
+        },
+        "bedroom_04": {
+          "questions": 11,
+          "mean_score": 0.8181818181818182
+        }
+      }
+    },
+    "paper_m3": {
+      "questions": 97,
+      "mean_score": 0.4484536082474227,
+      "failures": 0,
+      "judge_errors": 0,
+      "by_video": {
+        "study_09": {
+          "questions": 12,
+          "mean_score": 0.5416666666666666
+        },
+        "kitchen_01": {
+          "questions": 13,
+          "mean_score": 0.19230769230769232
+        },
+        "bedroom_05": {
+          "questions": 12,
+          "mean_score": 0.4166666666666667
+        },
+        "study_23": {
+          "questions": 14,
+          "mean_score": 0.32142857142857145
+        },
+        "kitchen_23": {
+          "questions": 12,
+          "mean_score": 0.625
+        },
+        "study_05": {
+          "questions": 12,
+          "mean_score": 0.375
+        },
+        "gym_03": {
+          "questions": 11,
+          "mean_score": 0.7272727272727273
+        },
+        "bedroom_04": {
+          "questions": 11,
+          "mean_score": 0.45454545454545453
+        }
+      }
+    },
+    "fresh": {
+      "questions": 97,
+      "mean_score": 0.5051546391752577,
+      "failures": 3,
+      "judge_errors": 0,
+      "by_video": {
+        "study_09": {
+          "questions": 12,
+          "mean_score": 0.5833333333333334
+        },
+        "kitchen_01": {
+          "questions": 13,
+          "mean_score": 0.2692307692307692
+        },
+        "bedroom_05": {
+          "questions": 12,
+          "mean_score": 0.2916666666666667
+        },
+        "study_23": {
+          "questions": 14,
+          "mean_score": 0.5357142857142857
+        },
+        "kitchen_23": {
+          "questions": 12,
+          "mean_score": 0.4166666666666667
+        },
+        "study_05": {
+          "questions": 12,
+          "mean_score": 0.4583333333333333
+        },
+        "gym_03": {
+          "questions": 11,
+          "mean_score": 0.7272727272727273
+        },
+        "bedroom_04": {
+          "questions": 11,
+          "mean_score": 0.8181818181818182
+        }
+      }
+    }
+  },
+  "fresh_resources": {
+    "pipeline": {
+      "calls": 547,
+      "unknown_usage_calls": 0,
+      "prompt_tokens": 3126384,
+      "completion_tokens": 1284020,
+      "wall_seconds_including_quota_wait": 9721.39192199707,
+      "failed_stages": 0
+    },
+    "index": {
+      "calls": 0,
+      "unknown_usage_calls": 0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "wall_seconds_including_quota_wait": 171.09331965446472,
+      "failed_stages": 0
+    },
+    "og_qa": {
+      "calls": 551,
+      "unknown_usage_calls": 0,
+      "prompt_tokens": 3437432,
+      "completion_tokens": 105895,
+      "wall_seconds_including_quota_wait": 2368.054659843445,
+      "failed_stages": 3
+    }
+  },
+  "paper_resources": {
+    "pipeline": {
+      "calls": 547,
+      "unknown_usage_calls": 0,
+      "prompt_tokens": 2510078,
+      "completion_tokens": 784774,
+      "wall_seconds_including_quota_wait": 37222.209101200104,
+      "failed_stages": 0
+    },
+    "index": {
+      "calls": 0,
+      "unknown_usage_calls": 0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "wall_seconds_including_quota_wait": 126.30928301811218,
+      "failed_stages": 0
+    },
+    "og_qa": {
+      "calls": 525,
+      "unknown_usage_calls": 0,
+      "prompt_tokens": 4039490,
+      "completion_tokens": 111694,
+      "wall_seconds_including_quota_wait": 3954.807228565216,
+      "failed_stages": 1
+    }
+  },
+  "caveat": "Historical paper controls; different code/config/window, not causal."
+}

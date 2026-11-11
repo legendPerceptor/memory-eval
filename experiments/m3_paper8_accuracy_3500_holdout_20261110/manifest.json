@@ -1,0 +1,32 @@
+{
+  "videos": [
+    "study_09",
+    "kitchen_23",
+    "study_05",
+    "gym_03",
+    "bedroom_04"
+  ],
+  "baseline_sha256": {
+    "study_09": "62bcdd19cc8a7a4943b52dea738fc2cdca4e4439a36ac7beab2ef882b26e2265",
+    "kitchen_23": "3e8b3bea078c52b3acd9554c52c15323d6ef70e6cb7a30d256ce1216e803ce39",
+    "study_05": "0a807c87eb43d305e030885acf4a1dda0e817eea73d3654787055dd099be95ad",
+    "gym_03": "d4190e53b4b5dde52c037fcf8ca135e3b685d84306e7ddb24902103d4fc2eb98",
+    "bedroom_04": "045b8c7ff2fa5f909db475149baa7cffa81312791b513c386dfb4d1aa1bef646"
+  },
+  "safety_stop_at_unix": 1794363963.789024,
+  "source_control_sha256": "6f1b5f188cdc809cf6638caee4401afc50916348cb9daa68aa1a741c03a371f7",
+  "configuration_sha256": {
+    "study_09": "643a9489c75457bad8b503bc564ebdf34a46eae1bae3dc38d8d51905a9367cf3",
+    "kitchen_23": "07762f15738f345a72310136f6eec3ca7f47733358caa47b545dba69cd29671a",
+    "study_05": "1ba18ea778e7abe6aeba327c2da70910fc77dd9bc725afd2a539cecbaeb849c6",
+    "gym_03": "eedf0a01f8ef2b51ef3725d7148b9468787010e1c5a2730fe2b1043d8a21fd29",
+    "bedroom_04": "3ea02ecd128076f810ca30b967bb1a1342df7dd4e2960ff10cb8a7fa6bac3378"
+  },
+  "change": {
+    "ambiguity_guard": false,
+    "later_incremental_tokens": 3500,
+    "retry_failed": false
+  },
+  "design": "All questions per video; frozen memory and first baseline answers; randomized blinded rejudging; failures counted as zero. Retry policy copies all first answers and reruns only incomplete or failed questions once.",
+  "limitations": "Selected videos, one stochastic run, no causal conclusion for memory construction or person grounding."
+}

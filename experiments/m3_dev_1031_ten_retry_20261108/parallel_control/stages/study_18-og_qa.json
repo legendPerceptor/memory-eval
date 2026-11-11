@@ -1,0 +1,8 @@
+{
+  "video": "study_18",
+  "phase": "og_qa",
+  "exit_code": 2,
+  "started_at_unix": 1793740544.6800473,
+  "seconds": 120.36377692222595,
+  "status": "completed_with_qa_failures"
+}

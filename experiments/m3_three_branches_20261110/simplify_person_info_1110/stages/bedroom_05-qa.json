@@ -1,0 +1,10 @@
+{
+  "arm": "simplify_person_info_1110",
+  "video": "bedroom_05",
+  "phase": "qa",
+  "exit_code": 0,
+  "started_at_unix": 1794335351.4236073,
+  "seconds": 289.9718818664551,
+  "status": "completed",
+  "answer_rows": 12
+}

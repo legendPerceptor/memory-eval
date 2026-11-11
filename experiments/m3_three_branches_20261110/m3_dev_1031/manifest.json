@@ -1,0 +1,14 @@
+{
+  "arm": "m3_dev_1031",
+  "revision": "8731930ec75153865df07689ee0c4bd98d182746",
+  "database": "ogmem_cmp3_m3_20261110",
+  "account": "cmp3-m3-dev-1031",
+  "source_archive_sha256": "c7ed341f83691a0918ee6ba9a81ff8ac46d30cb765fd98e4cb51b7365c52196c",
+  "config_sha256": "ad55e6892fc700bdbf46cdd6026b662917902216d185044b5064c68efb1cdc7e",
+  "safety_stop_at_unix": null,
+  "videos": [
+    "kitchen_01",
+    "bedroom_05",
+    "study_23"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "arm": "dev",
+  "video": "bedroom_05",
+  "phase": "qa",
+  "exit_code": 0,
+  "started_at_unix": 1794332809.778571,
+  "seconds": 539.9225337505341,
+  "status": "completed",
+  "answer_rows": 12
+}

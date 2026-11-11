@@ -1,0 +1,10 @@
+{
+  "arm": "simplify_person_info_1110",
+  "video": "study_23",
+  "phase": "index",
+  "exit_code": 2,
+  "started_at_unix": 1794381010.0046017,
+  "seconds": 2.42927622795105,
+  "status": "failed",
+  "answer_rows": 0
+}

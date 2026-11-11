@@ -1,0 +1,42 @@
+{
+  "status": "finished",
+  "history": [
+    {
+      "arm": "off",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "seconds": 3178.4282879829407
+    },
+    {
+      "arm": "off",
+      "phase": "index",
+      "exit_code": 0,
+      "seconds": 14.543757677078247
+    },
+    {
+      "arm": "off",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "seconds": 690.5649573802948
+    },
+    {
+      "arm": "on",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "seconds": 3028.960960149765
+    },
+    {
+      "arm": "on",
+      "phase": "index",
+      "exit_code": 0,
+      "seconds": 20.019214391708374
+    },
+    {
+      "arm": "on",
+      "phase": "og_qa",
+      "exit_code": 0,
+      "seconds": 527.8239371776581
+    }
+  ],
+  "judge_exit_code": 0
+}
