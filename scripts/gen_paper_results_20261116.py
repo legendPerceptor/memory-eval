@@ -56,6 +56,8 @@ def main():
     sweep = json.loads((EXP / "qa_budget_sweep_results.json").read_text())["points"]
     pareto = json.loads((EXP / "qa_budget_pareto_results.json").read_text())["pareto_front"]
     pareto_budgets = {p["budget"] for p in pareto}
+    ms = json.loads((EXP / "qa_budget_multiseed_results.json").read_text())
+    ms_agg = {int(k): v for k, v in ms["aggregate"].items()}
 
     L = []
     a = L.append
@@ -111,25 +113,30 @@ def main():
       r"星号表示M3有未知建忆用量。右图按各自运行实测的阶段墙钟展示；oGMemory为四路并行复跑、"
       r"M3为冻结参考，二者为独立运行，共享感知亦分别测得，不能将两方法总时间相加当作单次实验墙钟时间。}"
       r"\label{fig:resources}\end{figure}")
-    # ---- Table: QA budget sweep ----
+    # ---- Table: QA budget sweep (multi-seed mean +/- std) ----
     a(r"\begin{table}[htbp]\centering\small")
     a(r"\caption{QA阶段token预算扫描（固定记忆不变，仅改\code{m3.qa\_context.max\_input\_tokens}，"
-      r"每档重跑并重判97题）。有效上限=min(预算,$32768-8192-2048=22528$)。}")
+      r"每档独立重跑并重判97题）。每档$n=2$次独立QA采样，准确率为跨重复的均值$\pm$标准差；"
+      r"有效上限$=\min(\text{预算},\,32768-8192-2048=22528)$。}")
     a(r"\label{tab:pareto}\begin{tabular}{rrrrrr}\toprule")
-    a(r"预算 & 有效上限 & QA输入（M） & QA输出（M） & 准确率（\%） & QA耗时（s）\\\midrule")
-    for p in sorted(sweep, key=lambda r: r["budget"]):
-        a(f"{p['budget']} & {p['effective_budget']} & {p['qa_input_tokens']/1e6:.3f} & "
-          f"{p['qa_output_tokens']/1e6:.3f} & {p['accuracy']*100:.2f} & {p['qa_seconds']:.1f}\\\\")
+    a(r"预算 & 有效上限 & QA输入（M） & QA输出（M） & 准确率（\%，mean$\pm$std） & QA耗时（s）\\\midrule")
+    for b in sorted(ms_agg):
+        v=ms_agg[b]
+        acc=v["accuracy_mean"]*100; sd=(v["accuracy_std"] or 0.0)*100
+        a(f"{b} & {min(b,22528)} & {v['qa_input_tokens_mean']/1e6:.3f} & "
+          f"{v['qa_output_tokens_mean']/1e6:.3f} & ${acc:.2f}\\pm{sd:.2f}$ & {v['qa_seconds_mean']:.1f}\\\\")
     a(r"\bottomrule\end{tabular}")
-    a(r"\par\smallskip\footnotesize 22528为上下文近满配置（$32768-8192-2048$），其准确率不高于16000档，"
-      r"说明继续增大QA预算不能稳定提升质量；该档QA墙钟（约16387秒）异常偏长，含配额等待与重试，非纯计算耗时。")
+    a(r"\par\smallskip\footnotesize 每档为独立QA采样重复$n=2$；3000/4000新档各两次，6000--16000沿用单次并各补一次，"
+      r"22528由两次独立满上下文运行合成；标准差反映QA生成与判分噪声。"
+      r"12000与22528两档QA墙钟（分别约6512与16387秒）含配额等待与重试，远高于纯计算耗时，不用于比较各档计算效率。")
     a(r"\end{table}")
     # ---- Figure: per-video sweep (single explanatory figure) ----
     a(r"\begin{figure}[htbp]\centering")
     a(r"\includegraphics[width=0.92\linewidth]{figures/qa_budget_pareto_per_video.pdf}")
-    a(r"\caption{逐视频准确率随QA token预算设置的变化：每个视频一条彩色曲线（共8条），"
-      r"黑色粗实线为97题整体加权平均。各视频最优预算不同且多非单调，"
-      r"说明固定单一预算并非对所有视频最优。}\label{fig:pareto-pervideo}\end{figure}")
+    a(r"\caption{逐视频准确率随QA token预算设置的变化（多seed均值$\pm$标准差）：每个视频一条彩色曲线（共8条，"
+      r"误差棒来自独立QA重复），黑色粗实线为97题整体加权平均（同样带误差棒）。"
+      r"整体准确率随预算单调上升至接近上下文上限；各视频最优预算不同，单一全局预算难以对所有视频最优。}"
+      r"\label{fig:pareto-pervideo}\end{figure}")
 
     OUT.write_text("\n".join(L) + "\n")
     print("wrote", OUT)

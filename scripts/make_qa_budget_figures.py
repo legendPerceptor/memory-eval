@@ -183,37 +183,44 @@ def plot_overall_pareto():
 
 
 def plot_per_video_pareto():
-    """Accuracy vs QA token-budget SETTING: one line per video + a thicker average line."""
-    d = json.loads((EXP / "qa_budget_per_video.json").read_text())
-    budgets = [int(b) for b in d["budgets"]]
+    """Per-video accuracy vs QA token-budget SETTING, multi-seed mean +/- std.
+
+    8 colored lines (one per video) + a thicker black average line; every series
+    carries error bars from independent QA repeats. Reads the multi-seed
+    aggregate (qa_budget_multiseed_results.json); budget x-axis is the setting.
+    """
+    d = json.loads((EXP / "qa_budget_multiseed_results.json").read_text())
+    agg = d["aggregate"]
+    budgets = sorted(int(b) for b in agg)
     vids = d["videos"]
-    grid = {int(k): v for k, v in d["grid"].items()}
-    sw = {int(p["budget"]): p for p in
-          json.loads((EXP / "qa_budget_sweep_results.json").read_text())["points"]}
 
-    pos = list(range(len(budgets)))          # evenly spaced budget settings
-    xticklabels = [f"{b/1000:g}k" for b in budgets]
+    pos = list(range(len(budgets)))
+    xticklabels = [f"{b/1000:g}k" for b in budgets]  # 3k,4k,6k,9k,12k,16k,22.528k
+    xticklabels = [t.replace("22.528k", "22.5k") for t in xticklabels]
 
-    fig, ax = plt.subplots(figsize=(10.2, 6.0), layout="constrained")
+    fig, ax = plt.subplots(figsize=(10.6, 6.2), layout="constrained")
     cmap = plt.get_cmap("tab10")
     for i, v in enumerate(vids):
-        ys = [grid[b][v] * 100 for b in budgets]
-        ax.plot(pos, ys, "-o", color=cmap(i % 10), lw=1.9, ms=5.5, alpha=0.95,
-                label=v, zorder=2)
-    # thicker overall average line (97-question weighted accuracy)
-    avg = [sw[b]["accuracy"] * 100 for b in budgets]
-    ax.plot(pos, avg, "-s", color="black", lw=4.2, ms=9, label="Average (97-Q weighted)",
-            zorder=5)
+        ys = [agg[str(b)]["per_video_mean"][v] * 100 for b in budgets]
+        es = [((agg[str(b)]["per_video_std"][v] or 0.0) * 100) for b in budgets]
+        c = cmap(i % 10)
+        ax.errorbar(pos, ys, yerr=es, fmt="-o", color=c, lw=1.8, ms=5.0,
+                    capsize=2.0, elinewidth=1.0, alpha=0.9, label=v, zorder=2)
+    # thicker overall average line (97-question weighted) with error bars
+    avg = [agg[str(b)]["accuracy_mean"] * 100 for b in budgets]
+    avg_e = [((agg[str(b)]["accuracy_std"] or 0.0) * 100) for b in budgets]
+    ax.errorbar(pos, avg, yerr=avg_e, fmt="-s", color="black", lw=4.0, ms=9,
+                capsize=4.0, elinewidth=2.4, label="Average (97-Q, mean$\\pm$std)", zorder=5)
 
     ax.set_xticks(pos, xticklabels)
     ax.set_xlabel("QA token budget setting (max_input_tokens)")
     ax.set_ylabel("Accuracy (%)")
-    ax.set_title("Per-video accuracy vs QA token budget (8 videos + average)")
+    ax.set_title("Per-video accuracy vs QA token budget (multi-seed mean $\\pm$ std, 8 videos + average)")
     ax.set_ylim(0, 100)
     ax.grid(alpha=0.28)
     ax.spines[["top", "right"]].set_visible(False)
     ax.set_axisbelow(True)
-    ax.legend(fontsize=9, ncols=1, loc="center left", bbox_to_anchor=(1.01, 0.5),
+    ax.legend(fontsize=8.5, ncols=1, loc="center left", bbox_to_anchor=(1.01, 0.5),
               frameon=False)
     save(fig, "qa_budget_pareto_per_video")
     return vids, budgets

@@ -1,0 +1,495 @@
+{
+  "status": "finished",
+  "done_points": 13,
+  "aggregate": {
+    "3000": {
+      "n_reps": 2,
+      "accuracy_mean": 0.07731958762886598,
+      "accuracy_std": 0.014579521261578297,
+      "qa_input_tokens_mean": 753706.0,
+      "qa_output_tokens_mean": 30965.0,
+      "qa_seconds_mean": 618.05,
+      "per_video_mean": {
+        "study_09": 0.125,
+        "kitchen_01": 0.038461538461538464,
+        "bedroom_05": 0.08333333333333333,
+        "study_23": 0.07142857142857142,
+        "kitchen_23": 0.0625,
+        "study_05": 0.041666666666666664,
+        "gym_03": 0.1590909090909091,
+        "bedroom_04": 0.045454545454545456
+      },
+      "per_video_std": {
+        "study_09": 0.05892556509887896,
+        "kitchen_01": 0.05439282932204212,
+        "bedroom_05": 0.0,
+        "study_23": 0.0,
+        "kitchen_23": 0.08838834764831845,
+        "study_05": 0.05892556509887896,
+        "gym_03": 0.03214121732666126,
+        "bedroom_04": 0.0642824346533225
+      }
+    },
+    "4000": {
+      "n_reps": 2,
+      "accuracy_mean": 0.2731958762886598,
+      "accuracy_std": 0.08018736693868064,
+      "qa_input_tokens_mean": 1130300.5,
+      "qa_output_tokens_mean": 48843.5,
+      "qa_seconds_mean": 843.8499999999999,
+      "per_video_mean": {
+        "study_09": 0.2916666666666667,
+        "kitchen_01": 0.21153846153846156,
+        "bedroom_05": 0.16666666666666669,
+        "study_23": 0.07142857142857142,
+        "kitchen_23": 0.25,
+        "study_05": 0.2708333333333333,
+        "gym_03": 0.4318181818181818,
+        "bedroom_04": 0.5681818181818181
+      },
+      "per_video_std": {
+        "study_09": 0.11785113019775792,
+        "kitchen_01": 0.1359820733051053,
+        "bedroom_05": 0.1767766952966369,
+        "study_23": 0.050507627227610534,
+        "kitchen_23": 0.0,
+        "study_05": 0.2651650429449553,
+        "gym_03": 0.03214121732666122,
+        "bedroom_04": 0.09642365197998375
+      }
+    },
+    "6000": {
+      "n_reps": 2,
+      "accuracy_mean": 0.47164948453608246,
+      "accuracy_std": 0.010934640946183726,
+      "qa_input_tokens_mean": 2015341.0,
+      "qa_output_tokens_mean": 75769.5,
+      "qa_seconds_mean": 1059.65,
+      "per_video_mean": {
+        "study_09": 0.41666666666666663,
+        "kitchen_01": 0.28846153846153844,
+        "bedroom_05": 0.3333333333333333,
+        "study_23": 0.375,
+        "kitchen_23": 0.47916666666666663,
+        "study_05": 0.41666666666666663,
+        "gym_03": 0.9090909090909091,
+        "bedroom_04": 0.6363636363636364
+      },
+      "per_video_std": {
+        "study_09": 0.058925565098878946,
+        "kitchen_01": 0.08158924398306316,
+        "bedroom_05": 0.0,
+        "study_23": 0.07576144084141577,
+        "kitchen_23": 0.20623947784607635,
+        "study_05": 0.058925565098878946,
+        "gym_03": 0.0,
+        "bedroom_04": 0.12856486930664504
+      }
+    },
+    "9000": {
+      "n_reps": 2,
+      "accuracy_mean": 0.5747422680412371,
+      "accuracy_std": 0.03280392283855114,
+      "qa_input_tokens_mean": 3013049.5,
+      "qa_output_tokens_mean": 93065.0,
+      "qa_seconds_mean": 1205.85,
+      "per_video_mean": {
+        "study_09": 0.6041666666666667,
+        "kitchen_01": 0.28846153846153844,
+        "bedroom_05": 0.4375,
+        "study_23": 0.6428571428571428,
+        "kitchen_23": 0.6875,
+        "study_05": 0.5208333333333334,
+        "gym_03": 0.75,
+        "bedroom_04": 0.7045454545454546
+      },
+      "per_video_std": {
+        "study_09": 0.029462782549439452,
+        "kitchen_01": 0.02719641466102108,
+        "bedroom_05": 0.14731391274719738,
+        "study_23": 0.10101525445522111,
+        "kitchen_23": 0.14731391274719735,
+        "study_05": 0.08838834764831847,
+        "gym_03": 0.03214121732666122,
+        "bedroom_04": 0.0321412173266613
+      }
+    },
+    "12000": {
+      "n_reps": 2,
+      "accuracy_mean": 0.5721649484536082,
+      "accuracy_std": 0.036448803153945775,
+      "qa_input_tokens_mean": 3890515.5,
+      "qa_output_tokens_mean": 103088.0,
+      "qa_seconds_mean": 6512.35,
+      "per_video_mean": {
+        "study_09": 0.5208333333333334,
+        "kitchen_01": 0.3653846153846154,
+        "bedroom_05": 0.5416666666666666,
+        "study_23": 0.625,
+        "kitchen_23": 0.5833333333333333,
+        "study_05": 0.47916666666666663,
+        "gym_03": 0.7272727272727273,
+        "bedroom_04": 0.7727272727272727
+      },
+      "per_video_std": {
+        "study_09": 0.14731391274719738,
+        "kitchen_01": 0.02719641466102108,
+        "bedroom_05": 0.11785113019775793,
+        "study_23": 0.025253813613805336,
+        "kitchen_23": 0.05892556509887899,
+        "study_05": 0.0883883476483184,
+        "gym_03": 0.0,
+        "bedroom_04": 0.06428243465332252
+      }
+    },
+    "16000": {
+      "n_reps": 2,
+      "accuracy_mean": 0.5824742268041238,
+      "accuracy_std": 0.043738563784734896,
+      "qa_input_tokens_mean": 4960437.5,
+      "qa_output_tokens_mean": 114500.5,
+      "qa_seconds_mean": 1597.15,
+      "per_video_mean": {
+        "study_09": 0.5833333333333334,
+        "kitchen_01": 0.2692307692307692,
+        "bedroom_05": 0.41666666666666663,
+        "study_23": 0.75,
+        "kitchen_23": 0.6666666666666666,
+        "study_05": 0.5208333333333333,
+        "gym_03": 0.7045454545454546,
+        "bedroom_04": 0.7727272727272727
+      },
+      "per_video_std": {
+        "study_09": 0.0,
+        "kitchen_01": 0.0,
+        "bedroom_05": 0.11785113019775793,
+        "study_23": 0.05050762722761051,
+        "kitchen_23": 0.0,
+        "study_05": 0.20623947784607632,
+        "gym_03": 0.0321412173266613,
+        "bedroom_04": 0.06428243465332252
+      }
+    },
+    "22528": {
+      "n_reps": 1,
+      "accuracy_mean": 0.5927835051546392,
+      "accuracy_std": null,
+      "qa_input_tokens_mean": 6471426.0,
+      "qa_output_tokens_mean": 117639.0,
+      "qa_seconds_mean": 16387.4,
+      "per_video_mean": {
+        "study_09": 0.5,
+        "kitchen_01": 0.34615384615384615,
+        "bedroom_05": 0.5,
+        "study_23": 0.7857142857142857,
+        "kitchen_23": 0.625,
+        "study_05": 0.5416666666666666,
+        "gym_03": 0.6363636363636364,
+        "bedroom_04": 0.8181818181818182
+      },
+      "per_video_std": {
+        "study_09": null,
+        "kitchen_01": null,
+        "bedroom_05": null,
+        "study_23": null,
+        "kitchen_23": null,
+        "study_05": null,
+        "gym_03": null,
+        "bedroom_04": null
+      }
+    }
+  },
+  "points": [
+    {
+      "budget": 6000,
+      "rep": -1,
+      "effective_budget": 6000,
+      "questions": 97,
+      "answers": 97,
+      "score": 46.5,
+      "accuracy": 0.4793814432989691,
+      "qa_input_tokens": 2044084,
+      "qa_output_tokens": 77082,
+      "qa_seconds": 1089.5,
+      "source": "single_seed_sweep",
+      "per_video": {
+        "study_09": 0.375,
+        "kitchen_01": 0.23076923076923078,
+        "bedroom_05": 0.3333333333333333,
+        "study_23": 0.42857142857142855,
+        "kitchen_23": 0.625,
+        "study_05": 0.4583333333333333,
+        "gym_03": 0.9090909090909091,
+        "bedroom_04": 0.5454545454545454
+      }
+    },
+    {
+      "budget": 9000,
+      "rep": -1,
+      "effective_budget": 9000,
+      "questions": 97,
+      "answers": 97,
+      "score": 53.5,
+      "accuracy": 0.5515463917525774,
+      "qa_input_tokens": 3029175,
+      "qa_output_tokens": 94694,
+      "qa_seconds": 1291.9,
+      "source": "single_seed_sweep",
+      "per_video": {
+        "study_09": 0.625,
+        "kitchen_01": 0.3076923076923077,
+        "bedroom_05": 0.3333333333333333,
+        "study_23": 0.7142857142857143,
+        "kitchen_23": 0.5833333333333334,
+        "study_05": 0.4583333333333333,
+        "gym_03": 0.7272727272727273,
+        "bedroom_04": 0.6818181818181818
+      }
+    },
+    {
+      "budget": 12000,
+      "rep": -1,
+      "effective_budget": 12000,
+      "questions": 97,
+      "answers": 97,
+      "score": 58.0,
+      "accuracy": 0.5979381443298969,
+      "qa_input_tokens": 3873144,
+      "qa_output_tokens": 102980,
+      "qa_seconds": 2952.1,
+      "source": "single_seed_sweep",
+      "per_video": {
+        "study_09": 0.625,
+        "kitchen_01": 0.34615384615384615,
+        "bedroom_05": 0.625,
+        "study_23": 0.6071428571428571,
+        "kitchen_23": 0.5416666666666666,
+        "study_05": 0.5416666666666666,
+        "gym_03": 0.7272727272727273,
+        "bedroom_04": 0.8181818181818182
+      }
+    },
+    {
+      "budget": 16000,
+      "rep": -1,
+      "effective_budget": 16000,
+      "questions": 97,
+      "answers": 97,
+      "score": 59.5,
+      "accuracy": 0.6134020618556701,
+      "qa_input_tokens": 5035616,
+      "qa_output_tokens": 120339,
+      "qa_seconds": 1390.9,
+      "source": "single_seed_sweep",
+      "per_video": {
+        "study_09": 0.5833333333333334,
+        "kitchen_01": 0.2692307692307692,
+        "bedroom_05": 0.5,
+        "study_23": 0.7142857142857143,
+        "kitchen_23": 0.6666666666666666,
+        "study_05": 0.6666666666666666,
+        "gym_03": 0.7272727272727273,
+        "bedroom_04": 0.8181818181818182
+      }
+    },
+    {
+      "budget": 22528,
+      "rep": -1,
+      "effective_budget": 22528,
+      "questions": 97,
+      "answers": 97,
+      "score": 57.5,
+      "accuracy": 0.5927835051546392,
+      "qa_input_tokens": 6471426,
+      "qa_output_tokens": 117639,
+      "qa_seconds": 16387.4,
+      "source": "single_seed_sweep",
+      "per_video": {
+        "study_09": 0.5,
+        "kitchen_01": 0.34615384615384615,
+        "bedroom_05": 0.5,
+        "study_23": 0.7857142857142857,
+        "kitchen_23": 0.625,
+        "study_05": 0.5416666666666666,
+        "gym_03": 0.6363636363636364,
+        "bedroom_04": 0.8181818181818182
+      }
+    },
+    {
+      "budget": 3000,
+      "rep": 0,
+      "effective_budget": 3000,
+      "questions": 97,
+      "answers": 97,
+      "score": 8.5,
+      "accuracy": 0.08762886597938144,
+      "qa_input_tokens": 764043,
+      "qa_output_tokens": 30904,
+      "per_video": {
+        "study_09": 0.16666666666666666,
+        "kitchen_01": 0.07692307692307693,
+        "bedroom_05": 0.08333333333333333,
+        "study_23": 0.07142857142857142,
+        "kitchen_23": 0.125,
+        "study_05": 0.0,
+        "gym_03": 0.18181818181818182,
+        "bedroom_04": 0.0
+      },
+      "qa_seconds": 615.3
+    },
+    {
+      "budget": 3000,
+      "rep": 1,
+      "effective_budget": 3000,
+      "questions": 97,
+      "answers": 97,
+      "score": 6.5,
+      "accuracy": 0.06701030927835051,
+      "qa_input_tokens": 743369,
+      "qa_output_tokens": 31026,
+      "per_video": {
+        "study_09": 0.08333333333333333,
+        "kitchen_01": 0.0,
+        "bedroom_05": 0.08333333333333333,
+        "study_23": 0.07142857142857142,
+        "kitchen_23": 0.0,
+        "study_05": 0.08333333333333333,
+        "gym_03": 0.13636363636363635,
+        "bedroom_04": 0.09090909090909091
+      },
+      "qa_seconds": 620.8
+    },
+    {
+      "budget": 4000,
+      "rep": 0,
+      "effective_budget": 4000,
+      "questions": 97,
+      "answers": 97,
+      "score": 21.0,
+      "accuracy": 0.21649484536082475,
+      "qa_input_tokens": 1019529,
+      "qa_output_tokens": 45062,
+      "per_video": {
+        "study_09": 0.20833333333333334,
+        "kitchen_01": 0.11538461538461539,
+        "bedroom_05": 0.041666666666666664,
+        "study_23": 0.03571428571428571,
+        "kitchen_23": 0.25,
+        "study_05": 0.08333333333333333,
+        "gym_03": 0.45454545454545453,
+        "bedroom_04": 0.6363636363636364
+      },
+      "qa_seconds": 765.9
+    },
+    {
+      "budget": 4000,
+      "rep": 1,
+      "effective_budget": 4000,
+      "questions": 97,
+      "answers": 97,
+      "score": 32.0,
+      "accuracy": 0.32989690721649484,
+      "qa_input_tokens": 1241072,
+      "qa_output_tokens": 52625,
+      "per_video": {
+        "study_09": 0.375,
+        "kitchen_01": 0.3076923076923077,
+        "bedroom_05": 0.2916666666666667,
+        "study_23": 0.10714285714285714,
+        "kitchen_23": 0.25,
+        "study_05": 0.4583333333333333,
+        "gym_03": 0.4090909090909091,
+        "bedroom_04": 0.5
+      },
+      "qa_seconds": 921.8
+    },
+    {
+      "budget": 6000,
+      "rep": 1,
+      "effective_budget": 6000,
+      "questions": 97,
+      "answers": 97,
+      "score": 45.0,
+      "accuracy": 0.4639175257731959,
+      "qa_input_tokens": 1986598,
+      "qa_output_tokens": 74457,
+      "per_video": {
+        "study_09": 0.4583333333333333,
+        "kitchen_01": 0.34615384615384615,
+        "bedroom_05": 0.3333333333333333,
+        "study_23": 0.32142857142857145,
+        "kitchen_23": 0.3333333333333333,
+        "study_05": 0.375,
+        "gym_03": 0.9090909090909091,
+        "bedroom_04": 0.7272727272727273
+      },
+      "qa_seconds": 1029.8
+    },
+    {
+      "budget": 9000,
+      "rep": 1,
+      "effective_budget": 9000,
+      "questions": 97,
+      "answers": 97,
+      "score": 58.0,
+      "accuracy": 0.5979381443298969,
+      "qa_input_tokens": 2996924,
+      "qa_output_tokens": 91436,
+      "per_video": {
+        "study_09": 0.5833333333333334,
+        "kitchen_01": 0.2692307692307692,
+        "bedroom_05": 0.5416666666666666,
+        "study_23": 0.5714285714285714,
+        "kitchen_23": 0.7916666666666666,
+        "study_05": 0.5833333333333334,
+        "gym_03": 0.7727272727272727,
+        "bedroom_04": 0.7272727272727273
+      },
+      "qa_seconds": 1119.8
+    },
+    {
+      "budget": 12000,
+      "rep": 1,
+      "effective_budget": 12000,
+      "questions": 97,
+      "answers": 97,
+      "score": 53.0,
+      "accuracy": 0.5463917525773195,
+      "qa_input_tokens": 3907887,
+      "qa_output_tokens": 103196,
+      "per_video": {
+        "study_09": 0.4166666666666667,
+        "kitchen_01": 0.38461538461538464,
+        "bedroom_05": 0.4583333333333333,
+        "study_23": 0.6428571428571429,
+        "kitchen_23": 0.625,
+        "study_05": 0.4166666666666667,
+        "gym_03": 0.7272727272727273,
+        "bedroom_04": 0.7272727272727273
+      },
+      "qa_seconds": 10072.6
+    },
+    {
+      "budget": 16000,
+      "rep": 1,
+      "effective_budget": 16000,
+      "questions": 97,
+      "answers": 97,
+      "score": 53.5,
+      "accuracy": 0.5515463917525774,
+      "qa_input_tokens": 4885259,
+      "qa_output_tokens": 108662,
+      "per_video": {
+        "study_09": 0.5833333333333334,
+        "kitchen_01": 0.2692307692307692,
+        "bedroom_05": 0.3333333333333333,
+        "study_23": 0.7857142857142857,
+        "kitchen_23": 0.6666666666666666,
+        "study_05": 0.375,
+        "gym_03": 0.6818181818181818,
+        "bedroom_04": 0.7272727272727273
+      },
+      "qa_seconds": 1803.4
+    }
+  ]
+}

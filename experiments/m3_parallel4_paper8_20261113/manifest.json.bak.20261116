@@ -1,0 +1,107 @@
+{
+  "experiment": "m3_parallel4_paper8_20261113",
+  "created_at": "2026-11-13T17:36:41+0800",
+  "source_commit": "e4f5b75575bd3d809853c90f7681acca6bac375a",
+  "source_branch": "rychkov/m3-parallel",
+  "patch_sha256": "d3ba72b458447c0ead8f200414eae264c017668aa297a04ebadb5e8fc96b587e",
+  "driver_sha256": "3e7b321b2982803ec78f989586042bd04806fd50de32a9af7514f541c7f1169a",
+  "config_sha256": "bfb284a6befd9b76793d8705fedbef50edb0173aed8eb1ce1df735c302f9955e",
+  "annotations_sha256": "f43031bf0216a2ef2e7909f20ecd534e0098da17b63cdf94325a07f1bea372c1",
+  "tokenizer_sha256": "8441917e39ae0244e06d704b95b3124795cec478e297f9afac39ba670d7e9d99",
+  "videos": [
+    "study_09",
+    "kitchen_01",
+    "bedroom_05",
+    "study_23",
+    "kitchen_23",
+    "study_05",
+    "gym_03",
+    "bedroom_04"
+  ],
+  "question_counts": {
+    "study_09": 12,
+    "kitchen_01": 13,
+    "bedroom_05": 12,
+    "study_23": 14,
+    "kitchen_23": 12,
+    "study_05": 12,
+    "gym_03": 11,
+    "bedroom_04": 11
+  },
+  "questions": 97,
+  "video_meta": {
+    "study_09": {
+      "bytes": 616712066,
+      "duration_seconds": 2345.104
+    },
+    "kitchen_01": {
+      "bytes": 450910364,
+      "duration_seconds": 2354.648
+    },
+    "bedroom_05": {
+      "bytes": 1650949285,
+      "duration_seconds": 1800.151
+    },
+    "study_23": {
+      "bytes": 462579075,
+      "duration_seconds": 2041.968
+    },
+    "kitchen_23": {
+      "bytes": 1808125748,
+      "duration_seconds": 1968.751
+    },
+    "study_05": {
+      "bytes": 1879280120,
+      "duration_seconds": 2044.889
+    },
+    "gym_03": {
+      "bytes": 416322061,
+      "duration_seconds": 2033.514
+    },
+    "bedroom_04": {
+      "bytes": 1508303162,
+      "duration_seconds": 1650.684
+    }
+  },
+  "account": "m3-parallel4-paper8-20261113",
+  "database": "ogmem_m3_parallel4_paper8_20261113",
+  "db": {
+    "host": "127.0.0.1",
+    "port": "31877",
+    "user": "ogmem",
+    "dbname": "ogmem_m3_parallel4_paper8_20261113"
+  },
+  "model": "MiniMax-M3.1-Flash",
+  "thinking": "adaptive",
+  "reasoning_effort": "medium",
+  "qa_output_tokens": 8192,
+  "judge_output_tokens": 2048,
+  "max_iterations": 6,
+  "timeout_seconds": 180,
+  "temporal_policy": "current_clip",
+  "qa_context": {
+    "enabled": true,
+    "context_window": 32768,
+    "max_input_tokens": 24000,
+    "safety_tokens": 2048,
+    "max_top_k": 16,
+    "max_candidates": 32,
+    "max_result_nodes": 24,
+    "max_neighbor_clips": 64,
+    "max_search_calls": 8,
+    "max_selected_nodes": 32,
+    "max_passages_per_node": 12,
+    "tokenizer_multiplier": 1.15
+  },
+  "tokenizer_path": "<local pinned tokenizer>",
+  "workers": {
+    "video": 1,
+    "stage_max_workers": 4,
+    "face_workers": 4,
+    "frames": "30 extraction / 16 model"
+  },
+  "pipeline": "pipeline -> qa (qa stage disabled in pipeline; standalone React QA)",
+  "judge_seed": 20261113,
+  "design": "Approximate re-run on rychkov/m3-parallel of the paper eight-video cohort; fresh perception+memory into a new pgvector DB; branch has no fact_index and a reduced qa_context schema, so not byte-identical to the 57.2% paper baseline",
+  "safety_stop_at_unix": 1794778601.8170445
+}

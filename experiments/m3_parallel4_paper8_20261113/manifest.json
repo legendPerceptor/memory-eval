@@ -103,5 +103,5 @@
   "pipeline": "pipeline -> qa (qa stage disabled in pipeline; standalone React QA)",
   "judge_seed": 20261113,
   "design": "Approximate re-run on rychkov/m3-parallel of the paper eight-video cohort; fresh perception+memory into a new pgvector DB; branch has no fact_index and a reduced qa_context schema, so not byte-identical to the 57.2% paper baseline",
-  "safety_stop_at_unix": 1794778601.8170445
+  "safety_stop_at_unix": 1794884006.4672415
 }

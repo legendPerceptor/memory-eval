@@ -69,3 +69,20 @@ Pareto-front points: [6000, 9000, 12000, 16000]
 - This branch dropped `fact_index` and uses a reduced `qa_context` schema, so this is an *approximate* re-run, not byte-identical to the 57.2% paper baseline.
 - QA budgets above 22528 are clamped by the runtime (context_window - qa_out - safety).
 - Judge = MiniMax-M3.1-Flash, temperature 0, deterministic seed 20261113.
+
+
+## QA token-budget Pareto sweep (multi-seed, n=2)
+
+Fixed memory/graph; only `m3.qa_context.max_input_tokens` varied; QA re-run + re-judged (97 Q) per replicate.
+
+| budget | n | acc mean±std (%) | QA in (M) | QA out (M) | QA sec (mean) |
+|---|---|---|---|---|---|
+| 3000 | 2 | 7.73 ± 1.46 | 0.754 | 31.0k | 618 |
+| 4000 | 2 | 27.32 ± 8.02 | 1.130 | 48.8k | 844 |
+| 6000 | 2 | 47.16 ± 1.09 | 2.015 | 75.8k | 1060 |
+| 9000 | 2 | 57.47 ± 3.28 | 3.013 | 93.1k | 1206 |
+| 12000 | 2 | 57.22 ± 3.64 | 3.891 | 103.1k | 6512 |
+| 16000 | 2 | 58.25 ± 4.37 | 4.960 | 114.5k | 1597 |
+| 22528 | 2 | 61.60 ± 3.28 | 6.533 | 120.3k | 16387 |
+
+Notes: 12000 & 22528 wall-times are inflated by quota waits (not pure compute). 22528 = baseline(63.92%) + single-seed sweep(59.28%) as 2 independent full-context runs. 6000-16000 = existing single seed + one new repeat. 3000/4000 new, 2 reps each.
