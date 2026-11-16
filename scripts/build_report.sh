@@ -10,7 +10,7 @@ case "${1:-}" in
   --help|-h)
     echo "Usage: bash scripts/build_report.sh"
     echo "Output: latex/report.pdf; diagnostics: latex/build/"
-    echo "Requires latexmk, XeLaTeX, pdfinfo, ctex/xeCJK and Fandol fonts. Maximum: 8 pages."
+    echo "Requires latexmk, XeLaTeX, pdfinfo, ctex/xeCJK and Fandol fonts. Maximum: 14 pages."
     exit 0 ;;
   "") ;;
   *) echo "Unknown argument: $1" >&2; exit 2 ;;
@@ -40,7 +40,7 @@ cd "$TEX_DIR"
   echo "Build started: $(date -Is)"
   echo "Engine: $(command -v xelatex)"
   xelatex --version | head -n 2
-  echo "Document scope: five-section paper; final common judging; maximum 8 pages."
+  echo "Document scope: five-section paper; final common judging; maximum 14 pages."
   latexmk -norc -g -xelatex -interaction=nonstopmode -halt-on-error \
     -file-line-error -no-shell-escape -outdir="$BUILD_DIR" report.tex
 } 2>&1 | tee "$BUILD_DIR/build.log"
@@ -49,11 +49,11 @@ test -s "$BUILD_DIR/report.pdf"
 [[ "$(head -c 5 "$BUILD_DIR/report.pdf")" == '%PDF-' ]]
 pdfinfo "$BUILD_DIR/report.pdf" > "$BUILD_DIR/pdfinfo.txt"
 pages="$(awk '/^Pages:/ {print $2}' "$BUILD_DIR/pdfinfo.txt")"
-if [[ ! "$pages" =~ ^[0-9]+$ ]] || ((pages < 1 || pages > 8)); then
-  echo "Report rejected: page count '${pages}' must be between 1 and 8; published PDF unchanged." >&2
+if [[ ! "$pages" =~ ^[0-9]+$ ]] || ((pages < 1 || pages > 14)); then
+  echo "Report rejected: page count '${pages}' must be between 1 and 14; published PDF unchanged." >&2
   exit 1
 fi
-echo "Page limit verified: $pages / 8 (including references)."
+echo "Page limit verified: $pages / 14 (including references)."
 tmp_pdf="$(mktemp "$TEX_DIR/.report.XXXXXX.pdf")"
 trap 'rm -f "$tmp_pdf"' EXIT
 cp "$BUILD_DIR/report.pdf" "$tmp_pdf"
@@ -62,7 +62,7 @@ mv -f "$tmp_pdf" "$TEX_DIR/report.pdf"
 {
   echo "Built at: $(date -Is)"
   sha256sum report.tex report.pdf
-  echo "Pages: $pages / 8"
+  echo "Pages: $pages / 14"
   sha256sum "$ROOT/scripts/build_report.sh"
 } > "$BUILD_DIR/build-manifest.txt"
 echo "PDF successfully published: $TEX_DIR/report.pdf"

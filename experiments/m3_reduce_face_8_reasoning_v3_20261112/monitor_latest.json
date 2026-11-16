@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-16T09:32:13+08:00",
+  "at": "2026-11-16T10:42:13+08:00",
   "status": "running",
   "video": "study_09",
   "phase": "qa",
@@ -13,7 +13,7 @@
   "input_tokens": 1766357,
   "output_tokens": 115483,
   "reasoning_tokens": 37864,
-  "log_idle_seconds": 341450,
+  "log_idle_seconds": 345650,
   "alerts": [
     "experiment_paused_face_clustering_degraded",
     "face_clustering_degraded:study_09",
