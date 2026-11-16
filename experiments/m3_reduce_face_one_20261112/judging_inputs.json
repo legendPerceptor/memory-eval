@@ -1,0 +1,98 @@
+[
+  {
+    "video_id": "study_09",
+    "question_id": "study_09_Q02",
+    "question": "Where should the book Eve read later be placed on the shelf？",
+    "expected_answer": "First layer from the top of bookshelf",
+    "predicted_answer": "**On the first (top) shelf of the cubby bookshelf** – the sorting conversation specifies that this type of book (the one Eve reads later – a suspense/romance novel rather than the professional ones) goes on the first shelf, while \"the professional books … we can put them on the second shelf.\" When it was returned, the book was placed standing upright in a cubby alongside the other books.",
+    "error": ""
+  },
+  {
+    "video_id": "study_09",
+    "question_id": "study_09_Q07",
+    "question": "Where did they put the milktea before they started folding stars?",
+    "expected_answer": "On the little table",
+    "predicted_answer": "Based on the retrieved evidence, the milk tea (a takeaway drink cup) was set aside on the small black pedestal side table next to the sofa/couch, rather than on the round work table where the star papers and craft materials were spread — the cups are consistently described as \"two red lidded cups resting on a small side table near the sofa\" while the women then turned to the round table to fold the star papers (writing tasks on star paper, folding them, and putting the stars in a bottle).",
+    "error": ""
+  },
+  {
+    "video_id": "study_09",
+    "question_id": "study_09_Q04",
+    "question": "Are Ella and Eve good at organizing?",
+    "expected_answer": "Yes",
+    "predicted_answer": "Yes — they appear to be competent organizers, though the space around them stays messy. In the clips, the two women (identified in speech only by names like Ella/Anna; the frames don't confirm who is who) repeatedly sort and categorize materials: they sort books by type (\"this book is about economics,\" \"professional books, we can put them on the second shelf\"), mark books with labels, arrange items on the cubby shelves, file papers into a pink document holder, and pack schoolwork into a bag. One says she re-orders things \"so that we can find those easily,\" and she is answered with \"Okay, alright, thank you\" and praise for the shelf work (\"Okay, good job\"). However, they also describe the room/table as \"too messy,\" note \"there's so many programs in here,\" and say \"Maybe we need to tidy up,\" so their organizing is ongoing work rather than a finished, well-kept space.",
+    "error": ""
+  },
+  {
+    "video_id": "study_09",
+    "question_id": "study_09_Q01",
+    "question": "where should the book be placed back?",
+    "expected_answer": " in the first layer of the bookshelf from the top.",
+    "predicted_answer": "Back on the low wooden cubby bookshelf — the black-and-teal book should be stood upright in its open cubby, lined up in with the row of upright Chinese-language books (the same cubby where the other books with the green sticky tabs are stored), rather than left on the table.",
+    "error": ""
+  },
+  {
+    "video_id": "study_09",
+    "question_id": "study_09_Q11",
+    "question": "Does Ella care about tidiness?",
+    "expected_answer": "Yes, she does.",
+    "predicted_answer": "Yes. Ella shows concern about tidiness: she comments that things are \"too messy\" (\"Anna, what are you doing? That's so messy\"), and in another clip says \"It's messy... Maybe we need to tidy up... Sometimes we can do it.\" She also takes part in the organizing work — sorting and labeling books, deciding which shelf each group goes on (\"we can put them on the second shelf\"), and using star paper and label stickers so things can be found easily. Note that the transcript does not definitively tie the name \"Ella\" to a specific visible woman, but the person addressed as Ella is the one participating in these tidying/labeling activities.",
+    "error": ""
+  },
+  {
+    "video_id": "study_09",
+    "question_id": "study_09_Q10",
+    "question": "Where is the school bag finally?",
+    "expected_answer": "On the big table.",
+    "predicted_answer": "**On the round table in the living room.** In the final moments of the video (the clip containing the question's timestamp), the camera looks down over the cluttered marble‑patterned round table, where a red‑and‑pink floral backpack is lying next to documents, books, a pen, a black book and a red drink cup with a straw. Earlier in the video the school bag was handled and packed at that same table (\"You need to pack your bag\"), and its last observed resting place before the question time is on the tabletop — it is not on the sofa, chair, or shelf.",
+    "error": ""
+  },
+  {
+    "video_id": "study_09",
+    "question_id": "study_09_Q09",
+    "question": "Have the documents been taken away from the big table?",
+    "expected_answer": "No",
+    "predicted_answer": "No. At around 2320 s the camera looks down over the big round table, which still holds the documents/papers along with a floral backpack, books, a pen and a red drink cup. Only a book was taken back to the cubby bookcase (\"Nessie, please take the book back to the place\"), so the documents remain on the table.",
+    "error": ""
+  },
+  {
+    "video_id": "study_09",
+    "question_id": "study_09_Q12",
+    "question": "What season is it now?",
+    "expected_answer": "Summer",
+    "predicted_answer": "**It appears to be summer.** The evidence supports this indirectly: throughout the video everyone is in light clothing (T‑shirts, overalls, short sleeves, light pants and slippers), the standing fans are in use in the warmly lit apartment, and one speaker identifies a \"sunfly\" (dragonfly, a summer insect) around 990 s. No mention of cold weather, coats, snow, or a winter/autumn festival appears anywhere in the retrieved dialogue or visuals. Note: this is an inference from visual/environmental cues — no speaker explicitly states the season in the video.",
+    "error": ""
+  },
+  {
+    "video_id": "study_09",
+    "question_id": "study_09_Q03",
+    "question": "Does Eve like snacks a lot?",
+    "expected_answer": "Yes",
+    "predicted_answer": "Yes — the woman referred to as Eve appears to be a keen snacker. Around the table she eagerly accepts treats (\"Do you want to eat some sweet?\" → \"Yes\", \"Yes, it tastes like food\"), says \"But it really tastes good. I want to eat more\", repeats bites of cake and spicy dishes, and the camera has to fetch extra snacks, sweets and drinks from the fridge for her. Note that the name \"Eve\" itself isn't confirmed in the transcript (the named people heard are Nancy, Ella, Nessie and Nondra), so this inference is based on the snack-loving woman's behaviour and statements.",
+    "error": ""
+  },
+  {
+    "video_id": "study_09",
+    "question_id": "study_09_Q06",
+    "question": "Where are Eve's chairs at first?",
+    "expected_answer": "It's opposite Ella.",
+    "predicted_answer": "At the start, the orange‑seated wooden chairs were around the round table in the living room, but they had been pulled/shifted out of position (one is dragged away from the table), which is why the off‑camera speaker asks \"Please help me to take a seat back to the place.\" — i.e., they need to be put back at the table.",
+    "error": ""
+  },
+  {
+    "video_id": "study_09",
+    "question_id": "study_09_Q05",
+    "question": "Where should the robot put duck necksback?",
+    "expected_answer": "In the second level of the upper part of Fridge.",
+    "predicted_answer": "Put the duck necks (the red snack package) in the refrigerator – specifically on the middle shelf of the small illuminated fridge in the washroom, beside the other food packages. The robot picks the package up from the round table in the living room, carries it through the doorway into the washroom, opens the small refrigerator, and places the duck-neck package on a middle shelf next to the other food.",
+    "error": ""
+  },
+  {
+    "video_id": "study_09",
+    "question_id": "study_09_Q08",
+    "question": "How many things did Ella buy in the refrigerator?",
+    "expected_answer": "5",
+    "predicted_answer": "**Two** — the speaker says, \"We just left **two pieces of bread** in the fridge for our breakfast\" (the only explicit count of items Ella bought and put in the refrigerator; in the earlier fridge-scene the gloved camera wearer likewise carried up two red instant-noodle cups from the Haier refrigerator).",
+    "error": ""
+  }
+]

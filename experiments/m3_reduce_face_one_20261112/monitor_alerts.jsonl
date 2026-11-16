@@ -1,0 +1,1 @@
+{"at": "2026-11-12T14:49:42+08:00", "status": "finished", "video": null, "phase": null, "stage": null, "driver_alive": null, "completed_stages": 2, "model_calls": 160, "model_errors": 0, "truncated_calls": 0, "config_mismatches": 0, "input_tokens": 5160134, "output_tokens": 128347, "reasoning_tokens": 46392, "log_idle_seconds": 554, "alerts": []}

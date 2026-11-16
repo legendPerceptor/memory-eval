@@ -1,0 +1,17 @@
+{
+  "source_commit": "8c86c3ed5a180f6e3a43a501350c259ae8b6d50e",
+  "patch_sha256": "427cd8bd4a5270fbc18c70eff546303c267acc54a99495c5c9946406b08bcad4",
+  "driver_sha256": "2c3a65d44da51ea0ccea41831eed179962ecb7f694f35957eec5c6bb07766cb0",
+  "config_sha256": "84cf7db617e92c9c405121f7b070585a26501218a7b994e255d29abca13f27f6",
+  "annotations_sha256": "f43031bf0216a2ef2e7909f20ecd534e0098da17b63cdf94325a07f1bea372c1",
+  "videos": [
+    "study_09"
+  ],
+  "questions": 12,
+  "account": "m3-reduce-face-one-4-clean-20261113",
+  "database": "ogmem_m3_reduce_face_one_4_clean_20261113",
+  "safety_stop_at_unix": 1794708631.7164817,
+  "design": "clean reproduction of the original study_09 58.3% configuration; fresh database; no QA context budget",
+  "worker_settings": "video 1, memory 4, QA 1; frames 30 extraction / 16 model",
+  "source_reused_from": "experiments/m3_reduce_face_one_20261112"
+}

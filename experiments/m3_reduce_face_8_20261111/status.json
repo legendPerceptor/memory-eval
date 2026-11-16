@@ -1,0 +1,10 @@
+{
+  "status": "needs_review",
+  "failed": {
+    "video": "study_09",
+    "phase": "pipeline",
+    "exit_code": 2,
+    "seconds": 9905.660357952118
+  },
+  "history": []
+}

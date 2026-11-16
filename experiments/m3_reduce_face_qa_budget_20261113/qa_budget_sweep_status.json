@@ -1,0 +1,20 @@
+{
+  "status": "blocked_by_baseline",
+  "baseline": {
+    "status": "needs_review",
+    "failed": {
+      "video": "study_09",
+      "phase": "qa",
+      "exit_code": 2,
+      "seconds": 2.7134971618652344
+    },
+    "history": [
+      {
+        "video": "study_09",
+        "phase": "pipeline",
+        "exit_code": 0,
+        "seconds": 3182.5765454769135
+      }
+    ]
+  }
+}

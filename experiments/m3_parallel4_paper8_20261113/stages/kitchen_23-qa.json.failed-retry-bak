@@ -1,0 +1,8 @@
+{
+  "video": "kitchen_23",
+  "phase": "qa",
+  "exit_code": 2,
+  "status": "failed",
+  "started_at_unix": 1794717646.080358,
+  "seconds": 137.16257405281067
+}

@@ -1,0 +1,6 @@
+{
+  "recovery_driver_sha256": "6b390a3d6dfb891439ccbf65b8b42ac9a820e17d7fc04c3a007e8304c3b9102d",
+  "target_clip": 39,
+  "preserved_original": "/home/yuanjian/Development/memory-eval/experiments/m3_reduce_face_one_w8_budget_20261112/recovery_original",
+  "policy": "smart resume; retry failed; enforce only target extraction; require 1 generated 78 resumed and successful face clustering before QA"
+}

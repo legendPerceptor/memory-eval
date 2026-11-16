@@ -1,0 +1,134 @@
+{
+  "status": "finished",
+  "history": [
+    {
+      "video": "study_09",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1794562782.3899162,
+      "seconds": 2819.981605529785
+    },
+    {
+      "video": "study_09",
+      "phase": "qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1794565602.3733175,
+      "seconds": 160.33230805397034
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1794710512.368815,
+      "seconds": 163.4318084716797
+    },
+    {
+      "video": "kitchen_01",
+      "phase": "qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1794710675.8024678,
+      "seconds": 120.19848203659058
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1794710796.0016732,
+      "seconds": 1764.7407665252686
+    },
+    {
+      "video": "bedroom_05",
+      "phase": "qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1794712560.7431445,
+      "seconds": 111.62890315055847
+    },
+    {
+      "video": "study_23",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1794712672.372844,
+      "seconds": 2385.7751121520996
+    },
+    {
+      "video": "study_23",
+      "phase": "qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1794715058.1486487,
+      "seconds": 152.04072332382202
+    },
+    {
+      "video": "kitchen_23",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1794715210.1900816,
+      "seconds": 2435.8896255493164
+    },
+    {
+      "video": "kitchen_23",
+      "phase": "qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1794740839.0296512,
+      "seconds": 30.835870265960693
+    },
+    {
+      "video": "study_05",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1794740869.8674312,
+      "seconds": 4058.487219810486
+    },
+    {
+      "video": "study_05",
+      "phase": "qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1794744928.3556526,
+      "seconds": 235.170494556427
+    },
+    {
+      "video": "gym_03",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1794745163.5268126,
+      "seconds": 4097.056358337402
+    },
+    {
+      "video": "gym_03",
+      "phase": "qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1794749260.5837982,
+      "seconds": 247.7527949810028
+    },
+    {
+      "video": "bedroom_04",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1794749508.3372376,
+      "seconds": 3815.847273826599
+    },
+    {
+      "video": "bedroom_04",
+      "phase": "qa",
+      "exit_code": 0,
+      "status": "completed",
+      "started_at_unix": 1794753324.1851506,
+      "seconds": 208.1840934753418
+    }
+  ],
+  "judge_exit_code": 0
+}

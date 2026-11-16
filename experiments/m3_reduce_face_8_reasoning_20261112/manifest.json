@@ -1,0 +1,23 @@
+{
+  "source_commit": "8c86c3ed5a180f6e3a43a501350c259ae8b6d50e",
+  "patch_sha256": "3079fd49aa7e15e4aa9ad7d45deb6a5f154336ec86663f5486019ea76966fe73",
+  "driver_sha256": "8b5def1712d8110ceddcf29f6d6e805a4d33d58a47f6036113718f4b343db6be",
+  "config_sha256": "fe8fa6fd335e034de4f40cc3297246634b05bbc8749ee3238d3745b1b6606739",
+  "annotations_sha256": "f43031bf0216a2ef2e7909f20ecd534e0098da17b63cdf94325a07f1bea372c1",
+  "videos": [
+    "study_09",
+    "kitchen_01",
+    "bedroom_05",
+    "study_23",
+    "kitchen_23",
+    "study_05",
+    "gym_03",
+    "bedroom_04"
+  ],
+  "questions": 97,
+  "account": "m3-reduce-face-8-reasoning-20261112",
+  "database": "ogmem_m3_reduce_face_8_reasoning_20261112",
+  "safety_stop_at_unix": 1794617498.731998,
+  "design": "fresh dev reduce_face pipeline and native QA; no fact index or person grounding; not paired dev baseline",
+  "worker_settings": "video 1, memory 4, QA 1; frames 30 extraction / 16 model"
+}

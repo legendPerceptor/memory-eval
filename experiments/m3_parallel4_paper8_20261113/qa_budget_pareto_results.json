@@ -1,0 +1,105 @@
+{
+  "points": [
+    {
+      "budget": 6000,
+      "effective_budget": 6000,
+      "questions": 97,
+      "answers": 97,
+      "score": 46.5,
+      "accuracy": 0.4793814432989691,
+      "qa_input_tokens": 2044084,
+      "qa_output_tokens": 77082,
+      "qa_seconds": 1089.5
+    },
+    {
+      "budget": 9000,
+      "effective_budget": 9000,
+      "questions": 97,
+      "answers": 97,
+      "score": 53.5,
+      "accuracy": 0.5515463917525774,
+      "qa_input_tokens": 3029175,
+      "qa_output_tokens": 94694,
+      "qa_seconds": 1291.9
+    },
+    {
+      "budget": 12000,
+      "effective_budget": 12000,
+      "questions": 97,
+      "answers": 97,
+      "score": 58.0,
+      "accuracy": 0.5979381443298969,
+      "qa_input_tokens": 3873144,
+      "qa_output_tokens": 102980,
+      "qa_seconds": 2952.1
+    },
+    {
+      "budget": 16000,
+      "effective_budget": 16000,
+      "questions": 97,
+      "answers": 97,
+      "score": 59.5,
+      "accuracy": 0.6134020618556701,
+      "qa_input_tokens": 5035616,
+      "qa_output_tokens": 120339,
+      "qa_seconds": 1390.9
+    },
+    {
+      "budget": 22528,
+      "effective_budget": 22528,
+      "questions": 97,
+      "answers": 97,
+      "score": 57.5,
+      "accuracy": 0.5927835051546392,
+      "qa_input_tokens": 6471426,
+      "qa_output_tokens": 117639,
+      "qa_seconds": 16387.4
+    }
+  ],
+  "pareto_front": [
+    {
+      "budget": 6000,
+      "effective_budget": 6000,
+      "questions": 97,
+      "answers": 97,
+      "score": 46.5,
+      "accuracy": 0.4793814432989691,
+      "qa_input_tokens": 2044084,
+      "qa_output_tokens": 77082,
+      "qa_seconds": 1089.5
+    },
+    {
+      "budget": 9000,
+      "effective_budget": 9000,
+      "questions": 97,
+      "answers": 97,
+      "score": 53.5,
+      "accuracy": 0.5515463917525774,
+      "qa_input_tokens": 3029175,
+      "qa_output_tokens": 94694,
+      "qa_seconds": 1291.9
+    },
+    {
+      "budget": 12000,
+      "effective_budget": 12000,
+      "questions": 97,
+      "answers": 97,
+      "score": 58.0,
+      "accuracy": 0.5979381443298969,
+      "qa_input_tokens": 3873144,
+      "qa_output_tokens": 102980,
+      "qa_seconds": 2952.1
+    },
+    {
+      "budget": 16000,
+      "effective_budget": 16000,
+      "questions": 97,
+      "answers": 97,
+      "score": 59.5,
+      "accuracy": 0.6134020618556701,
+      "qa_input_tokens": 5035616,
+      "qa_output_tokens": 120339,
+      "qa_seconds": 1390.9
+    }
+  ]
+}

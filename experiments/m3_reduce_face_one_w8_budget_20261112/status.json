@@ -1,0 +1,17 @@
+{
+  "status": "needs_review",
+  "failed": {
+    "video": "study_09",
+    "phase": "qa",
+    "exit_code": 2,
+    "seconds": 213.81277656555176
+  },
+  "history": [
+    {
+      "video": "study_09",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "seconds": 291.3369472026825
+    }
+  ]
+}

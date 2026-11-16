@@ -1,0 +1,76 @@
+{
+  "points": [
+    {
+      "budget": 9000,
+      "input_tokens": 140814,
+      "output_tokens": 6514,
+      "score": null,
+      "accuracy": null,
+      "answered": 11,
+      "errors": 1,
+      "valid": false
+    },
+    {
+      "budget": 10000,
+      "input_tokens": 156744,
+      "output_tokens": 7266,
+      "score": 2.5,
+      "accuracy": 0.20833333333333334,
+      "answered": 12,
+      "errors": 0,
+      "valid": true
+    },
+    {
+      "budget": 12000,
+      "input_tokens": 191917,
+      "output_tokens": 8656,
+      "score": 6.0,
+      "accuracy": 0.5,
+      "answered": 12,
+      "errors": 0,
+      "valid": true
+    },
+    {
+      "budget": 14000,
+      "input_tokens": 224476,
+      "output_tokens": 9352,
+      "score": 5.0,
+      "accuracy": 0.4166666666666667,
+      "answered": 12,
+      "errors": 0,
+      "valid": true
+    },
+    {
+      "budget": 16000,
+      "input_tokens": 257297,
+      "output_tokens": 9251,
+      "score": 4.0,
+      "accuracy": 0.3333333333333333,
+      "answered": 12,
+      "errors": 0,
+      "valid": true
+    }
+  ],
+  "pareto_front": [
+    {
+      "budget": 10000,
+      "input_tokens": 156744,
+      "output_tokens": 7266,
+      "score": 2.5,
+      "accuracy": 0.20833333333333334,
+      "answered": 12,
+      "errors": 0,
+      "valid": true
+    },
+    {
+      "budget": 12000,
+      "input_tokens": 191917,
+      "output_tokens": 8656,
+      "score": 6.0,
+      "accuracy": 0.5,
+      "answered": 12,
+      "errors": 0,
+      "valid": true
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "source_commit": "ae19eed64ec60cc16bca6cbd6a3bb5a7badae127",
+  "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "driver_sha256": "6eaa88bba94a82bd9f90d188f9868269e8d702e94a0393805cf7d56e843307b1",
+  "config_sha256": "8a72ddd53b9deb93fec78820f6d4144249fbd0cd350650a36c833d853cc22ac4",
+  "annotations_sha256": "f43031bf0216a2ef2e7909f20ecd534e0098da17b63cdf94325a07f1bea372c1",
+  "videos": [
+    "study_09"
+  ],
+  "questions": 12,
+  "account": "m3-reduce-face-qa-budget-20261113",
+  "database": "ogmem_m3_reduce_face_qa_budget_20261113",
+  "safety_stop_at_unix": 1794714368.6538575,
+  "design": "single-video workflow validation, fresh dev reduce_face pipeline and native QA; no fact index or person grounding; not paired dev baseline",
+  "worker_settings": "video 1, memory 4, QA 4; frames 30 extraction / 16 model"
+}

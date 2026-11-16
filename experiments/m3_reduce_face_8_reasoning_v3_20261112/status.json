@@ -1,0 +1,14 @@
+{
+  "status": "running",
+  "pid": 2847797,
+  "video": "study_09",
+  "phase": "qa",
+  "history": [
+    {
+      "video": "study_09",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "seconds": 5856.550356388092
+    }
+  ]
+}

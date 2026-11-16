@@ -1,0 +1,18 @@
+{
+  "status": "finished",
+  "history": [
+    {
+      "video": "study_09",
+      "phase": "pipeline",
+      "exit_code": 0,
+      "seconds": 11692.860415935516
+    },
+    {
+      "video": "study_09",
+      "phase": "qa",
+      "exit_code": 0,
+      "seconds": 2153.0934476852417
+    }
+  ],
+  "judge_exit_code": 0
+}
