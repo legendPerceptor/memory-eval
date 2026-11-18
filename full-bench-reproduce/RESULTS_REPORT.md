@@ -243,6 +243,25 @@
 
 > 图为 5 类题型 oGMemory vs M3-Agent 准确率对比（含每类题数 n 与 pp 差值），英文标签。数据文件：`results/paper-comparison-8v/paired8_bytype.json`。
 
+### 6.6 资源对比图（token + wall time，竖向两栏）
+
+![resources](results/paper-comparison-8v/charts/paired8_tokens_walltime_vertical.png)
+
+> 上栏 (a)：8 视频已记录 input+output token（Memory/图谱/索引 vs QA，堆叠）；下栏 (b)：各阶段墙钟（Shared perception / Memory / QA，堆叠），单位为分钟。两方法各自独立运行、共享感知分别测得，**不可相加当作单次并行墙钟**。数值与 `latex/paired8_results.tex` 资源表一致，两栏竖向排布便于 PPT 单页排版。文件：`results/paper-comparison-8v/charts/paired8_tokens_walltime_vertical.png`（含 `.pdf`）。
+
+**资源明细（8 视频 / 97 题）**
+
+| 指标 | oGMemory | M3-Agent |
+|---|---:|---:|
+| 建忆+QA token 合计（M） | 10.013 | 4.399* |
+| └ Memory/图谱/索引（M） | 3.295 | 3.620 |
+| └ QA（M） | 6.718（in 6.595 / out 0.123） | 0.779（in 0.734 / out 0.045） |
+| 墙钟合计（min，阶段求和） | 380.12 | 329.68 |
+| └ Shared perception（min） | 31.29 | 49.02 |
+| └ Memory/图谱/索引（min） | 327.73 | 249.64 |
+| └ QA（min） | 21.10 | 31.02 |
+
+> *M3-Agent 建忆有 1 次请求未返回 usage，总量仅表示已记录用量、不把未知当零。oGMemory 为四路并行复跑；M3-Agent 为冻结参考，二者独立运行，墙钟不可相加。oGMemory QA token 偏高源于其检索把更多上下文送入 QA（QA 输入 ~6.6M vs M3 ~0.73M），而建忆 token 二者接近（3.3M vs 3.6M）。
 
 ---
 
@@ -268,6 +287,7 @@
 **第 3 页 —「和 M3-Agent 的对比（8 视频）」**（见 §6）
 - 主：`results/paper-comparison-8v/charts/paired8_bytype_comparison.png`（5 类题型 oGMemory vs M3-Agent 柱状图）
 - 表：§6.2 五类题型表（题数 n / oGMemory / M3-Agent / 分差 pp / 满分率）
+- 配图：`results/paper-comparison-8v/charts/paired8_tokens_walltime_vertical.png`（token + 墙钟竖向两栏，§6.6）
 - 一句话结论：同一 8 视频 97 题、同模型同口径下，oGMemory **63.9% vs M3-Agent 43.8%（+20.1pp）**，5 类题型全面领先，Multi-Detail Reasoning 优势最大（+25.0pp），General Knowledge Extraction 双方均为短板
 - 口径提示：M3-Agent 为**同模型适配冻结结果**，非官方权重；题型为多标签，Multi-Hop 仅 5 题
 
@@ -284,6 +304,7 @@
 | `results/full100-ds_20261117/charts/*.png` | 本报告 5 张图表 |
 | `results/paper-comparison-8v/paired8_bytype.json` | §6 8 视频分题型对比数据（oGMemory vs M3-Agent） |
 | `results/paper-comparison-8v/charts/paired8_bytype_comparison.png` | §6 分题型对比柱状图（PPT 第 3 页） |
+| `results/paper-comparison-8v/charts/paired8_tokens_walltime_vertical.png` | §6.6 token + wall time 竖向对比图（PPT 第 3 页） |
 | `PLAN.md` | 加速方案与 10.7× 数据来源 |
 | 原始数据 | `/data/m3_runs_yuanjian/full100-ds/`（阶段耗时由 `graph_nodes.created_at` + 文件 mtime 重建） |
 
