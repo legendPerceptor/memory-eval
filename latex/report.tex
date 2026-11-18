@@ -3,6 +3,23 @@
 \usepackage{booktabs,tabularx,amsmath}
 \usepackage{graphicx}
 \usepackage[section]{placeins}
+
+% ---- Tighter float layout: pack floats instead of stretching glue on float pages ----
+\makeatletter
+\setlength{\@fptop}{0pt}                      % no rubber space above first float on a float page
+\setlength{\@fpsep}{10pt plus 3pt minus 2pt}  % fixed-ish gap between stacked floats (was 0pt plus 1fil)
+\setlength{\@fpbot}{0pt plus 1fil}            % only the bottom gap absorbs remaining space
+\makeatother
+\setlength{\textfloatsep}{12pt plus 3pt minus 3pt}  % space around in-text top/bottom floats
+\setlength{\floatsep}{10pt plus 2pt minus 2pt}      % space between consecutive floats
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}     % space around [h] floats
+\setlength{\abovecaptionskip}{4pt}
+\setlength{\belowcaptionskip}{0pt}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.72}       % fill float pages more before starting a new one
+
 \usepackage{xurl}
 \usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
 \DeclareRobustCommand{\code}[1]{\nolinkurl{#1}}
