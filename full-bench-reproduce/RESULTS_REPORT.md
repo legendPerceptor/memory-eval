@@ -1,6 +1,6 @@
 # M3-Bench 全量并行实验 — 详细结果报告（full100-ds）
 
-> 本报告面向 **2 页 PPT**，提供可直接引用的数据、图表与结论。所有数字均为本轮全量实测值。
+> 本报告面向 **2 页 PPT**，提供可直接引用的数据、图表与结论。所有数字均为本轮全量实测 / 可复算重建值。
 > 配套原始结果见 `results/full100-ds_20261117/`，图表见 `results/full100-ds_20261117/charts/`。
 
 ---
@@ -11,9 +11,9 @@
 以 **2 视频 worker × 4 stage worker** 的并行方式，完成 **100 视频 / 1276 题** 全量 M3-Bench：
 
 - **总准确率 = 53.61%**（failed=0，judge_error=2）
-- **纯处理耗时 19.28h**，单视频中位数 **726s**，相比同事同配置基线（~25h wall）**约省 23% 墙钟**
-- **ASR 上 GPU 后提速 ~10.7×**（RTF 0.010 vs 0.105），是本次加速的核心收益点
-- 主要成本集中在 **Episodic Memory 生成（43.1%）+ QA（43.7%）** 两大阶段，二者合计 **≈87%**
+- **单视频总处理时间中位数 705s（≈12min）**，纯计算合计约 **21.6h**（100 视频全阶段求和）
+- **ASR 上 GPU 后提速 ~10.7×**（RTF 0.010 vs 0.105，受控微基准），是本次加速的核心收益点
+- 成本结构（全量 100 视频口径）：**QA 52.7% + Episodic Memory 生成 38.9%** 为两大头（合计 ≈92%），ASR 仅 4.5%
 
 > ⚠️ 口径说明：本轮为**降配版**（4 帧/30s clip、不送原生音频、bge-m3 embedding、deepseek-v4.1-flash-1017），
 > 与论文 57.2% 基线（16 帧 + 送音频 + Qwen3-Emb + MiniMax）**仅近似可比，不能等同论文数字**。
@@ -30,7 +30,7 @@
 | 题目数 | 1276 |
 | 完成度 | **100/100 视频，1276/1276 题（ALL COMPLETE）** |
 | failed / judge_error | 0 / 2 |
-| 收尾时间 | 2026-11-17 17:07:25 UTC（共 8 轮 pass 收敛） |
+| 收尾时间 | 2026-11-17 17:07:25 UTC（共 30 个 pass，前 27 轮因限流 / embedding 服务故障反复重试） |
 
 ### 1.2 硬件与算子分工（B 方向：ASR + Embedding 均上 GPU）
 | GPU | 用途 | 服务/实现 |
@@ -57,70 +57,65 @@
 
 ## 2. 加速效果
 
-### 2.1 ASR：GPU vs CPU（核心收益）
+### 2.1 ASR：GPU vs CPU（核心收益，受控微基准）
 | 设备 / 精度 | 实时率 RTF（越小越快） | 相对提速 |
 |---|---|---|
 | CPU `int8` | 0.105 | 1.0× |
 | **GPU `cuda/float16`（T4）** | **0.010** | **~10.7×** |
 
-> RTF = 处理耗时 / 音频时长。10.7× 意味着 ASR 阶段从原本的瓶颈之一压到占比仅 ~9.4%（见 §3）。
+> RTF = 处理耗时 / 音频时长。10.7× 把 ASR 从早期的主要瓶颈压到全流程占比仅 ~4.5%（见 §3）。
 
-### 2.2 端到端耗时对比
-| 口径 | 数值 | 说明 |
+### 2.2 单视频与总耗时（重建口径，覆盖全部 100 视频）
+| 指标 | 数值 | 说明 |
 |---|---|---|
-| 同事同配置 100 视频基线 | **~25h wall** | ingest≈16h，QA≈6h，judge≈14min（PLAN.md 记录） |
-| 本次纯处理耗时之和 | **19.28h** | 每份 pipeline.log first→last 累加，共 100 份 |
-| 本次 loop 墙钟总跨度 | 28.47h | 含每轮 120s sleep + 8 轮重试收敛，非纯计算 |
+| 单视频总处理时间 中位数 | **705s（≈12min）** | 各阶段求和（ingest + QA） |
+| 单视频 均值 | 778s | 同上 |
+| 单视频 p25 / p75 | 602s / 899s | 分布偏右尾（长视频更慢） |
+| 单视频 min / max | 328s / 2039s | |
+| **纯计算合计（100 视频全阶段求和）** | **≈21.6h** | 非墙钟，未含并行折算与重启 |
+| loop 墙钟总跨度（含重启 / 限流等待） | 28.5h | 8+ 轮 pass 反复重试，非纯计算 |
 
-**对比结论**：在纯处理口径上，本次 **19.28h vs 基线 ~25h，约省 23%**；提速主要来自 ASR 上 GPU 与流水线并行。
-
-### 2.3 单视频处理耗时分布（n=100）
-| 指标 | 数值 |
-|---|---|
-| min | 31s |
-| p25 | 500s |
-| **median** | **726s（≈12min）** |
-| p75 | 911s |
-| max | 2097s |
-| mean | 694s |
+**说明**：本轮墙钟被**前 27 轮 pass 的限流 / embedding 服务故障重试**显著拉长（pass 1–27 长时间卡在 9/100），
+因此墙钟（28.5h）不代表算法计算量；真正与算法相关的是**单视频处理时间（中位 705s）与纯计算合计（21.6h）**。
+加速的主证据是 ASR 的 **10.7×**（§2.1），以及把 ASR 占比压到 4.5%。
 
 ![每视频处理耗时分布](results/full100-ds_20261117/charts/per_video_time_distribution.png)
 
 ---
 
-## 3. 各阶段算子耗时占比
+## 3. 各阶段算子耗时占比（全量 100 视频口径）
 
-> **口径说明**：只有 **9 个视频**的 `pipeline.log` 保留了完整逐阶段计时
-> （`bedroom_02, kitchen_22, kitchen_23, living_room_05, living_room_06, living_room_17, living_room_22, study_01, study_17`）。
-> 其余 91 个视频在最后一轮 pass 中是 "Skipping"（已完成的阶段被跳过，计时被覆盖），故本节以这 9 个完整视频为样本。
+> **数据来源与可信度**：全量逐阶段计时无法从 pipeline.log 直接取（除 9 个视频外，其余日志被后续 resume 轮覆盖或片段化）。
+> 本报告改用**数据库节点创建时间戳重建**：
+> - Episodic / 抽帧 / 人脸 / 音频：由 `graph_nodes.created_at` 的「单次生成跨度」求得（已验证这些阶段在 100 视频中均为**单日单次**生成，无中途 resume 断裂，内部最大间隔中位数仅 12s）；
+> - voice_asr：因 91 个视频曾被隔天重跑，取**最后一天**的连续跨度；
+> - QA：由 `episodic_index.jsonl → m3_qa_results.jsonl` 的**文件写入时间差**求得（在 9 个真实日志上误差 <5s，精确吻合）。
+> 该方法在 9 个有完整日志的视频上与实测交叉校验：总 ingest 误差 −4%～−12%（小视频绝对量小、误差率大），可信。
 
-### 3.1 阶段耗时与占比（9 视频平均，总均值 1194s）
+### 3.1 阶段耗时与占比（每视频均值，合计 778s）
 | 阶段 | 平均耗时 | 占比 |
 |---|---:|---:|
-| **Episodic Memory 生成** | 514.3s | **43.1%** |
-| **QA（ReAct 问答）** | 522.0s | **43.7%** |
-| **ASR（voice_asr）** | 112.1s | **9.4%** |
-| 预处理合计（trim+preprocess+frames+faces+audio+load） | 42.5s | 3.6% |
-| 索引（create_memory_nodes+build_index） | 3.1s | 0.3% |
+| **QA（ReAct 问答，题目并发）** | 410.2s | **52.7%** |
+| **Episodic Memory 生成** | 302.9s | **38.9%** |
+| **ASR（voice_asr）** | 34.8s | **4.5%** |
+| 预处理合计（切片+抽音频+抽帧+人脸+建节点） | 27.0s | 3.5% |
+| 索引（build_index，取自 9 日志） | 2.8s | 0.4% |
 
-细项均值（秒）：trim 7.9 / preprocess 11.7 / load_clips 2.9 / extract_audio 2.6 / extract_frames 10.9 / detect_faces 6.5 / voice_asr 112.1 / episodic_memory 514.3 / create_memory_nodes 0.3 / build_index 2.8 / qa 522.0。
+细项均值（秒）：切片 3.6 / 抽音频 3.3 / 抽帧 9.9 / 人脸 9.8 / ASR 34.8 / Episodic 302.9 / 建节点 0.3 / QA 410.2 / 索引 2.8。
 
 ![阶段耗时占比](results/full100-ds_20261117/charts/stage_time_breakdown.png)
 
-**解读**：Episodic Memory 与 QA 合计 ≈**87%**，是唯二的主成本；ASR 因上 GPU 已压到 9.4%；
-预处理与索引几乎可忽略（<4%）。
+**解读**：
+- **QA 与 Episodic Memory 合计 ≈92%**，是唯二主成本；ASR 因上 GPU 已降至 4.5%，不再是瓶颈。
+- 与"仅 9 视频样本"的早期估计相比（当时 Episodic 43% / QA 44%），全量口径下 **QA 占比更高**——因为那 9 个视频偏"大/早期慢速"，Episodic 均值虚高（514s vs 全量 303s）。**全量口径更代表真实成本结构。**
+- 每视频耗时主要随**视频时长（clip 数与对话轮数）**线性增长：短房间 ≈5min，长 kitchen/study ≈30min。
 
 ---
 
 ## 4. Token 消耗与 LLM 调用量
 
-> ⚠️ **重要限制（如实声明）**：本轮 run **未落盘精确 token 用量**。已逐项确认：
-> - `/data/m3_runs_yuanjian/full100-ds/` 下无 `usage-*.jsonl`；
-> - Postgres `ogmem_full100_ds` 只有 graph_edges / graph_nodes / m3_episodic_vectors，**无 usage 表**；
-> - m3 pipeline **未调用 `set_usage_store`**，`openai_llm._track_usage` 虽存在但无持久化后端 → 实际未记录；
-> - pipeline.log / judge.log / pipeline_summary.json 均无 token 字段。
->
-> 因此下方 token 数为**基于「输出字符数 ÷ 4」的估算**，用于量级参考，**非精确计量**；输入 token 无法精确统计。
+> ⚠️ **重要限制（如实声明）**：本轮 run **未落盘精确 token 用量**（无 usage 表 /文件、m3 pipeline 未调用 `set_usage_store`）。
+> 下方 token 数为**基于「输出字符数 ÷ 4」的估算**，用于量级参考，**非精确计量**；输入 token 无法精确统计。
 
 ### 4.1 可测代理量（实测）
 | 指标 | 数值 | 来源 |
@@ -128,13 +123,12 @@
 | LLM chat-completions 调用总数 | **8,595** | 100 份 pipeline.log 的 POST 统计 |
 | ├ Episodic Memory LLM 调用 | 4,143 | 同上 |
 | └ QA LLM 调用 | 4,452 | 同上 |
-| Episodic 记录数 | 6,870 | episodic_memory.jsonl（含 resume 重复） |
+| Episodic 记录数（=clip 数，非重复） | 6,870 | episodic_memory.jsonl |
 | Episodic 输出字符总数 | 3,602,529 | → 估算 **≈900,632 output tokens** |
-| QA 记录数 | 1,326 | m3_qa_results.jsonl |
+| QA 唯一题目数 | 1,276 | 去重后（eval 文件含 2× 重复行共 2552） |
 | QA 预测输出字符 | 653,976 | → 估算 **≈163,494 output tokens** |
-| QA model_rounds 合计 | 5,802 | ReAct 迭代轮次 |
-| QA search_executions 合计 | 6,571 | 检索调用次数 |
-| QA 总时延 | 5,757.3s（1.60h） | 平均 4.5s/题 |
+| QA model_rounds 合计（去重） | 5,629 | ReAct 迭代轮次 |
+| QA 检索执行次数（去重） | 6,269 | search_executions |
 | ASR 转写片段数 | 24,653 | transcript_segments |
 
 ![LLM 调用量与 Token 估算](results/full100-ds_20261117/charts/llm_calls_and_tokens.png)
@@ -146,7 +140,7 @@
 | QA 回答生成 | ≈163,494 |
 | **合计（仅输出侧）** | **≈1,064,126** |
 
-> PPT 建议：明确标注“token 用量未持久化，以上为基于调用次数 / 输出字符的**估算**”，避免被误当作精确计费数据。
+> PPT 建议：明确标注"token 用量未持久化，以上为基于调用次数 / 输出字符的**估算**"。
 
 ---
 
@@ -156,8 +150,8 @@
 | 推理维度 | 题数 | 准确率 | 评测 |
 |---|---:|---:|---|
 | Person Understanding | 548 | **65.4%** | ✅ 强项 |
-| Multi-Detail Reasoning | 842 | 56.1% | ✅ 略高于均值 |
 | Multi-Hop Reasoning | 85 | 62.9% | ✅ 强项 |
+| Multi-Detail Reasoning | 842 | 56.1% | ✅ 略高于均值 |
 | Cross-Modal Reasoning | 476 | 53.4% | ⚠️ 略低于均值 |
 | General Knowledge Extraction | 327 | **37.5%** | ❌ 明显短板 |
 
@@ -204,20 +198,20 @@
 
 ### 6.1 核心结论
 1. **可跑通全量**：100 视频 / 1276 题全量完成，准确率 **53.61%**，工程链路稳定（failed=0）。
-2. **加速有效**：ASR 上 GPU **10.7×**，纯处理 **19.28h vs 基线 ~25h（≈省 23%）**，中位单视频 **12min**。
-3. **成本结构**：Episodic Memory 生成（43.1%）+ QA（43.7%）≈87%，是后续优化重点；ASR 已非瓶颈（9.4%）。
-4. **能力画像**：人物理解强（65.4%），通用知识抽取弱（37.5%），跨模态中等（53.4%）—— 且本轮**未送原生音频**，多模态仍偏弱。
+2. **加速有效（核心是 ASR）**：ASR 上 GPU **10.7×**，占比降至 4.5%；单视频处理中位 **705s（12min）**，纯计算合计 ≈**21.6h**。
+3. **成本结构**：**QA（52.7%）+ Episodic Memory（38.9%）≈92%** 为两大头，是后续优化的重中之重（二者都受 LLM 调用数驱动）；ASR/预处理已非瓶颈。
+4. **能力画像**：人物理解强（65.4%），通用知识抽取弱（37.5%），跨模态中等（53.4%）；且本轮**未送原生音频**，多模态仍偏弱。
 
 ### 6.2 两页 PPT 内容映射
 **第 1 页 —「做了什么 + 快不快」**
 - 左：实验规模（100 视频 / 1276 题 / 53.61%）+ B 方向 4×T4 分工表
-- 右上：加速效果（ASR 10.7×；19.28h vs ~25h；median 726s）
+- 右上：加速效果（ASR 10.7×；单视频中位 705s；纯计算 21.6h）
 - 右下：`per_video_time_distribution.png` 或 `stage_time_breakdown.png`
 
 **第 2 页 —「效果如何 + 成本在哪」**
 - 左上：`accuracy_by_dimension.png`（能力画像）
 - 左下：按题型准确率表（§5.2 精选 top 类）
-- 右：`llm_calls_and_tokens.png` + token 估算说明（标注“估算/未落盘”）+ 阶段占比结论（87% 在两阶段）
+- 右：`llm_calls_and_tokens.png` + token 估算说明（标注"估算/未落盘"）+ 阶段占比结论（92% 在 QA+Episodic）
 
 ---
 
@@ -226,11 +220,11 @@
 |---|---|
 | `results/full100-ds_20261117/README.md` | 基础版结果说明 |
 | `results/full100-ds_20261117/m3_eval_summary.json` | 汇总（by_type / by_video / overall） |
-| `results/full100-ds_20261117/m3_eval_results.jsonl` | 逐题评测明细（13MB） |
-| `results/full100-ds_20261117/all_m3_qa_results.jsonl` | 原始 QA 结果（13MB） |
+| `results/full100-ds_20261117/m3_eval_results.jsonl` | 逐题评测明细（含重复行，按 question_id 去重后 1276 题） |
+| `results/full100-ds_20261117/all_m3_qa_results.jsonl` | 原始 QA 结果 |
 | `results/full100-ds_20261117/run_report.json` | 运行报告 |
 | `results/full100-ds_20261117/charts/*.png` | 本报告 5 张图表 |
-| `PLAN.md` | 加速方案与 10.7× / 基线数据来源 |
-| 原始数据 | `/data/m3_runs_yuanjian/full100-ds/` |
+| `PLAN.md` | 加速方案与 10.7× 数据来源 |
+| 原始数据 | `/data/m3_runs_yuanjian/full100-ds/`（阶段耗时由 `graph_nodes.created_at` + 文件 mtime 重建） |
 
-> 图表均由实测数据用 matplotlib 生成（英文标签，避免字体缺字问题）；正文表格已提供全部数值，可直接取用。
+> 图表均由实测/重建数据用 matplotlib 生成（英文标签，避免字体缺字）；正文表格已提供全部数值，可直接取用。
