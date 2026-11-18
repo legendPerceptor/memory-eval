@@ -16,6 +16,52 @@ EXP = ROOT / "experiments" / NAME
 OLD = json.loads((ROOT / "experiments/m3_paper_paired8_20261103/comparison.json").read_text())
 OUT = ROOT / "latex" / "paired8_results.tex"
 
+TEN_EXP = ROOT / "experiments/m3_ten_fullinterval_20261102"
+TYPE_ORDER = [
+    "Person Understanding",
+    "Multi-Detail Reasoning",
+    "Cross-Modal Reasoning",
+    "General Knowledge Extraction",
+    "Multi-Hop Reasoning",
+]
+TYPE_CN = {
+    "Person Understanding": "人物理解",
+    "Multi-Detail Reasoning": "多细节推理",
+    "Cross-Modal Reasoning": "跨模态推理",
+    "General Knowledge Extraction": "通用知识抽取",
+    "Multi-Hop Reasoning": "多跳推理",
+}
+
+
+def compute_bytype(vids):
+    """Per-question-type accuracy for the 8-video cohort (multi-label)."""
+    qtype = {}
+    for v in vids:
+        for r in load_jsonl(ROOT / "runs/m3_ten_fullinterval_20261102/m3_qa" / v / "m3_qa_results.jsonl"):
+            qtype[r["question_id"]] = r["type"]
+    og = {r["question_id"]: r.get("score", 0.0) for r in load_jsonl(EXP / "judgments.jsonl")}
+    m3 = {}
+    for r in load_jsonl(TEN_EXP / "joint_questions.jsonl"):
+        if r["method"] == "m3_reference_text" and r["video_id"] in vids:
+            m3[r["question_id"]] = r.get("judge_score") or 0.0
+    assert set(og) == set(m3), "qid mismatch between oGMemory and M3"
+    qids = list(og)
+    rows = []
+    for t in TYPE_ORDER:
+        ids = [q for q in qids if t in qtype.get(q, [])]
+        n = len(ids)
+        ogs = sum(og[q] for q in ids) / n
+        m3s = sum(m3[q] for q in ids) / n
+        ogfull = sum(1 for q in ids if og[q] == 1.0) / n
+        m3full = sum(1 for q in ids if m3[q] == 1.0) / n
+        rows.append(dict(type=t, n=n, og=ogs, m3=m3s, delta=ogs - m3s, ogfull=ogfull, m3full=m3full))
+    og_all = sum(og.values()) / len(qids)
+    m3_all = sum(m3.values()) / len(qids)
+    overall = dict(type="ALL", n=len(qids), og=og_all, m3=m3_all, delta=og_all - m3_all,
+                   ogfull=sum(1 for q in qids if og[q] == 1.0) / len(qids),
+                   m3full=sum(1 for q in qids if m3[q] == 1.0) / len(qids))
+    return rows, overall
+
 
 def load_jsonl(p):
     return [json.loads(s) for s in Path(p).read_text().splitlines() if s.strip()]
@@ -82,6 +128,26 @@ def main():
     a(r"\includegraphics[width=\linewidth]{figures/paired8_final_scores.pdf}")
     a(r"\caption{两方法逐视频表现及题目加权均值。oGMemory为四路并行复跑；纵轴为自动评分而非人工准确率；"
       r"M3-Agent为同模型参考适配的冻结结果，未随本次复跑改动。}\label{fig:scores}\end{figure}")
+    # ---- Table + Figure: by question type ----
+    bt_rows, bt_all = compute_bytype(vids)
+    a(r"\begin{table}[htbp]\centering\small")
+    a(r"\caption{按题型自动评分（百分数，题目多标签）；同一8视频/97题子集，oGMemory为四路并行复跑、"
+      r"M3-Agent为冻结参考。一题含某题型即计入该题型，故各行题数和（166）大于97题。}")
+    a(r"\label{tab:bytype}\setlength{\tabcolsep}{4pt}\begin{tabular}{lrrrrr}\toprule")
+    a(r"题型 & 题数 & oGMemory & M3-Agent & 分差（百分点） & oGMemory全分率\\\midrule")
+    for r in bt_rows:
+        a(r"\code{" + r["type"].replace(" ", "\ ") + r"} & %d & %.1f\%% & %.1f\%% & %+.1f & %.1f\%%\\" % (
+            r["n"], 100*r["og"], 100*r["m3"], 100*r["delta"], 100*r["ogfull"]))
+    a(r"\midrule")
+    a(r"整体（97 题） & %d & %.1f\%% & %.1f\%% & %+.1f & %.1f\%%\\" % (
+        bt_all["n"], 100*bt_all["og"], 100*bt_all["m3"], 100*bt_all["delta"], 100*bt_all["ogfull"]))
+    a(r"\bottomrule\end{tabular}")
+    a(r"\par\smallskip\footnotesize 多标签：一题按其标注的每个题型分别计入；Multi-Hop仅5题，样本小、波动大，需谨慎解读。")
+    a(r"\end{table}")
+    a(r"\begin{figure}[htbp]\centering")
+    a(r"\includegraphics[width=\linewidth]{figures/paired8_final_bytype.pdf}")
+    a(r"\caption{按题型的自动评分对比。oGMemory在五类题型上均高于M3-Agent，整体分差20.1个百分点，"
+      r"多细节推理差距最大（+25.0）；通用知识抽取两者均最低，为共同短板。}\label{fig:bytype}\end{figure}")
     # ---- Table: resources ----
     a(r"\begin{table}[htbp]\centering\small")
     a(r"\caption{同一八视频子集的质量与资源开销。M为百万token，时间单位为分钟。oGMemory为本分支四路并行复跑、M3-Agent为冻结参考，二者为独立运行，共享感知分别测得。}")

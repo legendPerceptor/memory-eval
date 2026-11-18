@@ -18,6 +18,23 @@
 \includegraphics[width=\linewidth]{figures/paired8_final_scores.pdf}
 \caption{两方法逐视频表现及题目加权均值。oGMemory为四路并行复跑；纵轴为自动评分而非人工准确率；M3-Agent为同模型参考适配的冻结结果，未随本次复跑改动。}\label{fig:scores}\end{figure}
 \begin{table}[htbp]\centering\small
+\caption{按题型自动评分（百分数，题目多标签）；同一8视频/97题子集，oGMemory为四路并行复跑、M3-Agent为冻结参考。一题含某题型即计入该题型，故各行题数和（166）大于97题。}
+\label{tab:bytype}\setlength{\tabcolsep}{4pt}\begin{tabular}{lrrrrr}\toprule
+题型 & 题数 & oGMemory & M3-Agent & 分差（百分点） & oGMemory全分率\\\midrule
+\code{Person\ Understanding} & 33 & 80.3\% & 60.6\% & +19.7 & 78.8\%\\
+\code{Multi-Detail\ Reasoning} & 58 & 69.8\% & 44.8\% & +25.0 & 58.6\%\\
+\code{Cross-Modal\ Reasoning} & 32 & 62.5\% & 45.3\% & +17.2 & 46.9\%\\
+\code{General\ Knowledge\ Extraction} & 38 & 50.0\% & 35.5\% & +14.5 & 36.8\%\\
+\code{Multi-Hop\ Reasoning} & 5 & 100.0\% & 90.0\% & +10.0 & 100.0\%\\
+\midrule
+整体（97 题） & 97 & 63.9\% & 43.8\% & +20.1 & 54.6\%\\
+\bottomrule\end{tabular}
+\par\smallskip\footnotesize 多标签：一题按其标注的每个题型分别计入；Multi-Hop仅5题，样本小、波动大，需谨慎解读。
+\end{table}
+\begin{figure}[htbp]\centering
+\includegraphics[width=\linewidth]{figures/paired8_final_bytype.pdf}
+\caption{按题型的自动评分对比。oGMemory在五类题型上均高于M3-Agent，整体分差20.1个百分点，多细节推理差距最大（+25.0）；通用知识抽取两者均最低，为共同短板。}\label{fig:bytype}\end{figure}
+\begin{table}[htbp]\centering\small
 \caption{同一八视频子集的质量与资源开销。M为百万token，时间单位为分钟。oGMemory为本分支四路并行复跑、M3-Agent为冻结参考，二者为独立运行，共享感知分别测得。}
 \label{tab:resources}\begin{tabular}{lrr}\toprule
 指标 & oGMemory & M3-Agent\\\midrule
