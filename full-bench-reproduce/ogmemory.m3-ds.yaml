@@ -1,0 +1,103 @@
+# ============================================================================
+# oGMemory — M3-Bench runtime config (this host: memory-eval / t4-omni)
+# ============================================================================
+# Ported from the colleague runbook (full-bench-reproduce/runbook.md §3) and
+# adapted to THIS machine:
+#   * LLM provider  : Huawei MaaS (OpenAI-compatible), model deepseek-v4.1-flash-1017
+#   * Embedder      : local GPU TEI serving BAAI/bge-m3 (1024 dims) on :8001
+#                     (runbook used Qwen3-Embedding-0.6B on :18000; here it is
+#                      bge-m3 on :8001 — MUST keep dimension=1024 in sync)
+#   * CV service    : local GPU insightface sidecar on :18081
+#   * Postgres      : pgvector container m3p4-pg-20261113 on :31877
+#
+# Secrets are NOT stored here. Everything secret / per-run is a ${VAR}
+# placeholder resolved from the environment by m3/config.py::_expand_env_ref.
+# The launcher (run_full_bench.sh) exports them and writes a fresh resolved
+# copy per run (the per-run DB DSN differs every experiment).
+#
+# NOTE: vector_db.connection_string MUST point at the SAME fresh DB as
+# storage.connection_string for a single-DB pgvector topology. run_full_bench.sh
+# exports M3_STORAGE_DSN / M3_VECTOR_DSN (both = the per-run fresh DB DSN)
+# into the environment before invoking the driver; the ${VAR} refs above are
+# resolved from that environment at load time.
+# ============================================================================
+
+llm:
+  provider: "${LLM_PROVIDER}"
+  api_key: "${LLM_API_KEY}"
+  base_url: "${LLM_BASE_URL}"
+  model: "${LLM_MODEL}"
+  temperature: 0.7
+  # Reasoning model: burns ~7k tokens on reasoning per call; a small budget
+  # truncates tool calls (finish_reason=length). Keep it large (runbook §3).
+  max_tokens: 32768
+  # 300 s standard; the -ds600 variant raises this to 600 for QA retries.
+  request_timeout_seconds: 300
+
+embedding:
+  provider: openai
+  model: "BAAI/bge-m3"
+  base_url: "http://127.0.0.1:8001/v1"   # local GPU TEI (t4-omni-embeddings-1)
+  api_key: "${M3_EMBED_API_KEY}"          # TEI launched with --api-key abc-123
+  multimodal: false
+  batch_size: 8
+  dimension: 1024                          # MUST equal vector_db.dimension
+
+storage:
+  backend: sql
+  connection_string: "${M3_STORAGE_DSN}"
+  pool_size: 5
+
+vector_db:
+  type: opengauss
+  connection_string: "${M3_VECTOR_DSN}"
+  dimension: 1024
+  table_name: vector_index
+  pool_size: 5
+
+cv_service:
+  base_url: "http://127.0.0.1:18081"       # local GPU insightface sidecar
+  timeout_seconds: 30
+
+identity:
+  account_id: "m3bench"
+  user_id: "m3bench-user"
+  agent_id: "m3bench-agent"
+
+m3:
+  # Role wiring mirrors the runbook exactly:
+  #   extraction : deepseek-v4.1-flash-1017 (via ${LLM_*})
+  #   qa         : glm-5.3
+  #   judge      : deepseek-v4.1-flash-1017 (same model as extraction; kept
+  #                identical to the baselines so scores stay comparable)
+  episodic_llm:
+    provider: "${LLM_PROVIDER}"
+    api_key: "${LLM_API_KEY}"
+    base_url: "${LLM_BASE_URL}"
+    model: "deepseek-v4.1-flash-1017"
+    temperature: 0.2
+    max_tokens: 32768
+    request_timeout_seconds: 300
+
+  qa_llm:
+    provider: "${LLM_PROVIDER}"
+    api_key: "${LLM_API_KEY}"
+    base_url: "${LLM_BASE_URL}"
+    model: "glm-5.3"
+    temperature: 0.2
+    max_tokens: 32768
+    request_timeout_seconds: 300
+
+  judge_llm:
+    provider: "${LLM_PROVIDER}"
+    api_key: "${LLM_API_KEY}"
+    base_url: "${LLM_BASE_URL}"
+    model: "deepseek-v4.1-flash-1017"
+    temperature: 0.0
+    max_tokens: 32768
+    request_timeout_seconds: 300
+
+  vector_index:
+    table_name: m3_episodic_vectors
+    backend: pgvector                       # vanilla PG16 + pgvector
+    pool_size: 8
