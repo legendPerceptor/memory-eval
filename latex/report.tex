@@ -25,7 +25,7 @@
 \DeclareRobustCommand{\code}[1]{\nolinkurl{#1}}
 \title{oGMemory-m3：面向长视频问答的多模态记忆系统\\架构设计与实验评估}
 \author{刘远见}
-\date{2026 年 11 月 3 日}
+\date{2026 年 11 月 18 日}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -297,6 +297,68 @@ oGMemory在七个视频上更高，仅在\code{gym_03}上较低（低4.5个百�
 
 \input{paired8_results}
 
+\subsection{全量 M3-Bench 并行复现}
+为验证系统在完整基准上的可扩展性与工程稳定性，我们在本机四卡 GPU 环境上以并行方式完成全量
+M3-Bench robot 子集（100 视频、1276 题）。需事先说明：该全量复现采用\textbf{降配设定}，
+每 30 秒片段仅取 4 帧（主分析为 16 帧）、不向模型送入原生音频、并以 \code{deepseek-v4.1-flash-1017}
+替代主分析所用 MiniMax-M3.1-Flash，因此其结果与主分析的自动评分口径\textbf{仅近似可比}，
+不宜与八视频主结果或论文基线直接等同。完成度为 1276/1276 题全部作答、无失败、评委错误 2 项，
+总平均自动评分为 53.61\%。
+
+\textbf{并行部署与加速。}系统在四块 Tesla 显卡上分工部署：ASR（faster-whisper）占用两块 GPU 组成
+ASR 池、嵌入服务（\code{BAAI/bge-m3}，TEI）与 CV 服务（insightface）各占一块，二者均在本机 GPU 上运行，
+另有本地 ASR 转写以 GPU 完成；问答阶段受 MaaS 限流约束，采用 2 个视频工作进程、每阶段 4 个工作线程。
+受控微基准显示，ASR 由 CPU（int8）切至 GPU（cuda/float16）后实时率由 0.105 降至 0.010，
+相对提速约 10.7 倍；ASR 已不再是流程瓶颈。
+
+\textbf{资源与阶段耗时。}单视频端到端处理时间（各阶段求和）中位数为 705 秒、均值为 778 秒
+（四分位 602--899 秒，分布呈右尾），100 视频纯计算合计约 21.6 小时；含限流与故障重试的循环墙钟
+约 28.5 小时，并非算法计算量。按每视频均值（合计 778 秒）分解，问答占 410.2 秒（52.7\%）、
+情景记忆生成 302.9 秒（38.9\%），二者合计约 92\%，为两大主要开销；ASR 因上 GPU 已降至 34.8 秒（4.5\%），
+其余预处理约 3.5\%、索引约 0.4\%（表\ref{tab:full100stage}、图\ref{fig:full100stage}）。
+各阶段耗时由数据库节点创建时间戳与结果文件写入时间重建，并在 9 个保留完整日志的视频上与实测交叉校验，
+总建忆耗时误差约 $-4\%$ 至 $-12\%$，口径可信。
+
+\begin{table}[htbp]\centering\small
+\caption{全量 100 视频口径的阶段耗时与占比（每视频均值，合计 778 秒）。计时由节点创建时间戳与文件写入时间重建。}
+\label{tab:full100stage}\begin{tabular}{lrr}\toprule
+阶段 & 平均耗时（秒） & 占比 \\\midrule
+问答（ReAct，题目并发） & 410.2 & 52.7\% \\
+情景记忆生成 & 302.9 & 38.9\% \\
+ASR（语音转写） & 34.8 & 4.5\% \\
+预处理（切片、抽帧、人脸、建节点） & 27.0 & 3.5\% \\
+索引（build\_index） & 2.8 & 0.4\% \\\midrule
+合计 & 778.0 & 100.0\% \\
+\bottomrule\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.74\linewidth]{figures/full100_stage_time_breakdown.png}
+\caption{全量 100 视频的阶段耗时占比。问答与情景记忆生成合计约 92\%，为两大主要开销；ASR 上 GPU 后已降至约 4.5\%。}\label{fig:full100stage}\end{figure}
+
+\textbf{按推理维度准确率。}在题目多标签口径下（一题含某维度即计入该维度），人物理解占题最多且准确率最高
+（548 题，65.4\%），其次为多跳推理（85 题，62.9\%）与多细节推理（842 题，56.1\%），
+跨模态推理为 53.4\%（476 题），通用知识抽取明显偏弱（327 题，37.5\%）；这一强弱画像与八视频分题型结果方向一致。
+由于该全量复现每片段仅取 4 帧且未送入原生音频，跨模态与视觉细节类能力可能被系统性低估，上述数值用于描述本降配设定下的表现（表\ref{tab:full100dim}、图\ref{fig:full100dim}）。
+
+\begin{table}[htbp]\centering\small
+\caption{全量 100 视频按推理维度的自动评分（多标签，一题含该维度即计入，故各维度题数和大于 1276）。}
+\label{tab:full100dim}\begin{tabular}{lrr}\toprule
+推理维度 & 题数 & 准确率 \\\midrule
+人物理解（Person Understanding） & 548 & 65.4\% \\
+多跳推理（Multi-Hop Reasoning） & 85 & 62.9\% \\
+多细节推理（Multi-Detail Reasoning） & 842 & 56.1\% \\
+跨模态推理（Cross-Modal Reasoning） & 476 & 53.4\% \\
+通用知识抽取（General Knowledge Extraction） & 327 & 37.5\% \\\midrule
+整体（1276 题加权） & 1276 & 53.61\% \\
+\bottomrule\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.74\linewidth]{figures/full100_accuracy_by_dimension.png}
+\caption{全量 100 视频按推理维度的自动评分：人物理解最强、通用知识抽取最弱。}\label{fig:full100dim}\end{figure}
+
+
 \subsection{按题型对比}
 表\ref{tab:bytype}与图\ref{fig:bytype}在同一八视频/97题子集上按题型拆解。
 题型标注为多标签，一题按其标注的每个类型分别计入，故各行题数之和（166）大于97题；
@@ -380,7 +442,7 @@ M3末轮允许合理猜测，oGMemory强调证据不足时说明。
 不能只用单一平均分评价系统。多seed（$n=2$）的QA token预算扫描进一步表明，准确率从3000到22528
 随预算单调上升（$7.7\%$至$61.6\%$），但预算超过约9000后边际收益迅速递减（12000与16000两档
 在噪声内基本持平），存在“足够而不过量”的预算折中；逐视频曲线显示各视频最优预算不同，
-单一全局预算难以对所有视频最优。
+单一全局预算难以对所有视频最优。在降配设定下，我们亦于四卡 GPU 上并行复现了完整的 M3-Bench（100 视频、1276 题），系统稳定完成全部题目（无失败），总平均自动评分为 53.61\%，单视频端到端处理中位约 705 秒；受控微基准显示 GPU-ASR 相对 CPU 提速约 10.7 倍，问答与情景记忆生成合计约占九成耗时。该全量结果受帧数与模态输入降配及模型差异影响，仅作可扩展性与工程稳定性佐证，不与主分析的评分口径等同。
 
 全片段均匀采样改善了时间覆盖，但稀疏帧、ASR误差、人物归属和事件计数
 仍可能限制记忆质量，检索不能补回未被感知的事实。
