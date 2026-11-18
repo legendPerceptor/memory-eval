@@ -1,0 +1,1234 @@
+{
+  "total_questions": 1276,
+  "answered": 1276,
+  "failed": 0,
+  "judge_error_count": 2,
+  "overall_mean_score": 0.5360501567398119,
+  "judge_provider": "modelarts-maas",
+  "judge_model": "deepseek-v4.1-flash-1017",
+  "by_type": {
+    "Cross-Modal Reasoning": {
+      "count": 42,
+      "answered": 42,
+      "failed": 0,
+      "mean_score": 0.4880952380952381,
+      "p50_iterations": 3.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.09206154587723,
+      "p95_latency_seconds": 11.358595213037916
+    },
+    "Cross-Modal Reasoning,General Knowledge Extraction": {
+      "count": 39,
+      "answered": 39,
+      "failed": 0,
+      "mean_score": 0.41025641025641024,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.960082607964675,
+      "p95_latency_seconds": 15.427608712622895
+    },
+    "Cross-Modal Reasoning,General Knowledge Extraction,Multi-Detail Reasoning": {
+      "count": 49,
+      "answered": 49,
+      "failed": 0,
+      "mean_score": 0.3163265306122449,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 9.991110304094928,
+      "p95_latency_seconds": 11.11971679450944
+    },
+    "Cross-Modal Reasoning,Multi-Detail Reasoning": {
+      "count": 130,
+      "answered": 130,
+      "failed": 0,
+      "mean_score": 0.5,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.187273257655593,
+      "p95_latency_seconds": 8.963092018617317
+    },
+    "Cross-Modal Reasoning,Multi-Hop Reasoning,Multi-Detail Reasoning": {
+      "count": 7,
+      "answered": 7,
+      "failed": 0,
+      "mean_score": 0.9285714285714286,
+      "p50_iterations": 3.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.485531711684806,
+      "p95_latency_seconds": 4.683078467659652
+    },
+    "General Knowledge Extraction": {
+      "count": 174,
+      "answered": 174,
+      "failed": 0,
+      "mean_score": 0.3735632183908046,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.274793667025628,
+      "p95_latency_seconds": 12.018552091647871
+    },
+    "General Knowledge Extraction,Multi-Detail Reasoning": {
+      "count": 58,
+      "answered": 58,
+      "failed": 0,
+      "mean_score": 0.39655172413793105,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.782147101335356,
+      "p95_latency_seconds": 15.28293965740595
+    },
+    "General Knowledge Extraction,Multi-Hop Reasoning": {
+      "count": 1,
+      "answered": 1,
+      "failed": 0,
+      "mean_score": 0.0,
+      "p50_iterations": 3.0,
+      "p95_iterations": 3.0,
+      "mean_latency_seconds": 2.622688862029463,
+      "p95_latency_seconds": 2.622688862029463
+    },
+    "General Knowledge Extraction,Multi-Hop Reasoning,Multi-Detail Reasoning": {
+      "count": 3,
+      "answered": 3,
+      "failed": 0,
+      "mean_score": 0.6666666666666666,
+      "p50_iterations": 3.0,
+      "p95_iterations": 4.8,
+      "mean_latency_seconds": 3.149361955622832,
+      "p95_latency_seconds": 4.670014162128791
+    },
+    "Multi-Detail Reasoning": {
+      "count": 200,
+      "answered": 200,
+      "failed": 0,
+      "mean_score": 0.475,
+      "p50_iterations": 5.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.561714594073128,
+      "p95_latency_seconds": 8.237647016183473
+    },
+    "Multi-Hop Reasoning": {
+      "count": 11,
+      "answered": 11,
+      "failed": 0,
+      "mean_score": 0.5454545454545454,
+      "p50_iterations": 3.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.2455884897234766,
+      "p95_latency_seconds": 5.794445150066167
+    },
+    "Multi-Hop Reasoning,Multi-Detail Reasoning": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.7857142857142857,
+      "p50_iterations": 3.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.604021320684946,
+      "p95_latency_seconds": 7.9745575215900315
+    },
+    "Person Understanding": {
+      "count": 121,
+      "answered": 121,
+      "failed": 0,
+      "mean_score": 0.6239669421487604,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.1036298241589435,
+      "p95_latency_seconds": 11.808119270950556
+    },
+    "Person Understanding,Cross-Modal Reasoning": {
+      "count": 42,
+      "answered": 42,
+      "failed": 0,
+      "mean_score": 0.6428571428571429,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.977929436590611,
+      "p95_latency_seconds": 11.752751774317584
+    },
+    "Person Understanding,Cross-Modal Reasoning,General Knowledge Extraction,Multi-Detail Reasoning": {
+      "count": 2,
+      "answered": 2,
+      "failed": 0,
+      "mean_score": 0.5,
+      "p50_iterations": 4.0,
+      "p95_iterations": 5.8,
+      "mean_latency_seconds": 4.745695374673232,
+      "p95_latency_seconds": 7.596205120184459
+    },
+    "Person Understanding,Cross-Modal Reasoning,General Knowledge Extraction,Multi-Hop Reasoning,Multi-Detail Reasoning": {
+      "count": 1,
+      "answered": 1,
+      "failed": 0,
+      "mean_score": 0.0,
+      "p50_iterations": 3.0,
+      "p95_iterations": 3.0,
+      "mean_latency_seconds": 2.2588368859142065,
+      "p95_latency_seconds": 2.2588368859142065
+    },
+    "Person Understanding,Cross-Modal Reasoning,Multi-Detail Reasoning": {
+      "count": 145,
+      "answered": 145,
+      "failed": 0,
+      "mean_score": 0.6275862068965518,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.7675185981270825,
+      "p95_latency_seconds": 7.9688178626820445
+    },
+    "Person Understanding,Cross-Modal Reasoning,Multi-Hop Reasoning": {
+      "count": 2,
+      "answered": 2,
+      "failed": 0,
+      "mean_score": 0.25,
+      "p50_iterations": 4.0,
+      "p95_iterations": 5.8,
+      "mean_latency_seconds": 3.4053506534546614,
+      "p95_latency_seconds": 4.169541582791135
+    },
+    "Person Understanding,Cross-Modal Reasoning,Multi-Hop Reasoning,Multi-Detail Reasoning": {
+      "count": 17,
+      "answered": 17,
+      "failed": 0,
+      "mean_score": 0.6470588235294118,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.061902106712189,
+      "p95_latency_seconds": 10.309689172916114
+    },
+    "Person Understanding,Multi-Detail Reasoning": {
+      "count": 189,
+      "answered": 189,
+      "failed": 0,
+      "mean_score": 0.7195767195767195,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 5.584453774616122,
+      "p95_latency_seconds": 11.577391886524856
+    },
+    "Person Understanding,Multi-Hop Reasoning": {
+      "count": 2,
+      "answered": 2,
+      "failed": 0,
+      "mean_score": 0.5,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 6.064179900335148,
+      "p95_latency_seconds": 9.402377957734279
+    },
+    "Person Understanding,Multi-Hop Reasoning,Multi-Detail Reasoning": {
+      "count": 27,
+      "answered": 27,
+      "failed": 0,
+      "mean_score": 0.5740740740740741,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.7700936356041996,
+      "p95_latency_seconds": 8.961762421717868
+    }
+  },
+  "by_video": {
+    "kitchen_12": {
+      "count": 20,
+      "answered": 20,
+      "failed": 0,
+      "mean_score": 0.5,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.28310058247298,
+      "p95_latency_seconds": 6.333098995988257
+    },
+    "kitchen_20": {
+      "count": 17,
+      "answered": 17,
+      "failed": 0,
+      "mean_score": 0.5588235294117647,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.473396650652456,
+      "p95_latency_seconds": 9.164530052989722
+    },
+    "study_06": {
+      "count": 17,
+      "answered": 17,
+      "failed": 0,
+      "mean_score": 0.3235294117647059,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.16122318713871,
+      "p95_latency_seconds": 5.435302168503403
+    },
+    "study_17": {
+      "count": 17,
+      "answered": 17,
+      "failed": 0,
+      "mean_score": 0.4117647058823529,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 8.162565887933049,
+      "p95_latency_seconds": 50.157063213549556
+    },
+    "living_room_06": {
+      "count": 16,
+      "answered": 16,
+      "failed": 0,
+      "mean_score": 0.625,
+      "p50_iterations": 4.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.4264404642162845,
+      "p95_latency_seconds": 4.134220574400388
+    },
+    "bedroom_01": {
+      "count": 15,
+      "answered": 15,
+      "failed": 0,
+      "mean_score": 0.7,
+      "p50_iterations": 3.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.701521243310223,
+      "p95_latency_seconds": 7.89404341825284
+    },
+    "bedroom_07": {
+      "count": 15,
+      "answered": 15,
+      "failed": 0,
+      "mean_score": 0.6666666666666666,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.5592903746602436,
+      "p95_latency_seconds": 4.098840264696628
+    },
+    "kitchen_05": {
+      "count": 15,
+      "answered": 15,
+      "failed": 0,
+      "mean_score": 0.36666666666666664,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 6.067052381082127,
+      "p95_latency_seconds": 18.177825445681812
+    },
+    "kitchen_11": {
+      "count": 15,
+      "answered": 15,
+      "failed": 0,
+      "mean_score": 0.5666666666666667,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.5977638041600586,
+      "p95_latency_seconds": 3.8031621953472494
+    },
+    "living_room_05": {
+      "count": 15,
+      "answered": 15,
+      "failed": 0,
+      "mean_score": 0.5,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 6.969656914162139,
+      "p95_latency_seconds": 12.577625506231561
+    },
+    "living_room_17": {
+      "count": 15,
+      "answered": 15,
+      "failed": 0,
+      "mean_score": 0.6333333333333333,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 5.509511883060138,
+      "p95_latency_seconds": 14.071154979011045
+    },
+    "living_room_20": {
+      "count": 15,
+      "answered": 15,
+      "failed": 0,
+      "mean_score": 0.43333333333333335,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.8432661558811865,
+      "p95_latency_seconds": 7.377979454025626
+    },
+    "study_03": {
+      "count": 15,
+      "answered": 15,
+      "failed": 0,
+      "mean_score": 0.8666666666666667,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.380966067345192,
+      "p95_latency_seconds": 3.483064163150266
+    },
+    "bedroom_06": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.5357142857142857,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.486252408042284,
+      "p95_latency_seconds": 3.8813848001183944
+    },
+    "bedroom_12": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.35714285714285715,
+      "p50_iterations": 5.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.093070249106469,
+      "p95_latency_seconds": 13.11650569201447
+    },
+    "kitchen_03": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.6428571428571429,
+      "p50_iterations": 5.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.8396678852649138,
+      "p95_latency_seconds": 8.036088092834689
+    },
+    "kitchen_09": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.39285714285714285,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.09060902188399,
+      "p95_latency_seconds": 4.437989937770181
+    },
+    "kitchen_15": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.32142857142857145,
+      "p50_iterations": 4.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.448880789901263,
+      "p95_latency_seconds": 11.023442840040662
+    },
+    "kitchen_16": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.4642857142857143,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 6.348644611192867,
+      "p95_latency_seconds": 17.363352917088196
+    },
+    "kitchen_22": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.2857142857142857,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 5.394999674754217,
+      "p95_latency_seconds": 13.327564119244926
+    },
+    "living_room_08": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.7142857142857143,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.933418653339946,
+      "p95_latency_seconds": 18.19280608757399
+    },
+    "living_room_13": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.5,
+      "p50_iterations": 3.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 5.990680809265801,
+      "p95_latency_seconds": 18.8587129768217
+    },
+    "meeting_room_04": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.14285714285714285,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.4501718940945074,
+      "p95_latency_seconds": 4.353182700974867
+    },
+    "office_04": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.4642857142857143,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.836516539898834,
+      "p95_latency_seconds": 6.719935655384324
+    },
+    "study_08": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.6428571428571429,
+      "p50_iterations": 4.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.487788818410731,
+      "p95_latency_seconds": 9.638615828217008
+    },
+    "study_10": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.5357142857142857,
+      "p50_iterations": 4.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.1855233539494554,
+      "p95_latency_seconds": 5.748376341001131
+    },
+    "study_12": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.5357142857142857,
+      "p50_iterations": 5.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 5.060702163759353,
+      "p95_latency_seconds": 12.695968608139083
+    },
+    "study_18": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.25,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 9.187720758607611,
+      "p95_latency_seconds": 37.889879767317325
+    },
+    "study_21": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.5357142857142857,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.3777436102474376,
+      "p95_latency_seconds": 3.837873620958999
+    },
+    "study_23": {
+      "count": 14,
+      "answered": 14,
+      "failed": 0,
+      "mean_score": 0.5714285714285714,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.864231266713302,
+      "p95_latency_seconds": 4.923535337811336
+    },
+    "bedroom_08": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.9615384615384616,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.3774247540232656,
+      "p95_latency_seconds": 7.354886628873646
+    },
+    "gym_01": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.23076923076923078,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.9413961082553635,
+      "p95_latency_seconds": 5.062167865596711
+    },
+    "gym_04": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.5769230769230769,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.578031454271136,
+      "p95_latency_seconds": 13.347571855410933
+    },
+    "kitchen_01": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.38461538461538464,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.587545255915477,
+      "p95_latency_seconds": 4.956938927061856
+    },
+    "kitchen_06": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.5,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.6756236176722896,
+      "p95_latency_seconds": 6.315271938499063
+    },
+    "kitchen_07": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.34615384615384615,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.774082611100032,
+      "p95_latency_seconds": 10.267095717508345
+    },
+    "kitchen_10": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.6153846153846154,
+      "p50_iterations": 3.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.770001817458811,
+      "p95_latency_seconds": 13.038215620163829
+    },
+    "kitchen_13": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.6923076923076923,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.728440711274743,
+      "p95_latency_seconds": 4.819025156460702
+    },
+    "kitchen_14": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.5769230769230769,
+      "p50_iterations": 3.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.188693917571352,
+      "p95_latency_seconds": 3.1566478197462855
+    },
+    "kitchen_18": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.4230769230769231,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.912704732054128,
+      "p95_latency_seconds": 4.4942818293347955
+    },
+    "kitchen_19": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.5384615384615384,
+      "p50_iterations": 3.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.006230311468244,
+      "p95_latency_seconds": 10.113174416404217
+    },
+    "living_room_01": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.5769230769230769,
+      "p50_iterations": 3.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.815213698428124,
+      "p95_latency_seconds": 6.360000770818442
+    },
+    "living_room_03": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.7307692307692307,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.40011496301024,
+      "p95_latency_seconds": 6.62217884324491
+    },
+    "living_room_09": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.7692307692307693,
+      "p50_iterations": 3.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.3627079566582463,
+      "p95_latency_seconds": 4.861097866576165
+    },
+    "living_room_11": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.8076923076923077,
+      "p50_iterations": 2.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.03265440184623,
+      "p95_latency_seconds": 7.702022791840136
+    },
+    "living_room_14": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.3076923076923077,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.591818531509489,
+      "p95_latency_seconds": 7.6384889271110294
+    },
+    "living_room_16": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.7307692307692307,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.175581926587396,
+      "p95_latency_seconds": 13.102378793247045
+    },
+    "living_room_18": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.7692307692307693,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.8608378052998047,
+      "p95_latency_seconds": 8.57738619716838
+    },
+    "living_room_22": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.8461538461538461,
+      "p50_iterations": 3.0,
+      "p95_iterations": 4.0,
+      "mean_latency_seconds": 3.1722700216162663,
+      "p95_latency_seconds": 6.467765220813453
+    },
+    "living_room_23": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.19230769230769232,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.349423460984746,
+      "p95_latency_seconds": 12.323018179740757
+    },
+    "office_05": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.5769230769230769,
+      "p50_iterations": 3.0,
+      "p95_iterations": 5.4,
+      "mean_latency_seconds": 3.2946671907646725,
+      "p95_latency_seconds": 7.29387513641268
+    },
+    "study_07": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.5,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.854422209032166,
+      "p95_latency_seconds": 12.271713635232299
+    },
+    "study_13": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.5769230769230769,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 8.381150745535987,
+      "p95_latency_seconds": 32.55598780633882
+    },
+    "study_20": {
+      "count": 13,
+      "answered": 13,
+      "failed": 0,
+      "mean_score": 0.8461538461538461,
+      "p50_iterations": 3.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.067837100368566,
+      "p95_latency_seconds": 10.133013006486
+    },
+    "bedroom_02": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.625,
+      "p50_iterations": 2.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 58.24977138754912,
+      "p95_latency_seconds": 304.50191318637224
+    },
+    "bedroom_05": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.4583333333333333,
+      "p50_iterations": 5.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.537085793213919,
+      "p95_latency_seconds": 6.671893854439259
+    },
+    "bedroom_09": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.5833333333333334,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.569184353187059,
+      "p95_latency_seconds": 13.118939022859559
+    },
+    "bedroom_10": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.5833333333333334,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.5262176730514816,
+      "p95_latency_seconds": 3.6649521336425095
+    },
+    "bedroom_11": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.5833333333333334,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.8813546150534726,
+      "p95_latency_seconds": 9.790662186220288
+    },
+    "kitchen_04": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.7916666666666666,
+      "p50_iterations": 3.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.026007355617669,
+      "p95_latency_seconds": 9.059705602074974
+    },
+    "kitchen_17": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.7083333333333334,
+      "p50_iterations": 2.5,
+      "p95_iterations": 5.45,
+      "mean_latency_seconds": 4.341234635522899,
+      "p95_latency_seconds": 10.683295535389334
+    },
+    "kitchen_23": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.5,
+      "p50_iterations": 5.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.2313830400817096,
+      "p95_latency_seconds": 5.858304831781425
+    },
+    "living_room_02": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.4166666666666667,
+      "p50_iterations": 3.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.6739426743782437,
+      "p95_latency_seconds": 10.404041987238452
+    },
+    "living_room_07": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.7916666666666666,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.5136549919843674,
+      "p95_latency_seconds": 4.217514198459685
+    },
+    "living_room_10": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.25,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 8.605802054245336,
+      "p95_latency_seconds": 36.68995579681359
+    },
+    "living_room_12": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.5416666666666666,
+      "p50_iterations": 5.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 7.230702388061521,
+      "p95_latency_seconds": 25.987577722780408
+    },
+    "living_room_15": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.375,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.4152394724078476,
+      "p95_latency_seconds": 4.566169713693671
+    },
+    "living_room_21": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.375,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.2922992136639855,
+      "p95_latency_seconds": 5.33817282486707
+    },
+    "living_room_24": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.2916666666666667,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.178735562018119,
+      "p95_latency_seconds": 3.6674532489851117
+    },
+    "meeting_room_03": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.4166666666666667,
+      "p50_iterations": 4.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.0815456908506653,
+      "p95_latency_seconds": 5.694748844509013
+    },
+    "meeting_room_06": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.7083333333333334,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.8236854491600147,
+      "p95_latency_seconds": 3.9858791147824375
+    },
+    "office_01": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.625,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.9017412336155153,
+      "p95_latency_seconds": 5.6386920704972
+    },
+    "office_02": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.4583333333333333,
+      "p50_iterations": 5.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.487001105871362,
+      "p95_latency_seconds": 5.030190978851169
+    },
+    "office_03": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.5,
+      "p50_iterations": 5.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.6543908684592075,
+      "p95_latency_seconds": 8.808035454154014
+    },
+    "office_06": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.2916666666666667,
+      "p50_iterations": 4.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 6.008848205713245,
+      "p95_latency_seconds": 20.27824177867733
+    },
+    "study_01": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.625,
+      "p50_iterations": 3.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 5.698530277702957,
+      "p95_latency_seconds": 11.235730830696411
+    },
+    "study_04": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.4583333333333333,
+      "p50_iterations": 3.0,
+      "p95_iterations": 5.45,
+      "mean_latency_seconds": 5.6923320253069205,
+      "p95_latency_seconds": 20.81910795024596
+    },
+    "study_05": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.3333333333333333,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.8540362815062204,
+      "p95_latency_seconds": 9.431341559044085
+    },
+    "study_09": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.4166666666666667,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.882023300859146,
+      "p95_latency_seconds": 8.59741730026435
+    },
+    "study_14": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.5,
+      "p50_iterations": 3.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.157114422336842,
+      "p95_latency_seconds": 6.988019486702979
+    },
+    "study_16": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.5,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.912029337254353,
+      "p95_latency_seconds": 4.791032540751621
+    },
+    "study_22": {
+      "count": 12,
+      "answered": 12,
+      "failed": 0,
+      "mean_score": 0.375,
+      "p50_iterations": 5.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.5547275674762204,
+      "p95_latency_seconds": 3.441139326849952
+    },
+    "bedroom_04": {
+      "count": 11,
+      "answered": 11,
+      "failed": 0,
+      "mean_score": 0.8181818181818182,
+      "p50_iterations": 4.0,
+      "p95_iterations": 5.5,
+      "mean_latency_seconds": 2.772726802875034,
+      "p95_latency_seconds": 4.676049704197794
+    },
+    "gym_02": {
+      "count": 11,
+      "answered": 11,
+      "failed": 0,
+      "mean_score": 0.3181818181818182,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.5992083800956607,
+      "p95_latency_seconds": 3.815057087689638
+    },
+    "gym_03": {
+      "count": 11,
+      "answered": 11,
+      "failed": 0,
+      "mean_score": 0.5909090909090909,
+      "p50_iterations": 3.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.1332071573812175,
+      "p95_latency_seconds": 5.856113140936941
+    },
+    "kitchen_02": {
+      "count": 11,
+      "answered": 11,
+      "failed": 0,
+      "mean_score": 1.0,
+      "p50_iterations": 3.0,
+      "p95_iterations": 5.5,
+      "mean_latency_seconds": 3.990508293352005,
+      "p95_latency_seconds": 9.457006159471348
+    },
+    "meeting_room_02": {
+      "count": 11,
+      "answered": 11,
+      "failed": 0,
+      "mean_score": 0.6363636363636364,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.2962148389355703,
+      "p95_latency_seconds": 6.504438202595338
+    },
+    "office_08": {
+      "count": 11,
+      "answered": 11,
+      "failed": 0,
+      "mean_score": 0.8636363636363636,
+      "p50_iterations": 3.0,
+      "p95_iterations": 5.5,
+      "mean_latency_seconds": 3.65761092224751,
+      "p95_latency_seconds": 6.3692254240158945
+    },
+    "study_15": {
+      "count": 11,
+      "answered": 11,
+      "failed": 0,
+      "mean_score": 0.8181818181818182,
+      "p50_iterations": 2.0,
+      "p95_iterations": 5.5,
+      "mean_latency_seconds": 3.9561487223360348,
+      "p95_latency_seconds": 7.275689990026876
+    },
+    "bedroom_03": {
+      "count": 10,
+      "answered": 10,
+      "failed": 0,
+      "mean_score": 0.35,
+      "p50_iterations": 4.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.562647907063365,
+      "p95_latency_seconds": 4.652360701188445
+    },
+    "kitchen_21": {
+      "count": 10,
+      "answered": 10,
+      "failed": 0,
+      "mean_score": 0.65,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.3212341472972184,
+      "p95_latency_seconds": 6.254300380032509
+    },
+    "living_room_19": {
+      "count": 10,
+      "answered": 10,
+      "failed": 0,
+      "mean_score": 0.35,
+      "p50_iterations": 5.5,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 13.544189538992942,
+      "p95_latency_seconds": 42.879409155552274
+    },
+    "meeting_room_05": {
+      "count": 10,
+      "answered": 10,
+      "failed": 0,
+      "mean_score": 0.3,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.170551146287471,
+      "p95_latency_seconds": 7.256010531494394
+    },
+    "study_02": {
+      "count": 10,
+      "answered": 10,
+      "failed": 0,
+      "mean_score": 0.8,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.891502189449966,
+      "p95_latency_seconds": 14.051268089190126
+    },
+    "study_11": {
+      "count": 10,
+      "answered": 10,
+      "failed": 0,
+      "mean_score": 0.7,
+      "p50_iterations": 4.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.8075443137902765,
+      "p95_latency_seconds": 10.270607413933613
+    },
+    "study_19": {
+      "count": 10,
+      "answered": 10,
+      "failed": 0,
+      "mean_score": 0.2,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 3.7202081467490644,
+      "p95_latency_seconds": 7.103255009301938
+    },
+    "kitchen_08": {
+      "count": 9,
+      "answered": 9,
+      "failed": 0,
+      "mean_score": 0.6666666666666666,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.074969907032533,
+      "p95_latency_seconds": 2.9516634135507047
+    },
+    "living_room_04": {
+      "count": 9,
+      "answered": 9,
+      "failed": 0,
+      "mean_score": 0.4444444444444444,
+      "p50_iterations": 3.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 4.326996780569768,
+      "p95_latency_seconds": 9.203066871874034
+    },
+    "meeting_room_01": {
+      "count": 9,
+      "answered": 9,
+      "failed": 0,
+      "mean_score": 0.6111111111111112,
+      "p50_iterations": 3.0,
+      "p95_iterations": 5.2,
+      "mean_latency_seconds": 5.204070979004933,
+      "p95_latency_seconds": 11.712653143424541
+    },
+    "office_07": {
+      "count": 9,
+      "answered": 9,
+      "failed": 0,
+      "mean_score": 0.4444444444444444,
+      "p50_iterations": 6.0,
+      "p95_iterations": 6.0,
+      "mean_latency_seconds": 2.7970807292084725,
+      "p95_latency_seconds": 4.409895132482052
+    }
+  },
+  "merge_of_per_video_judges": true
+}
