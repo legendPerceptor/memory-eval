@@ -336,10 +336,21 @@ ASR（语音转写） & 34.8 & 4.5\% \\
 \includegraphics[width=0.74\linewidth]{figures/full100_stage_time_breakdown.png}
 \caption{全量 100 视频的阶段耗时占比。问答与情景记忆生成合计约 92\%，为两大主要开销；ASR 上 GPU 后已降至约 4.5\%。}\label{fig:full100stage}\end{figure}
 
+
+\textbf{单视频时间分布。}图\ref{fig:full100pervideo}进一步给出全部 100 个视频的端到端处理时间分布。
+该分布明显呈右尾：多数视频落在 602--899 秒的四分位区间内，而最长视频达 2039 秒；
+单视频耗时主要随视频时长（片段数与对话轮数）近似线性增长，短房间约 5 分钟，长 kitchen 与 study 类可达约 30 分钟。
+需强调，此处统计为各阶段耗时之和，反映算法本身的计算量，既不含并行折算，也不含限流与故障重试的重启等待，
+因而与受重试显著拉长的 28.5 小时循环墙钟不可直接比较，后者不代表真实计算代价。
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.86\linewidth]{figures/full100_per_video_time.png}
+\caption{全量 100 个视频的单视频端到端处理时间分布（各阶段求和）。中位数 705 秒、均值 778 秒，四分位区间 602--899 秒，呈右尾：短房间约 5 分钟，长 kitchen/study 可达约 30 分钟；此图为纯处理时间，不含并行折算与重试等待。}\label{fig:full100pervideo}\end{figure}
+
 \textbf{按推理维度准确率。}在题目多标签口径下（一题含某维度即计入该维度），人物理解占题最多且准确率最高
 （548 题，65.4\%），其次为多跳推理（85 题，62.9\%）与多细节推理（842 题，56.1\%），
 跨模态推理为 53.4\%（476 题），通用知识抽取明显偏弱（327 题，37.5\%）；这一强弱画像与八视频分题型结果方向一致。
-由于该全量复现每片段仅取 4 帧且未送入原生音频，跨模态与视觉细节类能力可能被系统性低估，上述数值用于描述本降配设定下的表现（表\ref{tab:full100dim}、图\ref{fig:full100dim}）。
+由于该全量复现每片段仅取 4 帧且未送入原生音频，跨模态与视觉细节类能力可能被系统性低估，上述数值用于描述本降配设定下的表现（表\ref{tab:full100dim}）。
 
 \begin{table}[htbp]\centering\small
 \caption{全量 100 视频按推理维度的自动评分（多标签，一题含该维度即计入，故各维度题数和大于 1276）。}
@@ -353,10 +364,6 @@ ASR（语音转写） & 34.8 & 4.5\% \\
 整体（1276 题加权） & 1276 & 53.61\% \\
 \bottomrule\end{tabular}
 \end{table}
-
-\begin{figure}[htbp]\centering
-\includegraphics[width=0.74\linewidth]{figures/full100_accuracy_by_dimension.png}
-\caption{全量 100 视频按推理维度的自动评分：人物理解最强、通用知识抽取最弱。}\label{fig:full100dim}\end{figure}
 
 
 \subsection{按题型对比}
