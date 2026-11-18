@@ -194,15 +194,67 @@
 
 ---
 
-## 6. 结论与 PPT 映射建议
+## 6. 与 M3-Agent 的按题型对比（8 视频，PPT 第 3 页）
 
-### 6.1 核心结论
+> 本节针对**独立的 8 视频 / 97 题子集**（`m3_parallel4_paper8_20261113`），不是上面的 full-100。用于 PPT 第 3 页「和 M3-Agent 的分题型细致对比」。**两方法使用同一批 8 视频、同一 97 题、同一评分模型与口径**（MiniMax-M3.1-Flash，软分 0/0.5/1 求均值），因此本页是可以直接对比的 head-to-head 结果。
+
+### 6.1 对比口径（务必如实标注）
+
+| 项目 | 说明 |
+|---|---|
+| 数据子集 | 8 视频 / 97 题：study_09, kitchen_01, bedroom_05, study_23, kitchen_23, study_05, gym_03, bedroom_04 |
+| 评分模型 | 均为 MiniMax-M3.1-Flash，温度 0；软分 {0, 0.5, 1} 的均值（非二值 Yes/No） |
+| oGMemory | 本次**四路并行复跑**结果，100% 覆盖 97 题（失败计 0） |
+| M3-Agent | 冻结参考适配结果（`experiments/m3_paper_paired8_20261103`，源自 `m3_ten_fullinterval_20261102`），未随本次复跑改动 |
+| 题型来源 | 数据集标注 `type` 字段（来自 M3 原始 QA 结果，题目可**多标签**） |
+| 统计方式 | 一题含某题型即计入该题型；n = 含该题型的题数（多标签，合计 166 个标签 / 97 题） |
+
+**这是"同模型适配对照"而非官方 M3-Agent 权重成绩**：M3-Agent 用参考文本控制协议适配到本仓库管线，未部署官方 Control 权重。结论只适用于该 8 视频开发子集。
+
+### 6.2 主要 5 种题型准确率（软分均值，%）
+
+| 题型 | 题数 n | oGMemory | M3-Agent | **分差 (pp)** | oGMemory 满分率 | M3-Agent 满分率 |
+|---|---:|---:|---:|---:|---:|---:|
+| **Person Understanding**（人物理解） | 33 | **80.3** | 60.6 | **+19.7** | 78.8 | 57.6 |
+| **Multi-Detail Reasoning**（多细节推理） | 58 | **69.8** | 44.8 | **+25.0** | 58.6 | 37.9 |
+| **Cross-Modal Reasoning**（跨模态推理） | 32 | **62.5** | 45.3 | **+17.2** | 46.9 | 37.5 |
+| **General Knowledge Extraction**（通用知识抽取） | 38 | **50.0** | 35.5 | **+14.5** | 36.8 | 26.3 |
+| **Multi-Hop Reasoning**（多跳推理） | 5 | **100.0** | 90.0 | **+10.0** | 100.0 | 80.0 |
+| **整体（97 题）** | 97 | **63.9** | 43.8 | **+20.1** | 54.6 | 37.1 |
+
+> 注：题目为多标签，各行 n 之和（166）大于题数（97）。Multi-Hop 仅 5 题，样本小、波动大，解读需谨慎。
+
+### 6.3 主要发现（可直接写进 PPT）
+
+1. **全面领先，但幅度因题型而异**：5 类题型 oGMemory 全部高于 M3-Agent，整体 **63.9% vs 43.8%（+20.1pp）**。
+2. **优势最大在 Multi-Detail Reasoning（+25.0pp）**：M3-Agent 在处理细节散落、需跨片段汇总的题上掉分明显（44.8%）。这与 oGMemory「情景节点 + 邻近片段 + RRF 召回」的检索方式更契合多细节题有关。
+3. **人物理解双方都是强项**：Person Understanding 两方法都最高（80.3% vs 60.6%），但 oGMemory 仍领先 +19.7pp。
+4. **通用知识抽取双方都是短板**：General Knowledge Extraction 两边都最低（50.0% vs 35.5%），领先幅度也最小（+14.5pp），说明这类"抽取+归纳"任务仍是共同难点。
+5. **满分率差距更明显**：整体满分率 54.6% vs 37.1%（+17.5pp），说明 oGMemory 不仅均分高，拿到"完全正确"的比例也显著更高，而非仅靠 0.5 分堆分。
+
+### 6.4 稳健性交叉验证
+
+- 若改用**同批次** oGMemory（`m3_ten_fullinterval_20261102`，57.2%）与 M3-Agent（43.8%）对比，全部 5 类题型 oGMemory 仍全面领先：Person +12.1、Cross-Modal +6.2、GenKnowledge +11.8、Multi-Detail +12.1、Multi-Hop −40.0（仅 5 题，1 题翻转即 -20pp 量级，不足为据）。结论方向不变。
+- 本节主表采用**新版四路并行复跑 oGMemory（63.9%）**，与论文 `latex/paired8_results.tex` 口径一致。
+
+### 6.5 图表
+
+![by-type](results/paper-comparison-8v/charts/paired8_bytype_comparison.png)
+
+> 图为 5 类题型 oGMemory vs M3-Agent 准确率对比（含每类题数 n 与 pp 差值），英文标签。数据文件：`results/paper-comparison-8v/paired8_bytype.json`。
+
+
+---
+
+## 7. 结论与 PPT 映射建议
+
+### 7.1 核心结论
 1. **可跑通全量**：100 视频 / 1276 题全量完成，准确率 **53.61%**，工程链路稳定（failed=0）。
 2. **加速有效（核心是 ASR）**：ASR 上 GPU **10.7×**，占比降至 4.5%；单视频处理中位 **705s（12min）**，纯计算合计 ≈**21.6h**。
 3. **成本结构**：**QA（52.7%）+ Episodic Memory（38.9%）≈92%** 为两大头，是后续优化的重中之重（二者都受 LLM 调用数驱动）；ASR/预处理已非瓶颈。
 4. **能力画像**：人物理解强（65.4%），通用知识抽取弱（37.5%），跨模态中等（53.4%）；且本轮**未送原生音频**，多模态仍偏弱。
 
-### 6.2 两页 PPT 内容映射
+### 7.2 三页 PPT 内容映射
 **第 1 页 —「做了什么 + 快不快」**
 - 左：实验规模（100 视频 / 1276 题 / 53.61%）+ B 方向 4×T4 分工表
 - 右上：加速效果（ASR 10.7×；单视频中位 705s；纯计算 21.6h）
@@ -212,6 +264,12 @@
 - 左上：`accuracy_by_dimension.png`（能力画像）
 - 左下：按题型准确率表（§5.2 精选 top 类）
 - 右：`llm_calls_and_tokens.png` + token 估算说明（标注"估算/未落盘"）+ 阶段占比结论（92% 在 QA+Episodic）
+
+**第 3 页 —「和 M3-Agent 的对比（8 视频）」**（见 §6）
+- 主：`results/paper-comparison-8v/charts/paired8_bytype_comparison.png`（5 类题型 oGMemory vs M3-Agent 柱状图）
+- 表：§6.2 五类题型表（题数 n / oGMemory / M3-Agent / 分差 pp / 满分率）
+- 一句话结论：同一 8 视频 97 题、同模型同口径下，oGMemory **63.9% vs M3-Agent 43.8%（+20.1pp）**，5 类题型全面领先，Multi-Detail Reasoning 优势最大（+25.0pp），General Knowledge Extraction 双方均为短板
+- 口径提示：M3-Agent 为**同模型适配冻结结果**，非官方权重；题型为多标签，Multi-Hop 仅 5 题
 
 ---
 
@@ -224,6 +282,8 @@
 | `results/full100-ds_20261117/all_m3_qa_results.jsonl` | 原始 QA 结果 |
 | `results/full100-ds_20261117/run_report.json` | 运行报告 |
 | `results/full100-ds_20261117/charts/*.png` | 本报告 5 张图表 |
+| `results/paper-comparison-8v/paired8_bytype.json` | §6 8 视频分题型对比数据（oGMemory vs M3-Agent） |
+| `results/paper-comparison-8v/charts/paired8_bytype_comparison.png` | §6 分题型对比柱状图（PPT 第 3 页） |
 | `PLAN.md` | 加速方案与 10.7× 数据来源 |
 | 原始数据 | `/data/m3_runs_yuanjian/full100-ds/`（阶段耗时由 `graph_nodes.created_at` + 文件 mtime 重建） |
 
