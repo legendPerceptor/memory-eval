@@ -3,6 +3,7 @@
 /locomo-test/
 /deploy-llm-on-gpu/
 /m3-agent/
+/CAM/
 # Credentials, full media and unreviewed runtime logs stay local.
 **/private/
 /runs/

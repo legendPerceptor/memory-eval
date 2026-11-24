@@ -1,0 +1,16 @@
+overall:
+method                  n valid    mean    full
+CAM (this run)         97    97  0.5361  0.4639
+ogmemory(latest)       97    97  0.6392  0.5464
+m3_agent(frozen)       97    97  0.4381  0.3711
+
+by video (mean_score):
+video            CAM   oGMem   m3agt
+study_09      0.6250  0.6250  0.5000
+kitchen_01    0.2308  0.3462  0.1923
+bedroom_05    0.3333  0.5000  0.3750
+study_23      0.4643  0.7500  0.3214
+kitchen_23    0.5833  0.7917  0.6250
+study_05      0.5417  0.6250  0.3750
+gym_03        0.7273  0.6818  0.7273
+bedroom_04    0.8636  0.8182  0.4545

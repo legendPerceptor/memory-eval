@@ -1,0 +1,69 @@
+{
+  "by_video": {
+    "study_09": {
+      "memo_tokens": 1424240,
+      "reason_tokens": 620426,
+      "reason_answered": 12,
+      "memo_seconds": 16931,
+      "reason_seconds": 757
+    },
+    "kitchen_01": {
+      "memo_tokens": 1470960,
+      "reason_tokens": 572178,
+      "reason_answered": 13,
+      "memo_seconds": 15613,
+      "reason_seconds": 814
+    },
+    "bedroom_05": {
+      "memo_tokens": 1275505,
+      "reason_tokens": 657744,
+      "reason_answered": 12,
+      "memo_seconds": 8604,
+      "reason_seconds": 3584
+    },
+    "study_23": {
+      "memo_tokens": 1209085,
+      "reason_tokens": 706759,
+      "reason_answered": 14,
+      "memo_seconds": 4622,
+      "reason_seconds": 1464
+    },
+    "kitchen_23": {
+      "memo_tokens": 1214843,
+      "reason_tokens": 533141,
+      "reason_answered": 12,
+      "memo_seconds": 17660,
+      "reason_seconds": 541
+    },
+    "study_05": {
+      "memo_tokens": 1328718,
+      "reason_tokens": 594314,
+      "reason_answered": 12,
+      "memo_seconds": 12143,
+      "reason_seconds": 1225
+    },
+    "gym_03": {
+      "memo_tokens": 1226278,
+      "reason_tokens": 417564,
+      "reason_answered": 11,
+      "memo_seconds": 16523,
+      "reason_seconds": 628
+    },
+    "bedroom_04": {
+      "memo_tokens": 1048345,
+      "reason_tokens": 372149,
+      "reason_answered": 11,
+      "memo_seconds": 59,
+      "reason_seconds": 428
+    }
+  },
+  "totals": {
+    "memo_tokens": 10197974,
+    "reason_tokens": 4474275,
+    "memo_s": 92155,
+    "reason_s": 9441,
+    "reason_q": 97
+  },
+  "total_tokens": 14672249,
+  "allocated_seconds_serial": 101596
+}
